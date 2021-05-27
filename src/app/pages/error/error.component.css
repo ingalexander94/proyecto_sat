@@ -1,0 +1,119 @@
+.content {
+  padding: 32px 16px;
+  min-width: 100vw;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.error_container {
+  text-align: center;
+}
+
+.options-error p {
+  font-size: 20px;
+  color: var(--dark-color);
+}
+
+.logo img {
+  width: 215px;
+  height: 137px;
+}
+
+.img_error img {
+  width: 300px;
+  height: 244px;
+}
+
+/* Tablet */
+
+@media (min-width: 768px) and (max-width: 1151px) {
+  .content {
+    background-image: url("../../../assets/image/background.svg");
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+  }
+
+  .error_container {
+    min-width: 100%;
+  }
+
+  .logo img {
+    width: 366px;
+    height: 231px;
+  }
+
+  .img_error img {
+    width: 607px;
+    height: 522px;
+  }
+
+  .options-error {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    align-items: center;
+    padding: 40px 40px 0 80px;
+    text-align: center;
+  }
+
+  .options-error p {
+    color: var(--white);
+    font-size: 40px;
+    width: 270px;
+  }
+
+  .options-error button {
+    width: 245px;
+    height: 55px;
+    font-size: 25px;
+  }
+}
+
+/* Desktop */
+
+@media (min-width: 1152px) {
+  .content {
+    background-image: url("../../../assets/image/background_desktop.svg");
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-size: cover;
+  }
+
+  .logo img {
+    width: 305px;
+    height: 193px;
+    position: absolute;
+    right: 96px;
+  }
+
+  .img_error img {
+    width: 700px;
+    height: 600px;
+    position: absolute;
+    left: 0;
+    top: 10px;
+  }
+
+  .options-error {
+    position: absolute;
+    bottom: 0;
+    right: 32px;
+    width: 300px;
+  }
+
+  .options-error p {
+    color: var(--white);
+    font-size: 50px;
+  }
+
+  .options-error button {
+    width: 198px;
+    height: 47px;
+    font-size: 20px;
+    background: var(--white);
+    color: var(--red-primary-color);
+  }
+}

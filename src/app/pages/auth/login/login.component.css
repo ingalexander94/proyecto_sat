@@ -1,5 +1,5 @@
 .content {
-  min-height: 100vh;
+  max-height: 100vh;
   min-width: 100vw;
   overflow: hidden;
   background: var(--gray-color);
@@ -75,6 +75,8 @@ button:disabled {
     display: flex;
     align-items: center;
     padding: 48px;
+    min-height: 100vh;
+    max-height: initial;
   }
 
   .form_input,

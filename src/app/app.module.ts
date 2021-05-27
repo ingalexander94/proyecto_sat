@@ -19,9 +19,11 @@ import { AppRoutingModule } from './app-routing.module';
 // Components
 import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/auth/login/login.component';
+import { ErrorComponent } from './pages/error/error.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent],
+  declarations: [AppComponent, LoginComponent, ErrorComponent, NavbarComponent],
   imports: [
     BrowserModule,
     FormsModule,

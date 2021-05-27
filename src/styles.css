@@ -6,6 +6,7 @@
   --gray-color: #e5e5e5;
   --gray-dark-color: #c6bcb2;
   --dark-color: #353343;
+  --gray-menu: #f3f0ee;
 }
 
 * {
@@ -19,12 +20,12 @@
 
 body {
   caret-color: var(--red-primary-color);
-  overflow: hidden;
 }
 
 button {
   color: var(--white);
   border: none;
+  border-radius: 5px;
   background: var(--red-primary-color);
   width: 90%;
   height: 47px;
@@ -37,6 +38,7 @@ input:focus {
   border: none;
 }
 
+.active,
 .active * {
   color: var(--red-primary-color) !important;
 }
@@ -58,4 +60,17 @@ input:focus {
   background: unset;
   border: none;
   color: var(--dark-color);
+}
+
+.app_container {
+  margin-top: 80px;
+}
+
+/* Tablet */
+
+@media (max-width: 767px) {
+  .app_container {
+    margin-top: 0;
+    margin-bottom: 80px;
+  }
 }
