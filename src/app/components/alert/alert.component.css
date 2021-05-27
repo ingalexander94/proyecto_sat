@@ -1,0 +1,71 @@
+.wrapper_alert {
+  position: fixed;
+  min-width: 100vw;
+  min-height: 100vh;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+}
+
+.alert_container {
+  border: 3px solid var(--red-primary-color);
+  width: 294px;
+  padding: 32px 32px 32px 16px;
+  background: var(--white);
+  text-align: center;
+  border-top-right-radius: 100px;
+  border-bottom-left-radius: 100px;
+}
+
+.alert_container h1 {
+  font-weight: bold;
+  font-size: 21px;
+  margin-bottom: 32px;
+}
+
+.alert_container p {
+  font-size: 16px;
+  margin-bottom: 16px;
+}
+
+.alert_container button {
+  font-size: 16px;
+  border-radius: 20px;
+  width: 110px;
+  position: relative;
+  right: -48px;
+}
+
+/* Tablet */
+
+@media (min-width: 768px) and (max-width: 1151px) {
+  .alert_container {
+    width: 458px;
+  }
+
+  .alert_container h1 {
+    font-size: 33px;
+  }
+
+  .alert_container p {
+    font-size: 22px;
+  }
+
+  .alert_container button {
+    font-size: 28px;
+    width: 168px;
+    height: 60px;
+    right: -48px;
+  }
+}
+
+/* Desktop */
+
+@media (min-width: 1152px) {
+  .alert_container {
+    width: 450px;
+  }
+}

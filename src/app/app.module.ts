@@ -21,9 +21,10 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/auth/login/login.component';
 import { ErrorComponent } from './pages/error/error.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { AlertComponent } from './components/alert/alert.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, ErrorComponent, NavbarComponent],
+  declarations: [AppComponent, LoginComponent, ErrorComponent, NavbarComponent, AlertComponent],
   imports: [
     BrowserModule,
     FormsModule,
