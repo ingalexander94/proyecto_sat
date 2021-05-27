@@ -7,13 +7,13 @@
     </div>
     <div class="auth_roles">
       <div
-        *ngFor="let role of roles; let i = index"
-        [ngClass]="{ active: role.isActive }"
+        *ngFor="let role of roles | keyvalue"
+        [ngClass]="{ active: role.value.isActive }"
         class="role"
-        (click)="changeRole(i)"
+        (click)="changeRole(role.key)"
       >
-        <i [ngClass]="role.icon" class="fas fa-fw"></i>
-        <p>{{ role.text }}</p>
+        <i [ngClass]="role.value.icon" class="fas fa-fw"></i>
+        <p>{{ role.value.text }}</p>
       </div>
     </div>
     <form [formGroup]="formLogin" (submit)="onSubmit()" class="form_auth">

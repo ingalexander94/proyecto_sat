@@ -71,6 +71,7 @@ button:disabled {
     background-image: url("../../../../assets/image/background.svg");
     background-repeat: no-repeat;
     background-position-x: right;
+    background-size: cover;
     display: flex;
     align-items: center;
     padding: 48px;
@@ -112,6 +113,7 @@ button:disabled {
     background-image: url("../../../../assets/image/background_desktop.svg");
     background-repeat: no-repeat;
     background-position-x: right;
+    background-size: cover;
     display: flex;
     align-items: center;
     justify-content: space-between;

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { dataRoles } from '../shared/data';
 
 @Component({
   selector: 'app-login',
@@ -11,24 +12,8 @@ export class LoginComponent implements OnInit {
   showPassword: boolean = false;
   typePassword: String = 'password';
   typeDocument: String = 'password';
-  roles: any[] = [
-    {
-      icon: 'fa-user-tie',
-      isActive: true,
-      text: 'Docente',
-    },
-    {
-      icon: 'fa-user',
-      isActive: false,
-      text: 'Estudiante',
-    },
-    {
-      icon: 'fa-user-check',
-      isActive: false,
-      text: 'Vicerrector',
-    },
-  ];
-  roleActive: String = this.roles[0].text;
+  roleActive: String = 'docente';
+  roles = dataRoles;
 
   createFormLogin(): FormGroup {
     return new FormGroup({
@@ -65,10 +50,10 @@ export class LoginComponent implements OnInit {
     option ? (this.typeDocument = 'number') : (this.typeDocument = 'password');
   }
 
-  changeRole(position: number) {
-    this.roles.map((role) => (role.isActive = false));
-    this.roles[position].isActive = true;
-    this.roleActive = this.roles[position].text;
+  changeRole(role: String) {
+    this.roles[this.roleActive.toString()].isActive = false;
+    this.roles[role.toString()].isActive = true;
+    this.roleActive = role;
   }
 
   onSubmit() {
