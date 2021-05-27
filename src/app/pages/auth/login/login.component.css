@@ -1,0 +1,155 @@
+.content {
+  min-height: 100vh;
+  min-width: 100vw;
+  overflow: hidden;
+  background: var(--gray-color);
+}
+
+h1 {
+  font-size: 44px;
+  color: var(--dark-color);
+  font-weight: 700;
+  margin-top: -16px;
+}
+
+.auth_container {
+  text-align: center;
+}
+
+.auth_header {
+  margin-top: 16px;
+}
+
+.auth_header p {
+  color: #a79e95;
+}
+
+.auth_roles {
+  display: flex;
+  justify-content: space-between;
+  margin: 16px;
+}
+
+.role {
+  cursor: pointer;
+}
+
+.role i {
+  font-size: 30px;
+  margin-bottom: 16px;
+  color: var(--dark-color);
+}
+
+.copyright {
+  color: var(--red-primary-color);
+  font-size: 10px;
+}
+
+.ilustration {
+  visibility: hidden;
+}
+
+.fa-eye:hover,
+.fa-eye-slash:hover {
+  cursor: pointer;
+  color: var(--red-primary-color);
+}
+
+button:disabled {
+  background: #ff7686;
+}
+
+/* Tablet */
+
+@media (min-width: 768px) and (max-width: 1151px) {
+  img {
+    width: 315px;
+    height: 200px;
+  }
+
+  .content {
+    background-image: url("../../../../assets/image/background.svg");
+    background-repeat: no-repeat;
+    background-position-x: right;
+    display: flex;
+    align-items: center;
+    padding: 48px;
+  }
+
+  .form_input,
+  .auth_roles {
+    margin: 32px 16px;
+  }
+
+  .copyright {
+    display: none;
+  }
+
+  .ilustration {
+    visibility: visible;
+  }
+
+  .ilustration img {
+    width: 380px;
+    height: 300px;
+  }
+}
+
+/* Desktop */
+
+@media (min-width: 1152px) {
+  img {
+    width: 192px;
+    height: 121px;
+  }
+
+  button {
+    margin-top: 0;
+    width: 100%;
+  }
+
+  .content {
+    background-image: url("../../../../assets/image/background_desktop.svg");
+    background-repeat: no-repeat;
+    background-position-x: right;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 32px 112px;
+  }
+
+  .form_input,
+  .auth_roles {
+    margin: 16px 16px;
+  }
+
+  .copyright {
+    display: none;
+  }
+
+  .ilustration {
+    visibility: visible;
+  }
+
+  .ilustration img {
+    width: 530px;
+    height: 425px;
+  }
+
+  .auth_container {
+    min-width: 420px;
+  }
+
+  .form_input {
+    width: 100%;
+  }
+
+  .auth_roles,
+  .auth_header {
+    width: 100%;
+  }
+
+  .auth_header {
+    margin-left: 16px;
+  }
+}
