@@ -21,9 +21,11 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/auth/login/login.component';
 import { ErrorComponent } from './pages/error/error.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { ListCourseComponent } from './pages/list-course/list-course.component';
+import { ItemCourseComponent } from './components/item-course/item-course.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, ErrorComponent, NavbarComponent],
+  declarations: [AppComponent, LoginComponent, ErrorComponent, NavbarComponent, ListCourseComponent, ItemCourseComponent],
   imports: [
     BrowserModule,
     FormsModule,
