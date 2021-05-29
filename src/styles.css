@@ -3,7 +3,9 @@
 :root {
   --white: #ffff;
   --red-primary-color: #bb0b20;
-  --gray-color: #e5e5e5;
+  --green-primary-color: #14c25a;
+  --orange-primary-color: #ff8300;
+  --yellow-primary-color: #ede605;
   --gray-dark-color: #c6bcb2;
   --dark-color: #353343;
   --gray-menu: #f3f0ee;
@@ -38,9 +40,18 @@ input:focus {
   border: none;
 }
 
+a {
+  text-decoration: none;
+  color: var(--red-primary-color);
+}
+
 .active,
 .active * {
   color: var(--red-primary-color) !important;
+}
+
+.pointer {
+  cursor: pointer;
 }
 
 .form_input {
@@ -64,6 +75,19 @@ input:focus {
 
 .app_container {
   margin-top: 80px;
+}
+
+.red {
+  color: var(--red-primary-color);
+}
+.green {
+  color: var(--green-primary-color);
+}
+.orange {
+  color: var(--orange-primary-color);
+}
+.yellow {
+  color: var(--yellow-primary-color);
 }
 
 /* Tablet */

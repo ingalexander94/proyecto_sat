@@ -1,0 +1,33 @@
+.wrapper_course {
+  margin: 32px 16px;
+  text-align: center;
+}
+
+.list_courses {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+/* Tablet & Desktop */
+
+@media (min-width: 768px) {
+  .wrapper_course {
+    margin: 64px 128px;
+  }
+}
+
+/* Desktop */
+
+@media (min-width: 1152px) {
+  .list_courses {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: center;
+    align-items: center;
+    gap: 64px;
+    margin-top: 64px;
+  }
+}

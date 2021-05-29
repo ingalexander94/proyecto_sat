@@ -20,17 +20,25 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/auth/login/login.component';
 import { ErrorComponent } from './pages/error/error.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { AlertComponent } from './components/alert/alert.component';
+import { ListCourseComponent } from './pages/list-course/list-course.component';
+import { CourseComponent } from './pages/course/course.component';
+import { ComponentsModule } from './components/components.module';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, ErrorComponent, NavbarComponent, AlertComponent],
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    ErrorComponent,
+    ListCourseComponent,
+    CourseComponent,
+  ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
+    ComponentsModule,
     StoreModule.forRoot(combineReducer),
     StoreDevtoolsModule.instrument({
       maxAge: 25,

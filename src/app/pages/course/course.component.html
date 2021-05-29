@@ -1,0 +1,47 @@
+<div class="course_container">
+  <div class="row_header">
+    <app-title [title]="title"></app-title>
+    <div class="statistics">
+      <div class="risk_free">
+        <h3>1</h3>
+        <p>Sin riesgo</p>
+      </div>
+      <div class="mild">
+        <h3>1</h3>
+        <p>Leve</p>
+      </div>
+      <div class="moderate">
+        <h3>2</h3>
+        <p>Moderado</p>
+      </div>
+      <div class="critical">
+        <h3>3</h3>
+        <p>Crítico</p>
+      </div>
+    </div>
+  </div>
+  <div class="table_students">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Código</th>
+          <th>Nombre</th>
+          <th class="pointer">
+            Riesgo <i class="fas fa-long-arrow-alt-up"></i
+            ><i class="fas fa-long-arrow-alt-down"></i>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let student of listStudents; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ student.code }}</td>
+          <td>{{ student.names }} {{ student.surnames }}</td>
+          <td><i [ngClass]="student.risk" class="fas fa-circle"></i></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <a href="#">Descargar <i class="fas fa-download"></i></a>
+</div>
