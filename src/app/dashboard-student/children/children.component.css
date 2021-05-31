@@ -3,12 +3,15 @@
 @media (min-width: 1152px) {
   .profile_container {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     margin: 0 48px;
   }
 
   .profile_container .card {
-    width: 40%;
+    width: 50vw;
+  }
+
+  .children_wrapper {
+    width: 50vw;
   }
 }
