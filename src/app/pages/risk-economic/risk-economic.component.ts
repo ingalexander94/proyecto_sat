@@ -7,7 +7,6 @@ import { itemsaEconomicRisks} from '../../model/data';
   styleUrls: ['./risk-economic.component.css']
 })
 export class RiskEconomicComponent implements OnInit {
-
   economic : String [] =itemsaEconomicRisks;
   constructor() { }
 

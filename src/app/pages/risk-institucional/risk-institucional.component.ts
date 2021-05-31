@@ -7,7 +7,6 @@ import {itemsaInstitucionalRisks} from '../../model/data';
   styleUrls: ['./risk-institucional.component.css']
 })
 export class RiskInstitucionalComponent implements OnInit {
-
   institucional :String[]=itemsaInstitucionalRisks;
   constructor() { }
 

@@ -7,7 +7,6 @@ import {itemsaIndividualRisks} from '../../model/data';
   styleUrls: ['./risk-individual.component.css']
 })
 export class RiskIndividualComponent implements OnInit {
-
   individual : String[]= itemsaIndividualRisks;
   constructor() { }
   

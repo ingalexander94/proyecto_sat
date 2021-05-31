@@ -6,6 +6,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./detail-risks.component.css']
 })
 export class DetailRisksComponent implements OnInit {
+  
   @Input() itemsRisks: String[];
 
   constructor() { }

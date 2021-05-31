@@ -7,11 +7,9 @@ import {itemAcademicRisks} from '../../model/data';
   styleUrls: ['./risk-academic.component.css']
 })
 export class RiskAcademicComponent implements OnInit {
-  
   academic : String[]=itemAcademicRisks;
 
   constructor() { }
-
   ngOnInit(): void {
   }
 

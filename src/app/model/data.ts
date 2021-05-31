@@ -37,7 +37,7 @@ export const itemsaInstitucionalRisks: String[]=[
  "Entorno politico",
  "Nivel de interaciòn entre estudiantes y docentes",
  "Apoyo acadèmico",
- "Apoyo psicològico"
+ "Apoyo psicològico",
 ]
 
   

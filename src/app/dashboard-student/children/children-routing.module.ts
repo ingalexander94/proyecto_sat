@@ -18,6 +18,7 @@ const children: Routes = [
   { path: 'riesgo-institucional', component: RiskInstitucionalComponent },
 ];
 
+
 const routes: Routes = [{ path: '', component: ChildrenComponent, children }];
 
 @NgModule({
