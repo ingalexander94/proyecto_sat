@@ -8,6 +8,7 @@ import { ItemCourseComponent } from './item-course/item-course.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ListRisksComponent } from './list-risks/list-risks.component';
 import { ChatComponent } from './chat/chat.component';
+import { DetailRisksComponent } from './detail-risks/detail-risks.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { ChatComponent } from './chat/chat.component';
     NavbarComponent,
     ListRisksComponent,
     ChatComponent,
+    DetailRisksComponent,
   ],
   exports: [
     AlertComponent,
@@ -25,6 +27,7 @@ import { ChatComponent } from './chat/chat.component';
     TitleComponent,
     ItemCourseComponent,
     NavbarComponent,
+    DetailRisksComponent,
   ],
   imports: [CommonModule, RouterModule],
 })
