@@ -15,12 +15,12 @@ const routes: Routes = [
   {
     path: 'docente',
     loadChildren: () =>
-      import('./teacher/teacher.module').then((m) => m.TeacherModule),
+      import('./dashboard/teacher.module').then((m) => m.TeacherModule),
   },
   {
     path: 'estudiante',
     loadChildren: () =>
-      import('./student/student.module').then((m) => m.StudentModule),
+      import('./dashboard-student/student.module').then((m) => m.StudentModule),
   },
   {
     path: '**',

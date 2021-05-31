@@ -23,6 +23,7 @@ import { ErrorComponent } from './pages/error/error.component';
 import { ListCourseComponent } from './pages/list-course/list-course.component';
 import { CourseComponent } from './pages/course/course.component';
 import { ComponentsModule } from './components/components.module';
+import { ProfileStudentComponent } from './pages/profile-student/profile-student.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { ComponentsModule } from './components/components.module';
     ErrorComponent,
     ListCourseComponent,
     CourseComponent,
+    ProfileStudentComponent,
   ],
   imports: [
     BrowserModule,
