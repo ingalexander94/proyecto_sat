@@ -1,0 +1,147 @@
+button {
+  background: var(--green-primary-color);
+  font-size: 20px;
+}
+
+button:hover {
+  background: #0f9946;
+}
+
+.card_profile {
+  margin: 16px;
+  text-align: center;
+}
+
+.card_profile > p {
+  margin-top: 16px;
+}
+
+.photo_user {
+  margin-top: 48px;
+  position: relative;
+}
+
+.photo_user::before {
+  content: "";
+  width: 280px;
+  height: 76px;
+  position: absolute;
+  left: 0;
+  z-index: -1;
+  transform: rotate(-10deg);
+  background: var(--red-primary-color);
+}
+
+.photo_user img {
+  width: 107px;
+  height: 107px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-top: 30px;
+  border: 2px solid var(--white);
+  position: relative;
+  z-index: -1;
+}
+
+.info_student,
+.data_student {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.info_student a {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.info_student a:nth-child(3) {
+  border: 1px solid var(--red-primary-color);
+  border-radius: 5px;
+  padding: 4px 12px;
+}
+
+.description h3 {
+  font-weight: bold;
+}
+
+.description p {
+  font-size: 14px;
+}
+
+.description p:nth-child(2) {
+  color: var(--gray-dark-color);
+}
+
+.data_student {
+  margin: 16px 0;
+}
+
+.data_student div p {
+  font-weight: bold;
+}
+
+.data_student div h4 {
+  color: var(--gray-dark-color);
+  font-weight: bold;
+}
+
+/* Tablet */
+
+@media (min-width: 768px) and (max-width: 1151px) {
+  button {
+    width: 320px;
+    height: 60px;
+    margin-top: 32px;
+  }
+  .card_profile {
+    margin: 32px 64px;
+  }
+
+  .card_profile * {
+    font-size: 25px;
+  }
+
+  .photo_user {
+    margin-top: 64px;
+  }
+
+  .photo_user::before {
+    content: "";
+    width: 420px;
+    height: 100px;
+    left: 15%;
+  }
+
+  .photo_user img {
+    width: 180px;
+    height: 180px;
+    margin-top: 30px;
+  }
+
+  .description p {
+    font-size: 25px;
+  }
+
+  .data_student {
+    margin: 32px 0px;
+  }
+
+  .info_student a {
+    font-size: 25px;
+  }
+
+  .info_student a:nth-child(3) {
+    border: 1px solid var(--red-primary-color);
+    border-radius: 5px;
+    padding: 8px 16px;
+  }
+}
+
+@media (min-width: 1152px) {
+  .photo_user::before {
+    content: "";
+    left: 20%;
+  }
+}

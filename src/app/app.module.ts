@@ -20,18 +20,38 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/auth/login/login.component';
 import { ErrorComponent } from './pages/error/error.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
 import { ListCourseComponent } from './pages/list-course/list-course.component';
-import { ItemCourseComponent } from './components/item-course/item-course.component';
+import { CourseComponent } from './pages/course/course.component';
+import { ComponentsModule } from './components/components.module';
+import { ProfileStudentComponent } from './pages/profile-student/profile-student.component';
+import { RiskAcademicComponent } from './pages/risk-academic/risk-academic.component';
+import { RiskIndividualComponent } from './pages/risk-individual/risk-individual.component';
+import { RiskInstitucionalComponent } from './pages/risk-institucional/risk-institucional.component';
+import { RiskEconomicComponent } from './pages/risk-economic/risk-economic.component';
+
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, ErrorComponent, NavbarComponent, ListCourseComponent, ItemCourseComponent],
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    ErrorComponent,
+    ListCourseComponent,
+    CourseComponent,
+    ProfileStudentComponent,
+    RiskAcademicComponent,
+    RiskIndividualComponent,
+    RiskInstitucionalComponent,
+    RiskEconomicComponent,
+
+  ],
+
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
+    ComponentsModule,
     StoreModule.forRoot(combineReducer),
     StoreDevtoolsModule.instrument({
       maxAge: 25,

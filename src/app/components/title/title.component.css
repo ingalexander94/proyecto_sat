@@ -1,0 +1,25 @@
+.title h1 {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.title p {
+  font-size: 16px;
+  color: #a79e95;
+  margin-top: 16px;
+  text-align: justify;
+}
+
+/* Tablet & Desktop */
+
+@media (min-width: 768px) {
+  .title h1 {
+    font-size: 42px;
+  }
+
+  .title p {
+    font-size: 20px;
+    width: 430px;
+    margin: 16px auto;
+  }
+}
