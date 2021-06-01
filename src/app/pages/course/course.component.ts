@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Student } from 'src/app/model/course';
 import { Title } from 'src/app/model/ui';
 
@@ -65,7 +66,11 @@ export class CourseComponent implements OnInit {
     },
   ];
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
+
+  navigateToStudent() {
+    this.router.navigate(['/estudiante']);
+  }
 }

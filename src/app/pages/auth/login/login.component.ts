@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { dataRoles } from '../shared/data';
 
 @Component({
@@ -35,7 +36,7 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  constructor() {
+  constructor(private router: Router) {
     this.formLogin = this.createFormLogin();
   }
 
@@ -61,5 +62,6 @@ export class LoginComponent implements OnInit {
       ...this.formLogin.value,
       role: this.roleActive,
     });
+    this.router.navigate([`/${this.roleActive.toLowerCase()}`]);
   }
 }

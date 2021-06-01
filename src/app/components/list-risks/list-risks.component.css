@@ -37,6 +37,10 @@
   line-height: 50px;
 }
 
+.risk > i:hover {
+  animation: animacion 2s linear infinite;
+}
+
 /* Tablet and Desktop */
 
 @media (min-width: 768px) {
@@ -87,5 +91,24 @@
     width: 200px;
     height: 220px;
     margin: 32px;
+  }
+}
+
+@keyframes animacion {
+  0% {
+    box-shadow: 0 0 0 0 rgba(29, 209, 89, 0.6), 0 0 0 0 rgba(29, 209, 89, 0.6);
+  }
+
+  30% {
+    box-shadow: 0 0 0 20px rgba(29, 171, 209, 0), 0 0 0 0 rgba(29, 209, 89, 0.6);
+  }
+
+  65% {
+    box-shadow: 0 0 0 20px rgba(29, 171, 209, 0),
+      0 0 0 30px rgba(29, 171, 209, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(29, 171, 209, 0), 0 0 0 20px rgba(29, 171, 209, 0);
   }
 }

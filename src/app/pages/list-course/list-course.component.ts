@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Course } from 'src/app/model/course';
 import { Title } from 'src/app/model/ui';
-
 
 @Component({
   selector: 'app-list-course',
@@ -38,8 +38,11 @@ export class ListCourseComponent implements OnInit {
     subtitle: 'Materias que se encuentran activas durante el semestre actual.',
   };
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
 
+  onNavigateToCourse() {
+    this.router.navigate(['/docente/materia']);
+  }
 }
