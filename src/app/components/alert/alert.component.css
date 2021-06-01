@@ -8,35 +8,44 @@
   justify-content: center;
   align-items: center;
   top: 0;
+  left: 0;
 }
 
 .alert_container {
-  border: 3px solid var(--red-primary-color);
   width: 294px;
-  padding: 32px 32px 32px 16px;
+  padding-top: 32px;
   background: var(--white);
   text-align: center;
-  border-top-right-radius: 100px;
-  border-bottom-left-radius: 100px;
+  border-radius: 25px;
 }
 
 .alert_container h1 {
   font-weight: bold;
   font-size: 21px;
-  margin-bottom: 32px;
 }
 
 .alert_container p {
-  font-size: 16px;
-  margin-bottom: 16px;
+  margin: 16px 0;
 }
 
-.alert_container button {
-  font-size: 16px;
-  border-radius: 20px;
-  width: 110px;
-  position: relative;
-  right: -48px;
+.alert_container ul li {
+  margin: 16px 0;
+  cursor: pointer;
+}
+
+.alert_container ul li:hover {
+  background: var(--gray-menu);
+}
+
+.alert_options {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.alert_options button:nth-child(1) {
+  background: var(--gray-dark-color);
+  color: black;
 }
 
 /* Tablet */
@@ -52,13 +61,6 @@
 
   .alert_container p {
     font-size: 22px;
-  }
-
-  .alert_container button {
-    font-size: 28px;
-    width: 168px;
-    height: 60px;
-    right: -48px;
   }
 }
 

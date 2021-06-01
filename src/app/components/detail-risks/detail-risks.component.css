@@ -1,74 +1,77 @@
+.icon {
+  color: var(--white);
+  background: var(--red-primary-color);
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  border: solid black;
+  line-height: 75px;
+  position: relative;
+  left: 35%;
+  top: -35px;
+  font-size: 30px;
+}
 
- .icon{
-    color: var(--white);
-    background: var(--red-primary-color);
-    width: 75px;
-    height: 75px;
-    border-radius: 50%;
-    border: solid black;
-    line-height: 75px;
-    position: relative;
-    left: 35%;
-    top: -35px;
-    font-size: 30px;
+.risks .item-risks:nth-child(2) {
+  margin-top: -30px;
 }
-.item-risks p{
-    margin: 10px;
-    color: white; 
-    display: flex;
+
+.item-risks {
+  margin: 10px 0;
 }
-.item-risks p i{
-    margin: 5px;
+
+.item-risks p {
+  color: white;
+  display: flex;
 }
-.risks{
-    margin: 32px 16px ;
-    width: 288px;
-    border-radius: 25px ;
-    border: solid black;
-    background: var(--red-primary-color);
+.item-risks p i {
+  margin: 5px;
 }
-.picture{
-    display: none;
+.risks {
+  margin: 32px 16px;
+  width: 288px;
+  border-radius: 25px;
+  border: solid black;
+  background: var(--red-primary-color);
 }
-.text{
-   margin:10px;
+.picture {
+  display: none;
+}
+.text {
+  margin: 10px;
 }
 /* Tablet & Desktop */
 
 @media (min-width: 768px) {
-    .icon{
-        position: absolute;
-        top:-50px;
-        font-size: 30px;
-    }
-    .content{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .risks{
-        position: relative;
-        z-index: -1;
-    }
-    
-    .picture{
-        display: block;
-       
-    }
-    .picture img{
-        display: block;
-        width: 332px;
-        height: 332px;
-    }
-    .text  p{
-        margin: 10px;
-        font-size: 25px;
+  .icon {
+    position: absolute;
+    top: -50px;
+    font-size: 30px;
+  }
+  .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .risks {
+    position: relative;
+    z-index: -1;
+  }
 
-    }
-    .text {
-        margin: 40px;
-    }
-    }
-    @media (min-width: 1152px) {
-        
-      }
+  .picture {
+    display: block;
+  }
+  .picture img {
+    display: block;
+    width: 332px;
+    height: 332px;
+  }
+  .text {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .risks .item-risks:nth-child(2) {
+    margin-top: 20px;
+  }
+}

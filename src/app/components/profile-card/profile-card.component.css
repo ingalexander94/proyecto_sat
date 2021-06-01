@@ -7,6 +7,10 @@ button:hover {
   background: #0f9946;
 }
 
+input[type="checkbox"] {
+  display: none;
+}
+
 .card_profile {
   margin: 16px;
   text-align: center;
@@ -56,10 +60,17 @@ button:hover {
   font-weight: bold;
 }
 
-.info_student a:nth-child(3) {
+.info_student label {
   border: 1px solid var(--red-primary-color);
   border-radius: 5px;
   padding: 4px 12px;
+  color: var(--red-primary-color);
+}
+
+.info_student label:hover {
+  border: 1px solid var(--white);
+  background: var(--red-primary-color);
+  color: var(--white);
 }
 
 .description h3 {
@@ -85,6 +96,46 @@ button:hover {
 .data_student div h4 {
   color: var(--gray-dark-color);
   font-weight: bold;
+}
+
+.menu-options {
+  position: relative;
+}
+
+.menu-options ul {
+  list-style: none;
+  position: absolute;
+  right: 0;
+  background: var(--gray-menu);
+  border: 2px solid var(--gray-dark-color);
+  padding: 8px 16px;
+  margin-top: 5px;
+  width: 220px;
+  text-align: left;
+  display: none;
+}
+
+#showOptions:checked ~ ul {
+  display: block;
+}
+
+#showOptions:checked ~ label i::before {
+  content: "\f0de";
+}
+
+.menu-options ul li {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-options ul li:hover {
+  background: var(--gray-dark-color);
+}
+
+.menu-options ul li a {
+  color: black;
 }
 
 /* Tablet */
@@ -132,16 +183,20 @@ button:hover {
     font-size: 25px;
   }
 
-  .info_student a:nth-child(3) {
+  .info_student label {
     border: 1px solid var(--red-primary-color);
     border-radius: 5px;
     padding: 8px 16px;
+  }
+
+  .menu-options ul {
+    width: 300px;
   }
 }
 
 @media (min-width: 1152px) {
   .photo_user::before {
     content: "";
-    left: 20%;
+    left: 22%;
   }
 }

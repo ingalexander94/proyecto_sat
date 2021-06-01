@@ -6,13 +6,54 @@
     />
   </div>
   <div class="info_student">
-    <a href="#"><i class="fas fa-arrow-left"></i></a>
+    <a class="pointer" (click)="goBack()"><i class="fas fa-arrow-left"></i></a>
     <div class="description">
       <h3>Nombres y Apellidos</h3>
       <p>elcorreo@ufps.edu.co</p>
       <p><i class="fas fa-circle green"></i> Sin riesgo</p>
     </div>
-    <a href="#"><i class="fas fa-caret-down"></i></a>
+    <div class="menu-options">
+      <input type="checkbox" id="showOptions" />
+      <label title="Ver opciones" class="pointer" for="showOptions"
+        ><i class="fas fa-caret-down"></i
+      ></label>
+      <ul>
+        <li>
+          <a
+            routerLink="/docente"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            >Ver materias</a
+          ><i class="fab fa-buffer"></i>
+        </li>
+        <li>
+          <a
+            routerLink="/estudiante/chat"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            >Ver chat</a
+          ><i class="fas fa-envelope"></i>
+        </li>
+        <li><a href="">Ver actividades</a><i class="fas fa-list"></i></li>
+        <li><a href="">Ver instrumentos</a><i class="fas fa-clock"></i></li>
+        <li>
+          <a
+            routerLink="/estudiante"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            >Ver riesgos</a
+          ><i class="fas fa-hand-holding-medical"></i>
+        </li>
+        <li>
+          <a
+            routerLink="/estudiante/perfil-academico"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            >Perfil académico</a
+          ><i class="fas fa-book-open"></i>
+        </li>
+      </ul>
+    </div>
   </div>
   <div class="data_student">
     <div class="semester">
@@ -31,6 +72,7 @@
   <p><i class="fas fa-phone"></i> 3123456789</p>
   <p><i class="fas fa-id-card"></i> 70041053</p>
   <p><i class="fas fa-map-marker-alt"></i> Ciudad, Departamento</p>
+  <p class="active pointer"><i class="fas fa-edit"></i> Editar perfil</p>
   <button>
     Postular estudiante <i class="fas fa-hand-holding-medical"></i>
   </button>

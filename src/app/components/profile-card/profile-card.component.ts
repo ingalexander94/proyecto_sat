@@ -1,15 +1,17 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-profile-card',
   templateUrl: './profile-card.component.html',
-  styleUrls: ['./profile-card.component.css']
+  styleUrls: ['./profile-card.component.css'],
 })
 export class ProfileCardComponent implements OnInit {
+  constructor(private location: Location) {}
 
-  constructor() { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
+  goBack() {
+    this.location.back();
   }
-
 }

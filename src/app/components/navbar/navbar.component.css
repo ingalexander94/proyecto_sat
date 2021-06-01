@@ -7,6 +7,7 @@ input[type="checkbox"] {
   background: var(--red-primary-color);
   position: fixed;
   bottom: 0;
+  z-index: 1000;
 }
 
 .wrapper nav {
@@ -40,7 +41,7 @@ input[type="checkbox"] {
   height: 100%;
   transition: top 0.5s ease-in;
   overflow: hidden;
-  z-index: 10;
+  z-index: 1000;
 }
 
 .wrapper #show-menu:checked ~ .content .links {
