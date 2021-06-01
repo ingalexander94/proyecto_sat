@@ -2,9 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Course } from 'src/app/model/course';
 import { Title } from 'src/app/model/ui';
 
+
 @Component({
   selector: 'app-list-course',
   templateUrl: './list-course.component.html',
+
   styleUrls: ['./list-course.component.css'],
 })
 export class ListCourseComponent implements OnInit {
@@ -39,4 +41,5 @@ export class ListCourseComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
 }
