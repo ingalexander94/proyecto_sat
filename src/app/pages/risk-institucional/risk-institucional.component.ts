@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ItemRisk } from 'src/app/model/ui';
+import { UiService } from 'src/app/services/ui.service';
 import { itemsaInstitucionalRisks } from '../../model/data';
 
 @Component({
@@ -9,7 +10,9 @@ import { itemsaInstitucionalRisks } from '../../model/data';
 })
 export class RiskInstitucionalComponent implements OnInit {
   institucional: ItemRisk = itemsaInstitucionalRisks;
-  constructor() {}
+  constructor(private uiService: UiService) {
+    this.uiService.updateTitleNavbar('Institucional');
+  }
 
   ngOnInit(): void {}
 }

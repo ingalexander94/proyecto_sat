@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UiService } from 'src/app/services/ui.service';
 
 @Component({
   selector: 'app-list-risks',
@@ -9,7 +10,9 @@ import { Router } from '@angular/router';
 export class ListRisksComponent implements OnInit {
   showAlert: boolean = false;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private uiService: UiService) {
+    this.uiService.updateTitleNavbar('Perfil');
+  }
 
   ngOnInit(): void {}
 

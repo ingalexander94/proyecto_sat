@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ItemRisk } from 'src/app/model/ui';
+import { UiService } from 'src/app/services/ui.service';
 import { itemsaIndividualRisks } from '../../model/data';
 
 @Component({
@@ -9,7 +10,9 @@ import { itemsaIndividualRisks } from '../../model/data';
 })
 export class RiskIndividualComponent implements OnInit {
   individual: ItemRisk = itemsaIndividualRisks;
-  constructor() {}
+  constructor(private uiService: UiService) {
+    this.uiService.updateTitleNavbar('Individual');
+  }
 
   ngOnInit(): void {}
 }
