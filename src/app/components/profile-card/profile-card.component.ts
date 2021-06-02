@@ -8,10 +8,15 @@ import { Location } from '@angular/common';
 })
 export class ProfileCardComponent implements OnInit {
   constructor(private location: Location) {}
-
+  showUpdateProfile: boolean = false;
+  
   ngOnInit(): void {}
 
   goBack() {
     this.location.back();
+  }
+
+  updateProfile(show: boolean = true) {
+    this.showUpdateProfile = show;
   }
 }

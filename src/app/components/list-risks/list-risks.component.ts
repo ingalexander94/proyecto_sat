@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 })
 export class ListRisksComponent implements OnInit {
   showAlert: boolean = false;
+  
 
   constructor(private router: Router) {}
 
@@ -20,4 +21,5 @@ export class ListRisksComponent implements OnInit {
   updateRisk(show: boolean = true) {
     this.showAlert = show;
   }
+  
 }
