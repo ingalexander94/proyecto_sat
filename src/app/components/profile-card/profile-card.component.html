@@ -34,8 +34,15 @@
             >Ver chat</a
           ><i class="fas fa-envelope"></i>
         </li>
-        <li><a href="">Ver actividades</a><i class="fas fa-list"></i></li>
-        <li><a href="">Ver instrumentos</a><i class="fas fa-clock"></i></li>
+        <li><a href="#">Ver actividades</a><i class="fas fa-list"></i></li>
+        <li>
+          <a
+            routerLink="/estudiante/ver-historial"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            >Ver instrumentos</a
+          ><i class="fas fa-clock"></i>
+        </li>
         <li>
           <a
             routerLink="/estudiante"
@@ -72,9 +79,14 @@
   <p><i class="fas fa-phone"></i> 3123456789</p>
   <p><i class="fas fa-id-card"></i> 70041053</p>
   <p><i class="fas fa-map-marker-alt"></i> Ciudad, Departamento</p>
-  <p (click)="updateProfile()" class="active pointer"><i class="fas fa-edit"></i> Editar perfil</p>
+  <p (click)="updateProfile()" class="active pointer">
+    <i class="fas fa-edit"></i> Editar perfil
+  </p>
   <button>
     Postular estudiante <i class="fas fa-hand-holding-medical"></i>
   </button>
 </div>
-<app-update-profile *ngIf="showUpdateProfile"  (isClosed)="updateProfile($event)"></app-update-profile>
+<app-update-profile
+  *ngIf="showUpdateProfile"
+  (isClosed)="updateProfile($event)"
+></app-update-profile>

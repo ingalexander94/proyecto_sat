@@ -11,6 +11,8 @@ import { ChatComponent } from './chat/chat.component';
 import { DetailRisksComponent } from './detail-risks/detail-risks.component';
 import { InfoAcademyComponent } from './info-academy/info-academy.component';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
+import { RecordComponent } from './record/record.component';
+import { FloatingButtonComponent } from './floating-button/floating-button.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import { UpdateProfileComponent } from './update-profile/update-profile.componen
     DetailRisksComponent,
     InfoAcademyComponent,
     UpdateProfileComponent,
+    RecordComponent,
+    FloatingButtonComponent,
   ],
   exports: [
     AlertComponent,
@@ -31,6 +35,7 @@ import { UpdateProfileComponent } from './update-profile/update-profile.componen
     TitleComponent,
     ItemCourseComponent,
     NavbarComponent,
+    FloatingButtonComponent,
     DetailRisksComponent,
   ],
   imports: [CommonModule, RouterModule],
