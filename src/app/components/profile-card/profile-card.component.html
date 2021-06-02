@@ -72,8 +72,9 @@
   <p><i class="fas fa-phone"></i> 3123456789</p>
   <p><i class="fas fa-id-card"></i> 70041053</p>
   <p><i class="fas fa-map-marker-alt"></i> Ciudad, Departamento</p>
-  <p class="active pointer"><i class="fas fa-edit"></i> Editar perfil</p>
+  <p (click)="updateProfile()" class="active pointer"><i class="fas fa-edit"></i> Editar perfil</p>
   <button>
     Postular estudiante <i class="fas fa-hand-holding-medical"></i>
   </button>
 </div>
+<app-update-profile *ngIf="showUpdateProfile"  (isClosed)="updateProfile($event)"></app-update-profile>

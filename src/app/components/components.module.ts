@@ -10,6 +10,7 @@ import { ListRisksComponent } from './list-risks/list-risks.component';
 import { ChatComponent } from './chat/chat.component';
 import { DetailRisksComponent } from './detail-risks/detail-risks.component';
 import { InfoAcademyComponent } from './info-academy/info-academy.component';
+import { UpdateProfileComponent } from './update-profile/update-profile.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { InfoAcademyComponent } from './info-academy/info-academy.component';
     ChatComponent,
     DetailRisksComponent,
     InfoAcademyComponent,
+    UpdateProfileComponent,
   ],
   exports: [
     AlertComponent,

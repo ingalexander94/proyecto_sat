@@ -9,6 +9,7 @@ import { UiService } from 'src/app/services/ui.service';
 })
 export class ListRisksComponent implements OnInit {
   showAlert: boolean = false;
+  
 
   constructor(private router: Router, private uiService: UiService) {
     this.uiService.updateTitleNavbar('Perfil');
@@ -23,4 +24,5 @@ export class ListRisksComponent implements OnInit {
   updateRisk(show: boolean = true) {
     this.showAlert = show;
   }
+  
 }
