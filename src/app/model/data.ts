@@ -1,4 +1,4 @@
-import { ItemRisk } from './ui';
+import { ActivitiesList, ItemRisk } from './ui';
 
 export const itemsaEconomicRisks: ItemRisk = {
   icon: 'fa-hand-holding-usd',
@@ -55,3 +55,22 @@ export const itemsaInstitucionalRisks: ItemRisk = {
     'Apoyo psicològico',
   ],
 };
+
+//activites
+export const activities: ActivitiesList[] = [
+  {
+    date: '12/05/2020',
+    name: 'Amigos Academicos',
+    icon: 'fa-check-circle',
+  },
+  {
+    date: '12/05/2020',
+    name: 'Apoyo Psicologico',
+    icon: 'fa-times-circle',
+  },
+  {
+    date: '12/05/2020',
+    name: 'Amigos Academicos',
+    icon: 'fa-spinner',
+  },
+];

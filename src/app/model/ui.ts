@@ -8,3 +8,8 @@ export interface ItemRisk {
   urlImg: String;
   items: String[];
 }
+export interface ActivitiesList{
+  date:String;
+  name:String;
+  icon:String;
+}

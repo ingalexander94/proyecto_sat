@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ActivitiesListComponent } from 'src/app/components/activities-list/activities-list.component';
 import { ChatComponent } from 'src/app/components/chat/chat.component';
 import { DetailRisksComponent } from 'src/app/components/detail-risks/detail-risks.component';
 import { InfoAcademyComponent } from 'src/app/components/info-academy/info-academy.component';
 import { ListRisksComponent } from 'src/app/components/list-risks/list-risks.component';
+import { MeetingComponent } from 'src/app/components/meeting/meeting.component';
 import { RiskAcademicComponent } from 'src/app/pages/risk-academic/risk-academic.component';
 import { RiskEconomicComponent } from 'src/app/pages/risk-economic/risk-economic.component';
 import { RiskIndividualComponent } from 'src/app/pages/risk-individual/risk-individual.component';
@@ -18,6 +20,9 @@ const children: Routes = [
   { path: 'riesgo-economico', component: RiskEconomicComponent },
   { path: 'riesgo-individual', component: RiskIndividualComponent },
   { path: 'riesgo-institucional', component: RiskInstitucionalComponent },
+  { path: 'actividades', component: ActivitiesListComponent },
+  { path: 'reunion', component: MeetingComponent },
+
 ];
 
 const routes: Routes = [{ path: '', component: ChildrenComponent, children }];

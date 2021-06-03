@@ -91,7 +91,7 @@
 /* Desktop */
 
 @media (min-width: 1152px) {
-  .chat {
-    width: 500px;
+  .chat_container {
+   width: 600px;
   }
 }

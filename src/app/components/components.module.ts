@@ -11,6 +11,8 @@ import { ChatComponent } from './chat/chat.component';
 import { DetailRisksComponent } from './detail-risks/detail-risks.component';
 import { InfoAcademyComponent } from './info-academy/info-academy.component';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
+import { ActivitiesListComponent } from './activities-list/activities-list.component';
+import { MeetingComponent } from './meeting/meeting.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import { UpdateProfileComponent } from './update-profile/update-profile.componen
     DetailRisksComponent,
     InfoAcademyComponent,
     UpdateProfileComponent,
+    ActivitiesListComponent,
+    MeetingComponent,
   ],
   exports: [
     AlertComponent,
