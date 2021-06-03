@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { UiService } from 'src/app/services/ui.service';
 
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.component.html',
-  styleUrls: ['./chat.component.css']
+  styleUrls: ['./chat.component.css'],
 })
 export class ChatComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(private uiService: UiService) {
+    this.uiService.updateTitleNavbar('Perfil');
   }
 
+  ngOnInit(): void {}
 }

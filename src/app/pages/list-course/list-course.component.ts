@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Course } from 'src/app/model/course';
 import { Title } from 'src/app/model/ui';
+import { UiService } from 'src/app/services/ui.service';
 
 @Component({
   selector: 'app-list-course',
@@ -37,7 +38,9 @@ export class ListCourseComponent implements OnInit {
     subtitle: 'Materias que se encuentran activas durante el semestre actual.',
   };
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private uiService: UiService) {
+    this.uiService.updateTitleNavbar();
+  }
 
   ngOnInit(): void {}
 

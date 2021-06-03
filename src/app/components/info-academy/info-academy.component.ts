@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { UiService } from 'src/app/services/ui.service';
 
 @Component({
   selector: 'app-info-academy',
   templateUrl: './info-academy.component.html',
-  styleUrls: ['./info-academy.component.css']
+  styleUrls: ['./info-academy.component.css'],
 })
 export class InfoAcademyComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(private uiService: UiService) {
+    this.uiService.updateTitleNavbar('Perfil Académico');
   }
 
+  ngOnInit(): void {}
 }

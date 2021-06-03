@@ -2,6 +2,7 @@ import { Action } from '@ngrx/store';
 
 export const START_LOADING = '[UI] Start Loading';
 export const FINISH_LOADING = '[UI] Finish Loading';
+export const SET_TITLE_NAVBAR = '[UI] Set Title Navbar';
 
 export class StartLoadingAction implements Action {
   readonly type = START_LOADING;
@@ -13,4 +14,12 @@ export class FinishLoadingAction implements Action {
   constructor() {}
 }
 
-export type actions = StartLoadingAction | FinishLoadingAction;
+export class SetTitleNavbarAction implements Action {
+  readonly type = SET_TITLE_NAVBAR;
+  constructor(public payload: String) {}
+}
+
+export type actions =
+  | StartLoadingAction
+  | FinishLoadingAction
+  | SetTitleNavbarAction;

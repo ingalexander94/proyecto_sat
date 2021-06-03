@@ -11,8 +11,12 @@ import { ChatComponent } from './chat/chat.component';
 import { DetailRisksComponent } from './detail-risks/detail-risks.component';
 import { InfoAcademyComponent } from './info-academy/info-academy.component';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
+
 import { ActivitiesListComponent } from './activities-list/activities-list.component';
 import { MeetingComponent } from './meeting/meeting.component';
+import { RecordComponent } from './record/record.component';
+import { FloatingButtonComponent } from './floating-button/floating-button.component';
+
 
 @NgModule({
   declarations: [
@@ -26,8 +30,8 @@ import { MeetingComponent } from './meeting/meeting.component';
     DetailRisksComponent,
     InfoAcademyComponent,
     UpdateProfileComponent,
-    ActivitiesListComponent,
-    MeetingComponent,
+    RecordComponent,
+    FloatingButtonComponent,
   ],
   exports: [
     AlertComponent,
@@ -35,6 +39,7 @@ import { MeetingComponent } from './meeting/meeting.component';
     TitleComponent,
     ItemCourseComponent,
     NavbarComponent,
+    FloatingButtonComponent,
     DetailRisksComponent,
   ],
   imports: [CommonModule, RouterModule],

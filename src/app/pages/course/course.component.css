@@ -1,6 +1,6 @@
 .course_container {
   text-align: center;
-  margin: 16px 16px;
+  margin: 32px 16px;
 }
 
 .statistics {
@@ -136,5 +136,9 @@
 
   .statistics {
     margin-top: 0;
+  }
+
+  .course_container {
+    padding-top: 32px;
   }
 }

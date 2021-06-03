@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Student } from 'src/app/model/course';
 import { Title } from 'src/app/model/ui';
+import { UiService } from 'src/app/services/ui.service';
 
 @Component({
   selector: 'app-course',
@@ -66,7 +67,9 @@ export class CourseComponent implements OnInit {
     },
   ];
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private uiService: UiService) {
+    this.uiService.updateTitleNavbar('Materia');
+  }
 
   ngOnInit(): void {}
 

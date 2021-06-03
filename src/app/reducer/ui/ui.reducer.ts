@@ -2,10 +2,12 @@ import * as fromUI from './ui.actions';
 
 export interface UIState {
   loading: boolean;
+  titleNavbar: String;
 }
 
 const initState: UIState = {
   loading: false,
+  titleNavbar: 'SAT',
 };
 
 export const uiReducer = (
@@ -23,6 +25,12 @@ export const uiReducer = (
       return {
         ...state,
         loading: false,
+      };
+
+    case fromUI.SET_TITLE_NAVBAR:
+      return {
+        ...state,
+        titleNavbar: actions.payload,
       };
 
     default:

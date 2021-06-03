@@ -25,6 +25,10 @@ body {
   caret-color: var(--red-primary-color);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 button {
   color: var(--white);
   border: none;
