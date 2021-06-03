@@ -23,6 +23,13 @@ const routes: Routes = [
       import('./dashboard-student/student.module').then((m) => m.StudentModule),
   },
   {
+    path: 'vicerrector',
+    loadChildren: () =>
+      import('./dashboard-wellness/wellness.module').then(
+        (m) => m.WellnessModule
+      ),
+  },
+  {
     path: '**',
     redirectTo: 'iniciar-sesion',
   },

@@ -27,6 +27,7 @@ input[type="checkbox"] {
   width: 95vw;
   border-radius: 10px;
   display: none;
+  border: 1px solid var(--dark-color);
 }
 
 .list_notification h4 {
