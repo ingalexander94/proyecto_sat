@@ -32,6 +32,8 @@ import { FloatingButtonComponent } from './floating-button/floating-button.compo
     UpdateProfileComponent,
     RecordComponent,
     FloatingButtonComponent,
+    MeetingComponent,
+    ActivitiesListComponent,
   ],
   exports: [
     AlertComponent,
@@ -41,6 +43,8 @@ import { FloatingButtonComponent } from './floating-button/floating-button.compo
     NavbarComponent,
     FloatingButtonComponent,
     DetailRisksComponent,
+    ActivitiesListComponent,
+    MeetingComponent,
   ],
   imports: [CommonModule, RouterModule],
 })

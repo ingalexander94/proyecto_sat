@@ -34,7 +34,10 @@
             >Ver chat</a
           ><i class="fas fa-envelope"></i>
         </li>
-        <li><a href="#">Ver actividades</a><i class="fas fa-list"></i></li>
+        <li><a  routerLink="/estudiante/actividades"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >Ver actividades</a><i class="fas fa-list"></i></li>
         <li>
           <a
             routerLink="/estudiante/ver-historial"
