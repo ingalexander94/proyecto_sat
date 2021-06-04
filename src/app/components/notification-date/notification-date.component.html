@@ -1,0 +1,67 @@
+<div class="wrapper_alert">
+    <div class="alert_container">
+        <h2  (click)="close()" class="pointer"><i class="fas fa-times fa-fw"></i></h2>
+        <h1>Crear Noticicaión</h1>
+        <form class="form_auth">
+          <div class="form_input">
+            <input
+              type="date"
+              placeholder="Fecha"
+              value="date"
+              max="10"
+              min="10"
+              name="code"
+              id="code"
+            />
+            <i class="fas  fa-fw"></i>
+          </div>
+          <div class="place">
+              <div class="time"><h4>Desde</h4></div>  
+              <div class="form_input">
+                  <input
+                  type="time"
+                  placeholder="desde"
+                  value="8"
+                  max="10"
+                  min="10"
+                  name="code"
+                  id="code"
+                  />
+                </div>
+            </div>
+            <div class="place">
+                <div class="time"><h4>Hasta</h4></div>  
+                <div class="form_input">
+                    <input
+                    type="time"
+                    placeholder=""
+                    value="8"
+                    max="10"
+                    min="10"
+                    name="code"
+                    id="code"
+                    />
+                  </div>
+              </div>
+          <div class="form_input">
+            <input
+              type=""
+              placeholder="Lugar"
+              value="Lugar"
+              name="ubicacion"
+              id="ubicacion" 
+            />
+            <i class="fas fa-map-marker-alt fa-fw"></i>
+          </div>
+          <div class="buttons">
+              <button class="button" type="submit">
+               Cancelar
+              </button>
+              <button class="button b1"  type="submit">
+               Crear
+              </button>
+
+          </div>
+        </form>
+      </div>
+    </div>

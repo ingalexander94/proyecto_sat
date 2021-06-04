@@ -1,0 +1,185 @@
+.content {
+  margin: 16px;
+}
+
+.title_icon {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+.title h1 {
+  margin-top: 20px;
+  font-weight: bold;
+  font-size: 20px;
+}
+.icon {
+  padding: 15px;
+}
+.icon h4 {
+  background: var(--red-primary-color);
+  border-radius: 25px;
+  font-weight: bolder;
+  color: white;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+}
+h4 {
+  font-size: 20px;
+  font-weight: bolder;
+}
+.button {
+  background: var(--green-primary-color);
+  font-size: 20px;
+}
+table {
+  margin: 5px;
+  width: 290px;
+}
+
+th {
+  margin: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+td {
+  text-align: center;
+  height: 35px;
+}
+i {
+  color: white;
+  background: var(--red-primary-color);
+  width: 30px;
+  font-size: 15px;
+}
+.recommend {
+  background: var(--green-primary-color);
+  padding: 2px;
+  border-radius: 2px;
+}
+
+.frame {
+  position: relative;
+  padding-top: 10px;
+  height: 150px;
+}
+.heade_title {
+  position: absolute;
+  left: 15px;
+  padding: 0px 2px;
+  background: var(--gray-table);
+  text-align: left;
+  border-radius: 10px;
+}
+.heade_title h3 {
+  font-weight: bold;
+}
+.recommendations {
+  margin-top: 10px;
+  width: 290px;
+  height: 100px;
+  border: 2px solid;
+}
+table tbody tr:nth-child(odd) {
+  background: var(--gray-table);
+}
+/* Tablet */
+
+@media (min-width: 768px) and (max-width: 1151px) {
+  .content {
+    margin: 48px;
+  }
+
+  .title h1 {
+    margin-top: 30px;
+    font-size: 32px;
+  }
+
+  .icon h4 {
+    border-radius: 50px;
+    font-size: 32px;
+    width: 90px;
+    height: 90px;
+    line-height: 90px;
+  }
+  h4 {
+    font-size: 32px;
+  }
+  .button {
+    background: var(--green-primary-color);
+    font-size: 32px;
+    width: 418px;
+    margin-left: 120px;
+  }
+  table {
+    margin: 0px 80px;
+    width: 532px;
+  }
+
+  th {
+    font-size: 20px;
+  }
+
+  td {
+    font-size: 20px;
+  }
+  i {
+    font-size: 25px;
+  }
+  .recommend {
+    padding: 2px;
+    border-radius: 2px;
+  }
+
+  .frame {
+    padding-top: 15px;
+    height: 250px;
+    margin: 20px 90px;
+  }
+  .heade_title {
+    padding: 2px 6px;
+  }
+  .heade_title h3 {
+    font-size: 28px;
+  }
+  .recommendations {
+    margin-top: 20px;
+    width: 480px;
+    height: 200px;
+    border: 4px solid;
+  }
+}
+
+/* Desktop */
+
+@media (min-width: 1152px) {
+  .content {
+    margin: 16px 48px;
+    width: 700px;
+  }
+  .title_icon {
+    padding-right: 130px;
+  }
+  table {
+    width: 512px;
+  }
+  .button {
+    width: 300px;
+    margin-left: 120px;
+  }
+  .frame {
+    padding-top: 25px;
+    margin: 20px;
+    height: 180px;
+  }
+  .recommendations {
+    margin-top: 15px;
+    width: 560px;
+    height: 150px;
+  }
+  .heade_title {
+    padding: 3px 6px;
+  }
+}
