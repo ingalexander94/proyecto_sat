@@ -31,6 +31,7 @@ import { RiskEconomicComponent } from './pages/risk-economic/risk-economic.compo
 import { FacultiesComponent } from './pages/faculties/faculties.component';
 import { SemesterComponent } from './pages/semester/semester.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +45,6 @@ import { SemesterComponent } from './pages/semester/semester.component';
     RiskInstitucionalComponent,
     RiskEconomicComponent,
     FacultiesComponent,
-    SemesterComponent,
   ],
 
   imports: [

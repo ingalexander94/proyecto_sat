@@ -16,6 +16,8 @@ import { ActivitiesListComponent } from './activities-list/activities-list.compo
 import { MeetingComponent } from './meeting/meeting.component';
 import { RecordComponent } from './record/record.component';
 import { FloatingButtonComponent } from './floating-button/floating-button.component';
+import { WellnessNotificationComponent } from './wellness-notification/wellness-notification.component';
+import { NotificationDateComponent } from './notification-date/notification-date.component';
 
 
 @NgModule({
@@ -34,6 +36,8 @@ import { FloatingButtonComponent } from './floating-button/floating-button.compo
     FloatingButtonComponent,
     MeetingComponent,
     ActivitiesListComponent,
+    WellnessNotificationComponent,
+    NotificationDateComponent,
   ],
   exports: [
     AlertComponent,

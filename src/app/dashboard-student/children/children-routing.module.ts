@@ -6,6 +6,7 @@ import { InfoAcademyComponent } from 'src/app/components/info-academy/info-acade
 import { ListRisksComponent } from 'src/app/components/list-risks/list-risks.component';
 import { MeetingComponent } from 'src/app/components/meeting/meeting.component';
 import { RecordComponent } from 'src/app/components/record/record.component';
+import { WellnessNotificationComponent } from 'src/app/components/wellness-notification/wellness-notification.component';
 
 import { RiskAcademicComponent } from 'src/app/pages/risk-academic/risk-academic.component';
 import { RiskEconomicComponent } from 'src/app/pages/risk-economic/risk-economic.component';
@@ -24,6 +25,11 @@ const children: Routes = [
   { path: 'riesgo-institucional', component: RiskInstitucionalComponent },
   { path: 'actividades', component: ActivitiesListComponent },
   { path: 'reunion', component: MeetingComponent },
+<<<<<<< HEAD
+=======
+  { path: 'notificar', component: WellnessNotificationComponent },
+
+>>>>>>> b6847a8ed8f205267da45b7c0a1cdd2537697a6b
 ];
 
 const routes: Routes = [{ path: '', component: ChildrenComponent, children }];
