@@ -30,6 +30,7 @@ import { RiskInstitucionalComponent } from './pages/risk-institucional/risk-inst
 import { RiskEconomicComponent } from './pages/risk-economic/risk-economic.component';
 import { FacultiesComponent } from './pages/faculties/faculties.component';
 import { SemesterComponent } from './pages/semester/semester.component';
+import { PostulateListComponent } from './pages/postulate-list/postulate-list.component';
 
 
 @NgModule({
@@ -45,6 +46,7 @@ import { SemesterComponent } from './pages/semester/semester.component';
     RiskInstitucionalComponent,
     RiskEconomicComponent,
     FacultiesComponent,
+    PostulateListComponent,
   ],
 
   imports: [

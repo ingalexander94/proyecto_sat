@@ -1,4 +1,4 @@
-import { ActivitiesList, ItemRisk } from './ui';
+import { ActivitiesList, ItemRisk, Postulates, ServicesWellness } from './ui';
 
 export const itemsaEconomicRisks: ItemRisk = {
   icon: 'fa-hand-holding-usd',
@@ -74,3 +74,42 @@ export const activities: ActivitiesList[] = [
     icon: 'fa-spinner',
   },
 ];
+export const postulates: Postulates[] = [
+  {
+    num:1,
+    name:"Niver Daniel Romero",
+    code:1151157,
+    icon:"fas fa-book"
+  },
+  {
+    num:2,
+    name:"Alexander Peñaloza",
+    code:1151167,
+    icon:"fas fa-book"
+  },
+  {
+    num:3,
+    name:"Cristiano Ronaldo",
+    code:1151180,
+    icon:"fas fa-male"
+  }
+
+] 
+
+export const servicesWellness: ServicesWellness[] = [
+  {
+    num:1,
+    name:"Beca trabajo",
+    icon:"fas fa-check"
+  },
+  {
+    num:2,
+    name:"subsidio  alcaldia",
+    icon:"fas fa-check"
+  },
+  {
+    num:3,
+    name:"Beca trabajo",
+    icon:"recomendar"
+  },
+]

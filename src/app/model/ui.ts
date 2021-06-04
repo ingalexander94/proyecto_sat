@@ -13,3 +13,15 @@ export interface ActivitiesList{
   name:String;
   icon:String;
 }
+export interface Postulates{
+  num:number;
+  name:String;
+  code:number;
+  icon:String;
+}
+
+export interface ServicesWellness{
+  num:number;
+  name:String;
+  icon:String;
+}

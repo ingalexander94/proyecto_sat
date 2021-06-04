@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { servicesWellness } from 'src/app/model/data';
+import { ServicesWellness } from 'src/app/model/ui';
+import { UiService } from 'src/app/services/ui.service';
 
 @Component({
   selector: 'app-wellness-notification',
@@ -7,7 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WellnessNotificationComponent implements OnInit {
   showDate :boolean =false;
-  constructor() { }
+  servicesWellnesslist: ServicesWellness[]=servicesWellness;
+  constructor(private iuservices: UiService) {
+    this.iuservices.updateTitleNavbar("Notificar Bienestar");
+  
+
+   }
 
   ngOnInit(): void {
   }

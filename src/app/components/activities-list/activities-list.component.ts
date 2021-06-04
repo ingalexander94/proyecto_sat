@@ -9,7 +9,7 @@ import { UiService } from 'src/app/services/ui.service';
   styleUrls: ['./activities-list.component.css']
 })
 export class ActivitiesListComponent implements OnInit {
-activitiesList: ActivitiesList[]=activities;
+   activitiesList: ActivitiesList[]=activities;
   constructor(private  uiService:UiService) { 
    this.uiService.updateTitleNavbar("Actividades")
   }

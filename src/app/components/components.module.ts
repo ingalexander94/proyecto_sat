@@ -18,6 +18,8 @@ import { RecordComponent } from './record/record.component';
 import { FloatingButtonComponent } from './floating-button/floating-button.component';
 import { WellnessNotificationComponent } from './wellness-notification/wellness-notification.component';
 import { NotificationDateComponent } from './notification-date/notification-date.component';
+import { SearchStudentComponent } from './search-student/search-student.component';
+import { TableComponent } from './table/table.component';
 
 
 @NgModule({
@@ -38,6 +40,8 @@ import { NotificationDateComponent } from './notification-date/notification-date
     ActivitiesListComponent,
     WellnessNotificationComponent,
     NotificationDateComponent,
+    SearchStudentComponent,
+    TableComponent,
   ],
   exports: [
     AlertComponent,
@@ -49,6 +53,8 @@ import { NotificationDateComponent } from './notification-date/notification-date
     DetailRisksComponent,
     ActivitiesListComponent,
     MeetingComponent,
+    SearchStudentComponent,
+    TableComponent,
   ],
   imports: [CommonModule, RouterModule],
 })

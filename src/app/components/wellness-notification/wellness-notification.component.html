@@ -17,20 +17,13 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>1</td>
-        <td>lady divina</td>
-        <td><i class="fas fa-check"></i></td>
+      <tr *ngFor="let item of servicesWellnesslist">
+        <td>{{item.num}}</td>
+        <td>{{item.name}}</td>
+        <td><i class="fas {{item.icon}} "></i></td>
       </tr>
       <tr>
-        <td>2</td>
-        <td>Niver Romero</td>
-        <td><i class="fas fa-check"></i></td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td>luis Peñaloza</td>
-        <td><i class="recommend">Recomendar</i></td>
+       
       </tr>
     </tbody>
   </table>
