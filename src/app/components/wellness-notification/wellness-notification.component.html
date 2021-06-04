@@ -6,7 +6,9 @@
     <div class="icon"><h4>98%</h4></div>
   </div>
   <h4>Paso 1</h4>
-  <button (click)="ShowDateNotification ()"  class="button">Notificar Estudiante</button>
+  <button (click)="ShowDateNotification()" class="button">
+    Notificar Estudiante
+  </button>
   <h4>Paso 2</h4>
   <table>
     <thead>
@@ -30,7 +32,7 @@
       <tr>
         <td>3</td>
         <td>luis Peñaloza</td>
-        <td><i class="recommend">Recomendar</i></td>
+        <td><button class="recommend">Recomendar</button></td>
       </tr>
     </tbody>
   </table>
@@ -38,8 +40,12 @@
     <div class="heade_title">
       <h3>Recomendaciones</h3>
     </div>
-    <div class="recommendations"></div>
+    <textarea class="recommendations"></textarea>
   </div>
   <button class="button">Seguimiento</button>
 </div>
-<app-notification-date  *ngIf="showDate" (isClosed)="ShowDateNotification($event)">hola como estas</app-notification-date>
+<app-notification-date
+  *ngIf="showDate"
+  (isClosed)="ShowDateNotification($event)"
+  >hola como estas</app-notification-date
+>

@@ -15,4 +15,10 @@ export class AlertComponent implements OnInit {
   close() {
     this.isClosed.emit(false);
   }
+
+  onClick({ target }) {
+    if (target.className === 'wrapper_alert') {
+      this.close();
+    }
+  }
 }

@@ -25,11 +25,7 @@ const children: Routes = [
   { path: 'riesgo-institucional', component: RiskInstitucionalComponent },
   { path: 'actividades', component: ActivitiesListComponent },
   { path: 'reunion', component: MeetingComponent },
-<<<<<<< HEAD
-=======
   { path: 'notificar', component: WellnessNotificationComponent },
-
->>>>>>> b6847a8ed8f205267da45b7c0a1cdd2537697a6b
 ];
 
 const routes: Routes = [{ path: '', component: ChildrenComponent, children }];

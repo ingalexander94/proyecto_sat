@@ -18,7 +18,7 @@ import { RecordComponent } from './record/record.component';
 import { FloatingButtonComponent } from './floating-button/floating-button.component';
 import { WellnessNotificationComponent } from './wellness-notification/wellness-notification.component';
 import { NotificationDateComponent } from './notification-date/notification-date.component';
-
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -50,6 +50,6 @@ import { NotificationDateComponent } from './notification-date/notification-date
     ActivitiesListComponent,
     MeetingComponent,
   ],
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, FormsModule],
 })
 export class ComponentsModule {}

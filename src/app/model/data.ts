@@ -2,7 +2,7 @@ import { ActivitiesList, ItemRisk } from './ui';
 
 export const itemsaEconomicRisks: ItemRisk = {
   icon: 'fa-hand-holding-usd',
-  urlImg: 'economico.png',
+  urlImg: 'economico.svg',
   items: [
     'Estrato',
     'Situación Laboral',
@@ -14,7 +14,7 @@ export const itemsaEconomicRisks: ItemRisk = {
 };
 export const itemAcademicRisks: ItemRisk = {
   icon: 'fa-address-book',
-  urlImg: 'academico.png',
+  urlImg: 'academico.svg',
   items: [
     'Orientación socio-ocupacional',
     'Tipo de Colegio',

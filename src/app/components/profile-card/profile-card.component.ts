@@ -10,6 +10,7 @@ export class ProfileCardComponent implements OnInit {
   @ViewChild('checkbox') checkbox: ElementRef;
 
   constructor(private location: Location) {}
+
   showUpdateProfile: boolean = false;
 
   ngOnInit(): void {}
@@ -24,5 +25,11 @@ export class ProfileCardComponent implements OnInit {
 
   updateProfile(show: boolean = true) {
     this.showUpdateProfile = show;
+  }
+
+  closeMenu(e: FocusEvent) {
+    if (!e.relatedTarget) {
+      this.toNavigate();
+    }
   }
 }

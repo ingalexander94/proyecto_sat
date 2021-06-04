@@ -29,8 +29,6 @@ import { RiskIndividualComponent } from './pages/risk-individual/risk-individual
 import { RiskInstitucionalComponent } from './pages/risk-institucional/risk-institucional.component';
 import { RiskEconomicComponent } from './pages/risk-economic/risk-economic.component';
 import { FacultiesComponent } from './pages/faculties/faculties.component';
-import { SemesterComponent } from './pages/semester/semester.component';
-
 
 @NgModule({
   declarations: [

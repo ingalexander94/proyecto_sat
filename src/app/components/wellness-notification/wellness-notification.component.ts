@@ -1,19 +1,20 @@
 import { Component, OnInit } from '@angular/core';
+import { UiService } from 'src/app/services/ui.service';
 
 @Component({
   selector: 'app-wellness-notification',
   templateUrl: './wellness-notification.component.html',
-  styleUrls: ['./wellness-notification.component.css']
+  styleUrls: ['./wellness-notification.component.css'],
 })
 export class WellnessNotificationComponent implements OnInit {
-  showDate :boolean =false;
-  constructor() { }
-
-  ngOnInit(): void {
+  showDate: boolean = false;
+  constructor(private uiService: UiService) {
+    this.uiService.updateTitleNavbar('Notificar Estudiante');
   }
 
-  ShowDateNotification (show: boolean = true){
-    this.showDate=show;
-  }
+  ngOnInit(): void {}
 
+  ShowDateNotification(show: boolean = true) {
+    this.showDate = show;
+  }
 }
