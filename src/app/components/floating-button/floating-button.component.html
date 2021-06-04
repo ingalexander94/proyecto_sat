@@ -1,4 +1,4 @@
-<input type="checkbox" id="floating" />
+<input type="checkbox" id="floating" #checkboxNotification />
 <div class="notifications animate_button">
   <label for="floating"><i class="fas fa-bell"></i></label>
 </div>
@@ -6,16 +6,20 @@
   <h4>Notificaciones</h4>
   <hr />
   <ul>
-    <li  routerLink="/estudiante/reunion"
-    class="no_read pointer">
+    <li
+      (click)="closeButton()"
+      routerLink="/estudiante/reunion"
+      fragment="contenedor"
+      class="no_read pointer"
+    >
       <p>Ha recibido una solicitud de reunión</p>
       <span><i class="fas fa-clock red"></i> 08:45 AM</span>
     </li>
-    <li>
+    <li (click)="closeButton()" class="pointer">
       <p>Ha recibido un mensaje</p>
       <span><i class="fas fa-clock red"></i> 10:45 AM</span>
     </li>
-    <li>
+    <li (click)="closeButton()" class="pointer">
       <p>Ha sido ubicado en la lista de riesgo crítico</p>
       <span><i class="fas fa-clock red"></i> 02:45 PM</span>
     </li>

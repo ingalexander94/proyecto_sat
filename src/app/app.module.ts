@@ -29,9 +29,12 @@ import { RiskIndividualComponent } from './pages/risk-individual/risk-individual
 import { RiskInstitucionalComponent } from './pages/risk-institucional/risk-institucional.component';
 import { RiskEconomicComponent } from './pages/risk-economic/risk-economic.component';
 import { FacultiesComponent } from './pages/faculties/faculties.component';
+<<<<<<< HEAD
 import { SemesterComponent } from './pages/semester/semester.component';
 import { PostulateListComponent } from './pages/postulate-list/postulate-list.component';
 
+=======
+>>>>>>> 3361922f81638cf40d5a261ab6791f95483d5d67
 
 @NgModule({
   declarations: [

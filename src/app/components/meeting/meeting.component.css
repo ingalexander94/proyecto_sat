@@ -60,124 +60,121 @@ h5 span {
   margin: 0px;
   font-size: 12px;
 }
-.b2{
-    background:var(--green-primary-color);
+.b2 {
+  background: var(--green-primary-color);
 }
 /* Tablet */
-  
+
 @media (min-width: 768px) and (max-width: 1151px) {
-    .content {
-        width: 422px;
-        height: 400px;
-        margin: 20px 184px;
-        border-radius: 35px;
-      } 
-      h2 {
-        font-size: 35px;
-      }
-      .date_icon {
-        display: flex;
-        width: 422px;
-        height: 150px;
-      }
-      .date {
-        width: 260px;
-        height: 150px;
-        text-align: left;
-      }
-      .icon {
-        width: 180px;
-        height: 150px;
-      }
-      .icon i {
-        width: 90px;
-        height: 90px;
-        border-radius: 60px;
-        line-height: 80px;
-        font-size: 50px;
-      }
-      h3 {
-        font-size: 35px;
-        margin: 15px;
-        font-weight: bold;
-      }
-    
-      button {
-        margin: 0px 10px;
-        width: 200px;
-        height: 50px;
-        border-radius: 25px;
-        font-size: 30px;
-      }
-      h5 {
-        margin-top: 5px;
-        font-weight: bold;
-        font-size: 22px;
-      }
-      h5 span {
-        font-size: 22px;
-      }
-    
+  .content {
+    width: 422px;
+    height: 400px;
+    margin: 20px 184px;
+    border-radius: 35px;
   }
-  
-  /* Desktop */
-  
-  @media (min-width: 1152px) {
-    .container{
-      width: 800px;
-    }
-    .content {
-        width: 500px;
-        height: 300px;
-        margin: 100px;
-        border-radius: 35px;
-      } 
-      h2 {
-        font-size: 35px;
-      }
-      .date_icon {
-        display: flex;
-        width: 500px;
-        height: 150px;
-      }
-      .date {
-        width: 280px;
-        height: 150px;
-        text-align: left;
-      }
-      .icon {
-        width: 220px;
-        height: 150px;
-      }
-      .icon i {
-        width: 90px;
-        height: 90px;
-        border-radius: 60px;
-        line-height: 80px;
-        font-size: 50px;
-      }
-      h3 {
-        font-size: 35px;
-        margin: 20px;
-        font-weight: bold;
-      }
-    
-      button {
-        margin: 0px 40px;
-        width: 200px;
-        height: 50px;
-        border-radius: 25px;
-        font-size: 30px;
-      }
-      h5 {
-        margin-top: 5px;
-        font-weight: bold;
-        font-size: 22px;
-      }
-      h5 span {
-        margin: 0px;
-        font-size: 22px;
-      }
-      
- 
+  h2 {
+    font-size: 35px;
   }
+  .date_icon {
+    display: flex;
+    width: 422px;
+    height: 150px;
+  }
+  .date {
+    width: 260px;
+    height: 150px;
+    text-align: left;
+  }
+  .icon {
+    width: 180px;
+    height: 150px;
+  }
+  .icon i {
+    width: 90px;
+    height: 90px;
+    border-radius: 60px;
+    line-height: 80px;
+    font-size: 50px;
+  }
+  h3 {
+    font-size: 35px;
+    margin: 15px;
+    font-weight: bold;
+  }
+
+  button {
+    margin: 0px 10px;
+    width: 200px;
+    height: 50px;
+    border-radius: 25px;
+    font-size: 30px;
+  }
+  h5 {
+    margin-top: 5px;
+    font-weight: bold;
+    font-size: 22px;
+  }
+  h5 span {
+    font-size: 22px;
+  }
+}
+
+/* Desktop */
+
+@media (min-width: 1152px) {
+  .container {
+    height: 350px;
+  }
+  .content {
+    width: 500px;
+    height: 300px;
+    margin: 0 100px;
+    border-radius: 35px;
+  }
+  h2 {
+    font-size: 35px;
+  }
+  .date_icon {
+    display: flex;
+    width: 500px;
+    height: 150px;
+  }
+  .date {
+    width: 280px;
+    height: 150px;
+    text-align: left;
+  }
+  .icon {
+    width: 220px;
+    height: 150px;
+  }
+  .icon i {
+    width: 90px;
+    height: 90px;
+    border-radius: 60px;
+    line-height: 80px;
+    font-size: 50px;
+  }
+  h3 {
+    font-size: 35px;
+    margin: 20px;
+    font-weight: bold;
+  }
+
+  button {
+    margin: 0px 40px;
+    width: 200px;
+    height: 50px;
+    border-radius: 25px;
+    font-size: 30px;
+  }
+  h5 {
+    margin-top: 5px;
+    font-weight: bold;
+    font-size: 22px;
+  }
+  h5 span {
+    margin: 0px;
+    font-size: 22px;
+  }
+}

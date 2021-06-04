@@ -18,9 +18,13 @@ import { RecordComponent } from './record/record.component';
 import { FloatingButtonComponent } from './floating-button/floating-button.component';
 import { WellnessNotificationComponent } from './wellness-notification/wellness-notification.component';
 import { NotificationDateComponent } from './notification-date/notification-date.component';
+<<<<<<< HEAD
 import { SearchStudentComponent } from './search-student/search-student.component';
 import { TableComponent } from './table/table.component';
 
+=======
+import { FormsModule } from '@angular/forms';
+>>>>>>> 3361922f81638cf40d5a261ab6791f95483d5d67
 
 @NgModule({
   declarations: [
@@ -56,6 +60,6 @@ import { TableComponent } from './table/table.component';
     SearchStudentComponent,
     TableComponent,
   ],
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, FormsModule],
 })
 export class ComponentsModule {}

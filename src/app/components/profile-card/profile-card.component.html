@@ -13,7 +13,12 @@
       <p><i class="fas fa-circle green"></i> Sin riesgo</p>
     </div>
     <div class="menu-options">
-      <input type="checkbox" id="showOptions" />
+      <input
+        type="checkbox"
+        #checkbox
+        id="showOptions"
+        (blur)="closeMenu($event)"
+      />
       <label title="Ver opciones" class="pointer" for="showOptions"
         ><i class="fas fa-caret-down"></i
       ></label>
@@ -28,18 +33,28 @@
         </li>
         <li>
           <a
+            (click)="toNavigate()"
             routerLink="/estudiante/chat"
+            fragment="contenedor"
             routerLinkActive="active"
             [routerLinkActiveOptions]="{ exact: true }"
             >Ver chat</a
           ><i class="fas fa-envelope"></i>
         </li>
-        <li><a  routerLink="/estudiante/actividades"
-          routerLinkActive="active"
-          [routerLinkActiveOptions]="{ exact: true }"
-          >Ver actividades</a><i class="fas fa-list"></i></li>
         <li>
           <a
+            (click)="toNavigate()"
+            fragment="contenedor"
+            routerLink="/estudiante/actividades"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            >Ver actividades</a
+          ><i class="fas fa-list"></i>
+        </li>
+        <li>
+          <a
+            (click)="toNavigate()"
+            fragment="contenedor"
             routerLink="/estudiante/ver-historial"
             routerLinkActive="active"
             [routerLinkActiveOptions]="{ exact: true }"
@@ -48,6 +63,8 @@
         </li>
         <li>
           <a
+            (click)="toNavigate()"
+            fragment="contenedor"
             routerLink="/estudiante"
             routerLinkActive="active"
             [routerLinkActiveOptions]="{ exact: true }"
@@ -56,6 +73,8 @@
         </li>
         <li>
           <a
+            (click)="toNavigate()"
+            fragment="contenedor"
             routerLink="/estudiante/perfil-academico"
             routerLinkActive="active"
             [routerLinkActiveOptions]="{ exact: true }"

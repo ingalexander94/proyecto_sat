@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ActivitiesListComponent } from 'src/app/components/activities-list/activities-list.component';
 import { ChatComponent } from 'src/app/components/chat/chat.component';
-import { DetailRisksComponent } from 'src/app/components/detail-risks/detail-risks.component';
 import { InfoAcademyComponent } from 'src/app/components/info-academy/info-academy.component';
 import { ListRisksComponent } from 'src/app/components/list-risks/list-risks.component';
 import { MeetingComponent } from 'src/app/components/meeting/meeting.component';
@@ -28,8 +27,11 @@ const children: Routes = [
   { path: 'actividades', component: ActivitiesListComponent },
   { path: 'reunion', component: MeetingComponent },
   { path: 'notificar', component: WellnessNotificationComponent },
+<<<<<<< HEAD
   { path: 'buscar', component: SearchStudentComponent },
 
+=======
+>>>>>>> 3361922f81638cf40d5a261ab6791f95483d5d67
 ];
 
 const routes: Routes = [{ path: '', component: ChildrenComponent, children }];

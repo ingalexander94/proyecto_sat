@@ -1,21 +1,17 @@
-
-  <div class="text">
-    <p>
-      Para este tipo de riesgo se tienen en cuenta la siguiente información:
-    </p>
-  </div>
-  <div class="content">
-    <div class="risks">
-      <i class="fas fa-fw icon" [ngClass]="itemsRisks.icon"></i>
-      <div class="item-risks" *ngFor="let item of itemsRisks.items">
-        <p><i class="fas fa-cog fa-fw"></i>{{ item }}</p>
-      </div>
-    </div>
-    <div class="picture">
-      <img
-        src="../../../assets/image/{{ itemsRisks.urlImg }}"
-        alt="Academico"
-      />
+<div class="text">
+  <p>Para este tipo de riesgo se tienen en cuenta la siguiente información:</p>
+</div>
+<div class="content">
+  <div class="risks">
+    <i class="fas fa-fw icon" [ngClass]="itemsRisks.icon"></i>
+    <div class="item-risks" *ngFor="let item of itemsRisks.items">
+      <p><i class="fas fa-cog fa-fw"></i>{{ item }}</p>
     </div>
   </div>
-
+  <div class="picture">
+    <img
+      src="../../../assets/image/{{ itemsRisks.urlImg }}"
+      alt="Imágen del rol"
+    />
+  </div>
+</div>
