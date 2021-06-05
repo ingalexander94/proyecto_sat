@@ -1,5 +1,12 @@
-import { ActivitiesList, ItemRisk, Postulates, ServicesWellness } from './ui';
+import {
+  ActivitiesList,
+  ItemRisk,
+  MenuOptions,
+  Postulates,
+  ServicesWellness,
+} from './ui';
 
+// Riesgos
 export const itemsaEconomicRisks: ItemRisk = {
   icon: 'fa-hand-holding-usd',
   urlImg: 'economico.svg',
@@ -12,6 +19,7 @@ export const itemsaEconomicRisks: ItemRisk = {
     'Entorno macroeconómico del país',
   ],
 };
+
 export const itemAcademicRisks: ItemRisk = {
   icon: 'fa-address-book',
   urlImg: 'academico.svg',
@@ -27,6 +35,7 @@ export const itemAcademicRisks: ItemRisk = {
     'Grado de satisfacción con el programa',
   ],
 };
+
 export const itemsaIndividualRisks: ItemRisk = {
   icon: 'fa-male',
   urlImg: 'individual.svg',
@@ -41,6 +50,7 @@ export const itemsaIndividualRisks: ItemRisk = {
     ' Embarazo',
   ],
 };
+
 export const itemsaInstitucionalRisks: ItemRisk = {
   icon: 'fa-university',
   urlImg: 'institucional.svg',
@@ -56,7 +66,7 @@ export const itemsaInstitucionalRisks: ItemRisk = {
   ],
 };
 
-//activites
+// Actividades
 export const activities: ActivitiesList[] = [
   {
     date: '12/05/2020',
@@ -74,42 +84,78 @@ export const activities: ActivitiesList[] = [
     icon: 'fa-spinner',
   },
 ];
+
 export const postulates: Postulates[] = [
   {
-    num:1,
-    name:"Niver Daniel Romero",
-    code:1151157,
-    icon:"fas fa-book"
+    num: 1,
+    name: 'Niver Daniel Romero',
+    code: 1151157,
+    icon: 'fas fa-book',
   },
   {
-    num:2,
-    name:"Alexander Peñaloza",
-    code:1151167,
-    icon:"fas fa-book"
+    num: 2,
+    name: 'Alexander Peñaloza',
+    code: 1151167,
+    icon: 'fas fa-book',
   },
   {
-    num:3,
-    name:"Cristiano Ronaldo",
-    code:1151180,
-    icon:"fas fa-male"
-  }
-
-] 
+    num: 3,
+    name: 'Cristiano Ronaldo',
+    code: 1151180,
+    icon: 'fas fa-male',
+  },
+];
 
 export const servicesWellness: ServicesWellness[] = [
   {
-    num:1,
-    name:"Beca trabajo",
-    icon:"fas fa-check"
+    num: 1,
+    name: 'Beca trabajo',
+    icon: 'fas fa-check',
   },
   {
-    num:2,
-    name:"subsidio  alcaldia",
-    icon:"fas fa-check"
+    num: 2,
+    name: 'subsidio  alcaldia',
+    icon: 'fas fa-check',
   },
   {
-    num:3,
-    name:"Beca trabajo",
-    icon:"recomendar"
+    num: 3,
+    name: 'Beca trabajo',
+    icon: 'recomendar',
   },
-]
+];
+
+// Rutas
+
+export const menuRoutes: MenuOptions[] = [
+  {
+    path: '/estudiante/chat',
+    name: 'Ver chat',
+    icon: 'envelope',
+    isAllowed: () => true,
+  },
+  {
+    path: '/estudiante/actividades',
+    name: 'Ver actividades',
+    icon: 'list',
+    isAllowed: (role: String) =>
+      role === 'estudiante' || role === 'vicerrector' ? true : false,
+  },
+  {
+    path: '/estudiante/ver-historial',
+    name: 'Ver instrumentos',
+    icon: 'clock',
+    isAllowed: () => true,
+  },
+  {
+    path: '/estudiante',
+    name: 'Ver riesgos',
+    icon: 'hand-holding-medical',
+    isAllowed: () => true,
+  },
+  {
+    path: '/estudiante/perfil-academico',
+    name: 'Perfil académico',
+    icon: 'book-open',
+    isAllowed: () => true,
+  },
+];

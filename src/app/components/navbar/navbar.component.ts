@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { AppState } from 'src/app/app.reducers';
+import { RemoveUserAction } from 'src/app/reducer/auth/auth.actions';
 
 @Component({
   selector: 'app-navbar',
@@ -26,6 +27,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   logout() {
+    this.store.dispatch(new RemoveUserAction());
     this.router.navigate(['/iniciar-sesion']);
   }
 }

@@ -25,62 +25,25 @@
       <ul>
         <li>
           <a
+            *ngIf="user.role !== 'vicerrector'"
             routerLink="/docente"
             routerLinkActive="active"
             [routerLinkActiveOptions]="{ exact: true }"
             >Ver materias</a
           ><i class="fab fa-buffer"></i>
         </li>
-        <li>
-          <a
-            (click)="toNavigate()"
-            routerLink="/estudiante/chat"
-            fragment="contenedor"
-            routerLinkActive="active"
-            [routerLinkActiveOptions]="{ exact: true }"
-            >Ver chat</a
-          ><i class="fas fa-envelope"></i>
-        </li>
-        <li>
-          <a
-            (click)="toNavigate()"
-            fragment="contenedor"
-            routerLink="/estudiante/actividades"
-            routerLinkActive="active"
-            [routerLinkActiveOptions]="{ exact: true }"
-            >Ver actividades</a
-          ><i class="fas fa-list"></i>
-        </li>
-        <li>
-          <a
-            (click)="toNavigate()"
-            fragment="contenedor"
-            routerLink="/estudiante/ver-historial"
-            routerLinkActive="active"
-            [routerLinkActiveOptions]="{ exact: true }"
-            >Ver instrumentos</a
-          ><i class="fas fa-clock"></i>
-        </li>
-        <li>
-          <a
-            (click)="toNavigate()"
-            fragment="contenedor"
-            routerLink="/estudiante"
-            routerLinkActive="active"
-            [routerLinkActiveOptions]="{ exact: true }"
-            >Ver riesgos</a
-          ><i class="fas fa-hand-holding-medical"></i>
-        </li>
-        <li>
-          <a
-            (click)="toNavigate()"
-            fragment="contenedor"
-            routerLink="/estudiante/perfil-academico"
-            routerLinkActive="active"
-            [routerLinkActiveOptions]="{ exact: true }"
-            >Perfil académico</a
-          ><i class="fas fa-book-open"></i>
-        </li>
+        <ng-container *ngFor="let route of routes">
+          <li *ngIf="route.isAllowed(user.role)">
+            <a
+              (click)="toNavigate()"
+              fragment="contenedor"
+              [routerLink]="[route.path]"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
+              >{{ route.name }}</a
+            ><i class="fas fa-{{ route.icon }}"></i>
+          </li>
+        </ng-container>
       </ul>
     </div>
   </div>
@@ -101,11 +64,21 @@
   <p><i class="fas fa-phone"></i> 3123456789</p>
   <p><i class="fas fa-id-card"></i> 70041053</p>
   <p><i class="fas fa-map-marker-alt"></i> Ciudad, Departamento</p>
-  <p (click)="updateProfile()" class="active pointer">
+  <p
+    *ngIf="user.role === 'estudiante'"
+    (click)="updateProfile()"
+    class="active pointer"
+  >
     <i class="fas fa-edit"></i> Editar perfil
   </p>
-  <button>
+  <button *ngIf="user.role === 'docente'">
     Postular estudiante <i class="fas fa-hand-holding-medical"></i>
+  </button>
+  <button *ngIf="user.role === 'estudiante'">
+    Solicitar Ayuda <i class="fas fa-hand-holding"></i>
+  </button>
+  <button *ngIf="user.role === 'vicerrector'">
+    Aplicar seguimiento <i class="fas fa-hand-point-left"></i>
   </button>
 </div>
 <app-update-profile

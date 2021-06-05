@@ -1,5 +1,11 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Location } from '@angular/common';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/app.reducers';
+import { User } from 'src/app/model/auth';
+import { Subscription } from 'rxjs';
+import { MenuOptions } from 'src/app/model/ui';
+import { menuRoutes } from 'src/app/model/data';
 
 @Component({
   selector: 'app-profile-card',
@@ -9,11 +15,19 @@ import { Location } from '@angular/common';
 export class ProfileCardComponent implements OnInit {
   @ViewChild('checkbox') checkbox: ElementRef;
 
-  constructor(private location: Location) {}
+  user: User = null;
+  subscription: Subscription = new Subscription();
+  routes: MenuOptions[] = menuRoutes;
+
+  constructor(private location: Location, private store: Store<AppState>) {}
 
   showUpdateProfile: boolean = false;
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.subscription = this.store.select('auth').subscribe(({ user }) => {
+      this.user = user;
+    });
+  }
 
   goBack() {
     this.location.back();

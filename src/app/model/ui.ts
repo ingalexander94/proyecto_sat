@@ -8,20 +8,27 @@ export interface ItemRisk {
   urlImg: String;
   items: String[];
 }
-export interface ActivitiesList{
-  date:String;
-  name:String;
-  icon:String;
+export interface ActivitiesList {
+  date: String;
+  name: String;
+  icon: String;
 }
-export interface Postulates{
-  num:number;
-  name:String;
-  code:number;
-  icon:String;
+export interface Postulates {
+  num: number;
+  name: String;
+  code: number;
+  icon: String;
 }
 
-export interface ServicesWellness{
-  num:number;
-  name:String;
-  icon:String;
+export interface ServicesWellness {
+  num: number;
+  name: String;
+  icon: String;
+}
+
+export interface MenuOptions {
+  path: String;
+  icon: String;
+  name: String;
+  isAllowed: (role: String) => boolean;
 }
