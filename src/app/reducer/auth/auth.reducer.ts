@@ -6,6 +6,7 @@ export interface AuthState {
 }
 
 const initState: AuthState = {
+<<<<<<< HEAD
   user: {
     names: 'Niver Daniel',
     surnames: 'Romero Manrique',
@@ -16,6 +17,19 @@ const initState: AuthState = {
     photo: '',
     role: 'vicerrector',
   },
+=======
+
+  user:{
+    names:"Nier Daneil",
+    surnames:"Romero Manrique",
+    document:"1090765466",
+    password:"987654321",
+    code:"1151157",
+    email:"niverdanielrm@ufps.edu.co",
+    photo:"",
+    role:"docente"  
+  }
+>>>>>>> 54d88c78c5214b34159b9948c187672e07f35ffc
 };
 
 export const authReducer = (

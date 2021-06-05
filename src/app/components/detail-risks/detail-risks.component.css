@@ -80,6 +80,7 @@
 }
 /* Desktop */
 @media (min-width: 1152px) {
+  
   .content {
     margin-left: 100px;
   }
