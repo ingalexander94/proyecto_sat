@@ -1,4 +1,10 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
@@ -13,6 +19,7 @@ import { RemoveUserAction } from 'src/app/reducer/auth/auth.actions';
 export class NavbarComponent implements OnInit, OnDestroy {
   title: String;
   subscription: Subscription = new Subscription();
+  @ViewChild('menuNavBar') menuNavBar: ElementRef;
 
   constructor(private router: Router, private store: Store<AppState>) {}
 
@@ -22,12 +29,16 @@ export class NavbarComponent implements OnInit, OnDestroy {
       .subscribe(({ titleNavbar }) => (this.title = titleNavbar));
   }
 
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
-  }
-
   logout() {
     this.store.dispatch(new RemoveUserAction());
     this.router.navigate(['/iniciar-sesion']);
+  }
+
+  closeMenu() {
+    this.menuNavBar.nativeElement.checked = false;
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 }

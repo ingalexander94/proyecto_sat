@@ -1,11 +1,19 @@
 <div class="wrapper">
   <nav>
-    <input type="checkbox" id="show-menu" />
+    <input type="checkbox" id="show-menu" #menuNavBar />
     <div class="content">
       <div class="logo">{{ title }}</div>
       <ul class="links">
-        <li><a class="active" href="#">Inicio</a></li>
-        <li><a href="#">Crear Reportes</a></li>
+        <li>
+          <a
+            (click)="closeMenu()"
+            routerLink="/vicerrector/postulados"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            >Ver postulados</a
+          >
+        </li>
+        <li><a (click)="closeMenu()" href="#">Crear Reportes</a></li>
         <li><a class="pointer" (click)="logout()">Salir</a></li>
       </ul>
     </div>

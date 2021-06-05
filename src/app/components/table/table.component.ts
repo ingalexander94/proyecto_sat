@@ -1,22 +1,15 @@
-import { Component,  OnInit } from '@angular/core';
-import { postulates } from 'src/app/model/data';
-import { Postulates } from 'src/app/model/ui';
-import { UiService } from 'src/app/services/ui.service';
+import { Component, Input, OnInit } from '@angular/core';
+import { StudentInDanger } from 'src/app/model/ui';
 
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
-  styleUrls: ['./table.component.css']
+  styleUrls: ['./table.component.css'],
 })
 export class TableComponent implements OnInit {
- postulateList :Postulates[]=postulates;
-  constructor( private uiservice: UiService) { 
-  
-    console.log(postulates);
-  }
+  @Input() props: { students: StudentInDanger[]; type: String };
 
-  ngOnInit(): void {
-    
-  }
+  constructor() {}
 
+  ngOnInit(): void {}
 }

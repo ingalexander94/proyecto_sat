@@ -1,3 +1,5 @@
+import { Student } from './course';
+
 export interface Title {
   title: String;
   subtitle: String;
@@ -13,11 +15,10 @@ export interface ActivitiesList {
   name: String;
   icon: String;
 }
-export interface Postulates {
-  num: number;
-  name: String;
-  code: number;
-  icon: String;
+export interface StudentInDanger {
+  student: Student;
+  date: Date;
+  postulatorRole: String;
 }
 
 export interface ServicesWellness {

@@ -1,15 +1,25 @@
 import { Component, OnInit } from '@angular/core';
+import { postulates } from 'src/app/model/data';
+import { StudentInDanger, Title } from 'src/app/model/ui';
 
 @Component({
   selector: 'app-postulate-list',
   templateUrl: './postulate-list.component.html',
-  styleUrls: ['./postulate-list.component.css']
+  styleUrls: ['./postulate-list.component.css'],
 })
 export class PostulateListComponent implements OnInit {
+  title: Title = {
+    title: 'Lista de postulados',
+    subtitle:
+      'Estudiantes postulados para ser tenidos en cuenta por su tipo de riesgo',
+  };
 
-  constructor() { }
+  myProps = {
+    type: 'postulator',
+    students: postulates,
+  };
 
-  ngOnInit(): void {
-  }
+  constructor() {}
 
+  ngOnInit(): void {}
 }

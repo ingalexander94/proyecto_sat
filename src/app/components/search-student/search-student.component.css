@@ -3,97 +3,70 @@
 }
 .title {
   display: flex;
-  margin: 10px;
+  justify-content: space-evenly;
+  align-items: center;
 }
-.title h1 {
-  font-weight: bold;
-  font-size: 25px;
-}
+
+.title h1,
 .title i {
   font-weight: bold;
-  font-size: 25px;
-  width: 30px;
-  margin-right: 48px;
-  padding-top: 7px;
+  font-size: 30px;
+}
+.title i {
   color: var(--red-primary-color);
 }
-.search {
-  background: var(--gray-menu);
-  margin: 16px 32px;
-  height: 32px;
-  padding: 5px;
-  text-align: left;
-  border-radius: 16px;
+
+.form_input {
+  margin: 16px auto;
 }
-.search h3 {
-  font-size: 16px;
-  color: var(--gray-table);
-}
-.search i {
-  font-size: 16px;
+
+.form_input i {
   color: var(--red-primary-color);
-  margin: 0px 10px;
 }
+
 h4 {
-  margin: 16px;
-  font-size: 14px;
-  text-align: left;
   color: var(--gray-dark-color);
+  margin: 32px auto;
+  font-size: 18px;
 }
+
 /* Tablet and Desktop */
 @media (min-width: 768px) {
   .content {
     text-align: center;
-    margin: 32px;
+  }
 
+  .form_input {
+    width: 50vw;
+    margin-bottom: 32px;
   }
-  .title h1 {
-    font-size: 40px;
-  
+
+  .form_input input {
+    font-size: 20px;
   }
+
+  .title {
+    justify-content: space-between;
+    margin: 48px;
+  }
+
+  .title h1,
   .title i {
-    font-size: 25px;
-    padding: 20px;
-    margin-right: 150px;
+    font-size: 35px;
   }
-  .search {
-    height: 64px;
-    border-radius: 32px;
+
+  .title h1 {
+    width: 110%;
   }
-  .search h3 {
-    padding: 10px;
-    font-size: 24px;
-  }
+
   h4 {
-    margin: 10px 50px;
     font-size: 28px;
-    width: 600px;
+    margin: 0 32px;
   }
 }
 /* Desktop */
 @media (min-width: 1152px) {
-    .content {
-        text-align: center;
-        margin: 16px;
-      }
-      .title h1 {
-        font-size: 51px;
-      }
-      .title i {
-        font-size: 25px;
-        padding: 20px;
-        margin-right: 450px;
-      }
-      .search {
-        height: 64px;
-        width: 700px;
-        border-radius: 32px;
-        margin: 48px 350px;
-      }
-      
-      h4 {
-        margin: 48px 300px;
-        width: 850px;
-        text-align: left;
-      }
+  .title i {
+    margin-left: 22px;
+  }
 }
