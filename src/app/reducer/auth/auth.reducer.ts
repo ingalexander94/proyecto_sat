@@ -6,7 +6,17 @@ export interface AuthState {
 }
 
 const initState: AuthState = {
-  user: null,
+
+  user:{
+    names:"Nier Daneil",
+    surnames:"Romero Manrique",
+    document:"1090765466",
+    password:"987654321",
+    code:"1151157",
+    email:"niverdanielrm@ufps.edu.co",
+    photo:"",
+    role:"bienestar"  
+  }
 };
 
 export const authReducer = (

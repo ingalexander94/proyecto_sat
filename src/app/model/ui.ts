@@ -32,3 +32,4 @@ export interface MenuOptions {
   name: String;
   isAllowed: (role: String) => boolean;
 }
+

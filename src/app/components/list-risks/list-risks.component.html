@@ -1,39 +1,14 @@
 <div class="list_risks">
-  <div class="risk">
-    <h4 (click)="updateRisk()">Académico <i class="fas fa-caret-down"></i></h4>
-    <p>No presenta riesgos para está categoria</p>
-    <i
-      (click)="onNavigateToRisk('/estudiante/riesgo-academico')"
-      class="fas fa-id-badge pointer"
-    ></i>
-  </div>
-  <div class="risk">
-    <h4 (click)="updateRisk()">Económico <i class="fas fa-caret-down"></i></h4>
-    <p>No presenta riesgos para está categoria</p>
-    <i
-      (click)="onNavigateToRisk('/estudiante/riesgo-economico')"
-      class="fas fa-hand-holding-usd pointer"
-    ></i>
-  </div>
-  <div class="risk">
-    <h4 (click)="updateRisk()">Individual <i class="fas fa-caret-down"></i></h4>
-    <p>No presenta riesgos para está categoria</p>
-    <i
-      (click)="onNavigateToRisk('/estudiante/riesgo-individual')"
-      class="fas fa-male pointer"
-    ></i>
-  </div>
-  <div class="risk">
+  <div class="risk" *ngFor="let risk of risksDetail">
     <h4 (click)="updateRisk()">
-      Institucional <i class="fas fa-caret-down"></i>
+      {{ risk.name }} <i *ngIf="user.role ==='vicerrector'" class="fas fa-caret-down"></i>
     </h4>
-    <p>No presenta riesgos para está categoria</p>
+    <p>{{ risk.description}}</p>
     <i
-      (click)="onNavigateToRisk('/estudiante/riesgo-institucional')"
-      class="fas fa-university pointer"
+      (click)="onNavigateToRisk('/estudiante/riesgo-'+risk.path)"
+      class="fas fa-{{risk.icon}} pointer"
     ></i>
   </div>
 </div>
 
 <app-alert *ngIf="showAlert" (isClosed)="updateRisk($event)"></app-alert>
-
