@@ -1,3 +1,4 @@
+import { Risk } from './risk';
 import {
   ActivitiesList,
   ItemRisk,

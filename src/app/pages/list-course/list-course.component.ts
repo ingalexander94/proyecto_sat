@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { Subscription } from 'rxjs';
+import { AppState } from 'src/app/app.reducers';
+import { User } from 'src/app/model/auth';
 import { Course } from 'src/app/model/course';
 import { Title } from 'src/app/model/ui';
 import { UiService } from 'src/app/services/ui.service';
@@ -38,13 +42,29 @@ export class ListCourseComponent implements OnInit {
     subtitle: 'Materias que se encuentran activas durante el semestre actual.',
   };
 
-  constructor(private router: Router, private uiService: UiService) {
+  user: User;
+  subscription: Subscription= new Subscription;
+
+
+  constructor(private router: Router, private uiService: UiService,
+    private store: Store<AppState>) {
     this.uiService.updateTitleNavbar();
+    
   }
 
-  ngOnInit(): void {}
+
+  
+
+  ngOnInit(): void {
+    this.subscription=this.store.select("auth").subscribe(({user})=>this.user=user);
+  }
 
   onNavigateToCourse() {
-    this.router.navigate(['/docente/materia']);
+    if(this.user.role === "docente"){
+      this.router.navigate(['/docente/materia']);
+    }else {
+      this.router.navigate(['/estudiante']);
+    }
+    
   }
 }
