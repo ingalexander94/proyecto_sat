@@ -140,6 +140,33 @@ export const menuRoutes: MenuOptions[] = [
   },
 ];
 
+export const risks: Risk[] = [
+  {
+    name: 'Académico',
+    description: 'No presenta riesgos para está categoría',
+    icon: 'id-badge',
+    path: 'academico',
+  },
+  {
+    name: 'Económico',
+    description: 'No presenta riesgos para está categoría',
+    icon: 'hand-holding-usd',
+    path: 'economico',
+  },
+  {
+    name: 'Individual',
+    description: 'No presenta riesgos para está categoría',
+    icon: 'male',
+    path: 'individual',
+  },
+  {
+    name: 'Institucional',
+    description: 'No presenta riesgos para está categoría',
+    icon: 'university',
+    path: 'institucional',
+  },
+];
+
 // Estudiantes que han postulado
 
 export const postulates: StudentInDanger[] = [

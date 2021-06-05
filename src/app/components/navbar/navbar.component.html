@@ -4,7 +4,7 @@
     <div class="content">
       <div class="logo">{{ title }}</div>
       <ul class="links">
-        <li>
+        <li *ngIf="roleUser === 'vicerrector'">
           <a
             (click)="closeMenu()"
             routerLink="/vicerrector/postulados"
