@@ -12,16 +12,17 @@
       <p>elcorreo@ufps.edu.co</p>
       <p><i class="fas fa-circle green"></i> Sin riesgo</p>
     </div>
-    <div class="menu-options">
+    <div  class="menu-options">
       <input
         type="checkbox"
         #checkbox
         id="showOptions"
         (blur)="closeMenu($event)"
       />
-      <label title="Ver opciones" class="pointer" for="showOptions"
+      <label  title="Ver opciones" class="pointer" for="showOptions"
         ><i class="fas fa-caret-down"></i
       ></label>
+      
       <ul>
         <li>
           <a
@@ -65,21 +66,28 @@
   <p><i class="fas fa-id-card"></i> 70041053</p>
   <p><i class="fas fa-map-marker-alt"></i> Ciudad, Departamento</p>
   <p
-    *ngIf="user.role === 'estudiante'"
+    *ngIf="user.role === 'estudiante' && title !== 'Perfil Docente'"
     (click)="updateProfile()"
     class="active pointer"
   >
     <i class="fas fa-edit"></i> Editar perfil
   </p>
-  <button *ngIf="user.role === 'docente'">
-    Postular estudiante <i class="fas fa-hand-holding-medical"></i>
-  </button>
-  <button *ngIf="user.role === 'estudiante'">
-    Solicitar Ayuda <i class="fas fa-hand-holding"></i>
-  </button>
-  <button *ngIf="user.role === 'vicerrector'">
-    Aplicar seguimiento <i class="fas fa-hand-point-left"></i>
-  </button>
+  <div *ngIf="title === 'Perfil Docente' && user.role === 'estudiante'">
+    <button (click)="contact()" >
+      Contactar <i class="fas fa-handshake"></i>
+    </button>
+  </div>
+  <div *ngIf="title !== 'Perfil Docente'">
+    <button *ngIf="user.role === 'docente'">
+      Postular estudiante <i class="fas fa-hand-holding-medical"></i>
+    </button>
+    <button *ngIf="user.role === 'estudiante'">
+      Solicitar Ayuda <i class="fas fa-hand-holding"></i>
+    </button>
+    <button *ngIf="user.role === 'vicerrector'">
+      Aplicar seguimiento <i class="fas fa-hand-point-left"></i>
+    </button>
+  </div>
 </div>
 <app-update-profile
   *ngIf="showUpdateProfile"

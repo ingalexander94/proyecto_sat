@@ -63,7 +63,7 @@ export class ListCourseComponent implements OnInit {
     if(this.user.role === "docente"){
       this.router.navigate(['/docente/materia']);
     }else {
-      this.router.navigate(['/estudiante']);
+      this.router.navigate(['/docente/perfil']);
     }
     
   }

@@ -27,6 +27,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.store
       .select('ui')
       .subscribe(({ titleNavbar }) => (this.title = titleNavbar));
+     
   }
 
   logout() {

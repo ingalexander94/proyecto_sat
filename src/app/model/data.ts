@@ -140,37 +140,6 @@ export const menuRoutes: MenuOptions[] = [
   },
 ];
 
-<<<<<<< HEAD
-//Riesgos
-
-export  const risks:Risk[]=[
-  {
-    name:"Académico",
-    description:"No presenta riesgos para está categoría",
-    icon:"id-badge",
-    path:"academico"
-  },
-  {
-    name:"Económico",
-    description:"No presenta riesgos para está categoría",
-    icon:"hand-holding-usd",
-    path:"economico"
-  },
-  {
-    name:"Individual",
-    description:"No presenta riesgos para está categoría",
-    icon:"male",
-    path:"individual"
-  },
-  {
-    name:"Institucional",
-    description:"No presenta riesgos para está categoría",
-    icon:"university",
-    path:"institucional"
-  },
-]
-
-=======
 // Estudiantes que han postulado
 
 export const postulates: StudentInDanger[] = [
@@ -235,4 +204,29 @@ export const inRisk: StudentInDanger[] = [
     postulatorRole: null,
   },
 ];
->>>>>>> f4f10a30612a9bd652c54ec3feee3bcabe88bb67
+export  const risks:Risk[]=[
+  {
+    name:"Académico",
+    description:"No presenta riesgos para está categoría",
+    icon:"id-badge",
+    path:"academico"
+  },
+  {
+    name:"Económico",
+    description:"No presenta riesgos para está categoría",
+    icon:"hand-holding-usd",
+    path:"economico"
+  },
+  {
+    name:"Individual",
+    description:"No presenta riesgos para está categoría",
+    icon:"male",
+    path:"individual"
+  },
+  {
+    name:"Institucional",
+    description:"No presenta riesgos para está categoría",
+    icon:"university",
+    path:"institucional"
+  },
+]

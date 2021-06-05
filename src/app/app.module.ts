@@ -32,6 +32,7 @@ import { FacultiesComponent } from './pages/faculties/faculties.component';
 import { SemesterComponent } from './pages/semester/semester.component';
 import { PostulateListComponent } from './pages/postulate-list/postulate-list.component';
 import { InRiskComponent } from './pages/in-risk/in-risk.component';
+import { ProfileTeacherComponent } from './pages/profile-teacher/profile-teacher.component';
 
 
 @NgModule({
@@ -49,6 +50,7 @@ import { InRiskComponent } from './pages/in-risk/in-risk.component';
     FacultiesComponent,
     PostulateListComponent,
     InRiskComponent,
+    ProfileTeacherComponent,
   ],
 
   imports: [
