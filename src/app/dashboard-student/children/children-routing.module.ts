@@ -27,11 +27,8 @@ const children: Routes = [
   { path: 'actividades', component: ActivitiesListComponent },
   { path: 'reunion', component: MeetingComponent },
   { path: 'notificar', component: WellnessNotificationComponent },
-<<<<<<< HEAD
   { path: 'buscar', component: SearchStudentComponent },
 
-=======
->>>>>>> 3361922f81638cf40d5a261ab6791f95483d5d67
 ];
 
 const routes: Routes = [{ path: '', component: ChildrenComponent, children }];
