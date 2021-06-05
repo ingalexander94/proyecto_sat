@@ -3,11 +3,11 @@ import {
   ActivitiesList,
   ItemRisk,
   MenuOptions,
-  Postulates,
   ServicesWellness,
+  StudentInDanger,
 } from './ui';
 
-// Riesgos
+// Item Riesgos
 export const itemsaEconomicRisks: ItemRisk = {
   icon: 'fa-hand-holding-usd',
   urlImg: 'economico.svg',
@@ -86,27 +86,6 @@ export const activities: ActivitiesList[] = [
   },
 ];
 
-export const postulates: Postulates[] = [
-  {
-    num: 1,
-    name: 'Niver Daniel Romero',
-    code: 1151157,
-    icon: 'fas fa-book',
-  },
-  {
-    num: 2,
-    name: 'Alexander Peñaloza',
-    code: 1151167,
-    icon: 'fas fa-book',
-  },
-  {
-    num: 3,
-    name: 'Cristiano Ronaldo',
-    code: 1151180,
-    icon: 'fas fa-male',
-  },
-];
-
 export const servicesWellness: ServicesWellness[] = [
   {
     num: 1,
@@ -161,6 +140,7 @@ export const menuRoutes: MenuOptions[] = [
   },
 ];
 
+<<<<<<< HEAD
 //Riesgos
 
 export  const risks:Risk[]=[
@@ -190,3 +170,69 @@ export  const risks:Risk[]=[
   },
 ]
 
+=======
+// Estudiantes que han postulado
+
+export const postulates: StudentInDanger[] = [
+  {
+    student: {
+      id: 1,
+      code: '1151163',
+      names: 'Luis Alexander',
+      surnames: 'Peñaloza Romero',
+      risk: 'leve',
+    },
+    date: new Date(),
+    postulatorRole: 'Docente',
+  },
+  {
+    student: {
+      id: 2,
+      code: '1151157',
+      names: 'Niver Daniel',
+      surnames: 'Romero Manrique',
+      risk: 'moderado',
+    },
+    date: new Date(),
+    postulatorRole: 'Estudiante',
+  },
+  {
+    student: {
+      id: 3,
+      code: '1151173',
+      names: 'Fabian',
+      surnames: 'Suarez Ruiz',
+      risk: 'critico',
+    },
+    date: new Date(),
+    postulatorRole: 'Docente',
+  },
+];
+
+// Estudiantes que estan en riesgo critico
+
+export const inRisk: StudentInDanger[] = [
+  {
+    student: {
+      id: 1,
+      code: '1151190',
+      names: 'Juan Guillermo',
+      surnames: 'Cuadrado',
+      risk: 'Acádemico',
+    },
+    date: new Date(),
+    postulatorRole: null,
+  },
+  {
+    student: {
+      id: 2,
+      code: '1151191',
+      names: 'James David',
+      surnames: 'Rodriguez Rubio',
+      risk: 'Individual',
+    },
+    date: new Date(),
+    postulatorRole: null,
+  },
+];
+>>>>>>> f4f10a30612a9bd652c54ec3feee3bcabe88bb67

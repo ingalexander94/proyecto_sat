@@ -1,46 +1,63 @@
-table{
-    margin: 16px;
-    width: 290px;
+.table {
+  position: relative;
+  margin: 16px;
 }
+
+.table p {
+  position: absolute;
+  right: 0;
+  margin-top: 16px;
+}
+
+table {
+  width: 90vw;
+  margin: auto;
+}
+
 th {
-    font-weight: bold;
+  font-weight: bold;
 }
-td{
-    margin: 10px;
-    text-align: center;
+td {
+  margin: 10px;
+  text-align: center;
 }
-td i{
-    color: var(--red-primary-color);
+.text_danger {
+  color: var(--red-primary-color);
 }
 table tbody tr:nth-child(odd) {
-    background: var(--gray-table);
-  }
+  background: var(--gray-table);
+}
 
 /* Tablet */
 
 @media (min-width: 768px) and (max-width: 1151px) {
-    table{
-        margin: 48px;
-        width: 658px;
-
-    }
-    th{
-        font-size: 25px;
-    }
-    td{
-        font-size: 25px;
-    }
+  table {
+    margin: 48px auto;
+  }
+  th {
+    font-size: 25px;
+  }
+  td {
+    font-size: 25px;
+  }
 }
 /* Desktop */
 @media (min-width: 1152px) {
-  table{
-      margin:  30px  150px;
-      width: 1060px;
-  }  
-  th{
+  table {
+    width: 95vw;
+  }
+  th {
     font-size: 25px;
-}
-td{
+  }
+  td {
     font-size: 25px;
-}
+  }
+
+  .table {
+    margin: 32px;
+  }
+
+  .table p {
+    font-size: 20px;
+  }
 }

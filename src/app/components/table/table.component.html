@@ -1,18 +1,31 @@
-<table>
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>Nombre</th>
-      <th>Codigo</th>
-      <th>Riesgo</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let item of postulateList">
-      <td>{{item.num}}</td>
-      <td>{{item.name}}</td>
-      <td>{{item.code}}</td>
-      <td><i class="fas {{item.icon}}"></i></td> 
-    </tr>
-  </tbody>
-</table>
+<div class="table">
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Codigo</th>
+        <th>Nombre</th>
+        <th *ngIf="props.type !== 'postulator'; else postulator">Riesgo</th>
+        <ng-template #postulator>
+          <th>Postulador</th>
+        </ng-template>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let student of props.students; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ student.student.code }}</td>
+        <td>{{ student.student.names }}</td>
+        <td class="text_danger">
+          {{
+            props.type === "postulator"
+              ? student.postulatorRole
+              : student.student.risk
+          }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p class="text_danger pointer">Descargar <i class="fas fa-download"></i></p>
+</div>
