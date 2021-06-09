@@ -26,7 +26,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
   constructor(private router: Router, private store: Store<AppState>) {}
 
   ngOnInit(): void {
-<<<<<<< HEAD
     this.subscription = this.store
       .pipe(
         map(({ auth, ui }) => ({
@@ -38,12 +37,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
         this.title = title;
         this.roleUser = role;
       });
-=======
-    this.store
-      .select('ui')
-      .subscribe(({ titleNavbar }) => (this.title = titleNavbar));
-     
->>>>>>> 54d88c78c5214b34159b9948c187672e07f35ffc
   }
 
   logout() {
@@ -57,5 +50,10 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
+  }
+
+  toHome() {
+    this.router.navigate([`/${this.roleUser}`]);
+    this.closeMenu();
   }
 }

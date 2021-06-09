@@ -43,28 +43,27 @@ export class ListCourseComponent implements OnInit {
   };
 
   user: User;
-  subscription: Subscription= new Subscription;
+  subscription: Subscription = new Subscription();
 
-
-  constructor(private router: Router, private uiService: UiService,
-    private store: Store<AppState>) {
+  constructor(
+    private router: Router,
+    private uiService: UiService,
+    private store: Store<AppState>
+  ) {
     this.uiService.updateTitleNavbar();
-    
   }
 
-
-  
-
   ngOnInit(): void {
-    this.subscription=this.store.select("auth").subscribe(({user})=>this.user=user);
+    this.subscription = this.store
+      .select('auth')
+      .subscribe(({ user }) => (this.user = user));
   }
 
   onNavigateToCourse() {
-    if(this.user.role === "docente"){
+    if (this.user.role === 'docente' || this.user.role === 'jefe') {
       this.router.navigate(['/docente/materia']);
-    }else {
+    } else {
       this.router.navigate(['/docente/perfil']);
     }
-    
   }
 }

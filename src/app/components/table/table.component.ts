@@ -9,7 +9,13 @@ import { StudentInDanger } from 'src/app/model/ui';
 export class TableComponent implements OnInit {
   @Input() props: { students: StudentInDanger[]; type: String };
 
+  showInfoPostulate: boolean = false;
+
   constructor() {}
 
   ngOnInit(): void {}
+
+  updatePostulateModal(show: boolean = true) {
+    this.showInfoPostulate = show;
+  }
 }

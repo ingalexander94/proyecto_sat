@@ -21,6 +21,6 @@ export class AuthService {
       this.store.dispatch(new AddUserAction(user));
       this.router.navigate([`/${user.role.toLowerCase()}`]);
       this.store.dispatch(new FinishLoadingAction());
-    }, 2000);
+    }, 1000);
   }
 }

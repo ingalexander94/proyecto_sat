@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { postulates } from 'src/app/model/data';
 import { StudentInDanger, Title } from 'src/app/model/ui';
+import { UiService } from 'src/app/services/ui.service';
 
 @Component({
   selector: 'app-postulate-list',
@@ -19,7 +20,9 @@ export class PostulateListComponent implements OnInit {
     students: postulates,
   };
 
-  constructor() {}
+  constructor(private uiService: UiService) {
+    this.uiService.updateTitleNavbar('Postulados');
+  }
 
   ngOnInit(): void {}
 }

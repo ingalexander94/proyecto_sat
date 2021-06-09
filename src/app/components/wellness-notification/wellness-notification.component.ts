@@ -9,18 +9,13 @@ import { UiService } from 'src/app/services/ui.service';
   styleUrls: ['./wellness-notification.component.css'],
 })
 export class WellnessNotificationComponent implements OnInit {
-  showDate :boolean =false;
-  servicesWellnesslist: ServicesWellness[]=servicesWellness;
+  showDate: boolean = false;
+  servicesWellnesslist: ServicesWellness[] = servicesWellness;
   constructor(private iuservices: UiService) {
-    this.iuservices.updateTitleNavbar("Notificar Bienestar");
-  
-
-   }
-
-  ngOnInit(): void {
+    this.iuservices.updateTitleNavbar('Perfil');
   }
 
-  
+  ngOnInit(): void {}
 
   ShowDateNotification(show: boolean = true) {
     this.showDate = show;

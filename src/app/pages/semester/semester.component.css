@@ -44,6 +44,10 @@
   font-weight: bold;
 }
 
+.row_header {
+  margin-top: 32px;
+}
+
 /* Tablet */
 
 @media (min-width: 768px) {

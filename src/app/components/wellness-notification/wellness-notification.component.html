@@ -20,9 +20,9 @@
     </thead>
     <tbody>
       <tr *ngFor="let item of servicesWellnesslist">
-        <td>{{item.num}}</td>
-        <td>{{item.name}}</td>
-        <td><i class="fas {{item.icon}} "></i></td>
+        <td>{{ item.num }}</td>
+        <td>{{ item.name }}</td>
+        <td><i class="fas {{ item.icon }} "></i></td>
       </tr>
     </tbody>
   </table>
@@ -37,5 +37,4 @@
 <app-notification-date
   *ngIf="showDate"
   (isClosed)="ShowDateNotification($event)"
-  >hola como estas</app-notification-date
->
+></app-notification-date>

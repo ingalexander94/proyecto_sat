@@ -20,7 +20,11 @@ import { NotificationDateComponent } from './notification-date/notification-date
 import { SearchStudentComponent } from './search-student/search-student.component';
 import { TableComponent } from './table/table.component';
 import { FormsModule } from '@angular/forms';
-
+import { StatisticsRiskComponent } from './statistics-risk/statistics-risk.component';
+import { TableRiskComponent } from './table-risk/table-risk.component';
+import { ButtonFollowComponent } from './button-follow/button-follow.component';
+import { ModalDescriptionComponent } from './modal-description/modal-description.component';
+import { ModalPostulateComponent } from './modal-postulate/modal-postulate.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +46,11 @@ import { FormsModule } from '@angular/forms';
     NotificationDateComponent,
     SearchStudentComponent,
     TableComponent,
+    StatisticsRiskComponent,
+    TableRiskComponent,
+    ButtonFollowComponent,
+    ModalDescriptionComponent,
+    ModalPostulateComponent,
   ],
   exports: [
     AlertComponent,
@@ -55,6 +64,9 @@ import { FormsModule } from '@angular/forms';
     MeetingComponent,
     SearchStudentComponent,
     TableComponent,
+    StatisticsRiskComponent,
+    TableRiskComponent,
+    ButtonFollowComponent,
   ],
   imports: [CommonModule, RouterModule, FormsModule],
 })

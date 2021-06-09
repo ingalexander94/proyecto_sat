@@ -1,5 +1,5 @@
 .content {
-  max-height: 100vh;
+  max-height: 120vh;
   min-width: 100vw;
   overflow: hidden;
   background: var(--gray-color);
@@ -25,9 +25,10 @@ h1 {
 }
 
 .auth_roles {
-  display: flex;
-  justify-content: space-between;
-  margin: 16px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 16px;
 }
 
 .role {
@@ -120,6 +121,7 @@ button:disabled {
     align-items: center;
     justify-content: space-between;
     padding: 32px 112px;
+    max-height: 100vh;
   }
 
   .form_input,
@@ -151,6 +153,13 @@ button:disabled {
   .auth_roles,
   .auth_header {
     width: 100%;
+  }
+
+  .auth_roles {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 16px;
   }
 
   .auth_header {

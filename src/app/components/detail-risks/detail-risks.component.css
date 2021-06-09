@@ -1,3 +1,7 @@
+.content {
+  text-align: initial;
+}
+
 .icon {
   color: var(--white);
   background: var(--red-primary-color);
@@ -80,7 +84,6 @@
 }
 /* Desktop */
 @media (min-width: 1152px) {
-  
   .content {
     margin-left: 100px;
   }

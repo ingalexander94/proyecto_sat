@@ -1,22 +1,17 @@
 <div class="wrapper_faculties">
   <h1>Listado de facultades</h1>
   <div class="form_input">
-    <input type="text" placeholder="Buscar" id="search" name="search" />
+    <input
+      type="text"
+      placeholder="Buscar estudiante"
+      id="search"
+      name="search"
+    />
     <i class="fas fa-search fa-fw"></i>
   </div>
-  <div class="statistics">
-    <div class="mild">
-      <h3>1</h3>
-      <p>Leve</p>
-    </div>
-    <div class="moderate">
-      <h3>2</h3>
-      <p>Moderado</p>
-    </div>
-    <div class="critical pointer" (click)="goToInRisk()">
-      <h3>3</h3>
-      <p>Crítico</p>
-    </div>
+
+  <div class="row_header">
+    <app-statistics-risk></app-statistics-risk>
   </div>
 
   <div class="accordion">

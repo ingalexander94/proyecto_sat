@@ -33,7 +33,7 @@ import { SemesterComponent } from './pages/semester/semester.component';
 import { PostulateListComponent } from './pages/postulate-list/postulate-list.component';
 import { InRiskComponent } from './pages/in-risk/in-risk.component';
 import { ProfileTeacherComponent } from './pages/profile-teacher/profile-teacher.component';
-
+import { SemesterWellnessComponent } from './pages/semester-wellness/semester-wellness.component';
 
 @NgModule({
   declarations: [
@@ -51,14 +51,16 @@ import { ProfileTeacherComponent } from './pages/profile-teacher/profile-teacher
     PostulateListComponent,
     InRiskComponent,
     ProfileTeacherComponent,
+    SemesterComponent,
+    SemesterWellnessComponent,
   ],
 
   imports: [
+    AppRoutingModule,
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    AppRoutingModule,
     ComponentsModule,
     StoreModule.forRoot(combineReducer),
     StoreDevtoolsModule.instrument({

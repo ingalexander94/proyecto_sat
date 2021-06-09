@@ -4,11 +4,13 @@
       <tr>
         <th>#</th>
         <th>Codigo</th>
-        <th>Nombre</th>
+        <th>Estudiante</th>
+        <th>Fecha</th>
         <th *ngIf="props.type !== 'postulator'; else postulator">Riesgo</th>
         <ng-template #postulator>
-          <th>Postulador</th>
+          <th>Postulado por</th>
         </ng-template>
+        <th>Acciones</th>
       </tr>
     </thead>
     <tbody>
@@ -16,16 +18,34 @@
         <td>{{ i + 1 }}</td>
         <td>{{ student.student.code }}</td>
         <td>{{ student.student.names }}</td>
-        <td class="text_danger">
+        <td>{{ student.date | date: "mediumDate" }}</td>
+        <td>
           {{
             props.type === "postulator"
               ? student.postulatorRole
               : student.student.risk
           }}
         </td>
+        <td class="icons">
+          <i
+            routerLink="/estudiante"
+            title="Ver"
+            class="fas fa-search pointer fa-fw text_danger"
+          ></i>
+          |
+          <i
+            class="fas fa-clipboard-check fa-fw text_danger pointer"
+            title="Ver descripción"
+            (click)="updatePostulateModal()"
+          ></i>
+        </td>
       </tr>
     </tbody>
   </table>
-
-  <p class="text_danger pointer">Descargar <i class="fas fa-download"></i></p>
 </div>
+<p class="text_danger pointer">Descargar <i class="fas fa-download"></i></p>
+
+<app-modal-postulate
+  *ngIf="showInfoPostulate"
+  (isClosed)="updatePostulateModal($event)"
+></app-modal-postulate>

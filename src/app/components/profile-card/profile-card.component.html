@@ -12,37 +12,45 @@
       <p>elcorreo@ufps.edu.co</p>
       <p><i class="fas fa-circle green"></i> Sin riesgo</p>
     </div>
-    <div  class="menu-options">
+    <div class="menu-options">
       <input
         type="checkbox"
         #checkbox
         id="showOptions"
         (blur)="closeMenu($event)"
       />
-      <label  title="Ver opciones" class="pointer" for="showOptions"
+      <label
+        *ngIf="
+          user.role !== 'estudiante' &&
+            (title === 'Perfil Docente' || title === 'Perfil');
+          else hidden
+        "
+        title="Ver opciones"
+        class="pointer"
+        for="showOptions"
         ><i class="fas fa-caret-down"></i
       ></label>
-      
+      <ng-template #hidden>
+        <label
+          *ngIf="title !== 'Perfil Docente' && user.role === 'estudiante'"
+          title="Ver opciones"
+          class="pointer"
+          for="showOptions"
+          ><i class="fas fa-caret-down"></i
+        ></label>
+      </ng-template>
+
       <ul>
-        <li>
-          <a
-            *ngIf="user.role !== 'vicerrector'"
-            routerLink="/docente"
+        <ng-container *ngFor="let route of routes">
+          <li
+            *ngIf="route.isAllowed(user.role)"
+            (click)="toNavigate()"
+            fragment="contenedor"
+            [routerLink]="[route.path]"
             routerLinkActive="active"
             [routerLinkActiveOptions]="{ exact: true }"
-            >Ver materias</a
-          ><i class="fab fa-buffer"></i>
-        </li>
-        <ng-container *ngFor="let route of routes">
-          <li *ngIf="route.isAllowed(user.role)">
-            <a
-              (click)="toNavigate()"
-              fragment="contenedor"
-              [routerLink]="[route.path]"
-              routerLinkActive="active"
-              [routerLinkActiveOptions]="{ exact: true }"
-              >{{ route.name }}</a
-            ><i class="fas fa-{{ route.icon }}"></i>
+          >
+            {{ route.name }} <i class="fas fa-{{ route.icon }}"></i>
           </li>
         </ng-container>
       </ul>
@@ -73,23 +81,32 @@
     <i class="fas fa-edit"></i> Editar perfil
   </p>
   <div *ngIf="title === 'Perfil Docente' && user.role === 'estudiante'">
-    <button (click)="contact()" >
+    <button (click)="contact()">
       Contactar <i class="fas fa-handshake"></i>
     </button>
   </div>
   <div *ngIf="title !== 'Perfil Docente'">
-    <button *ngIf="user.role === 'docente'">
+    <button
+      (click)="updateShowDescription()"
+      *ngIf="user.role === 'docente' || user.role === 'jefe'"
+    >
       Postular estudiante <i class="fas fa-hand-holding-medical"></i>
     </button>
-    <button *ngIf="user.role === 'estudiante'">
+    <button
+      (click)="updateShowDescription()"
+      *ngIf="user.role === 'estudiante'"
+    >
       Solicitar Ayuda <i class="fas fa-hand-holding"></i>
-    </button>
-    <button *ngIf="user.role === 'vicerrector'">
-      Aplicar seguimiento <i class="fas fa-hand-point-left"></i>
     </button>
   </div>
 </div>
+
 <app-update-profile
   *ngIf="showUpdateProfile"
   (isClosed)="updateProfile($event)"
 ></app-update-profile>
+
+<app-modal-description
+  *ngIf="showDescription"
+  (isClosed)="updateShowDescription($event)"
+></app-modal-description>

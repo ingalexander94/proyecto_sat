@@ -140,36 +140,6 @@ export const menuRoutes: MenuOptions[] = [
   },
 ];
 
-<<<<<<< HEAD
-export const risks: Risk[] = [
-  {
-    name: 'Académico',
-    description: 'No presenta riesgos para está categoría',
-    icon: 'id-badge',
-    path: 'academico',
-  },
-  {
-    name: 'Económico',
-    description: 'No presenta riesgos para está categoría',
-    icon: 'hand-holding-usd',
-    path: 'economico',
-  },
-  {
-    name: 'Individual',
-    description: 'No presenta riesgos para está categoría',
-    icon: 'male',
-    path: 'individual',
-  },
-  {
-    name: 'Institucional',
-    description: 'No presenta riesgos para está categoría',
-    icon: 'university',
-    path: 'institucional',
-  },
-];
-
-=======
->>>>>>> 54d88c78c5214b34159b9948c187672e07f35ffc
 // Estudiantes que han postulado
 
 export const postulates: StudentInDanger[] = [
@@ -182,7 +152,7 @@ export const postulates: StudentInDanger[] = [
       risk: 'leve',
     },
     date: new Date(),
-    postulatorRole: 'Docente',
+    postulatorRole: 'Docente - Matías Herrera',
   },
   {
     student: {
@@ -193,7 +163,7 @@ export const postulates: StudentInDanger[] = [
       risk: 'moderado',
     },
     date: new Date(),
-    postulatorRole: 'Estudiante',
+    postulatorRole: 'Estudiante - Niver Romero',
   },
   {
     student: {
@@ -204,7 +174,7 @@ export const postulates: StudentInDanger[] = [
       risk: 'critico',
     },
     date: new Date(),
-    postulatorRole: 'Docente',
+    postulatorRole: 'Docente - Miltón Vera',
   },
 ];
 
@@ -234,32 +204,29 @@ export const inRisk: StudentInDanger[] = [
     postulatorRole: null,
   },
 ];
-<<<<<<< HEAD
-=======
-export  const risks:Risk[]=[
+export const risks: Risk[] = [
   {
-    name:"Académico",
-    description:"No presenta riesgos para está categoría",
-    icon:"id-badge",
-    path:"academico"
+    name: 'Académico',
+    description: 'No presenta riesgos para está categoría',
+    icon: 'id-badge',
+    path: 'academico',
   },
   {
-    name:"Económico",
-    description:"No presenta riesgos para está categoría",
-    icon:"hand-holding-usd",
-    path:"economico"
+    name: 'Económico',
+    description: 'No presenta riesgos para está categoría',
+    icon: 'hand-holding-usd',
+    path: 'economico',
   },
   {
-    name:"Individual",
-    description:"No presenta riesgos para está categoría",
-    icon:"male",
-    path:"individual"
+    name: 'Individual',
+    description: 'No presenta riesgos para está categoría',
+    icon: 'male',
+    path: 'individual',
   },
   {
-    name:"Institucional",
-    description:"No presenta riesgos para está categoría",
-    icon:"university",
-    path:"institucional"
+    name: 'Institucional',
+    description: 'No presenta riesgos para está categoría',
+    icon: 'university',
+    path: 'institucional',
   },
-]
->>>>>>> 54d88c78c5214b34159b9948c187672e07f35ffc
+];
