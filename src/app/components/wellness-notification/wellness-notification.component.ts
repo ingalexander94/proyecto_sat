@@ -13,15 +13,10 @@ export class WellnessNotificationComponent implements OnInit {
   servicesWellnesslist: ServicesWellness[]=servicesWellness;
   servicesWellnesReslist: ServicesWellnessRe[]=servicesWellnessRe;
   constructor(private iuservices: UiService) {
-    this.iuservices.updateTitleNavbar("Notificar Bienestar");
-  
-
-   }
-
-  ngOnInit(): void {
+    this.iuservices.updateTitleNavbar('Perfil');
   }
 
-  
+  ngOnInit(): void {}
 
   ShowDateNotification(show: boolean = true) {
     this.showDate = show;

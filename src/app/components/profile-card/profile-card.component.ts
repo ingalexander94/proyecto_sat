@@ -21,11 +21,14 @@ export class ProfileCardComponent implements OnInit {
   subscription: Subscription = new Subscription();
   routes: MenuOptions[] = menuRoutes;
   title: String;
-
-  constructor(private location: Location, private store: Store<AppState>,
-     private router: Router) {}
-
   showUpdateProfile: boolean = false;
+  showDescription: boolean = false;
+
+  constructor(
+    private location: Location,
+    private store: Store<AppState>,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.subscription = this.store
@@ -48,16 +51,23 @@ export class ProfileCardComponent implements OnInit {
     this.showUpdateProfile = show;
   }
 
+  updateShowDescription(show: boolean = true) {
+    this.showDescription = show;
+  }
+
   closeMenu(e: FocusEvent) {
     if (!e.relatedTarget) {
       this.toNavigate();
     }
   }
-  contact(){
-    this.router.navigate(["/estudiante/chat"], 
-    {
-      fragment:"contenedor"
-    });
 
+  contact() {
+    this.router.navigate(['/estudiante/chat'], {
+      fragment: 'contenedor',
+    });
+  }
+
+  toFollowUp() {
+    this.router.navigate(['/estudiante/notificar']);
   }
 }

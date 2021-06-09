@@ -30,6 +30,11 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'jefe',
+    loadChildren: () =>
+      import('./dashboard-boss/boss.module').then((m) => m.BossModule),
+  },
+  {
     path: '**',
     redirectTo: 'iniciar-sesion',
   },

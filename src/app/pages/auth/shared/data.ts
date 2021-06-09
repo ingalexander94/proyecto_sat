@@ -8,6 +8,7 @@ interface Role {
   docente: DataRole;
   estudiante: DataRole;
   vicerrector: DataRole;
+  jefe: DataRole;
 }
 
 export const dataRoles: Role = {
@@ -25,5 +26,10 @@ export const dataRoles: Role = {
     icon: 'fa-user-check',
     isActive: false,
     text: 'Vicerrector',
+  },
+  jefe: {
+    icon: 'fa-user-tie',
+    isActive: false,
+    text: 'Jefe de plan',
   },
 };

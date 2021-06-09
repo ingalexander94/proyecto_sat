@@ -1,22 +1,42 @@
 <div class="wrapper_faculties">
   <h1>Ingeniería de Sistemas</h1>
   <div class="form_input">
-    <input type="text" placeholder="Buscar" id="search" name="search" />
+    <input
+      type="text"
+      placeholder="Buscar estudiante"
+      id="search"
+      name="search"
+    />
     <i class="fas fa-search fa-fw"></i>
+  </div>
+
+  <div class="row_header">
+    <app-statistics-risk></app-statistics-risk>
   </div>
 
   <div class="list_semester">
     <ul>
-      <li>semestre I</li>
-      <li>semestre II</li>
-      <li>semestre III</li>
-      <li>semestre IV</li>
-      <li>semestre V</li>
-      <li>semestre VI</li>
-      <li>semestre VII</li>
-      <li>semestre VIII</li>
-      <li>semestre IX</li>
-      <li>semestre X</li>
+      <li
+        *ngFor="
+          let item of [
+            'I',
+            'II',
+            'III',
+            'IV',
+            'V',
+            'VI',
+            'VII',
+            'VIII',
+            'IX',
+            'X'
+          ]
+        "
+        routerLink="/vicerrector/semestre"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        Semestre {{ item }}
+      </li>
     </ul>
   </div>
 </div>

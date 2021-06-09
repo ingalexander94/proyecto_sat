@@ -134,14 +134,12 @@ input[type="checkbox"] {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .menu-options ul li:hover {
   background: var(--gray-dark-color);
-}
-
-.menu-options ul li a {
-  color: black;
 }
 
 /* Tablet */

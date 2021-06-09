@@ -1,0 +1,26 @@
+.wrapper_semester {
+  margin: 32px 16px;
+  text-align: center;
+}
+
+/* Tablet */
+
+@media (min-width: 768px) {
+  .wrapper_semester {
+    margin: 32px 32px;
+  }
+}
+
+/* Desktop */
+
+@media (min-width: 1152px) {
+  .wrapper_semester {
+    padding-top: 8px;
+  }
+
+  .row_header {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+}

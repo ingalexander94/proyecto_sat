@@ -3,78 +3,6 @@
   margin: 32px 16px;
 }
 
-.statistics {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 16px;
-}
-
-.statistics div {
-  width: 64px;
-  height: 64px;
-  margin-left: 16px;
-}
-
-.statistics div:nth-child(1) {
-  margin-left: 0;
-}
-
-.statistics div h3 {
-  font-size: 18px;
-  font-weight: bold;
-  width: 60px;
-  height: 60px;
-  line-height: 60px;
-  border-radius: 10px;
-  margin: auto;
-  color: var(--white);
-}
-
-.statistics div p {
-  font-size: 12px;
-  color: black;
-}
-
-.risk_free h3 {
-  background: var(--green-primary-color);
-}
-
-.mild h3 {
-  background: var(--yellow-primary-color);
-}
-.moderate h3 {
-  background: var(--orange-primary-color);
-}
-.critical h3 {
-  background: var(--red-primary-color);
-}
-
-.table_students {
-  margin-top: 32px;
-  background: var(--gray-menu);
-  text-align: center;
-}
-
-.table_students table {
-  width: 100%;
-}
-
-.table_students table thead tr th {
-  font-size: 14px;
-  font-weight: bold;
-}
-
-.table_students table tbody tr td {
-  font-size: 12px;
-  padding: 8px 0;
-}
-
-.table_students table tbody tr:hover {
-  background: rgba(128, 128, 128, 0.267);
-  cursor: pointer;
-}
-
 .course_container a {
   float: right;
   margin: 16px 0;
@@ -87,36 +15,7 @@
     margin: 32px 32px;
   }
 
-  .statistics {
-    margin: 64px;
-  }
-
-  .statistics div {
-    width: 96px;
-    height: 96px;
-    margin-left: 48px;
-  }
-
-  .statistics div h3 {
-    font-size: 32px;
-    width: 84px;
-    height: 84px;
-    line-height: 84px;
-  }
-
-  .statistics div p {
-    font-size: 18px;
-  }
-
   .course_container a {
-    font-size: 20px;
-  }
-
-  .table_students table thead tr th {
-    font-size: 22px;
-  }
-
-  .table_students table tbody tr td {
     font-size: 20px;
   }
 }
@@ -128,14 +27,6 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-  }
-
-  .table_students {
-    margin-top: 0;
-  }
-
-  .statistics {
-    margin-top: 0;
   }
 
   .course_container {

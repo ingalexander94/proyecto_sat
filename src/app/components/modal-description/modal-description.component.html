@@ -1,0 +1,19 @@
+<div class="wrapper_alert" (click)="onClick($event)">
+  <div class="alert_container">
+    <div>
+      <h1>Añadir descripción</h1>
+      <p>Escriba las razones a tener en cuenta para la postulación</p>
+    </div>
+    <span>0/200</span>
+    <textarea
+      autofocus
+      placeholder="Escriba la descripción..."
+      maxlength="200"
+    ></textarea>
+    <hr />
+    <div class="alert_options">
+      <button (click)="close()">Cancelar</button>
+      <button>Aceptar</button>
+    </div>
+  </div>
+</div>

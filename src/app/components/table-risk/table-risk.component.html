@@ -1,0 +1,27 @@
+<div class="table_students">
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Código</th>
+        <th>Nombre</th>
+        <th class="pointer">
+          Riesgo <i class="fas fa-long-arrow-alt-up"></i
+          ><i class="fas fa-long-arrow-alt-down"></i>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        class="pointer"
+        (click)="navigateToStudent()"
+        *ngFor="let student of listStudents; let i = index"
+      >
+        <td>{{ i + 1 }}</td>
+        <td>{{ student.code }}</td>
+        <td>{{ student.names }} {{ student.surnames }}</td>
+        <td><i [ngClass]="student.risk" class="fas fa-circle"></i></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

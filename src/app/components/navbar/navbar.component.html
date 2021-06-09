@@ -2,11 +2,27 @@
   <nav>
     <input type="checkbox" id="show-menu" #menuNavBar />
     <div class="content">
-      <div class="logo">{{ title }}</div>
+      <div class="logo pointer" (click)="toHome()">{{ title }}</div>
       <ul class="links">
         <li>
           <a
-             
+            class="pointer"
+            (click)="toHome()"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            >Inicio</a
+          >
+        </li>
+        <li *ngIf="roleUser !== 'vicerrector'">
+          <a
+            routerLink="/docente"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            >Ver materias</a
+          >
+        </li>
+        <li *ngIf="roleUser === 'vicerrector'">
+          <a
             (click)="closeMenu()"
             routerLink="/vicerrector/postulados"
             routerLinkActive="active"

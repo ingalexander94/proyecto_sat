@@ -1,16 +1,19 @@
 .table {
   position: relative;
   margin: 16px;
+  width: 90vw;
+  overflow-x: scroll;
 }
 
-.table p {
+p {
   position: absolute;
   right: 0;
-  margin-top: 16px;
+  margin-top: -16px;
+  margin-right: 16px;
 }
 
 table {
-  width: 90vw;
+  width: max-content;
   margin: auto;
 }
 
@@ -28,9 +31,17 @@ table tbody tr:nth-child(odd) {
   background: var(--gray-table);
 }
 
+.icons i {
+  font-size: 20px;
+}
+
 /* Tablet */
 
 @media (min-width: 768px) and (max-width: 1151px) {
+  .table {
+    overflow-x: scroll;
+    margin: auto;
+  }
   table {
     margin: 48px auto;
   }
@@ -39,6 +50,15 @@ table tbody tr:nth-child(odd) {
   }
   td {
     font-size: 25px;
+  }
+
+  .icons i {
+    font-size: 30px;
+  }
+
+  p {
+    margin-top: -32px;
+    margin-right: 32px;
   }
 }
 /* Desktop */
@@ -55,9 +75,12 @@ table tbody tr:nth-child(odd) {
 
   .table {
     margin: 32px;
+    width: auto;
+    overflow-x: initial;
   }
 
-  .table p {
+  p {
     font-size: 20px;
+    margin-right: 32px;
   }
 }
