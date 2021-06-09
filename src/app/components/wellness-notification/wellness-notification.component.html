@@ -22,8 +22,14 @@
       <tr *ngFor="let item of servicesWellnesslist">
         <td>{{item.num}}</td>
         <td>{{item.name}}</td>
-        <td><i class="fas {{item.icon}} "></i></td>
+        <td ><i class="fa {{item.icon}}"></i></td>
       </tr>
+      <tr *ngFor="let item of servicesWellnesReslist">
+        <td>{{item.num}}</td>
+        <td>{{item.name}}</td>
+        <td><button class="btable">{{item.option}} </button></td>
+      </tr>
+
     </tbody>
   </table>
   <div class="frame">

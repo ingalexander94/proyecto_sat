@@ -26,6 +26,11 @@ export interface ServicesWellness {
   name: String;
   icon: String;
 }
+export interface ServicesWellnessRe {
+  num: number;
+  name: String;
+  option: String;
+}
 
 export interface MenuOptions {
   path: String;

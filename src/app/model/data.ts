@@ -4,6 +4,7 @@ import {
   ItemRisk,
   MenuOptions,
   ServicesWellness,
+  ServicesWellnessRe,
   StudentInDanger,
 } from './ui';
 
@@ -85,7 +86,7 @@ export const activities: ActivitiesList[] = [
     icon: 'fa-spinner',
   },
 ];
-
+// Servicios Bienestar en uso 
 export const servicesWellness: ServicesWellness[] = [
   {
     num: 1,
@@ -97,10 +98,13 @@ export const servicesWellness: ServicesWellness[] = [
     name: 'subsidio  alcaldia',
     icon: 'fas fa-check',
   },
+];
+// Servicios Bienestar recomedable
+export const servicesWellnessRe: ServicesWellnessRe[] = [
   {
     num: 3,
     name: 'Beca trabajo',
-    icon: 'recomendar',
+    option: 'recomendar',
   },
 ];
 
