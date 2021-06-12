@@ -17,13 +17,12 @@ export class LoginComponent implements OnInit, OnDestroy {
   showPassword: boolean = false;
   typePassword: String = 'password';
   typeDocument: String = 'password';
-  roleActive: String = 'docente';
-  roles = dataRoles;
   loading: boolean = false;
   subscription: Subscription = new Subscription();
 
   createFormLogin(): FormGroup {
     return new FormGroup({
+      role: new FormControl('estudiante', Validators.required),
       code: new FormControl('1151157', [
         Validators.required,
         Validators.minLength(7),
@@ -64,16 +63,9 @@ export class LoginComponent implements OnInit, OnDestroy {
     option ? (this.typeDocument = 'number') : (this.typeDocument = 'password');
   }
 
-  changeRole(role: String) {
-    this.roles[this.roleActive.toString()].isActive = false;
-    this.roles[role.toString()].isActive = true;
-    this.roleActive = role;
-  }
-
   onSubmit() {
     const user: User = {
       ...this.formLogin.value,
-      role: this.roleActive,
       names: 'Niver Daniel',
       surnames: 'Romero Manrique',
       email: 'niverdanielrm@ufps.edu.co',

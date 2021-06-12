@@ -138,6 +138,12 @@ export const menuRoutes: MenuOptions[] = [
     icon: 'book-open',
     isAllowed: () => true,
   },
+  {
+    path: '/estudiante/bitacora',
+    name: 'Bitácora',
+    icon: 'file-signature',
+    isAllowed: (role: String) => (role === 'psicologia' ? true : false),
+  },
 ];
 
 // Estudiantes que han postulado

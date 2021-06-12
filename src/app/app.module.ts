@@ -34,6 +34,8 @@ import { PostulateListComponent } from './pages/postulate-list/postulate-list.co
 import { InRiskComponent } from './pages/in-risk/in-risk.component';
 import { ProfileTeacherComponent } from './pages/profile-teacher/profile-teacher.component';
 import { SemesterWellnessComponent } from './pages/semester-wellness/semester-wellness.component';
+import { DashboardPsychologyComponent } from './dashboard-psychology/dashboard-psychology.component';
+import { ScheduleComponent } from './pages/schedule/schedule.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +55,7 @@ import { SemesterWellnessComponent } from './pages/semester-wellness/semester-we
     ProfileTeacherComponent,
     SemesterComponent,
     SemesterWellnessComponent,
+    ScheduleComponent,
   ],
 
   imports: [

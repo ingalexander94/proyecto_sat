@@ -25,6 +25,7 @@ import { TableRiskComponent } from './table-risk/table-risk.component';
 import { ButtonFollowComponent } from './button-follow/button-follow.component';
 import { ModalDescriptionComponent } from './modal-description/modal-description.component';
 import { ModalPostulateComponent } from './modal-postulate/modal-postulate.component';
+import { BinnacleComponent } from './binnacle/binnacle.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { ModalPostulateComponent } from './modal-postulate/modal-postulate.compo
     ButtonFollowComponent,
     ModalDescriptionComponent,
     ModalPostulateComponent,
+    BinnacleComponent,
   ],
   exports: [
     AlertComponent,
@@ -67,6 +69,7 @@ import { ModalPostulateComponent } from './modal-postulate/modal-postulate.compo
     StatisticsRiskComponent,
     TableRiskComponent,
     ButtonFollowComponent,
+    BinnacleComponent,
   ],
   imports: [CommonModule, RouterModule, FormsModule],
 })

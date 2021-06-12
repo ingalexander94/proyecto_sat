@@ -35,6 +35,13 @@ const routes: Routes = [
       import('./dashboard-boss/boss.module').then((m) => m.BossModule),
   },
   {
+    path: 'psicologia',
+    loadChildren: () =>
+      import('./dashboard-psychology/psychology.module').then(
+        (m) => m.PsychologyModule
+      ),
+  },
+  {
     path: '**',
     redirectTo: 'iniciar-sesion',
   },

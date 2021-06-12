@@ -5,18 +5,17 @@
       <h1>SAT</h1>
       <p>Ingrese con los datos de divisist</p>
     </div>
-    <div class="auth_roles">
-      <div
-        *ngFor="let role of roles | keyvalue"
-        [ngClass]="{ active: role.value.isActive }"
-        class="role"
-        (click)="changeRole(role.key)"
-      >
-        <i [ngClass]="role.value.icon" class="fas fa-fw"></i>
-        <p>{{ role.value.text }}</p>
-      </div>
-    </div>
     <form [formGroup]="formLogin" (submit)="onSubmit()" class="form_auth">
+      <div class="auth_roles">
+        <img src="/assets/image/role.jpg" alt="Logo SAT" />
+        <select formControlName="role" name="role" id="role" required>
+          <option value="docente">Docente</option>
+          <option value="estudiante">Estudiante</option>
+          <option value="jefe">Jefe de Plan</option>
+          <option value="psicologia">Psicología</option>
+          <option value="vicerrector">Vicerrector</option>
+        </select>
+      </div>
       <div class="form_input">
         <input
           type="number"
