@@ -1,5 +1,5 @@
 .content {
-  max-height: 120vh;
+  max-height: 100vh;
   min-width: 100vw;
   overflow: hidden;
   background: var(--gray-color);
@@ -25,20 +25,37 @@ h1 {
 }
 
 .auth_roles {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  margin-top: 16px;
+  margin: 32px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.role {
+.auth_roles img {
+  width: 40px;
+  height: 40px;
+  margin-right: 16px;
+  object-fit: cover;
+}
+
+.auth_roles select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: 0;
+  box-shadow: none;
+  border: 0 !important;
+  font-size: 20px;
   cursor: pointer;
 }
 
-.role i {
-  font-size: 30px;
-  margin-bottom: 16px;
-  color: var(--dark-color);
+.auth_roles select option {
+  text-align: center;
+}
+
+.auth_roles select:focus {
+  outline: none;
 }
 
 .copyright {
@@ -80,8 +97,7 @@ button:disabled {
     max-height: initial;
   }
 
-  .form_input,
-  .auth_roles {
+  .form_input {
     margin: 32px 16px;
   }
 
@@ -124,8 +140,7 @@ button:disabled {
     max-height: 100vh;
   }
 
-  .form_input,
-  .auth_roles {
+  .form_input {
     margin: 16px 16px;
   }
 
@@ -150,16 +165,8 @@ button:disabled {
     width: 100%;
   }
 
-  .auth_roles,
   .auth_header {
     width: 100%;
-  }
-
-  .auth_roles {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 16px;
   }
 
   .auth_header {

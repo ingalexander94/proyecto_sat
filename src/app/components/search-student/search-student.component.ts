@@ -1,7 +1,6 @@
 import { Location } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { Title } from 'src/app/model/ui';
-import { UiService } from 'src/app/services/ui.service';
 
 @Component({
   selector: 'app-search-student',

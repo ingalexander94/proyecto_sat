@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ActivitiesListComponent } from 'src/app/components/activities-list/activities-list.component';
+import { BinnacleComponent } from 'src/app/components/binnacle/binnacle.component';
 import { ChatComponent } from 'src/app/components/chat/chat.component';
 import { InfoAcademyComponent } from 'src/app/components/info-academy/info-academy.component';
 import { ListRisksComponent } from 'src/app/components/list-risks/list-risks.component';
@@ -19,6 +20,7 @@ const children: Routes = [
   { path: '', component: ListRisksComponent },
   { path: 'chat', component: ChatComponent },
   { path: 'ver-historial', component: RecordComponent },
+  { path: 'bitacora', component: BinnacleComponent },
   { path: 'perfil-academico', component: InfoAcademyComponent },
   { path: 'riesgo-academico', component: RiskAcademicComponent },
   { path: 'riesgo-economico', component: RiskEconomicComponent },
@@ -27,7 +29,6 @@ const children: Routes = [
   { path: 'actividades', component: ActivitiesListComponent },
   { path: 'reunion', component: MeetingComponent },
   { path: 'notificar', component: WellnessNotificationComponent },
-
 ];
 
 const routes: Routes = [{ path: '', component: ChildrenComponent, children }];
