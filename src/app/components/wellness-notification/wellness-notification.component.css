@@ -1,10 +1,6 @@
-textarea {
-  padding: 20px 10px;
-  resize: none;
-}
-
 .content {
   margin: 16px;
+  text-align: center;
 }
 
 .title_icon {
@@ -37,16 +33,15 @@ h4 {
 .button {
   background: var(--green-primary-color);
   font-size: 20px;
+  margin-top: 32px;
 }
 
-.button:hover,
-.recommend:hover {
+.button:hover {
   background: #0f9946;
 }
 
 table {
-  margin: 5px;
-  width: 290px;
+  margin: 16px auto;
 }
 
 th {
@@ -59,42 +54,17 @@ td {
   text-align: center;
   height: 35px;
 }
+
+td button {
+  width: 80px;
+  height: 30px;
+}
+
 i {
-  color: white;
-  background: var(--red-primary-color);
   width: 30px;
   font-size: 15px;
 }
-.recommend {
-  background: var(--green-primary-color);
-  padding: 5px;
-  border-radius: 5px;
-  width: auto;
-  height: auto;
-}
 
-.frame {
-  position: relative;
-  padding-top: 10px;
-  height: 150px;
-}
-.heade_title {
-  position: absolute;
-  left: 15px;
-  padding: 0px 2px;
-  background: var(--gray-table);
-  text-align: left;
-  border-radius: 10px;
-}
-.heade_title h3 {
-  font-weight: bold;
-}
-.recommendations {
-  margin-top: 10px;
-  width: 290px;
-  height: 100px;
-  border: 2px solid;
-}
 table tbody tr:nth-child(odd) {
   background: var(--gray-table);
 }
@@ -109,10 +79,6 @@ table tbody tr:nth-child(odd) {
 /* Tablet */
 
 @media (min-width: 768px) and (max-width: 1151px) {
-  textarea {
-    padding: 30px 10px;
-  }
-
   .content {
     margin: 48px;
   }
@@ -132,47 +98,24 @@ table tbody tr:nth-child(odd) {
   h4 {
     font-size: 32px;
   }
-  .button {
-    background: var(--green-primary-color);
-    font-size: 20px;
-    width: 400px;
-    margin-left: 15vw;
-  }
-  table {
-    margin: 0px 80px;
-    width: 532px;
-  }
 
-  th {
-    font-size: 20px;
-  }
-
-  td {
-    font-size: 20px;
-  }
-  i {
+  p,
+  table * {
     font-size: 25px;
   }
-  .recommend {
-    padding: 5px 10px;
-    border-radius: 5px;
+
+  .button {
+    background: var(--green-primary-color);
+    font-size: 32px;
+    width: 418px;
+  }
+  table {
+    width: 70vw;
   }
 
-  .frame {
-    height: 250px;
-    margin: 20px 90px;
-  }
-  .heade_title {
-    padding: 2px 6px;
-  }
-  .heade_title h3 {
-    font-size: 20px;
-  }
-  .recommendations {
-    margin-top: 10px;
-    width: 480px;
-    height: 200px;
-    border: 4px solid;
+  td button {
+    width: 100px;
+    height: 40px;
   }
   .btable{
     
@@ -191,28 +134,11 @@ table tbody tr:nth-child(odd) {
     margin: 16px 48px;
     width: 700px;
   }
-  .title_icon {
-    padding-right: 130px;
-  }
   table {
-    width: 512px;
+    width: 40vw;
   }
   .button {
-    width: 340px;
-    margin-left: 10vw;
-    
-  }
-  .frame {
-    margin: 20px;
-    height: 180px;
-  }
-  .recommendations {
-    margin-top: 15px;
-    width: 560px;
-    height: 150px;
-  }
-  .heade_title {
-    padding: 3px 6px;
+    width: 300px;
   }
   .btable{
     

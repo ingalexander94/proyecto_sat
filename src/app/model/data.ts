@@ -91,12 +91,12 @@ export const servicesWellness: ServicesWellness[] = [
   {
     num: 1,
     name: 'Beca trabajo',
-    icon: 'fas fa-check',
+    isActive: true,
   },
   {
     num: 2,
-    name: 'subsidio  alcaldia',
-    icon: 'fas fa-check',
+    name: 'Subsidio alcaldia',
+    isActive: true,
   },
 ];
 // Servicios Bienestar recomedable
@@ -104,7 +104,11 @@ export const servicesWellnessRe: ServicesWellnessRe[] = [
   {
     num: 3,
     name: 'Beca trabajo',
+<<<<<<< HEAD
     option: 'recomendar',
+=======
+    isActive: false,
+>>>>>>> 3d46e1016af8e57074869c44ca0af5073703874a
   },
 ];
 
@@ -115,7 +119,7 @@ export const menuRoutes: MenuOptions[] = [
     path: '/estudiante/chat',
     name: 'Ver chat',
     icon: 'envelope',
-    isAllowed: () => true,
+    isAllowed: (role: String) => (role !== 'psicologia' ? true : false),
   },
   {
     path: '/estudiante/actividades',
@@ -126,7 +130,7 @@ export const menuRoutes: MenuOptions[] = [
   },
   {
     path: '/estudiante/ver-historial',
-    name: 'Ver instrumentos',
+    name: 'Ver beneficios',
     icon: 'clock',
     isAllowed: () => true,
   },

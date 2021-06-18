@@ -41,6 +41,10 @@
   background: var(--red-primary-color);
 }
 
+.critical {
+  cursor: pointer;
+}
+
 /* Tablet */
 
 @media (min-width: 768px) {

@@ -98,6 +98,13 @@
     >
       Solicitar Ayuda <i class="fas fa-hand-holding"></i>
     </button>
+    <button
+      *ngIf="user.role === 'vicerrector'"
+      (click)="ShowDateNotification()"
+      class="button"
+    >
+      Notificar Estudiante
+    </button>
   </div>
 </div>
 
@@ -110,3 +117,8 @@
   *ngIf="showDescription"
   (isClosed)="updateShowDescription($event)"
 ></app-modal-description>
+
+<app-notification-date
+  *ngIf="showDate"
+  (isClosed)="ShowDateNotification($event)"
+></app-notification-date>
