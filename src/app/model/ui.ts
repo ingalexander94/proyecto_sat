@@ -24,7 +24,7 @@ export interface StudentInDanger {
 export interface ServicesWellness {
   num: number;
   name: String;
-  icon: String;
+  isActive: boolean;
 }
 
 export interface MenuOptions {
@@ -33,4 +33,3 @@ export interface MenuOptions {
   name: String;
   isAllowed: (role: String) => boolean;
 }
-

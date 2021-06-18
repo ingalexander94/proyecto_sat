@@ -5,11 +5,7 @@
     </div>
     <div class="icon"><h4>98%</h4></div>
   </div>
-  <h4>Paso 1</h4>
-  <button (click)="ShowDateNotification()" class="button">
-    Notificar Estudiante
-  </button>
-  <h4>Paso 2</h4>
+  <p>Lista de beneficios disponibles para el estudiante</p>
   <table>
     <thead>
       <tr>
@@ -22,19 +18,10 @@
       <tr *ngFor="let item of servicesWellnesslist">
         <td>{{ item.num }}</td>
         <td>{{ item.name }}</td>
-        <td><i class="fas {{ item.icon }} "></i></td>
+        <td *ngIf="item.isActive"><i class="far fa-check-circle"></i></td>
+        <td *ngIf="!item.isActive"><button>Sugerir</button></td>
       </tr>
     </tbody>
   </table>
-  <div class="frame">
-    <div class="heade_title">
-      <h3>Recomendaciones</h3>
-    </div>
-    <textarea class="recommendations"></textarea>
-  </div>
-  <button class="button">Seguimiento</button>
+  <button class="button">Agendar proxima cita</button>
 </div>
-<app-notification-date
-  *ngIf="showDate"
-  (isClosed)="ShowDateNotification($event)"
-></app-notification-date>

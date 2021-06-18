@@ -90,17 +90,17 @@ export const servicesWellness: ServicesWellness[] = [
   {
     num: 1,
     name: 'Beca trabajo',
-    icon: 'fas fa-check',
+    isActive: true,
   },
   {
     num: 2,
-    name: 'subsidio  alcaldia',
-    icon: 'fas fa-check',
+    name: 'Subsidio alcaldia',
+    isActive: true,
   },
   {
     num: 3,
     name: 'Beca trabajo',
-    icon: 'recomendar',
+    isActive: false,
   },
 ];
 
@@ -111,7 +111,7 @@ export const menuRoutes: MenuOptions[] = [
     path: '/estudiante/chat',
     name: 'Ver chat',
     icon: 'envelope',
-    isAllowed: () => true,
+    isAllowed: (role: String) => (role !== 'psicologia' ? true : false),
   },
   {
     path: '/estudiante/actividades',
@@ -122,7 +122,7 @@ export const menuRoutes: MenuOptions[] = [
   },
   {
     path: '/estudiante/ver-historial',
-    name: 'Ver instrumentos',
+    name: 'Ver beneficios',
     icon: 'clock',
     isAllowed: () => true,
   },

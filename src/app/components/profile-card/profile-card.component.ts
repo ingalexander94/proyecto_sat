@@ -23,6 +23,7 @@ export class ProfileCardComponent implements OnInit {
   title: String;
   showUpdateProfile: boolean = false;
   showDescription: boolean = false;
+  showDate: boolean = false;
 
   constructor(
     private location: Location,
@@ -53,6 +54,10 @@ export class ProfileCardComponent implements OnInit {
 
   updateShowDescription(show: boolean = true) {
     this.showDescription = show;
+  }
+
+  ShowDateNotification(show: boolean = true) {
+    this.showDate = show;
   }
 
   closeMenu(e: FocusEvent) {

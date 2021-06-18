@@ -8,7 +8,7 @@ import { UiService } from 'src/app/services/ui.service';
 })
 export class RecordComponent implements OnInit {
   constructor(private uiService: UiService) {
-    this.uiService.updateTitleNavbar('Historial');
+    this.uiService.updateTitleNavbar('Perfil');
   }
 
   ngOnInit(): void {}

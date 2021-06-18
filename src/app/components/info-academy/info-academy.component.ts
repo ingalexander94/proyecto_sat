@@ -8,7 +8,7 @@ import { UiService } from 'src/app/services/ui.service';
 })
 export class InfoAcademyComponent implements OnInit {
   constructor(private uiService: UiService) {
-    this.uiService.updateTitleNavbar('Perfil Académico');
+    this.uiService.updateTitleNavbar('Perfil');
   }
 
   ngOnInit(): void {}
