@@ -1,7 +1,7 @@
 <div class="wrapper_course">
   <app-title [title]="title"></app-title>
   <div class="list_courses">
-    <app-item-course
+    <app-item-course 
       class="pointer"
       (click)="onNavigateToCourse()"
       *ngFor="let course of listCourses"
@@ -9,3 +9,5 @@
     ></app-item-course>
   </div>
 </div>
+
+

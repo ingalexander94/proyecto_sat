@@ -38,3 +38,9 @@ export interface MenuOptions {
   name: String;
   isAllowed: (role: String) => boolean;
 }
+//Couser con Asistencia
+export interface desCourse{
+  name:String;
+  group:String;
+  assistance:number;
+}

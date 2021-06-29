@@ -1,6 +1,8 @@
 import { Risk } from './risk';
 import {
   ActivitiesList,
+
+  desCourse,
   ItemRisk,
   MenuOptions,
   ServicesWellness,
@@ -99,18 +101,7 @@ export const servicesWellness: ServicesWellness[] = [
     isActive: true,
   },
 ];
-// Servicios Bienestar recomedable
-export const servicesWellnessRe: ServicesWellnessRe[] = [
-  {
-    num: 3,
-    name: 'Beca trabajo',
-<<<<<<< HEAD
-    option: 'recomendar',
-=======
-    isActive: false,
->>>>>>> 3d46e1016af8e57074869c44ca0af5073703874a
-  },
-];
+
 
 // Rutas
 
@@ -244,3 +235,26 @@ export const risks: Risk[] = [
     path: 'institucional',
   },
 ];
+ //cursos con Asistencias
+export const courses: desCourse[]=[
+  {
+    name:'Administracion de Proyecto informaticos',
+    group:'B',
+    assistance:10
+  },
+  {
+    name:'base de datos',
+    group:'A',
+    assistance:10
+  },
+  {
+    name:'Arquitectura de software',
+    group:'A',
+    assistance:10
+  },
+  {
+    name:'Ingenieria de software',
+    group:'',
+    assistance:10
+  }
+]

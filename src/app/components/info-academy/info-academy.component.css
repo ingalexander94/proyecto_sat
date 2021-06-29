@@ -1,3 +1,18 @@
+.wrapper_course {
+  text-align: center;
+}
+
+.list_courses {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+
+
 .profile_academy {
   margin: 16px;
   text-align: center;
@@ -29,6 +44,8 @@
   background: var(--gray-menu);
 }
 
+
+
 /* Tablet and Desktop */
 
 @media (min-width: 768px) {
@@ -49,7 +66,13 @@
     padding: 16px 0;
     width: 100%;
   }
+  
+    .wrapper_course {
+      margin: 64px 128px;
+    }
+  
 }
+
 
 /* Desktop */
 
@@ -58,4 +81,29 @@
     width: 600px;
     margin: 0 80px;
   }
+  .wrapper_course {
+    margin:0px;
+  }
+  .wrapper_course h5{
+    margin-right: 60px;
+    
+  }
+
+
+  .list_courses {
+    margin-left: 0px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    align-items: center;
+    gap: 64px;
+    margin-top: 64px;
+  }
+  .profile_academy {
+    height: 500px;
+    margin: 16px;
+    text-align: center;
+    overflow-y: scroll;
+  }
 }
+

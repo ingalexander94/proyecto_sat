@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { servicesWellness, servicesWellnessRe } from 'src/app/model/data';
-import { ServicesWellness, ServicesWellnessRe} from 'src/app/model/ui';
+import { servicesWellness } from 'src/app/model/data';
+import { ServicesWellness} from 'src/app/model/ui';
 import { UiService } from 'src/app/services/ui.service';
 
 @Component({
@@ -9,9 +9,9 @@ import { UiService } from 'src/app/services/ui.service';
   styleUrls: ['./wellness-notification.component.css'],
 })
 export class WellnessNotificationComponent implements OnInit {
-  servicesWellnesslist: ServicesWellness[] = servicesWellness;
+  servicesWellness: ServicesWellness[] = servicesWellness;
   constructor(private iuservices: UiService) {
-    this.iuservices.updateTitleNavbar('Perfil');
+  this.iuservices.updateTitleNavbar('Perfil');
   }
 
   ngOnInit(): void {}

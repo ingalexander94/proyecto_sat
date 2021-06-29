@@ -26,6 +26,7 @@ import { ButtonFollowComponent } from './button-follow/button-follow.component';
 import { ModalDescriptionComponent } from './modal-description/modal-description.component';
 import { ModalPostulateComponent } from './modal-postulate/modal-postulate.component';
 import { BinnacleComponent } from './binnacle/binnacle.component';
+import { ItemCourseAssistanceComponent } from './item-course-assistance/item-course-assistance.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { BinnacleComponent } from './binnacle/binnacle.component';
     ModalDescriptionComponent,
     ModalPostulateComponent,
     BinnacleComponent,
+    ItemCourseAssistanceComponent,
   ],
   exports: [
     AlertComponent,
@@ -70,6 +72,8 @@ import { BinnacleComponent } from './binnacle/binnacle.component';
     TableRiskComponent,
     ButtonFollowComponent,
     BinnacleComponent,
+    ItemCourseAssistanceComponent,
+
   ],
   imports: [CommonModule, RouterModule, FormsModule],
 })

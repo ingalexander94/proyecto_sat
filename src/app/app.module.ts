@@ -36,6 +36,8 @@ import { ProfileTeacherComponent } from './pages/profile-teacher/profile-teacher
 import { SemesterWellnessComponent } from './pages/semester-wellness/semester-wellness.component';
 import { DashboardPsychologyComponent } from './dashboard-psychology/dashboard-psychology.component';
 import { ScheduleComponent } from './pages/schedule/schedule.component';
+import { CourseDataComponent } from './pages/course-data/course-data.component';
+
 
 @NgModule({
   declarations: [
@@ -56,6 +58,7 @@ import { ScheduleComponent } from './pages/schedule/schedule.component';
     SemesterComponent,
     SemesterWellnessComponent,
     ScheduleComponent,
+    CourseDataComponent,
   ],
 
   imports: [

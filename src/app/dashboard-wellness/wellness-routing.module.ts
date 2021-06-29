@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CourseDataComponent } from '../pages/course-data/course-data.component';
 import { FacultiesComponent } from '../pages/faculties/faculties.component';
 import { InRiskComponent } from '../pages/in-risk/in-risk.component';
 import { PostulateListComponent } from '../pages/postulate-list/postulate-list.component';
@@ -13,6 +14,7 @@ const children: Routes = [
   { path: 'semestre', component: SemesterWellnessComponent },
   { path: 'postulados', component: PostulateListComponent },
   { path: 'en-riesgo', component: InRiskComponent },
+  { path: 'datos-curso', component: CourseDataComponent },
 ];
 
 const routes: Routes = [

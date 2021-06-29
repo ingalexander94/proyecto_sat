@@ -1,4 +1,15 @@
+
 <div class="profile_academy">
+  <div *ngIf="user.role === 'vicerrector'" class="wrapper_course" >
+    <h5>Materias que se encuentran activas durante el semestre actual.</h5>
+    <div class="list_courses pointer">
+    <app-item-course-assistance
+     (click)="onNavigateToCourseData()"
+     *ngFor="let course of listCourse"
+     [course]="course"
+    ></app-item-course-assistance>
+  </div>
+</div>
   <p>Se muestran los promedios academicos del estudiante:</p>
   <div class="date_start">
     <h4>Fecha de ingreso a la Universidad :</h4>

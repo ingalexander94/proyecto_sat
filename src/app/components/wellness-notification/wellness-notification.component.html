@@ -15,18 +15,11 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of servicesWellnesslist">
-        <td>{{ item.num }}</td>
-        <td>{{ item.name }}</td>
-        <td *ngIf="item.isActive"><i class="far fa-check-circle"></i></td>
-        <td *ngIf="!item.isActive"><button>Sugerir</button></td>
-      </tr>
-      <tr *ngFor="let item of servicesWellnesReslist">
+      <tr *ngFor="let item of servicesWellness">
         <td>{{item.num}}</td>
         <td>{{item.name}}</td>
-        <td><button class="btable">{{item.option}} </button></td>
+        <td><button class="btable">{{item.isActive}} </button></td>
       </tr>
-
     </tbody>
   </table>
   <button class="button">Agendar proxima cita</button>

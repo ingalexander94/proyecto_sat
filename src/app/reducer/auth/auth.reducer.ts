@@ -14,7 +14,7 @@ const initState: AuthState = {
     code: '1151157',
     email: 'niverdanielrm@ufps.edu.co',
     photo: '',
-    role: 'psicologia',
+    role: 'vicerrector',
   },
 };
 

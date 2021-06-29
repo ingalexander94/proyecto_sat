@@ -1,0 +1,148 @@
+.content {
+  margin: 16px;
+  text-align: center;
+}
+.content h1 {
+  margin-bottom: 10px;
+  font-size: 25px;
+  font-weight: bold;
+}
+.content h4 {
+  font-weight: bold;
+  font-size: 18px;
+}
+.home{
+    background:var(--gray-table) ;
+    border-radius: 10px;
+    padding: 0px 5px;
+}
+.semester_credits {
+  display: flex;
+  justify-content: space-between;
+}
+.teacher {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.shedule {
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.notes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.notes h3 {
+  font-weight: bold;
+}
+.course {
+  text-align: center;
+  margin-bottom: 20px;
+  height: 80px;
+  width: 140px;
+  margin-top: 10px;
+}
+.title_course {
+  margin-bottom: 10px;
+}
+
+.qualification p {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--red-primary-color);
+  text-align: center;
+  font-weight: bold;
+  color: white;
+  margin-left: 20%;
+  line-height: 60px;
+}
+.text {
+  width: 280px;
+  text-align: left;
+  font-size: 18px;
+}
+.text b {
+  font-weight: bold;
+}
+/* table */
+@media (min-width: 768px) {
+  .content {
+    margin: 120px;
+  }
+  .content h1 {
+    margin-bottom: 30px;
+    font-size: 40px;
+  }
+  .content h4 {
+    font-size: 25px;
+  }
+  .content p {
+    font-size: 25px;
+  }
+  .home{
+      padding: 0px 20px;
+  }
+  .course {
+    margin-bottom: 120px;
+    height: 80px;
+    width: 200px;
+    margin-top: 25px;
+  }
+
+  .qualification p {
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    font-size: 25px;
+  }
+  .notes h3 {
+    font-size: 22px;
+  }
+  .notes {
+    margin-bottom: 30px;
+  }
+  .text {
+    width: 600px;
+  }
+  /* desktop */
+  @media (min-width: 1152px) {
+    .content {
+      margin: 20px;
+    }
+    .content h1 {
+      margin-top: 80px;
+    }
+    .text {
+      width: 1300px;
+    }
+    .home {
+      display: flex;
+      justify-content: center;
+      width: 1260px;
+      padding: 5px;
+    }
+
+    .semester_credits {
+      display: flex;
+      flex-wrap: wrap;
+      width: 400px;
+    }
+    .teachear_schedule {
+      display: flex;
+      justify-content: space-between;
+      width: 1300px;
+      padding-left: 80px;
+    }
+    .semester_credits {
+      margin: 0px 0px;
+    }
+    .teachear_schedule {
+      margin: 0px 0px;
+    }
+  }
+}
