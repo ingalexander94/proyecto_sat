@@ -39,7 +39,7 @@ export class ListRisksComponent implements OnInit {
   }
 
   updateRisk(show: boolean = true) {
-    if (show && this.user.role === 'vicerrector') {
+    if (show && this.user.rol === 'vicerrector') {
       this.showAlert = show;
     } else {
       this.showAlert = false;

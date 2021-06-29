@@ -1,17 +1,17 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from 'src/app/services/auth.service';
 import { Store } from '@ngrx/store';
-import { AppState } from 'src/app/app.reducers';
 import { Subscription } from 'rxjs';
+import { AppState } from 'src/app/app.reducers';
 import { UserAuth } from 'src/app/model/auth';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
+  selector: 'app-login-admin',
+  templateUrl: './login-admin.component.html',
+  styleUrls: ['./login-admin.component.css'],
 })
-export class LoginComponent implements OnInit, OnDestroy {
+export class LoginAdminComponent implements OnInit, OnDestroy {
   formLogin: FormGroup;
   showPassword: boolean = false;
   typePassword: String = 'password';
@@ -21,20 +21,16 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   createFormLogin(): FormGroup {
     return new FormGroup({
-      // role: new FormControl('estudiante', Validators.required),
-      code: new FormControl('1049486', [
-        Validators.required,
-        Validators.minLength(7),
-        Validators.maxLength(7),
-        Validators.pattern(/^[0-9]+$/i),
-      ]),
-      document: new FormControl('525933018', [
+      document: new FormControl('1582185512', [
         Validators.required,
         Validators.minLength(8),
         Validators.maxLength(10),
         Validators.pattern(/^[0-9]+$/i),
       ]),
-      password: new FormControl('7681', Validators.required),
+      password: new FormControl('7920', [
+        Validators.required,
+        Validators.pattern(/^[0-9]+$/i),
+      ]),
     });
   }
 
@@ -61,13 +57,8 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   onSubmit() {
-    // delete this.formLogin.value.role;
     const user: UserAuth = this.formLogin.value;
-    this.authService.login(user, 'institutional');
-  }
-
-  get code() {
-    return this.formLogin.get('code');
+    this.authService.login(user, 'administrative');
   }
 
   get document() {

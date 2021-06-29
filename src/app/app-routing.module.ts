@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { ExtraOptions, RouterModule, Routes } from '@angular/router';
+import { LoginAdminComponent } from './pages/auth/login-admin/login-admin.component';
 import { LoginComponent } from './pages/auth/login/login.component';
 import { ErrorComponent } from './pages/error/error.component';
 
@@ -7,6 +8,10 @@ const routes: Routes = [
   {
     path: 'iniciar-sesion',
     component: LoginComponent,
+  },
+  {
+    path: 'administrativo/iniciar-sesion',
+    component: LoginAdminComponent,
   },
   {
     path: 'error',
@@ -35,7 +40,7 @@ const routes: Routes = [
       import('./dashboard-boss/boss.module').then((m) => m.BossModule),
   },
   {
-    path: 'psicologia',
+    path: 'psicologo',
     loadChildren: () =>
       import('./dashboard-psychology/psychology.module').then(
         (m) => m.PsychologyModule

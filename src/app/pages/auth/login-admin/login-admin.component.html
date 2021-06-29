@@ -6,33 +6,6 @@
       <p>Ingrese con los datos de divisist</p>
     </div>
     <form [formGroup]="formLogin" (submit)="onSubmit()" class="form_auth">
-      <!-- <div class="auth_roles">
-        <img src="/assets/image/role.jpg" alt="Logo SAT" />
-        <select formControlName="role" name="role" id="role" required>
-          <option value="docente">Docente</option>
-          <option value="estudiante">Estudiante</option>
-          <option value="jefe">Jefe de Plan</option>
-          <option value="vicerrector">Vicerrector</option>
-        </select>
-      </div> -->
-      <div class="form_input">
-        <input
-          type="text"
-          placeholder="Código"
-          value="1234567"
-          maxlength="7"
-          minlength="7"
-          formControlName="code"
-          name="code"
-          id="code"
-          required
-        />
-        <i class="fas fa-user fa-fw"></i>
-      </div>
-      <ul *ngIf="code.invalid && (code.dirty || code.touched)">
-        <li>* Debe tener 7 caracteres</li>
-        <li>* Solo se aceptan números</li>
-      </ul>
       <div class="form_input">
         <input
           [type]="typeDocument"
@@ -40,8 +13,8 @@
           (focus)="changeTypeDocument(true)"
           (blur)="changeTypeDocument(false)"
           value="1234567890"
-          maxlength="10"
-          minlength="8"
+          max="10"
+          min="8"
           formControlName="document"
           name="document"
           id="document"

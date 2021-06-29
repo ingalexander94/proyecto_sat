@@ -10,7 +10,7 @@ import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { AppState } from 'src/app/app.reducers';
 import { RemoveUserAction } from 'src/app/reducer/auth/auth.actions';
-import { map } from 'rxjs/operators';
+import { filter, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-navbar',
@@ -28,8 +28,9 @@ export class NavbarComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.subscription = this.store
       .pipe(
+        filter(({ auth }) => auth.user !== null),
         map(({ auth, ui }) => ({
-          role: auth.user.role,
+          role: auth.user.rol,
           title: ui.titleNavbar,
         }))
       )
@@ -41,6 +42,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   logout() {
     this.store.dispatch(new RemoveUserAction());
+    localStorage.clear();
     this.router.navigate(['/iniciar-sesion']);
   }
 
