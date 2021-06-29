@@ -21,7 +21,7 @@
       />
       <label
         *ngIf="
-          user.role !== 'estudiante' &&
+          user.rol !== 'estudiante' &&
             (title === 'Perfil Docente' || title === 'Perfil');
           else hidden
         "
@@ -32,7 +32,7 @@
       ></label>
       <ng-template #hidden>
         <label
-          *ngIf="title !== 'Perfil Docente' && user.role === 'estudiante'"
+          *ngIf="title !== 'Perfil Docente' && user.rol === 'estudiante'"
           title="Ver opciones"
           class="pointer"
           for="showOptions"
@@ -43,7 +43,7 @@
       <ul>
         <ng-container *ngFor="let route of routes">
           <li
-            *ngIf="route.isAllowed(user.role)"
+            *ngIf="route.isAllowed(user.rol)"
             (click)="toNavigate()"
             fragment="contenedor"
             [routerLink]="[route.path]"
@@ -74,13 +74,13 @@
   <p><i class="fas fa-id-card"></i> 70041053</p>
   <p><i class="fas fa-map-marker-alt"></i> Ciudad, Departamento</p>
   <p
-    *ngIf="user.role === 'estudiante' && title !== 'Perfil Docente'"
+    *ngIf="user.rol === 'estudiante' && title !== 'Perfil Docente'"
     (click)="updateProfile()"
     class="active pointer"
   >
     <i class="fas fa-edit"></i> Editar perfil
   </p>
-  <div *ngIf="title === 'Perfil Docente' && user.role === 'estudiante'">
+  <div *ngIf="title === 'Perfil Docente' && user.rol === 'estudiante'">
     <button (click)="contact()">
       Contactar <i class="fas fa-handshake"></i>
     </button>
@@ -88,18 +88,15 @@
   <div *ngIf="title !== 'Perfil Docente'">
     <button
       (click)="updateShowDescription()"
-      *ngIf="user.role === 'docente' || user.role === 'jefe'"
+      *ngIf="user.rol === 'docente' || user.rol === 'jefe'"
     >
       Postular estudiante <i class="fas fa-hand-holding-medical"></i>
     </button>
-    <button
-      (click)="updateShowDescription()"
-      *ngIf="user.role === 'estudiante'"
-    >
+    <button (click)="updateShowDescription()" *ngIf="user.rol === 'estudiante'">
       Solicitar Ayuda <i class="fas fa-hand-holding"></i>
     </button>
     <button
-      *ngIf="user.role === 'vicerrector'"
+      *ngIf="user.rol === 'vicerrector'"
       (click)="ShowDateNotification()"
       class="button"
     >

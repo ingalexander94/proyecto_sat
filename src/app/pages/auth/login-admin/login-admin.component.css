@@ -6,7 +6,7 @@
 }
 
 h1 {
-  font-size: 40px;
+  font-size: 44px;
   color: var(--dark-color);
   font-weight: 700;
   margin-top: -16px;
@@ -28,45 +28,11 @@ ul li {
 }
 
 .auth_header {
-  margin: 16px 0;
+  margin: 32px 0;
 }
 
 .auth_header p {
   color: #a79e95;
-}
-
-.auth_roles {
-  margin: 32px auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.auth_roles img {
-  width: 40px;
-  height: 40px;
-  margin-right: 16px;
-  object-fit: cover;
-}
-
-.auth_roles select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  -ms-appearance: none;
-  appearance: none;
-  outline: 0;
-  box-shadow: none;
-  border: 0 !important;
-  font-size: 20px;
-  cursor: pointer;
-}
-
-.auth_roles select option {
-  text-align: center;
-}
-
-.auth_roles select:focus {
-  outline: none;
 }
 
 .copyright {
@@ -159,6 +125,11 @@ button:disabled {
     max-height: 100vh;
   }
 
+  .form_input {
+    width: 100%;
+    margin-top: 16px;
+  }
+
   .copyright {
     display: none;
   }
@@ -176,14 +147,9 @@ button:disabled {
     min-width: 420px;
   }
 
-  .form_input {
-    width: 100%;
-    margin-top: 16px;
-  }
-
   .auth_header {
     width: 100%;
-    margin: 32px 0;
+    margin: 48px 0;
   }
 
   .auth_header {
@@ -191,6 +157,6 @@ button:disabled {
   }
 
   .content {
-    padding: 58px;
+    padding: 70px;
   }
 }

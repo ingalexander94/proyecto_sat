@@ -5,7 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // Request to Backend
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 // Redux
 import { StoreModule } from '@ngrx/store';
@@ -34,8 +34,9 @@ import { PostulateListComponent } from './pages/postulate-list/postulate-list.co
 import { InRiskComponent } from './pages/in-risk/in-risk.component';
 import { ProfileTeacherComponent } from './pages/profile-teacher/profile-teacher.component';
 import { SemesterWellnessComponent } from './pages/semester-wellness/semester-wellness.component';
-import { DashboardPsychologyComponent } from './dashboard-psychology/dashboard-psychology.component';
 import { ScheduleComponent } from './pages/schedule/schedule.component';
+import { InterceptorService } from './interceptor.service';
+import { LoginAdminComponent } from './pages/auth/login-admin/login-admin.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { ScheduleComponent } from './pages/schedule/schedule.component';
     SemesterComponent,
     SemesterWellnessComponent,
     ScheduleComponent,
+    LoginAdminComponent,
   ],
 
   imports: [
@@ -71,7 +73,13 @@ import { ScheduleComponent } from './pages/schedule/schedule.component';
       logOnly: environment.production,
     }),
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: InterceptorService,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

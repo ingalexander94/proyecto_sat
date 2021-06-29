@@ -1,12 +1,13 @@
 <div class="list_risks">
   <div class="risk" *ngFor="let risk of risksDetail">
     <h4 (click)="updateRisk()">
-      {{ risk.name }} <i *ngIf="user.role ==='vicerrector'" class="fas fa-caret-down"></i>
+      {{ risk.name }}
+      <i *ngIf="user.rol === 'vicerrector'" class="fas fa-caret-down"></i>
     </h4>
-    <p>{{ risk.description}}</p>
+    <p>{{ risk.description }}</p>
     <i
-      (click)="onNavigateToRisk('/estudiante/riesgo-'+risk.path)"
-      class="fas fa-{{risk.icon}} pointer"
+      (click)="onNavigateToRisk('/estudiante/riesgo-' + risk.path)"
+      class="fas fa-{{ risk.icon }} pointer"
     ></i>
   </div>
 </div>

@@ -18,7 +18,7 @@ export class ButtonFollowComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.subscription = this.store
-      .pipe(map(({ auth: { user } }) => user.role))
+      .pipe(map(({ auth: { user } }) => user.rol))
       .subscribe((role) => (this.userRole = role));
   }
 
