@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { filter, map } from 'rxjs/operators';
 import { AppState } from 'src/app/app.reducers';
 import { User } from 'src/app/model/auth';
 import { courses } from 'src/app/model/data';
@@ -17,8 +17,8 @@ import { UiService } from 'src/app/services/ui.service';
 export class InfoAcademyComponent implements OnInit {
   listCourse: desCourse[] = courses;
 
-  user: User = null;
-  subcription: Subscription = new Subscription();
+  user: User;
+  subscription: Subscription = new Subscription();
 
   constructor(
     private uiService: UiService, 
@@ -29,11 +29,15 @@ export class InfoAcademyComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.subcription = this.store
-    .pipe(map(({ auth, ui }) => ({ user: auth.user, title: ui.titleNavbar })))
-      .subscribe(({ user, title }) => {
-        this.user = user;
-      });
+      this.subscription = this.store
+      .pipe( 
+        map(({auth}) =>({auth})),
+        filter(({auth}) => auth.user !== null)
+      )
+      .subscribe(({auth:{user}}) =>{
+        this.user = user; 
+        console.log(this.user)
+      } );
   }
   onNavigateToCourseData() {
       this.router.navigate(['/vicerrector/datos-curso']);

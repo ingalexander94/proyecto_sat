@@ -22,19 +22,19 @@ export class LoginComponent implements OnInit, OnDestroy {
   createFormLogin(): FormGroup {
     return new FormGroup({
       // role: new FormControl('estudiante', Validators.required),
-      code: new FormControl('1049486', [
+      code: new FormControl('1072235', [
         Validators.required,
         Validators.minLength(7),
         Validators.maxLength(7),
         Validators.pattern(/^[0-9]+$/i),
       ]),
-      document: new FormControl('525933018', [
+      document: new FormControl('1300162807', [
         Validators.required,
         Validators.minLength(8),
         Validators.maxLength(10),
         Validators.pattern(/^[0-9]+$/i),
       ]),
-      password: new FormControl('7681', Validators.required),
+      password: new FormControl('9226', Validators.required),
     });
   }
 

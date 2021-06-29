@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { Subscription } from 'rxjs';
+import {  Subscription } from 'rxjs';
 import { AppState } from 'src/app/app.reducers';
 import { User } from 'src/app/model/auth';
 import { Course } from 'src/app/model/course';
 import { Title } from 'src/app/model/ui';
 import { UiService } from 'src/app/services/ui.service';
+import { StudentService } from 'src/app/services/student.service';
+import { filter, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-list-course',
@@ -14,28 +16,7 @@ import { UiService } from 'src/app/services/ui.service';
   styleUrls: ['./list-course.component.css'],
 })
 export class ListCourseComponent implements OnInit {
-  listCourses: Course[] = [
-    {
-      id: 1,
-      name: 'Administración de proyectos informaticos',
-      group: 'F',
-    },
-    {
-      id: 2,
-      name: 'Bases de datos',
-      group: 'B',
-    },
-    {
-      id: 3,
-      name: 'Arquitectura de software',
-      group: 'A',
-    },
-    {
-      id: 4,
-      name: 'Ingeniería del software',
-      group: 'B',
-    },
-  ];
+ 
 
   title: Title = {
     title: 'Listado de Materias',
@@ -44,19 +25,29 @@ export class ListCourseComponent implements OnInit {
 
   user: User;
   subscription: Subscription = new Subscription();
+  listCourses: Course[];
 
   constructor(
     private router: Router,
     private uiService: UiService,
-    private store: Store<AppState>
+    private store: Store<AppState>,
+    private studentService:StudentService
   ) {
     this.uiService.updateTitleNavbar();
   }
-
+   
   ngOnInit(): void {
     this.subscription = this.store
-      .select('auth')
-      .subscribe(({ user }) => (this.user = user));
+      .pipe( 
+        map(({auth,course}) =>({auth,course})),
+        filter(({auth}) => auth.user !== null)
+      )
+      .subscribe(({auth:{user},course:{courses}}) =>{
+        this.user = user; 
+        this.studentService.listCourses(this.user.codigo);
+        this.listCourses = courses ;
+      } );
+
   }
 
   onNavigateToCourse() {
