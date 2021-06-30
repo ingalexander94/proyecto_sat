@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
@@ -14,7 +14,7 @@ import { UiService } from 'src/app/services/ui.service';
   templateUrl: './info-academy.component.html',
   styleUrls: ['./info-academy.component.css'],
 })
-export class InfoAcademyComponent implements OnInit {
+export class InfoAcademyComponent implements OnInit, OnDestroy {
   listCourse: desCourse[] = courses;
 
   user: User;
@@ -27,6 +27,7 @@ export class InfoAcademyComponent implements OnInit {
     ) {
     this.uiService.updateTitleNavbar('Perfil');
   }
+ 
 
   ngOnInit(): void {
       this.subscription = this.store
@@ -36,10 +37,13 @@ export class InfoAcademyComponent implements OnInit {
       )
       .subscribe(({auth:{user}}) =>{
         this.user = user; 
-        console.log(this.user)
       } );
   }
   onNavigateToCourseData() {
       this.router.navigate(['/vicerrector/datos-curso']);
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 }

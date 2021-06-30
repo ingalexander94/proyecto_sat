@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import {  Subscription } from 'rxjs';
@@ -15,7 +15,8 @@ import { filter, map } from 'rxjs/operators';
   templateUrl: './list-course.component.html',
   styleUrls: ['./list-course.component.css'],
 })
-export class ListCourseComponent implements OnInit {
+
+export class ListCourseComponent implements OnInit, OnDestroy {
  
 
   title: Title = {
@@ -35,19 +36,17 @@ export class ListCourseComponent implements OnInit {
   ) {
     this.uiService.updateTitleNavbar();
   }
-   
+  
   ngOnInit(): void {
     this.subscription = this.store
       .pipe( 
         map(({auth,course}) =>({auth,course})),
         filter(({auth}) => auth.user !== null)
-      )
-      .subscribe(({auth:{user},course:{courses}}) =>{
+      ).subscribe(({auth:{user},course:{courses}}) =>{
         this.user = user; 
-        this.studentService.listCourses(this.user.codigo);
         this.listCourses = courses ;
       } );
-
+      this.studentService.listCourses(); 
   }
 
   onNavigateToCourse() {
@@ -57,4 +56,7 @@ export class ListCourseComponent implements OnInit {
       this.router.navigate(['/docente/perfil']);
     }
   }
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+}
 }

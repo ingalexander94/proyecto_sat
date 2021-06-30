@@ -44,6 +44,10 @@
   background: var(--gray-menu);
 }
 
+span{
+  height: 90px;
+  margin-bottom: 10px;
+}
 
 
 /* Tablet and Desktop */
@@ -88,8 +92,6 @@
     margin-right: 60px;
     
   }
-
-
   .list_courses {
     margin-left: 0px;
     display: grid;

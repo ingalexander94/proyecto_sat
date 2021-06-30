@@ -1,5 +1,6 @@
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { registerLocaleData } from '@angular/common';
 
 // Forms
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -38,6 +39,10 @@ import { ScheduleComponent } from './pages/schedule/schedule.component';
 import { CourseDataComponent } from './pages/course-data/course-data.component';
 import { InterceptorService } from './interceptor.service';
 import { LoginAdminComponent } from './pages/auth/login-admin/login-admin.component';
+
+import localeEsAr from '@angular/common/locales/es-AR';
+ 
+registerLocaleData(localeEsAr,'es-Ar') 
 
 @NgModule({
   declarations: [
@@ -80,6 +85,10 @@ import { LoginAdminComponent } from './pages/auth/login-admin/login-admin.compon
       provide: HTTP_INTERCEPTORS,
       useClass: InterceptorService,
       multi: true,
+    },
+    {
+      provide:LOCALE_ID,
+      useValue:'es-Ar'
     },
   ],
   bootstrap: [AppComponent],

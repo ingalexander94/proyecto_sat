@@ -10,6 +10,7 @@ import { AddUserAction, RemoveUserAction } from '../reducer/auth/auth.actions';
 import {
   StartLoadingAction,
   FinishLoadingAction,
+  SetUserActiveAction,
 } from '../reducer/ui/ui.actions';
 
 @Injectable({
@@ -41,6 +42,7 @@ export class AuthService {
       localStorage.setItem('x-token', token.toString());
       showAlert('success', msg);
       this.store.dispatch(new AddUserAction(data));
+      this.store.dispatch(new SetUserActiveAction(data));
       this.router.navigate([`/${data.rol.toLowerCase()}`]);
     } catch (error) {
       console.log(error);

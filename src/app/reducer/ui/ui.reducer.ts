@@ -1,13 +1,16 @@
+import { User } from 'src/app/model/auth';
 import * as fromUI from './ui.actions';
 
 export interface UIState {
   loading: boolean;
   titleNavbar: String;
+  userActive: User;
 }
 
 const initState: UIState = {
   loading: false,
   titleNavbar: 'SAT',
+  userActive: null
 };
 
 export const uiReducer = (
@@ -31,6 +34,16 @@ export const uiReducer = (
       return {
         ...state,
         titleNavbar: actions.payload,
+      };
+    case fromUI.SET_USER_ACTIVE:
+      return {
+        ...state,
+        userActive: actions.payload
+      };
+    case fromUI.UNSET_USER_ACTIVE:
+      return{
+        ...state,
+        userActive:null
       };
 
     default:

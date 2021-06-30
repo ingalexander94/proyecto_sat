@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Location } from '@angular/common';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/app.reducers';
@@ -6,7 +6,7 @@ import { User } from 'src/app/model/auth';
 import { Subscription } from 'rxjs';
 import { MenuOptions } from 'src/app/model/ui';
 import { menuRoutes } from 'src/app/model/data';
-import { map } from 'rxjs/operators';
+import { map, filter } from 'rxjs/operators';
 import { Router } from '@angular/router';
 
 @Component({
@@ -14,10 +14,12 @@ import { Router } from '@angular/router';
   templateUrl: './profile-card.component.html',
   styleUrls: ['./profile-card.component.css'],
 })
-export class ProfileCardComponent implements OnInit {
+
+export class ProfileCardComponent implements OnInit, OnDestroy {
   @ViewChild('checkbox') checkbox: ElementRef;
 
   user: User = null;
+  userShow:User = null;
   subscription: Subscription = new Subscription();
   routes: MenuOptions[] = menuRoutes;
   title: String;
@@ -29,14 +31,20 @@ export class ProfileCardComponent implements OnInit {
     private location: Location,
     private store: Store<AppState>,
     private router: Router
-  ) {}
+  ) {
+    
+  }
+  
 
   ngOnInit(): void {
     this.subscription = this.store
-      .pipe(map(({ auth, ui }) => ({ user: auth.user, title: ui.titleNavbar })))
-      .subscribe(({ user, title }) => {
+      .pipe(
+        filter( ({auth}) => auth.user !== null ),
+        map(({ auth, ui }) => ({ user: auth.user, title: ui.titleNavbar, userActive:ui.userActive })))
+      .subscribe(({ user, title, userActive }) => {
         this.user = user;
         this.title = title;
+        this.userShow = userActive;
       });
   }
 
@@ -74,5 +82,9 @@ export class ProfileCardComponent implements OnInit {
 
   toFollowUp() {
     this.router.navigate(['/estudiante/notificar']);
+  }
+
+  ngOnDestroy(): void {
+   this.subscription.unsubscribe();
   }
 }
