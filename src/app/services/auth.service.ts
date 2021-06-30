@@ -5,12 +5,12 @@ import { Store } from '@ngrx/store';
 import { environment } from 'src/environments/environment.prod';
 import { AppState } from '../app.reducers';
 import { showAlert } from '../helpers/alert';
+import { saveInLocalStorage } from '../helpers/localStorage';
 import { AuthResponse, UserAuth } from '../model/auth';
 import { AddUserAction, RemoveUserAction } from '../reducer/auth/auth.actions';
 import {
   StartLoadingAction,
   FinishLoadingAction,
-  SetUserActiveAction,
 } from '../reducer/ui/ui.actions';
 
 @Injectable({
@@ -42,7 +42,7 @@ export class AuthService {
       localStorage.setItem('x-token', token.toString());
       showAlert('success', msg);
       this.store.dispatch(new AddUserAction(data));
-      this.store.dispatch(new SetUserActiveAction(data));
+      saveInLocalStorage('user-show', data);
       this.router.navigate([`/${data.rol.toLowerCase()}`]);
     } catch (error) {
       console.log(error);

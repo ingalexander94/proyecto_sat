@@ -13,12 +13,12 @@ export interface Materia {
   horario: String;
   nombre: String;
   semestre: number;
-};
+}
 
-export interface ResponseCourse{
-  ok:Boolean;
-  data:Course[];
-  msg:String;
+export interface ResponseCourse {
+  ok: Boolean;
+  data: Course[];
+  msg: String;
 }
 
 export interface Student {

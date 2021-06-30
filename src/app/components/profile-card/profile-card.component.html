@@ -1,4 +1,4 @@
-<div class="card_profile">
+<div class="card_profile" *ngIf="!loading">
   <div class="photo_user">
     <img
       src="https://i.pinimg.com/236x/d5/f8/3c/d5f83c809b2f6ceb70a0310883f1fe87.jpg"
@@ -8,8 +8,8 @@
   <div class="info_student">
     <a class="pointer" (click)="goBack()"><i class="fas fa-arrow-left"></i></a>
     <div class="description">
-      <h3>{{userShow.nombre}}   {{userShow.apellido}}</h3>
-      <p>{{userShow.correo}}</p>
+      <h3>{{ userShow.nombre }} {{ userShow.apellido }}</h3>
+      <p>{{ userShow.correo }}</p>
       <p><i class="fas fa-circle green"></i> Sin riesgo</p>
     </div>
     <div class="menu-options">
@@ -21,7 +21,7 @@
       />
       <label
         *ngIf="
-          user?.rol !== 'estudiante' &&
+          user.rol !== 'estudiante' &&
             (title === 'Perfil Docente' || title === 'Perfil');
           else hidden
         "
@@ -32,7 +32,7 @@
       ></label>
       <ng-template #hidden>
         <label
-          *ngIf="title !== 'Perfil Docente' && user?.rol === 'estudiante'"
+          *ngIf="title !== 'Perfil Docente' && user.rol === 'estudiante'"
           title="Ver opciones"
           class="pointer"
           for="showOptions"
@@ -43,7 +43,7 @@
       <ul>
         <ng-container *ngFor="let route of routes">
           <li
-            *ngIf="route.isAllowed(user?.rol)"
+            *ngIf="route.isAllowed(user.rol)"
             (click)="toNavigate()"
             fragment="contenedor"
             [routerLink]="[route.path]"
@@ -59,26 +59,25 @@
   <div class="data_student">
     <div class="semester">
       <h4>Semestre</h4>
-      <p>{{userShow.semestre}}</p>
+      <p>{{ userShow.semestre }}</p>
     </div>
     <div class="program">
       <h4>Programa</h4>
-      <p>{{userShow.programa}}</p>
+      <p>{{ userShow.programa }}</p>
     </div>
     <div class="code">
       <h4>Código</h4>
-      <p>{{userShow.codigo}}</p>
+      <p>{{ userShow.codigo }}</p>
     </div>
   </div>
-  <p><i class="fas fa-phone"></i> {{userShow.telefono}}</p>
-  <p><i class="fas fa-id-card"></i> {{userShow.documento}}</p>
-  <p><i class="fas fa-map-marker-alt"></i> {{userShow.direccion}}</p>
+  <p><i class="fas fa-phone"></i> {{ userShow.telefono }}</p>
+  <p><i class="fas fa-id-card"></i> {{ userShow.documento }}</p>
+  <p><i class="fas fa-map-marker-alt"></i> {{ userShow.direccion }}</p>
   <p
-    *ngIf="user?.rol === 'estudiante' && title !== 'Perfil Docente'"
+    *ngIf="user.rol === 'estudiante' && title !== 'Perfil Docente'"
     (click)="updateProfile()"
     class="active pointer"
   >
-  
     <i class="fas fa-edit"></i> Editar perfil
   </p>
   <div *ngIf="title === 'Perfil Docente' && user.rol === 'estudiante'">
@@ -89,15 +88,15 @@
   <div *ngIf="title !== 'Perfil Docente'">
     <button
       (click)="updateShowDescription()"
-      *ngIf="user?.rol === 'docente' || user?.rol === 'jefe'"
+      *ngIf="user.rol === 'docente' || user.rol === 'jefe'"
     >
       Postular estudiante <i class="fas fa-hand-holding-medical"></i>
     </button>
-    <button (click)="updateShowDescription()" *ngIf="user?.rol === 'estudiante'">
+    <button (click)="updateShowDescription()" *ngIf="user.rol === 'estudiante'">
       Solicitar Ayuda <i class="fas fa-hand-holding"></i>
     </button>
     <button
-      *ngIf="user?.rol === 'vicerrector'"
+      *ngIf="user.rol === 'vicerrector'"
       (click)="ShowDateNotification()"
       class="button"
     >

@@ -33,3 +33,9 @@ export interface AuthResponse {
   token: String;
   ok: Boolean;
 }
+
+export interface UserResponse {
+  msg: String;
+  ok: Boolean;
+  data: User;
+}

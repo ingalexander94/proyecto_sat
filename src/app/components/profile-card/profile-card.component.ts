@@ -1,4 +1,10 @@
-import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { Location } from '@angular/common';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/app.reducers';
@@ -14,37 +20,40 @@ import { Router } from '@angular/router';
   templateUrl: './profile-card.component.html',
   styleUrls: ['./profile-card.component.css'],
 })
-
 export class ProfileCardComponent implements OnInit, OnDestroy {
   @ViewChild('checkbox') checkbox: ElementRef;
 
   user: User = null;
-  userShow:User = null;
+  userShow: User = null;
   subscription: Subscription = new Subscription();
   routes: MenuOptions[] = menuRoutes;
   title: String;
   showUpdateProfile: boolean = false;
   showDescription: boolean = false;
   showDate: boolean = false;
+  loading: boolean = true;
 
   constructor(
     private location: Location,
     private store: Store<AppState>,
     private router: Router
-  ) {
-    
-  }
-  
+  ) {}
 
   ngOnInit(): void {
     this.subscription = this.store
       .pipe(
-        filter( ({auth}) => auth.user !== null ),
-        map(({ auth, ui }) => ({ user: auth.user, title: ui.titleNavbar, userActive:ui.userActive })))
+        filter(({ auth }) => auth.user !== null),
+        map(({ auth, ui }) => ({
+          user: auth.user,
+          title: ui.titleNavbar,
+          userActive: ui.userActive,
+        }))
+      )
       .subscribe(({ user, title, userActive }) => {
         this.user = user;
         this.title = title;
         this.userShow = userActive;
+        this.loading = false;
       });
   }
 
@@ -85,6 +94,6 @@ export class ProfileCardComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-   this.subscription.unsubscribe();
+    this.subscription.unsubscribe();
   }
 }
