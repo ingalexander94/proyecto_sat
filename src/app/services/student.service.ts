@@ -6,6 +6,7 @@ import { Store } from '@ngrx/store';
 import { AppState } from '../app.reducers';
 import { LoadingCourseAction } from '../reducer/course/course.actions';
 import { UserResponse } from '../model/auth';
+import { FinishLoadingAction } from '../reducer/ui/ui.actions';
 
 @Injectable({
   providedIn: 'root',
@@ -24,6 +25,7 @@ export class StudentService {
     } catch (error) {
       console.error(error);
     }
+    this.store.dispatch(new FinishLoadingAction());
   }
 
   getTeacherOfCourse(code: String) {

@@ -7,6 +7,10 @@ import { AppState } from 'src/app/app.reducers';
 import { saveInLocalStorage } from 'src/app/helpers/localStorage';
 import { User } from 'src/app/model/auth';
 import { Course } from 'src/app/model/course';
+import {
+  FinishLoadingAction,
+  StartLoadingAction,
+} from 'src/app/reducer/ui/ui.actions';
 import { StudentService } from 'src/app/services/student.service';
 
 @Component({
@@ -34,6 +38,7 @@ export class ItemCourseComponent implements OnInit, OnDestroy {
   }
 
   async navigateToTeacher() {
+    this.store.dispatch(new StartLoadingAction());
     if (this.user.rol === 'docente' || this.user.rol === 'jefe') {
       this.router.navigate(['/docente/materia']);
     } else {
@@ -43,6 +48,7 @@ export class ItemCourseComponent implements OnInit, OnDestroy {
       saveInLocalStorage('user-show', data);
       this.router.navigate([`/docente/perfil/${this.course.materia.docente}`]);
     }
+    this.store.dispatch(new FinishLoadingAction());
   }
 
   ngOnDestroy(): void {

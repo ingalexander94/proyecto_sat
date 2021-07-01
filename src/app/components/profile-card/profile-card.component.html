@@ -1,9 +1,10 @@
 <div class="card_profile" *ngIf="!loading">
   <div class="photo_user">
-    <img
+    <img src="{{ userShow.foto }}" alt="Foto de perfil del usuario" />
+    <!-- <img
       src="https://i.pinimg.com/236x/d5/f8/3c/d5f83c809b2f6ceb70a0310883f1fe87.jpg"
       alt="Foto de perfil del estudiante"
-    />
+    /> -->
   </div>
   <div class="info_student">
     <a class="pointer" (click)="goBack()"><i class="fas fa-arrow-left"></i></a>

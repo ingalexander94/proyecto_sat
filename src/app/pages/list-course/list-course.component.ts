@@ -1,5 +1,4 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { AppState } from 'src/app/app.reducers';
@@ -8,8 +7,9 @@ import { Course } from 'src/app/model/course';
 import { Title } from 'src/app/model/ui';
 import { UiService } from 'src/app/services/ui.service';
 import { StudentService } from 'src/app/services/student.service';
-import { filter, map } from 'rxjs/operators';
+import { filter } from 'rxjs/operators';
 import { tapN } from 'src/app/helpers/observers';
+import { StartLoadingAction } from 'src/app/reducer/ui/ui.actions';
 
 @Component({
   selector: 'app-list-course',
@@ -25,6 +25,8 @@ export class ListCourseComponent implements OnInit, OnDestroy {
   subscription: Subscription = new Subscription();
   listCourses: Course[];
 
+  loading: boolean = false;
+
   constructor(
     private uiService: UiService,
     private store: Store<AppState>,
@@ -34,14 +36,15 @@ export class ListCourseComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this.store.dispatch(new StartLoadingAction());
     this.subscription = this.store
       .pipe(
-        map(({ auth, course }) => ({ auth, course })),
         filter(({ auth }) => auth.user !== null),
         tapN(1, ({ auth }) => this.studentService.listCourses(auth.user.codigo))
       )
-      .subscribe(({ course: { courses } }) => {
+      .subscribe(({ course: { courses }, ui: { loading } }) => {
         this.listCourses = courses;
+        this.loading = loading;
       });
   }
 
