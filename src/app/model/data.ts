@@ -107,12 +107,6 @@ export const servicesWellness: ServicesWellness[] = [
 
 export const menuRoutes: MenuOptions[] = [
   {
-    path: '/estudiante/chat',
-    name: 'Ver chat',
-    icon: 'envelope',
-    isAllowed: (role: String) => (role !== 'psicologia' ? true : false),
-  },
-  {
     path: '/estudiante/actividades',
     name: 'Ver actividades',
     icon: 'list',

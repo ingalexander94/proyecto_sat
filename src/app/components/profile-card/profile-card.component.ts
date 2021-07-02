@@ -14,6 +14,9 @@ import { MenuOptions } from 'src/app/model/ui';
 import { menuRoutes } from 'src/app/model/data';
 import { map, filter } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { ChatService } from 'src/app/services/chat.service';
+import { StartLoadingAction } from 'src/app/reducer/ui/ui.actions';
+import { LoadingChatAction } from 'src/app/reducer/Chat/chat.actions';
 
 @Component({
   selector: 'app-profile-card',
@@ -36,7 +39,8 @@ export class ProfileCardComponent implements OnInit, OnDestroy {
   constructor(
     private location: Location,
     private store: Store<AppState>,
-    private router: Router
+    private router: Router,
+    private chatService: ChatService
   ) {}
 
   ngOnInit(): void {
@@ -56,7 +60,7 @@ export class ProfileCardComponent implements OnInit, OnDestroy {
         this.loading = false;
       });
   }
-
+   
   goBack() {
     this.location.back();
   }
@@ -83,10 +87,8 @@ export class ProfileCardComponent implements OnInit, OnDestroy {
     }
   }
 
-  contact() {
-    this.router.navigate(['/estudiante/chat'], {
-      fragment: 'contenedor',
-    });
+  contact() { 
+    this.chatService.getMessages();
   }
 
   toFollowUp() {
