@@ -1,21 +1,24 @@
 <div class="chat_container">
   <div class="chat">
-    <div class="msg_in">
+    <div
+      *ngFor="let item of chat"
+      [ngClass]="{ msg_out: code === item.transmitter.code }"
+      class="msg_in"
+    >
+      <div class="text_in"><span>Niver Romero: </span>{{ item.message }}</div>
+      <p>
+        {{ item.date | date: "EEEE d MMM ; h:mm a" }}
+      </p>
+    </div>
+
+    <!-- <div class="msg_in">
       <div class="text_in">Hola!! Buenos días</div>
       <p>Domingo 23 May; 09:32 AM</p>
     </div>
     <div class="msg_out">
       <div class="text_out">Buenos días Uribe...</div>
       <p>Domingo 23 May; 09:33 AM</p>
-    </div>
-    <div class="msg_in">
-      <div class="text_in">¿Cómo se encuentra?</div>
-      <p>Domingo 23 May; 09:34 AM</p>
-    </div>
-    <div class="msg_out">
-      <div class="text_out">Muy Bien!</div>
-      <p>Domingo 23 May; 09:35 AM</p>
-    </div>
+    </div> -->
   </div>
 
   <div class="form_input">
