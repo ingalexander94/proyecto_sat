@@ -58,7 +58,7 @@
     </div>
   </div>
   <div class="data_student">
-    <div class="semester">
+    <div *ngIf="userShow.rol !== 'docente'" class="semester">
       <h4>Semestre</h4>
       <p>{{ userShow.semestre }}</p>
     </div>

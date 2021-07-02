@@ -1,7 +1,6 @@
 import { Risk } from './risk';
 import {
   ActivitiesList,
-
   desCourse,
   ItemRisk,
   MenuOptions,
@@ -88,7 +87,7 @@ export const activities: ActivitiesList[] = [
     icon: 'fa-spinner',
   },
 ];
-// Servicios Bienestar en uso 
+// Servicios Bienestar en uso
 export const servicesWellness: ServicesWellness[] = [
   {
     num: 1,
@@ -102,16 +101,9 @@ export const servicesWellness: ServicesWellness[] = [
   },
 ];
 
-
 // Rutas
 
 export const menuRoutes: MenuOptions[] = [
-  {
-    path: '/estudiante/chat',
-    name: 'Ver chat',
-    icon: 'envelope',
-    isAllowed: (role: String) => (role !== 'psicologia' ? true : false),
-  },
   {
     path: '/estudiante/actividades',
     name: 'Ver actividades',
@@ -235,26 +227,26 @@ export const risks: Risk[] = [
     path: 'institucional',
   },
 ];
- //cursos con Asistencias
-export const courses: desCourse[]=[
+//cursos con Asistencias
+export const courses: desCourse[] = [
   {
-    name:'Administracion de Proyecto informaticos',
-    group:'B',
-    assistance:10
+    name: 'Administracion de Proyecto informaticos',
+    group: 'B',
+    assistance: 10,
   },
   {
-    name:'base de datos',
-    group:'A',
-    assistance:10
+    name: 'base de datos',
+    group: 'A',
+    assistance: 10,
   },
   {
-    name:'Arquitectura de software',
-    group:'A',
-    assistance:10
+    name: 'Arquitectura de software',
+    group: 'A',
+    assistance: 10,
   },
   {
-    name:'Ingenieria de software',
-    group:'',
-    assistance:10
-  }
-]
+    name: 'Ingenieria de software',
+    group: '',
+    assistance: 10,
+  },
+];

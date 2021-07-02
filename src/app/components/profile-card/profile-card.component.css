@@ -57,8 +57,11 @@ input[type="checkbox"] {
 .data_student {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   width: 100%;
+}
+
+.program {
+  max-width: 120px;
 }
 
 .info_student a {
@@ -181,6 +184,7 @@ input[type="checkbox"] {
 
   .data_student {
     margin: 32px 0px;
+    justify-content: space-evenly;
   }
 
   .info_student a {
@@ -202,5 +206,9 @@ input[type="checkbox"] {
   .photo_user::before {
     content: "";
     left: 22%;
+  }
+
+  .data_student {
+    justify-content: space-evenly;
   }
 }
