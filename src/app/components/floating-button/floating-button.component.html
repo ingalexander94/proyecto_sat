@@ -7,21 +7,21 @@
   <hr />
   <ul>
     <li
+      *ngFor="let item of notification"
       (click)="closeButton()"
-      routerLink="/estudiante/reunion"
       fragment="contenedor"
-      class="no_read pointer"
+      class="pointer"
+      [ngClass]="{ no_read: item.isActive }"
     >
-      <p>Ha recibido una solicitud de reunión</p>
-      <span><i class="fas fa-clock red"></i> 08:45 AM</span>
-    </li>
-    <li (click)="closeButton()" class="pointer">
-      <p>Ha recibido un mensaje</p>
-      <span><i class="fas fa-clock red"></i> 10:45 AM</span>
-    </li>
-    <li (click)="closeButton()" class="pointer">
-      <p>Ha sido ubicado en la lista de riesgo crítico</p>
-      <span><i class="fas fa-clock red"></i> 02:45 PM</span>
+      <p>{{ item.title }}</p>
+      <span
+        ><i class="fas fa-clock red"></i>
+        {{ item.date | date: " h:mm a" }}
+      </span>
+      <i
+        (click)="deleteNotificatio(item._id.$oid)"
+        class="fas fa-times equis"
+      ></i>
     </li>
   </ul>
 </div>

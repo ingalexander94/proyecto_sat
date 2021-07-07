@@ -13,6 +13,7 @@ import {
   FinishLoadingAction,
   StartLoadingAction,
 } from '../reducer/ui/ui.actions';
+import { NotificationService } from './notification.service';
 
 @Injectable({
   providedIn: 'root',
@@ -20,7 +21,11 @@ import {
 export class TeacherService {
   url: String = environment.url_backend;
 
-  constructor(private http: HttpClient, private store: Store<AppState>) {}
+  constructor(
+    private http: HttpClient,
+    private store: Store<AppState>,
+    private notificationService: NotificationService
+  ) {}
 
   async listCourses(code: String) {
     try {
@@ -32,6 +37,7 @@ export class TeacherService {
       console.error(error);
     }
     this.store.dispatch(new FinishLoadingAction());
+    this.notificationService.getNotifications(code);
   }
 
   async listStudentsOfCourse(code: String, group: String) {

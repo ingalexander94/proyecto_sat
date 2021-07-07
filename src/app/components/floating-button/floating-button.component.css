@@ -59,6 +59,7 @@ input[type="checkbox"] {
   width: 120px;
   text-align: right;
   color: var(--dark-color);
+  background-color: chartreuse;
 }
 
 #floating:checked ~ .list_notification {
@@ -68,7 +69,9 @@ input[type="checkbox"] {
 #floating:checked ~ .notifications label i::before {
   content: "\f00d";
 }
-
+.equis {
+  background: red;
+}
 /* Tablet */
 @media (min-width: 768px) and (max-width: 1151px) {
   .notifications {

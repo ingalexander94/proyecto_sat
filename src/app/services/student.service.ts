@@ -7,6 +7,7 @@ import { AppState } from '../app.reducers';
 import { LoadingCourseAction } from '../reducer/course/course.actions';
 import { UserResponse } from '../model/auth';
 import { FinishLoadingAction } from '../reducer/ui/ui.actions';
+import { NotificationService } from './notification.service';
 
 @Injectable({
   providedIn: 'root',
@@ -14,7 +15,11 @@ import { FinishLoadingAction } from '../reducer/ui/ui.actions';
 export class StudentService {
   url: String = environment.url_backend;
 
-  constructor(private http: HttpClient, private store: Store<AppState>) {}
+  constructor(
+    private http: HttpClient,
+    private store: Store<AppState>,
+    private notificationService: NotificationService
+  ) {}
 
   async listCourses(code: String) {
     try {
@@ -22,6 +27,7 @@ export class StudentService {
         .get<ResponseCourse>(this.url + '/students/course/' + code)
         .toPromise();
       this.store.dispatch(new LoadingCourseAction(data));
+      this.notificationService.getNotifications(code);
     } catch (error) {
       console.error(error);
     }

@@ -17,6 +17,7 @@ import {
 } from 'src/app/reducer/course/course.actions';
 import { UnsetUserActiveAction } from 'src/app/reducer/ui/ui.actions';
 import { DeleteChatAction } from 'src/app/reducer/Chat/chat.actions';
+import { DeleteNotificationsAction } from 'src/app/reducer/notification/notification.actions';
 
 @Component({
   selector: 'app-navbar',
@@ -52,6 +53,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.store.dispatch(new UnsetUserActiveAction());
     this.store.dispatch(new DesactiveCourseAction());
     this.store.dispatch(new DeleteChatAction());
+    this.store.dispatch(new DeleteNotificationsAction());
     localStorage.clear();
     this.router.navigate(['/iniciar-sesion']);
   }
