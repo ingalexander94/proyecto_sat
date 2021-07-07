@@ -60,7 +60,7 @@ export class ProfileCardComponent implements OnInit, OnDestroy {
         this.loading = false;
       });
   }
-   
+
   goBack() {
     this.location.back();
   }
@@ -87,8 +87,8 @@ export class ProfileCardComponent implements OnInit, OnDestroy {
     }
   }
 
-  contact() { 
-    this.chatService.getMessages();
+  contact() {
+    this.chatService.getMessages(this.userShow);
   }
 
   toFollowUp() {

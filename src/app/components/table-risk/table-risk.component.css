@@ -23,6 +23,13 @@
   cursor: pointer;
 }
 
+.download {
+  font-size: 16px;
+  position: absolute;
+  right: 16px;
+  margin-top: 16px;
+}
+
 /* Tablet */
 
 @media (min-width: 768px) {
@@ -33,6 +40,11 @@
   .table_students table tbody tr td {
     font-size: 20px;
   }
+
+  .download {
+    font-size: 22px;
+    right: 32px;
+  }
 }
 
 /* Desktop */
@@ -40,5 +52,10 @@
 @media (min-width: 1152px) {
   .table_students {
     margin-top: 0;
+  }
+
+  .download {
+    font-size: 22px;
+    right: 32px;
   }
 }

@@ -11,8 +11,12 @@ import { Subscription } from 'rxjs';
 import { AppState } from 'src/app/app.reducers';
 import { RemoveUserAction } from 'src/app/reducer/auth/auth.actions';
 import { filter, map } from 'rxjs/operators';
-import { DeleteCourseAction } from 'src/app/reducer/course/course.actions';
+import {
+  DeleteCourseAction,
+  DesactiveCourseAction,
+} from 'src/app/reducer/course/course.actions';
 import { UnsetUserActiveAction } from 'src/app/reducer/ui/ui.actions';
+import { DeleteChatAction } from 'src/app/reducer/Chat/chat.actions';
 
 @Component({
   selector: 'app-navbar',
@@ -46,6 +50,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.store.dispatch(new RemoveUserAction());
     this.store.dispatch(new DeleteCourseAction());
     this.store.dispatch(new UnsetUserActiveAction());
+    this.store.dispatch(new DesactiveCourseAction());
+    this.store.dispatch(new DeleteChatAction());
     localStorage.clear();
     this.router.navigate(['/iniciar-sesion']);
   }

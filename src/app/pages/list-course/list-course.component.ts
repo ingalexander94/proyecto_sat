@@ -10,6 +10,7 @@ import { StudentService } from 'src/app/services/student.service';
 import { filter } from 'rxjs/operators';
 import { tapN } from 'src/app/helpers/observers';
 import { StartLoadingAction } from 'src/app/reducer/ui/ui.actions';
+import { TeacherService } from 'src/app/services/teacher.service';
 
 @Component({
   selector: 'app-list-course',
@@ -27,26 +28,17 @@ export class ListCourseComponent implements OnInit, OnDestroy {
 
   loading: boolean = false;
 
-  constructor(
-    private uiService: UiService,
-    private store: Store<AppState>,
-    private studentService: StudentService
-  ) {
+  constructor(private uiService: UiService, private store: Store<AppState>) {
     this.uiService.updateTitleNavbar();
-  }
-
-  ngOnInit(): void {
-    this.store.dispatch(new StartLoadingAction());
-    this.subscription = this.store
-      .pipe(
-        filter(({ auth }) => auth.user !== null),
-        tapN(1, ({ auth }) => this.studentService.listCourses(auth.user.codigo))
-      )
-      .subscribe(({ course: { courses }, ui: { loading } }) => {
+    this.subscription = this.store.subscribe(
+      ({ course: { courses }, ui: { loading } }) => {
         this.listCourses = courses;
         this.loading = loading;
-      });
+      }
+    );
   }
+
+  ngOnInit(): void {}
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();

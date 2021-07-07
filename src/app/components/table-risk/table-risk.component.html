@@ -12,16 +12,26 @@
       </tr>
     </thead>
     <tbody>
-      <tr
-        class="pointer"
-        (click)="navigateToStudent()"
-        *ngFor="let student of listStudents; let i = index"
-      >
-        <td>{{ i + 1 }}</td>
-        <td>{{ student.code }}</td>
-        <td>{{ student.names }} {{ student.surnames }}</td>
-        <td><i [ngClass]="student.risk" class="fas fa-circle"></i></td>
+      <tr *ngIf="loading">
+        <td colspan="4">
+          <app-loading></app-loading>
+        </td>
       </tr>
+      <ng-container *ngIf="!loading">
+        <tr
+          class="pointer"
+          *ngFor="let student of listStudents; let i = index"
+          (click)="navigateToStudent(student)"
+        >
+          <td>{{ i + 1 }}</td>
+          <td>{{ student.codigo }}</td>
+          <td>{{ student.nombre }} {{ student.apellido }}</td>
+          <td><i class="fas fa-circle red"></i></td>
+        </tr>
+      </ng-container>
     </tbody>
   </table>
 </div>
+<a href="#" *ngIf="!loading" class="download"
+  >Descargar <i class="fas fa-download"></i
+></a>

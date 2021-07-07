@@ -1,10 +1,20 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  OnDestroy,
+  OnInit,
+  QueryList,
+  ViewChild,
+} from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
 import { AppState } from 'src/app/app.reducers';
-import { User } from 'src/app/model/auth';
+import { getValueOfLocalStorage } from 'src/app/helpers/localStorage';
 import { ResponseChat } from 'src/app/model/chat';
+import { DeleteChatAction } from 'src/app/reducer/Chat/chat.actions';
+import { ChatService } from 'src/app/services/chat.service';
 import { UiService } from 'src/app/services/ui.service';
 
 @Component({
@@ -16,7 +26,21 @@ export class ChatComponent implements OnInit, OnDestroy {
   subscription: Subscription = new Subscription();
   chat: ResponseChat[];
   code: String;
-  constructor(private uiService: UiService, private store: Store<AppState>) {
+  formChat: FormGroup;
+
+  createFormChat(): FormGroup {
+    return new FormGroup({
+      message: new FormControl('', Validators.required),
+    });
+  }
+
+  constructor(
+    private uiService: UiService,
+    private store: Store<AppState>,
+    private chatService: ChatService
+  ) {
+    this.formChat = this.createFormChat();
+    this.loadChat();
     this.uiService.updateTitleNavbar('Perfil');
   }
 
@@ -28,9 +52,23 @@ export class ChatComponent implements OnInit, OnDestroy {
           (this.chat = chat.chat), (this.code = auth.user.codigo)
         )
       );
-    console.log(this.code);
   }
+
+  sendMessage() {
+    if (!this.formChat.invalid) {
+      const { message } = this.formChat.value;
+      this.formChat.reset();
+      this.chatService.sendMessage(message);
+    }
+  }
+
+  loadChat() {
+    const receiver = getValueOfLocalStorage('receiver');
+    this.chatService.getMessages(receiver);
+  }
+
   ngOnDestroy() {
     this.subscription.unsubscribe();
+    this.store.dispatch(new DeleteChatAction());
   }
 }

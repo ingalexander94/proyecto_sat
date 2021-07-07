@@ -19,7 +19,7 @@ import { WellnessNotificationComponent } from './wellness-notification/wellness-
 import { NotificationDateComponent } from './notification-date/notification-date.component';
 import { SearchStudentComponent } from './search-student/search-student.component';
 import { TableComponent } from './table/table.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StatisticsRiskComponent } from './statistics-risk/statistics-risk.component';
 import { TableRiskComponent } from './table-risk/table-risk.component';
 import { ButtonFollowComponent } from './button-follow/button-follow.component';
@@ -76,8 +76,7 @@ import { LoadingComponent } from './loading/loading.component';
     BinnacleComponent,
     ItemCourseAssistanceComponent,
     LoadingComponent,
-
   ],
-  imports: [CommonModule, RouterModule, FormsModule],
+  imports: [CommonModule, RouterModule, FormsModule, ReactiveFormsModule],
 })
 export class ComponentsModule {}

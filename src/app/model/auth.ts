@@ -39,3 +39,9 @@ export interface UserResponse {
   ok: Boolean;
   data: User;
 }
+
+export interface StudentResponse {
+  msg: String;
+  ok: Boolean;
+  data: User[];
+}

@@ -1,28 +1,33 @@
 <div class="chat_container">
-  <div class="chat">
+  <div class="chat" style="overflow: scroll; height: xyz">
     <div
       *ngFor="let item of chat"
-      [ngClass]="{ msg_out: code === item.transmitter.code }"
+      [ngClass]="code === item.transmitter.code ? 'msg_out' : 'msg_in'"
       class="msg_in"
     >
-      <div class="text_in"><span>Niver Romero: </span>{{ item.message }}</div>
+      <div [ngClass]="code === item.transmitter.code ? 'text_out' : 'text_in'">
+        <span *ngIf="code === item.transmitter.code"
+          >{{
+            code === item.transmitter.code
+              ? item.transmitter.name
+              : item.receiver.name
+          }}: </span
+        >{{ item.message }}
+      </div>
       <p>
         {{ item.date | date: "EEEE d MMM ; h:mm a" }}
       </p>
     </div>
-
-    <!-- <div class="msg_in">
-      <div class="text_in">Hola!! Buenos días</div>
-      <p>Domingo 23 May; 09:32 AM</p>
-    </div>
-    <div class="msg_out">
-      <div class="text_out">Buenos días Uribe...</div>
-      <p>Domingo 23 May; 09:33 AM</p>
-    </div> -->
   </div>
 
-  <div class="form_input">
-    <input type="text" placeholder="Escriba su mensaje..." />
-    <i class="fas fa-paper-plane pointer"></i>
-  </div>
+  <form [formGroup]="formChat" (submit)="sendMessage()" class="form_input">
+    <input
+      type="text"
+      name="message"
+      id="message"
+      formControlName="message"
+      placeholder="Escriba su mensaje..."
+    />
+    <i (click)="sendMessage()" class="fas fa-paper-plane pointer"></i>
+  </form>
 </div>

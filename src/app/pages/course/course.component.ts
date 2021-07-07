@@ -1,5 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { Subscription } from 'rxjs';
+import { AppState } from 'src/app/app.reducers';
 import { Title } from 'src/app/model/ui';
+import { ActiveCourseAction } from 'src/app/reducer/course/course.actions';
+import { TeacherService } from 'src/app/services/teacher.service';
 import { UiService } from 'src/app/services/ui.service';
 
 @Component({
@@ -7,15 +13,38 @@ import { UiService } from 'src/app/services/ui.service';
   templateUrl: './course.component.html',
   styleUrls: ['./course.component.css'],
 })
-export class CourseComponent implements OnInit {
+export class CourseComponent implements OnInit, OnDestroy {
   title: Title = {
-    title: 'Bases de datos - B',
+    title: '',
     subtitle: 'Listado de estudiantes matriculados para el semestre actual.',
   };
 
-  constructor(private uiService: UiService) {
+  subscription: Subscription = new Subscription();
+
+  constructor(
+    private uiService: UiService,
+    private teacherService: TeacherService,
+    private store: Store<AppState>,
+    private route: ActivatedRoute
+  ) {
+    const code = this.route.snapshot.paramMap.get('code');
+    const group = this.route.snapshot.paramMap.get('group');
     this.uiService.updateTitleNavbar('Materia');
+    this.teacherService.listStudentsOfCourse(code, group);
+    this.store.dispatch(new ActiveCourseAction(code));
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.subscription = this.store.select('course').subscribe(({ active }) => {
+      this.updateTitle(active.materia.nombre, active.grupo);
+    });
+  }
+
+  updateTitle(course: String, group: String) {
+    this.title.title = `${course} - ${group.toUpperCase()}`;
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
 }

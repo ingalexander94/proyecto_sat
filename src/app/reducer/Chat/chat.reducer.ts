@@ -25,6 +25,12 @@ export const chatReducer = (
         chat: [],
       };
 
+    case fromChat.NEW_MSG_CHAT:
+      return {
+        ...state,
+        chat: [...state.chat, actions.payload],
+      };
+
     default:
       return state;
   }

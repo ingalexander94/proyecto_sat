@@ -7,7 +7,7 @@ import { DashboardComponent } from './dashboard.component';
 
 const children: Routes = [
   { path: '', component: ListCourseComponent },
-  { path: 'materia', component: CourseComponent },
+  { path: 'materia/:code/:group', component: CourseComponent },
   { path: 'perfil/:code', component: ProfileTeacherComponent },
 ];
 

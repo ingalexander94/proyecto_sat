@@ -112,6 +112,12 @@ export const menuRoutes: MenuOptions[] = [
       role === 'estudiante' || role === 'vicerrector' ? true : false,
   },
   {
+    path: '/estudiante/chat',
+    name: 'Ver chat',
+    icon: 'list',
+    isAllowed: (role: String) => (role !== 'estudiante' ? true : false),
+  },
+  {
     path: '/estudiante/ver-historial',
     name: 'Ver beneficios',
     icon: 'clock',

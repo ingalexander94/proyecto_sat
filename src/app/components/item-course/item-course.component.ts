@@ -40,7 +40,9 @@ export class ItemCourseComponent implements OnInit, OnDestroy {
   async navigateToTeacher() {
     this.store.dispatch(new StartLoadingAction());
     if (this.user.rol === 'docente' || this.user.rol === 'jefe') {
-      this.router.navigate(['/docente/materia']);
+      this.router.navigate([
+        `/docente/materia/${this.course.materia.codigo}/${this.course.grupo}`,
+      ]);
     } else {
       const { data } = await this.studentService.getTeacherOfCourse(
         this.course.materia.docente

@@ -1,9 +1,9 @@
 export interface Course {
   grupo: String;
-  previo_dos: number;
-  previo_tres: number;
-  previo_uno: number;
-  examen_final: number;
+  previo_dos?: number;
+  previo_tres?: number;
+  previo_uno?: number;
+  examen_final?: number;
   materia: Materia;
 }
 export interface Materia {
