@@ -10,10 +10,12 @@ import {
 } from '../helpers/localStorage';
 import { User } from '../model/auth';
 import { ResponseChat } from '../model/chat';
+import { ResponseNotification } from '../model/notification';
 import {
   AddMsgChatAction,
   LoadingChatAction,
 } from '../reducer/Chat/chat.actions';
+import { NotificationService } from './notification.service';
 
 @Injectable({
   providedIn: 'root',
@@ -26,7 +28,8 @@ export class ChatService {
   constructor(
     private http: HttpClient,
     private store: Store<AppState>,
-    private router: Router
+    private router: Router,
+    private notificationService: NotificationService
   ) {}
 
   async getMessages(userShow: User) {
@@ -50,7 +53,7 @@ export class ChatService {
     }
   }
 
-  async sendMessage(message: String) {
+  async sendMessage(message: String, name: String) {
     try {
       const {
         codigo: code,
@@ -71,8 +74,20 @@ export class ChatService {
         .post<any>(this.url + '/chat/', data)
         .toPromise();
       this.store.dispatch(new AddMsgChatAction(chat));
+      this.createNotification(code, name);
     } catch (error) {
       console.error(error);
     }
+  }
+
+  createNotification(codeReceiver: String, nameTransmitter: String) {
+    const notification = {
+      codeReceiver,
+      date: new Date().toISOString(),
+      title: `Ha recibido un mensaje de ${nameTransmitter}`,
+      url: '/chat/',
+      isActive: true,
+    };
+    this.notificationService.sendNotification(notification);
   }
 }

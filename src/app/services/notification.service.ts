@@ -9,6 +9,7 @@ import { ResponseNotification } from '../model/notification';
 import {
   DeleteNotificationAction,
   LoadingNotificationAction,
+  UpdateNotificationAction,
 } from '../reducer/notification/notification.actions';
 
 @Injectable({
@@ -16,7 +17,19 @@ import {
 })
 export class NotificationService {
   url: String = environment.url_backend;
+
   constructor(private http: HttpClient, private store: Store<AppState>) {}
+
+  async sendNotification(notification) {
+    try {
+      const data = await this.http
+        .post<ResponseNotification[]>(this.url + '/notification/', notification)
+        .toPromise();
+      console.log(data);
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
   async getNotifications(code: String) {
     try {
@@ -33,6 +46,15 @@ export class NotificationService {
     try {
       await this.http.delete(this.url + '/notification/' + id).toPromise();
       this.store.dispatch(new DeleteNotificationAction(id));
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  async updateNotification(id: String) {
+    try {
+      await this.http.put(this.url + '/notification/' + id, {}).toPromise();
+      this.store.dispatch(new UpdateNotificationAction(id));
     } catch (error) {
       console.error(error);
     }

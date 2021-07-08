@@ -33,11 +33,11 @@ export class TeacherService {
         .get<ResponseCourse>(this.url + '/teachers/course/' + code)
         .toPromise();
       this.store.dispatch(new LoadingCourseAction(data));
+      this.notificationService.getNotifications(code);
     } catch (error) {
       console.error(error);
     }
     this.store.dispatch(new FinishLoadingAction());
-    this.notificationService.getNotifications(code);
   }
 
   async listStudentsOfCourse(code: String, group: String) {

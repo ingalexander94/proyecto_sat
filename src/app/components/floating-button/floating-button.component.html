@@ -1,26 +1,28 @@
 <input type="checkbox" id="floating" #checkboxNotification />
-<div class="notifications animate_button">
+<div class="notifications" [ngClass]="{ animate_button: unread > 0 }">
   <label for="floating"><i class="fas fa-bell"></i></label>
 </div>
 <div class="list_notification">
   <h4>Notificaciones</h4>
   <hr />
   <ul>
+    <li *ngIf="!notification.length">No tiene notificaciones</li>
     <li
       *ngFor="let item of notification"
-      (click)="closeButton()"
       fragment="contenedor"
       class="pointer"
       [ngClass]="{ no_read: item.isActive }"
     >
-      <p>{{ item.title }}</p>
-      <span
-        ><i class="fas fa-clock red"></i>
-        {{ item.date | date: " h:mm a" }}
-      </span>
+      <div (click)="closeButton(item)">
+        <p>{{ item.title }}</p>
+        <span
+          ><i class="fas fa-clock red"></i>
+          {{ item.date | date: " h:mm a" }}
+        </span>
+      </div>
       <i
         (click)="deleteNotificatio(item._id.$oid)"
-        class="fas fa-times equis"
+        class="fas fa-trash-alt"
       ></i>
     </li>
   </ul>

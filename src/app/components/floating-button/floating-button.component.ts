@@ -1,4 +1,3 @@
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import {
   Component,
   ElementRef,
@@ -24,6 +23,7 @@ export class FloatingButtonComponent implements OnInit, OnDestroy {
   subscription: Subscription = new Subscription();
   code: String;
   notification: ResponseNotification[];
+  unread: Number = 0;
 
   constructor(
     private store: Store<AppState>,
@@ -36,15 +36,20 @@ export class FloatingButtonComponent implements OnInit, OnDestroy {
       .subscribe(({ auth, notification }) => {
         this.code = auth.user.codigo;
         this.notification = notification.notification;
+        this.unread = notification.unread;
       });
   }
-  deleteNotificatio(id) {
+  deleteNotificatio(id: String) {
     this.notificationService.deleteNotification(id);
   }
 
-  closeButton() {
+  closeButton(notification: ResponseNotification) {
+    if (notification.isActive)
+      this.notificationService.updateNotification(notification._id.$oid);
     this.checkboxNotification.nativeElement.checked = false;
+    // this.router.navigate([notification.url]);
   }
+
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }

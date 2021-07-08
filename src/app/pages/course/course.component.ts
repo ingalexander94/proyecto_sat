@@ -36,7 +36,9 @@ export class CourseComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.subscription = this.store.select('course').subscribe(({ active }) => {
-      this.updateTitle(active.materia.nombre, active.grupo);
+      if (active) {
+        this.updateTitle(active.materia.nombre, active.grupo);
+      }
     });
   }
 

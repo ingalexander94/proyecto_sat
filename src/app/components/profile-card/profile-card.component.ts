@@ -15,8 +15,6 @@ import { menuRoutes } from 'src/app/model/data';
 import { map, filter } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { ChatService } from 'src/app/services/chat.service';
-import { StartLoadingAction } from 'src/app/reducer/ui/ui.actions';
-import { LoadingChatAction } from 'src/app/reducer/Chat/chat.actions';
 
 @Component({
   selector: 'app-profile-card',

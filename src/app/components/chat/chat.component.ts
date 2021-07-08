@@ -25,6 +25,7 @@ import { UiService } from 'src/app/services/ui.service';
 export class ChatComponent implements OnInit, OnDestroy {
   subscription: Subscription = new Subscription();
   chat: ResponseChat[];
+  name: String;
   code: String;
   formChat: FormGroup;
 
@@ -47,18 +48,18 @@ export class ChatComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.subscription = this.store
       .pipe(filter(({ auth }) => auth.user !== null))
-      .subscribe(
-        ({ chat, auth }) => (
-          (this.chat = chat.chat), (this.code = auth.user.codigo)
-        )
-      );
+      .subscribe(({ chat, auth }) => {
+        this.chat = chat.chat;
+        this.code = auth.user.codigo;
+        this.name = `${auth.user.nombre} ${auth.user.apellido}`;
+      });
   }
 
   sendMessage() {
     if (!this.formChat.invalid) {
       const { message } = this.formChat.value;
       this.formChat.reset();
-      this.chatService.sendMessage(message);
+      this.chatService.sendMessage(message, this.name);
     }
   }
 

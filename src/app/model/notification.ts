@@ -1,5 +1,5 @@
 export interface ResponseNotification {
-  _id: any;
+  _id?: any;
   title: String;
   date: Date;
   isActive: boolean;
