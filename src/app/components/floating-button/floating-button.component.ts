@@ -5,6 +5,7 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
@@ -22,6 +23,7 @@ export class FloatingButtonComponent implements OnInit, OnDestroy {
 
   subscription: Subscription = new Subscription();
   code: String;
+  role: String;
   notification: ResponseNotification[];
   unread: Number = 0;
 
@@ -35,6 +37,7 @@ export class FloatingButtonComponent implements OnInit, OnDestroy {
       .pipe(filter(({ auth }) => auth.user !== null))
       .subscribe(({ auth, notification }) => {
         this.code = auth.user.codigo;
+        this.role = auth.user.rol;
         this.notification = notification.notification;
         this.unread = notification.unread;
       });
@@ -47,7 +50,12 @@ export class FloatingButtonComponent implements OnInit, OnDestroy {
     if (notification.isActive)
       this.notificationService.updateNotification(notification._id.$oid);
     this.checkboxNotification.nativeElement.checked = false;
-    // this.router.navigate([notification.url]);
+    this.loadUserShow(notification.codeTransmitter, notification.url);
+  }
+
+  loadUserShow(code: String, url: String) {
+    const role = this.role === 'docente' ? 'students' : 'teachers';
+    this.notificationService.getUserInformed(code, role, url);
   }
 
   ngOnDestroy() {

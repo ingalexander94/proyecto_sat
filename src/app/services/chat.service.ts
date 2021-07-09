@@ -10,7 +10,6 @@ import {
 } from '../helpers/localStorage';
 import { User } from '../model/auth';
 import { ResponseChat } from '../model/chat';
-import { ResponseNotification } from '../model/notification';
 import {
   AddMsgChatAction,
   LoadingChatAction,
@@ -53,7 +52,7 @@ export class ChatService {
     }
   }
 
-  async sendMessage(message: String, name: String) {
+  async sendMessage(message: String, name: String, codeAuth: String) {
     try {
       const {
         codigo: code,
@@ -74,18 +73,23 @@ export class ChatService {
         .post<any>(this.url + '/chat/', data)
         .toPromise();
       this.store.dispatch(new AddMsgChatAction(chat));
-      this.createNotification(code, name);
+      this.createNotification(code, name, codeAuth);
     } catch (error) {
       console.error(error);
     }
   }
 
-  createNotification(codeReceiver: String, nameTransmitter: String) {
+  createNotification(
+    codeReceiver: String,
+    nameTransmitter: String,
+    codeTransmitter: String
+  ) {
     const notification = {
       codeReceiver,
+      codeTransmitter,
       date: new Date().toISOString(),
       title: `Ha recibido un mensaje de ${nameTransmitter}`,
-      url: '/chat/',
+      url: '/estudiante/chat',
       isActive: true,
     };
     this.notificationService.sendNotification(notification);

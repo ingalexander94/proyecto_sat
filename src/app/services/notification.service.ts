@@ -1,10 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { filter } from 'rxjs/operators';
 import { environment } from 'src/environments/environment.prod';
 import { AppState } from '../app.reducers';
-import { User } from '../model/auth';
+import { saveInLocalStorage } from '../helpers/localStorage';
+import { UserResponse } from '../model/auth';
 import { ResponseNotification } from '../model/notification';
 import {
   DeleteNotificationAction,
@@ -18,14 +19,17 @@ import {
 export class NotificationService {
   url: String = environment.url_backend;
 
-  constructor(private http: HttpClient, private store: Store<AppState>) {}
+  constructor(
+    private http: HttpClient,
+    private store: Store<AppState>,
+    private router: Router
+  ) {}
 
   async sendNotification(notification) {
     try {
-      const data = await this.http
+      await this.http
         .post<ResponseNotification[]>(this.url + '/notification/', notification)
         .toPromise();
-      console.log(data);
     } catch (error) {
       console.error(error);
     }
@@ -55,6 +59,19 @@ export class NotificationService {
     try {
       await this.http.put(this.url + '/notification/' + id, {}).toPromise();
       this.store.dispatch(new UpdateNotificationAction(id));
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  async getUserInformed(code: String, role: String, url: String) {
+    try {
+      const { data } = await this.http
+        .get<UserResponse>(this.url + '/' + role + '/' + code)
+        .toPromise();
+      saveInLocalStorage('user-show', data);
+      saveInLocalStorage('receiver', data);
+      this.router.navigate([url]);
     } catch (error) {
       console.error(error);
     }

@@ -5,4 +5,5 @@ export interface ResponseNotification {
   isActive: boolean;
   url: String;
   codeReceiver: String;
+  codeTransmitter: String;
 }

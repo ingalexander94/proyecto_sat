@@ -3,16 +3,13 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { environment } from 'src/environments/environment.prod';
 import { AppState } from '../app.reducers';
-import { StudentResponse, User } from '../model/auth';
+import { StudentResponse } from '../model/auth';
 import { ResponseCourse } from '../model/course';
 import {
   LoadingCourseAction,
   LoadStudentsAction,
 } from '../reducer/course/course.actions';
-import {
-  FinishLoadingAction,
-  StartLoadingAction,
-} from '../reducer/ui/ui.actions';
+import { FinishLoadingAction } from '../reducer/ui/ui.actions';
 import { NotificationService } from './notification.service';
 
 @Injectable({

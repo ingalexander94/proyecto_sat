@@ -1,11 +1,4 @@
-import {
-  Component,
-  ElementRef,
-  OnDestroy,
-  OnInit,
-  QueryList,
-  ViewChild,
-} from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
@@ -59,7 +52,7 @@ export class ChatComponent implements OnInit, OnDestroy {
     if (!this.formChat.invalid) {
       const { message } = this.formChat.value;
       this.formChat.reset();
-      this.chatService.sendMessage(message, this.name);
+      this.chatService.sendMessage(message, this.name, this.code);
     }
   }
 
