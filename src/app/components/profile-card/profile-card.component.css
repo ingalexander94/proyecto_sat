@@ -1,6 +1,7 @@
 button {
   background: var(--green-primary-color);
   font-size: 20px;
+  margin-top: 6px;
 }
 
 button:hover {
@@ -18,7 +19,7 @@ input[type="checkbox"] {
 }
 
 .card_profile {
-  margin: 16px;
+  margin: 0px;
   text-align: center;
 }
 
@@ -207,6 +208,9 @@ input[type="checkbox"] {
 }
 
 @media (min-width: 1152px) {
+  .card_profile {
+    margin: 0px;
+  }
   .photo_user::before {
     content: "";
     left: 22%;
