@@ -21,26 +21,25 @@ export class InfoAcademyComponent implements OnInit, OnDestroy {
   subscription: Subscription = new Subscription();
 
   constructor(
-    private uiService: UiService, 
+    private uiService: UiService,
     private store: Store<AppState>,
     private router: Router
-    ) {
+  ) {
     this.uiService.updateTitleNavbar('Perfil');
   }
- 
 
   ngOnInit(): void {
-      this.subscription = this.store
-      .pipe( 
-        map(({auth}) =>({auth})),
-        filter(({auth}) => auth.user !== null)
-      )
-      .subscribe(({auth:{user}}) =>{
-        this.user = user; 
-      } );
+    this.subscription = this.store
+      .pipe(filter(({ auth }) => auth.user !== null))
+      .subscribe(({ auth: { user }, ui: { userActive } }) =>
+        user.rol === 'estudiante'
+          ? (this.user = user)
+          : (this.user = userActive)
+      );
   }
+
   onNavigateToCourseData() {
-      this.router.navigate(['/vicerrector/datos-curso']);
+    this.router.navigate(['/vicerrector/datos-curso']);
   }
 
   ngOnDestroy(): void {

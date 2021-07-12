@@ -12,23 +12,23 @@
   <p>Se muestran los promedios academicos del estudiante:</p>
   <div class="date_start">
     <h4>Fecha de ingreso a la Universidad :</h4>
-    <p>{{ user?.fechaIngreso | date: "dd MMMM yyyy" }}</p>
+    <p>{{ user.fechaIngreso | date: "dd MMMM yyyy" }}</p>
   </div>
   <div class="info_academy">
     <p>
       <span class="name_date">promedio Ponderado Acomulado </span>
-      <span>{{ user?.promedioPonderadoAcomulado }}</span>
+      <span>{{ user.promedioPonderadoAcomulado }}</span>
     </p>
     <p>
       <span class="name_date">Créditos aprobados</span>
-      <span>{{ user?.creditosAprobados }}</span>
+      <span>{{ user.creditosAprobados }}</span>
     </p>
     <p title="Promedio ponderado acomulado actual">
-      <span>Promedio acomulado</span> <span>{{ user?.promedio }}</span>
+      <span>Promedio acomulado</span> <span>{{ user.promedio }}</span>
     </p>
     <p>
       <span class="name_date">Créditos totales actuales</span
-      ><span>{{ user?.creditosTotales }}</span>
+      ><span>{{ user.creditosTotales }}</span>
     </p>
   </div>
 </div>
