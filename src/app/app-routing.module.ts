@@ -1,13 +1,18 @@
 import { NgModule } from '@angular/core';
 import { ExtraOptions, RouterModule, Routes } from '@angular/router';
 import { LoginAdminComponent } from './pages/auth/login-admin/login-admin.component';
+import { LoginStudentComponent } from './pages/auth/login-student/login-student.component';
 import { LoginComponent } from './pages/auth/login/login.component';
 import { ErrorComponent } from './pages/error/error.component';
 
 const routes: Routes = [
   {
-    path: 'iniciar-sesion',
+    path: 'docente/iniciar-sesion',
     component: LoginComponent,
+  },
+  {
+    path: 'estudiante/iniciar-sesion',
+    component: LoginStudentComponent,
   },
   {
     path: 'administrativo/iniciar-sesion',
@@ -48,7 +53,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'iniciar-sesion',
+    redirectTo: 'estudiante/iniciar-sesion',
   },
 ];
 

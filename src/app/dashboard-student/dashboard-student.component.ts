@@ -7,6 +7,7 @@ import { getValueOfLocalStorage } from '../helpers/localStorage';
 import { tapN } from '../helpers/observers';
 import { SetUserActiveAction } from '../reducer/ui/ui.actions';
 import { StudentService } from '../services/student.service';
+import { TeacherService } from '../services/teacher.service';
 
 @Component({
   selector: 'app-dashboard-student',
@@ -19,12 +20,17 @@ export class DashboardStudentComponent implements OnInit, OnDestroy {
 
   constructor(
     private store: Store<AppState>,
-    private studentService: StudentService
+    private studentService: StudentService,
+    private teacherService: TeacherService
   ) {
     this.subscription = this.store
       .pipe(
         filter(({ auth }) => auth.user !== null),
-        tapN(1, ({ auth }) => this.studentService.listCourses(auth.user.codigo))
+        tapN(1, ({ auth }) =>
+          auth.user.rol === 'estudiante'
+            ? this.studentService.listCourses(auth.user.codigo)
+            : this.teacherService.listCourses(auth.user.codigo)
+        )
       )
       .subscribe(({ ui }) => {
         this.loading = ui.loading;

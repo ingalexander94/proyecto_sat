@@ -1,5 +1,5 @@
 <div class="profile_academy">
-  <div *ngIf="user?.rol === 'vicerrector'" class="wrapper_course">
+  <div *ngIf="user.rol === 'vicerrector'" class="wrapper_course">
     <h5>Materias que se encuentran activas durante el semestre actual.</h5>
     <div class="list_courses pointer">
       <app-item-course-assistance
@@ -16,18 +16,17 @@
   </div>
   <div class="info_academy">
     <p>
-      <span class="name_date">promedio Ponderado Acomulado </span>
-      <span>{{ user.promedioPonderadoAcomulado }}</span>
+      <span>promedio Ponderado Acomulado </span
+      ><span>{{ user?.promedioPonderadoAcomulado }}</span>
     </p>
     <p>
-      <span class="name_date">Créditos aprobados</span>
-      <span>{{ user.creditosAprobados }}</span>
+      <span>Créditos aprobados</span> <span>{{ user.creditosAprobados }}</span>
     </p>
     <p title="Promedio ponderado acomulado actual">
       <span>Promedio acomulado</span> <span>{{ user.promedio }}</span>
     </p>
     <p>
-      <span class="name_date">Créditos totales actuales</span
+      <span>Créditos totales actuales</span
       ><span>{{ user.creditosTotales }}</span>
     </p>
   </div>

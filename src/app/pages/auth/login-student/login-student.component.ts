@@ -1,17 +1,17 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from 'src/app/services/auth.service';
 import { Store } from '@ngrx/store';
-import { AppState } from 'src/app/app.reducers';
 import { Subscription } from 'rxjs';
+import { AppState } from 'src/app/app.reducers';
 import { UserAuth } from 'src/app/model/auth';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
+  selector: 'app-login-student',
+  templateUrl: './login-student.component.html',
+  styleUrls: ['./login-student.component.css'],
 })
-export class LoginComponent implements OnInit, OnDestroy {
+export class LoginStudentComponent implements OnInit, OnDestroy {
   formLogin: FormGroup;
   showPassword: boolean = false;
   typePassword: String = 'password';
@@ -21,20 +21,20 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   createFormLogin(): FormGroup {
     return new FormGroup({
-      role: new FormControl('docente', Validators.required),
-      code: new FormControl('1049485', [
+      role: new FormControl('estudiante', Validators.required),
+      code: new FormControl('1072235', [
         Validators.required,
         Validators.minLength(7),
         Validators.maxLength(7),
         Validators.pattern(/^[0-9]+$/i),
       ]),
-      document: new FormControl('525933018', [
+      document: new FormControl('1300162807', [
         Validators.required,
         Validators.minLength(8),
         Validators.maxLength(10),
         Validators.pattern(/^[0-9]+$/i),
       ]),
-      password: new FormControl('7681', Validators.required),
+      password: new FormControl('9226', Validators.required),
     });
   }
 
@@ -75,10 +75,6 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   get password() {
     return this.formLogin.get('password');
-  }
-
-  get role() {
-    return this.formLogin.get('role');
   }
 
   ngOnDestroy(): void {

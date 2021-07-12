@@ -30,8 +30,6 @@ export class ProfileCardComponent implements OnInit, OnDestroy {
   routes: MenuOptions[] = menuRoutes;
   title: String;
   showUpdateProfile: boolean = false;
-  showDescription: boolean = false;
-  showDate: boolean = false;
   loading: boolean = true;
 
   constructor(
@@ -69,14 +67,6 @@ export class ProfileCardComponent implements OnInit, OnDestroy {
 
   updateProfile(show: boolean = true) {
     this.showUpdateProfile = show;
-  }
-
-  updateShowDescription(show: boolean = true) {
-    this.showDescription = show;
-  }
-
-  ShowDateNotification(show: boolean = true) {
-    this.showDate = show;
   }
 
   closeMenu(e: FocusEvent) {

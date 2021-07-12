@@ -45,10 +45,10 @@ export class ItemCourseComponent implements OnInit, OnDestroy {
       ]);
     } else {
       const { data } = await this.studentService.getTeacherOfCourse(
-        this.course.materia.docente
+        this.course.docente
       );
       saveInLocalStorage('user-show', data);
-      this.router.navigate([`/docente/perfil/${this.course.materia.docente}`]);
+      this.router.navigate([`/docente/perfil/${this.course.docente}`]);
     }
     this.store.dispatch(new FinishLoadingAction());
   }

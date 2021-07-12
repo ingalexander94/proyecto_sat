@@ -69,7 +69,7 @@ export class NotificationService {
       const { data } = await this.http
         .get<UserResponse>(this.url + '/' + role + '/' + code)
         .toPromise();
-      saveInLocalStorage('user-show', data);
+      role === 'students' && saveInLocalStorage('user-show', data);
       saveInLocalStorage('receiver', data);
       this.router.navigate([url]);
     } catch (error) {

@@ -85,22 +85,10 @@
     </button>
   </div>
   <div *ngIf="title !== 'Perfil Docente'">
-    <button
-      (click)="updateShowDescription()"
-      *ngIf="user.rol === 'docente' || user.rol === 'jefe'"
-    >
-      Postular estudiante <i class="fas fa-hand-holding-medical"></i>
-    </button>
-    <button (click)="updateShowDescription()" *ngIf="user.rol === 'estudiante'">
-      Solicitar Ayuda <i class="fas fa-hand-holding"></i>
-    </button>
-    <button
-      *ngIf="user.rol === 'vicerrector'"
-      (click)="ShowDateNotification()"
-      class="button"
-    >
-      Notificar Estudiante
-    </button>
+    <app-validate-postulation
+      [user]="user"
+      [userShow]="userShow"
+    ></app-validate-postulation>
   </div>
 </div>
 
@@ -108,13 +96,3 @@
   *ngIf="showUpdateProfile"
   (isClosed)="updateProfile($event)"
 ></app-update-profile>
-
-<app-modal-description
-  *ngIf="showDescription"
-  (isClosed)="updateShowDescription($event)"
-></app-modal-description>
-
-<app-notification-date
-  *ngIf="showDate"
-  (isClosed)="ShowDateNotification($event)"
-></app-notification-date>

@@ -28,6 +28,7 @@ import { ModalPostulateComponent } from './modal-postulate/modal-postulate.compo
 import { BinnacleComponent } from './binnacle/binnacle.component';
 import { ItemCourseAssistanceComponent } from './item-course-assistance/item-course-assistance.component';
 import { LoadingComponent } from './loading/loading.component';
+import { ValidatePostulationComponent } from './validate-postulation/validate-postulation.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { LoadingComponent } from './loading/loading.component';
     BinnacleComponent,
     ItemCourseAssistanceComponent,
     LoadingComponent,
+    ValidatePostulationComponent,
   ],
   exports: [
     AlertComponent,
@@ -76,6 +78,7 @@ import { LoadingComponent } from './loading/loading.component';
     BinnacleComponent,
     ItemCourseAssistanceComponent,
     LoadingComponent,
+    ValidatePostulationComponent,
   ],
   imports: [CommonModule, RouterModule, FormsModule, ReactiveFormsModule],
 })
