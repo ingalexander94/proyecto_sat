@@ -2,15 +2,9 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { AppState } from 'src/app/app.reducers';
-import { User } from 'src/app/model/auth';
 import { Course } from 'src/app/model/course';
 import { Title } from 'src/app/model/ui';
 import { UiService } from 'src/app/services/ui.service';
-import { StudentService } from 'src/app/services/student.service';
-import { filter } from 'rxjs/operators';
-import { tapN } from 'src/app/helpers/observers';
-import { StartLoadingAction } from 'src/app/reducer/ui/ui.actions';
-import { TeacherService } from 'src/app/services/teacher.service';
 
 @Component({
   selector: 'app-list-course',

@@ -1,0 +1,21 @@
+button {
+  background: var(--green-primary-color);
+  font-size: 20px;
+}
+
+button:hover {
+  background: #0f9946;
+}
+
+.postulation {
+  margin-top: 16px;
+  text-align: justify;
+  padding: 16px;
+  background: var(--green-primary-color);
+  color: white;
+}
+
+.postulation span {
+  font-weight: bold;
+  font-size: 18px;
+}

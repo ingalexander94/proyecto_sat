@@ -5,11 +5,11 @@ export interface Course {
   previo_uno?: number;
   examen_final?: number;
   materia: Materia;
+  docente: String;
 }
 export interface Materia {
   codigo: String;
   creditos: number;
-  docente: String;
   horario: String;
   nombre: String;
   semestre: number;

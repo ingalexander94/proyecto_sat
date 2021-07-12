@@ -41,6 +41,7 @@ import { InterceptorService } from './interceptor.service';
 import { LoginAdminComponent } from './pages/auth/login-admin/login-admin.component';
 
 import localeEsAr from '@angular/common/locales/es-AR';
+import { LoginStudentComponent } from './pages/auth/login-student/login-student.component';
  
 registerLocaleData(localeEsAr,'es-Ar') 
 
@@ -65,6 +66,7 @@ registerLocaleData(localeEsAr,'es-Ar')
     ScheduleComponent,
     CourseDataComponent,
     LoginAdminComponent,
+    LoginStudentComponent,
   ],
 
   imports: [

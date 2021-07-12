@@ -11,25 +11,12 @@
           <input
             type="radio"
             formControlName="role"
-            id="docente"
-            value="docente"
+            id="estudiante"
+            value="estudiante"
           />
-          <input type="radio" formControlName="role" id="jefe" value="jefe" />
-          <label
-            for="docente"
-            class="pointer"
-            [ngClass]="{ active: role.value === 'docente' }"
-          >
-            <i class="fas fa-chalkboard-teacher"></i>
-            <span>Docente</span>
-          </label>
-          <label
-            for="jefe"
-            class="pointer jefe"
-            [ngClass]="{ active: role.value === 'jefe' }"
-          >
-            <i class="fas fa-user-tie"></i>
-            <span>Jefe de Plan</span>
+          <label for="estudiante" class="pointer active">
+            <i class="fas fa-address-book"></i>
+            <span>Estudiante</span>
           </label>
         </div>
       </div>

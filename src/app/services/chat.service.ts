@@ -72,6 +72,7 @@ export class ChatService {
       const { data: chat } = await this.http
         .post<any>(this.url + '/chat/', data)
         .toPromise();
+      console.log(chat);
       this.store.dispatch(new AddMsgChatAction(chat));
       this.createNotification(code, name, codeAuth);
     } catch (error) {

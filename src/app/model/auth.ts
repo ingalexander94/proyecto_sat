@@ -19,12 +19,14 @@ export interface User {
   semestre?: Number;
   promedio?: Number;
   promedioPonderadoAcomulado?: Number;
+  riesgo?: any;
 }
 
 export interface UserAuth {
   code?: String;
   document: String;
   password: String;
+  role: String;
 }
 
 export interface AuthResponse {

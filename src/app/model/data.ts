@@ -5,7 +5,6 @@ import {
   ItemRisk,
   MenuOptions,
   ServicesWellness,
-  ServicesWellnessRe,
   StudentInDanger,
 } from './ui';
 
