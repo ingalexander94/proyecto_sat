@@ -1,43 +1,80 @@
 <br />
 <div class="wrapper_record">
   <div class="risks_options">
-    <div class="risk_option risk_active pointer">
+    <div
+      class="risk_option pointer"
+      [ngClass]="{ risk_active: risk === 'socioeconomico' }"
+      (click)="updateRisk('socioeconomico')"
+    >
       <h4>Riesgo <span>Socieconómico</span></h4>
     </div>
-    <div class="risk_option pointer">
+    <div
+      class="risk_option pointer"
+      [ngClass]="{ risk_active: risk === 'academico' }"
+      (click)="updateRisk('academico')"
+    >
       <h4>Riesgo <span>Académico</span></h4>
     </div>
-    <div class="risk_option pointer">
+    <div
+      class="risk_option pointer"
+      [ngClass]="{ risk_active: risk === 'institucional' }"
+      (click)="updateRisk('institucional')"
+    >
       <h4>Riesgo <span>Institucional</span></h4>
     </div>
-    <div class="risk_option pointer">
+    <div
+      class="risk_option pointer"
+      [ngClass]="{ risk_active: risk === 'individual' }"
+      (click)="updateRisk('individual')"
+    >
       <h4>Riesgo <span>Individual</span></h4>
     </div>
   </div>
   <div class="scrollable">
     <div class="timeline" id="timeline">
-      <div class="center-line">
+      <div class="center-line" *ngIf="!loading && profits.length">
         <a href="/estudiante/ver-historial#timeline" class="scroll-icon pointer"
           ><i class="fas fa-caret-up"></i
         ></a>
       </div>
 
-      <div class="row row-1">
-        <section>
-          <i class="icon fas fa-briefcase"></i>
-          <div class="details">
-            <span class="title">Beca trabajo</span>
-            <span>2021</span>
-          </div>
-          <p>Ayuda con una parte del porcentaje de la matricula</p>
-          <div class="bottom">
-            <a class="pointer" title="Semestres activos">1</a>
-            <i> 24 May - Actual</i>
-          </div>
-        </section>
+      <app-loading class="loading" *ngIf="loading"></app-loading>
+
+      <div class="empty" *ngIf="!loading && !profits.length">
+        <p>
+          No se encontraron beneficios en el riesgo
+          {{ risk }} para el estudiante
+        </p>
       </div>
 
-      <div class="row row-2">
+      <ng-container *ngIf="!loading">
+        <div
+          *ngFor="let profit of profits | orderBy; let i = index"
+          class="row row-{{ (i + 1) % 2 === 0 ? '2' : '1' }}"
+        >
+          <section>
+            <i class="icon fas fa-briefcase"></i>
+            <div class="details">
+              <span class="title">{{ profit.nombre }}</span>
+              <span>{{ profit.fechaInicio | date: "y" }}</span>
+            </div>
+            <p>{{ profit.descripcion }}</p>
+            <div class="bottom">
+              <a title="Semestres activos">{{ profit.semestre }}</a>
+              <i>
+                {{ profit.fechaInicio | date: "d MMM" }} -
+                {{
+                  profit.fechaFinal
+                    ? (profit.fechaFinal | date: "d MMM")
+                    : "Actual"
+                }}</i
+              >
+            </div>
+          </section>
+        </div>
+      </ng-container>
+
+      <!-- <div class="row row-2">
         <section>
           <i class="icon fas fa-utensils"></i>
           <div class="details">
@@ -50,7 +87,7 @@
             <i> 25 Feb - 23 Dic</i>
           </div>
         </section>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>

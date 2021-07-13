@@ -16,3 +16,17 @@ export interface Postulation {
   state?: String;
   isActive: boolean;
 }
+
+export interface Profit {
+  fechaFinal?: Date;
+  fechaInicio: Date;
+  nombre: String;
+  descripcion: String;
+  semestre: Number;
+}
+
+export interface ProfitResponse {
+  data: Profit[];
+  msg: String;
+  ok: boolean;
+}

@@ -13,6 +13,7 @@ import { AppState } from 'src/app/app.reducers';
 import { showAlert } from 'src/app/helpers/alert';
 import { User } from 'src/app/model/auth';
 import { Postulation } from 'src/app/model/risk';
+import { ChatService } from 'src/app/services/chat.service';
 import { StudentService } from 'src/app/services/student.service';
 
 @Component({
@@ -41,7 +42,8 @@ export class ModalDescriptionComponent implements OnInit, OnDestroy {
 
   constructor(
     private store: Store<AppState>,
-    private studentService: StudentService
+    private studentService: StudentService,
+    private chatService: ChatService
   ) {
     this.formHelp = this.createFormHelp();
   }
@@ -73,13 +75,27 @@ export class ModalDescriptionComponent implements OnInit, OnDestroy {
       },
       postulator,
     };
+
     const { data, msg } = await this.studentService.generatePostulation(
       dataPostulation
     );
+
+    this.sendNotification();
+
     this.postulation.emit(data);
     showAlert('success', msg);
     this.loading = false;
     this.close();
+  }
+
+  sendNotification() {
+    if (this.user.rol !== 'estudiante') {
+      const message = `Hola ${this.userShow.nombre}, he realizado la postulación en el sistema para realizar un seguimiento y determinar su riesgo, eventualmente se le informará el paso a seguir, muchas gracias!`;
+      const name = `${this.user.nombre} ${this.user.apellido}`;
+      const codeAuth = this.user.codigo;
+      const title = `${name} lo ha postulado para realizar seguimiento`;
+      this.chatService.sendMessage(message, name, codeAuth, title);
+    }
   }
 
   onClick({ target }) {

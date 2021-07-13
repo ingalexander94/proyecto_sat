@@ -29,6 +29,7 @@ import { BinnacleComponent } from './binnacle/binnacle.component';
 import { ItemCourseAssistanceComponent } from './item-course-assistance/item-course-assistance.component';
 import { LoadingComponent } from './loading/loading.component';
 import { ValidatePostulationComponent } from './validate-postulation/validate-postulation.component';
+import { OrderByPipe } from '../pipes/order-by.pipe';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { ValidatePostulationComponent } from './validate-postulation/validate-po
     ItemCourseAssistanceComponent,
     LoadingComponent,
     ValidatePostulationComponent,
+    OrderByPipe,
   ],
   exports: [
     AlertComponent,
@@ -79,6 +81,7 @@ import { ValidatePostulationComponent } from './validate-postulation/validate-po
     ItemCourseAssistanceComponent,
     LoadingComponent,
     ValidatePostulationComponent,
+    OrderByPipe,
   ],
   imports: [CommonModule, RouterModule, FormsModule, ReactiveFormsModule],
 })

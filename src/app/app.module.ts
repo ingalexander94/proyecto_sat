@@ -42,8 +42,8 @@ import { LoginAdminComponent } from './pages/auth/login-admin/login-admin.compon
 
 import localeEsAr from '@angular/common/locales/es-AR';
 import { LoginStudentComponent } from './pages/auth/login-student/login-student.component';
- 
-registerLocaleData(localeEsAr,'es-Ar') 
+
+registerLocaleData(localeEsAr, 'es-Ar');
 
 @NgModule({
   declarations: [
@@ -89,8 +89,8 @@ registerLocaleData(localeEsAr,'es-Ar')
       multi: true,
     },
     {
-      provide:LOCALE_ID,
-      useValue:'es-Ar'
+      provide: LOCALE_ID,
+      useValue: 'es-Ar',
     },
   ],
   bootstrap: [AppComponent],

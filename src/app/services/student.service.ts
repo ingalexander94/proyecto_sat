@@ -8,7 +8,7 @@ import { LoadingCourseAction } from '../reducer/course/course.actions';
 import { UserResponse } from '../model/auth';
 import { FinishLoadingAction } from '../reducer/ui/ui.actions';
 import { NotificationService } from './notification.service';
-import { Postulation } from '../model/risk';
+import { Postulation, ProfitResponse } from '../model/risk';
 
 @Injectable({
   providedIn: 'root',
@@ -61,6 +61,19 @@ export class StudentService {
     try {
       return this.http
         .post<Postulation>(this.url + '/students/postulate/validate', data)
+        .toPromise();
+    } catch (error) {
+      console.error(error);
+      return null;
+    }
+  }
+
+  getProfits(code: String, risk: String) {
+    try {
+      return this.http
+        .get<ProfitResponse>(
+          this.url + '/students/profits/' + code + '/' + risk
+        )
         .toPromise();
     } catch (error) {
       console.error(error);

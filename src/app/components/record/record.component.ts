@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/app.reducers';
+import { Profit } from 'src/app/model/risk';
+import { StudentService } from 'src/app/services/student.service';
 import { UiService } from 'src/app/services/ui.service';
 
 @Component({
@@ -7,9 +11,40 @@ import { UiService } from 'src/app/services/ui.service';
   styleUrls: ['./record.component.css'],
 })
 export class RecordComponent implements OnInit {
-  constructor(private uiService: UiService) {
+  risk: String = 'socioeconomico';
+  codeShow: String;
+  profits: Profit[] = [];
+  loading: boolean = false;
+
+  constructor(
+    private uiService: UiService,
+    private studentService: StudentService,
+    store: Store<AppState>
+  ) {
     this.uiService.updateTitleNavbar('Perfil');
+    store
+      .select('ui')
+      .subscribe(({ userActive }) => (this.codeShow = userActive.codigo));
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getProfits();
+  }
+
+  updateRisk(newRisk: String) {
+    if (newRisk !== this.risk) {
+      this.risk = newRisk;
+      this.getProfits();
+    }
+  }
+
+  async getProfits() {
+    this.loading = true;
+    const { data } = await this.studentService.getProfits(
+      this.codeShow,
+      this.risk
+    );
+    this.profits = data;
+    this.loading = false;
+  }
 }
