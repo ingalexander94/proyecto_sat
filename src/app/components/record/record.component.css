@@ -2,6 +2,11 @@
   padding: 32px;
 }
 
+.empty {
+  text-align: center;
+  margin-top: 16px;
+}
+
 .risks_options {
   display: grid;
   text-align: center;
@@ -155,6 +160,13 @@
   transform: scale(0.97);
 }
 
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+
 /* Tablet and Desktop */
 @media (min-width: 768px) {
   .risks_options {
@@ -176,6 +188,10 @@
 
   .timeline .row section {
     width: calc(50% - 40px);
+  }
+
+  .empty p {
+    font-size: 20px;
   }
 
   .row-1 section::before {
@@ -200,5 +216,9 @@
     height: 400px;
     overflow-y: scroll;
     scroll-behavior: smooth;
+  }
+
+  .loading {
+    height: 350px;
   }
 }

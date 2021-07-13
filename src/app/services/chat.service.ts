@@ -52,7 +52,12 @@ export class ChatService {
     }
   }
 
-  async sendMessage(message: String, name: String, codeAuth: String) {
+  async sendMessage(
+    message: String,
+    name: String,
+    codeAuth: String,
+    title?: String
+  ) {
     try {
       const {
         codigo: code,
@@ -72,9 +77,9 @@ export class ChatService {
       const { data: chat } = await this.http
         .post<any>(this.url + '/chat/', data)
         .toPromise();
-      console.log(chat);
       this.store.dispatch(new AddMsgChatAction(chat));
-      this.createNotification(code, name, codeAuth);
+      title = title ? title : `Ha recibido un mensaje de ${name}`;
+      this.createNotification(code, codeAuth, title, '/estudiante/chat');
     } catch (error) {
       console.error(error);
     }
@@ -82,15 +87,16 @@ export class ChatService {
 
   createNotification(
     codeReceiver: String,
-    nameTransmitter: String,
-    codeTransmitter: String
+    codeTransmitter: String,
+    title: String,
+    url: String
   ) {
     const notification = {
       codeReceiver,
       codeTransmitter,
       date: new Date().toISOString(),
-      title: `Ha recibido un mensaje de ${nameTransmitter}`,
-      url: '/estudiante/chat',
+      title,
+      url,
       isActive: true,
     };
     this.notificationService.sendNotification(notification);
