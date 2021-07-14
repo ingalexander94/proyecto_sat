@@ -9,9 +9,9 @@ button:hover {
 }
 
 .postulation {
-  margin-top: 16px;
+  margin-top: 5px;
+  padding: 0 8px;
   text-align: justify;
-  padding: 16px;
   background: var(--green-primary-color);
   color: white;
 }

@@ -16,6 +16,7 @@ import { DeleteStudentsAction } from 'src/app/reducer/course/course.actions';
 export class TableRiskComponent implements OnInit, OnDestroy {
   subscription: Subscription = new Subscription();
   loading: boolean = true;
+  filter: String = '';
 
   constructor(private router: Router, private store: Store<AppState>) {}
 

@@ -1,5 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { Subscription } from 'rxjs';
+import { filter } from 'rxjs/operators';
+import { AppState } from 'src/app/app.reducers';
+import { convertSemesterInRoman } from 'src/app/helpers/ui';
 import { Title } from 'src/app/model/ui';
+import { BossService } from 'src/app/services/boss.service';
 import { UiService } from 'src/app/services/ui.service';
 
 @Component({
@@ -7,20 +14,39 @@ import { UiService } from 'src/app/services/ui.service';
   templateUrl: './semester-wellness.component.html',
   styleUrls: ['./semester-wellness.component.css'],
 })
-export class SemesterWellnessComponent implements OnInit {
+export class SemesterWellnessComponent implements OnInit, OnDestroy {
   title: Title = {
-    title: 'Ingeniería de Sistemas',
+    title: '',
     subtitle: '',
   };
 
   title2: Title = {
-    title: 'Semestre I',
+    title: '',
     subtitle: 'Listado total de estudiantes matriculados',
   };
 
-  constructor(private uiService: UiService) {
+  subscription: Subscription = new Subscription();
+
+  constructor(
+    private uiService: UiService,
+    private bossService: BossService,
+    private store: Store<AppState>,
+    private route: ActivatedRoute
+  ) {
     this.uiService.updateTitleNavbar('Semestre I');
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.subscription = this.store
+      .select('auth')
+      .pipe(filter(({ user }) => user !== null))
+      .subscribe(({ user }) => (this.title.title = user.programa));
+    const numero = this.route.snapshot.paramMap.get('numero');
+    this.title2.title = `Semestre ${convertSemesterInRoman(parseInt(numero))}`;
+    this.bossService.getStudentsOfSemester(numero);
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
 }

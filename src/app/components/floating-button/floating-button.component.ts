@@ -24,7 +24,7 @@ export class FloatingButtonComponent implements OnInit, OnDestroy {
   subscription: Subscription = new Subscription();
   code: String;
   role: String;
-  notification: ResponseNotification[];
+  notification: ResponseNotification[] = [];
   unread: Number = 0;
 
   constructor(
@@ -54,7 +54,18 @@ export class FloatingButtonComponent implements OnInit, OnDestroy {
   }
 
   loadUserShow(code: String, url: String) {
-    const role = this.role === 'docente' ? 'students' : 'teachers';
+    let role = '';
+    switch (this.role) {
+      case 'docente':
+      case 'jefe':
+        role = 'students';
+        break;
+      case 'estudiante':
+        role = 'teachers';
+        break;
+      default:
+        role = 'students';
+    }
     this.notificationService.getUserInformed(code, role, url);
   }
 

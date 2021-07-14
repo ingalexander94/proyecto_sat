@@ -30,6 +30,7 @@ import { ItemCourseAssistanceComponent } from './item-course-assistance/item-cou
 import { LoadingComponent } from './loading/loading.component';
 import { ValidatePostulationComponent } from './validate-postulation/validate-postulation.component';
 import { OrderByPipe } from '../pipes/order-by.pipe';
+import { FilterStudentPipe } from '../pipes/filter-student.pipe';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { OrderByPipe } from '../pipes/order-by.pipe';
     LoadingComponent,
     ValidatePostulationComponent,
     OrderByPipe,
+    FilterStudentPipe,
   ],
   exports: [
     AlertComponent,
@@ -82,6 +84,7 @@ import { OrderByPipe } from '../pipes/order-by.pipe';
     LoadingComponent,
     ValidatePostulationComponent,
     OrderByPipe,
+    FilterStudentPipe,
   ],
   imports: [CommonModule, RouterModule, FormsModule, ReactiveFormsModule],
 })

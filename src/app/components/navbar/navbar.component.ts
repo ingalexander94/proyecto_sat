@@ -55,6 +55,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.store.dispatch(new DeleteChatAction());
     this.store.dispatch(new DeleteNotificationsAction());
     localStorage.clear();
+    this.roleUser = this.roleUser === 'jefe' ? 'docente' : this.roleUser;
     this.router.navigate([`${this.roleUser}/iniciar-sesion`]);
   }
 

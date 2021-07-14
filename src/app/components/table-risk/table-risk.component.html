@@ -20,7 +20,10 @@
       <ng-container *ngIf="!loading">
         <tr
           class="pointer"
-          *ngFor="let student of listStudents; let i = index"
+          *ngFor="
+            let student of listStudents | filterStudent: filter;
+            let i = index
+          "
           (click)="navigateToStudent(student)"
         >
           <td>{{ i + 1 }}</td>

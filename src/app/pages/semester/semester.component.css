@@ -48,6 +48,10 @@
   margin-top: 32px;
 }
 
+.red p {
+  margin-top: 16px;
+}
+
 /* Tablet */
 
 @media (min-width: 768px) {

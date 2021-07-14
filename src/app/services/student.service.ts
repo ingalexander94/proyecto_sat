@@ -80,4 +80,15 @@ export class StudentService {
       return null;
     }
   }
+
+  getByCode(code: String) {
+    try {
+      return this.http
+        .get<UserResponse>(this.url + '/students/' + code)
+        .toPromise();
+    } catch (error) {
+      console.error(error);
+      return null;
+    }
+  }
 }
