@@ -219,4 +219,9 @@ input[type="checkbox"] {
   .data_student {
     justify-content: space-evenly;
   }
+  button {
+    width: 320px;
+    height: 60px;
+    margin-top: 1px;
+  }
 }
