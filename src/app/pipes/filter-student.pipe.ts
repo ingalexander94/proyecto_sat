@@ -11,7 +11,11 @@ export class FilterStudentPipe implements PipeTransform {
     return students.filter(
       (student) =>
         student.codigo.toLowerCase() === filter ||
-        student.nombre.toLowerCase().includes(filter.toLowerCase().toString())
+        `${student.nombre} ${student.apellido}`
+          .toLowerCase()
+          .includes(filter.toString()) ||
+        student.nombre.toLowerCase().includes(filter.toString()) ||
+        student.apellido.toLowerCase().includes(filter.toString())
     );
   }
 }

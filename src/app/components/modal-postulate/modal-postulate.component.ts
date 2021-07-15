@@ -1,4 +1,5 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Postulation } from 'src/app/model/risk';
 
 @Component({
   selector: 'app-modal-postulate',
@@ -7,6 +8,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class ModalPostulateComponent implements OnInit {
   @Output() isClosed = new EventEmitter<boolean>();
+  @Input() postulation: Postulation;
 
   constructor() {}
 

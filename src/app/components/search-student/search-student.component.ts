@@ -1,4 +1,5 @@
 import { Location } from '@angular/common';
+import { CompileNgModuleMetadata } from '@angular/compiler';
 import {
   Component,
   ElementRef,
@@ -8,13 +9,9 @@ import {
   ViewChild,
 } from '@angular/core';
 import { fromEvent, Observable, Subscription } from 'rxjs';
-import {
-  debounceTime,
-  distinctUntilChanged,
-  pluck,
-  filter,
-} from 'rxjs/operators';
+import { debounceTime, distinctUntilChanged, pluck } from 'rxjs/operators';
 import { Title } from 'src/app/model/ui';
+import { UiService } from 'src/app/services/ui.service';
 
 @Component({
   selector: 'app-search-student',
@@ -29,7 +26,7 @@ export class SearchStudentComponent implements OnInit, OnDestroy {
   input$: Observable<String> = new Observable();
   subscription: Subscription = new Subscription();
 
-  constructor(private location: Location) {}
+  constructor(private location: Location, private uiService: UiService) {}
 
   ngOnInit(): void {
     this.input$ = fromEvent(this.filter.nativeElement, 'keyup');
@@ -37,14 +34,18 @@ export class SearchStudentComponent implements OnInit, OnDestroy {
       .pipe(
         debounceTime(1000),
         pluck('target', 'value'),
-        distinctUntilChanged(),
-        filter((filter: any) => filter.length)
+        distinctUntilChanged()
       )
-      .subscribe(console.log);
+      .subscribe((filter: String) => this.uiService.filter$.emit(filter));
   }
 
   goBack() {
     this.location.back();
+  }
+
+  cleanInput() {
+    this.filter.nativeElement.value = '';
+    this.uiService.filter$.emit('');
   }
 
   ngOnDestroy(): void {

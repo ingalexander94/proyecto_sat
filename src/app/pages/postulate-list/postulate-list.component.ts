@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { postulates } from 'src/app/model/data';
-import { StudentInDanger, Title } from 'src/app/model/ui';
+import { Title } from 'src/app/model/ui';
 import { UiService } from 'src/app/services/ui.service';
 
 @Component({
@@ -17,7 +16,6 @@ export class PostulateListComponent implements OnInit {
 
   myProps = {
     type: 'postulator',
-    students: postulates,
   };
 
   constructor(private uiService: UiService) {

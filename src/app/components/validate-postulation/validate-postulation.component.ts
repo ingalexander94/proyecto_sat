@@ -18,9 +18,15 @@ export class ValidatePostulationComponent implements OnInit {
   constructor(private studentService: StudentService) {}
 
   ngOnInit(): void {
-    const { programa, correo, rol, nombre, apellido } = this.userShow;
+    const { programa, correo, rol, nombre, apellido, codigo } = this.userShow;
     const data = {
-      student: { programa, correo, rol, nombre: `${nombre} ${apellido}` },
+      student: {
+        programa,
+        codigo,
+        correo,
+        rol,
+        nombre: `${nombre} ${apellido}`,
+      },
       isActive: true,
     };
     this.validate(data);

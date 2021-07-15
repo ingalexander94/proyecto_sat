@@ -32,17 +32,21 @@ export class SemesterWellnessComponent implements OnInit, OnDestroy {
     private bossService: BossService,
     private store: Store<AppState>,
     private route: ActivatedRoute
-  ) {
-    this.uiService.updateTitleNavbar('Semestre I');
-  }
+  ) {}
 
   ngOnInit(): void {
     this.subscription = this.store
       .select('auth')
       .pipe(filter(({ user }) => user !== null))
       .subscribe(({ user }) => (this.title.title = user.programa));
+    this.updateSemesters();
+  }
+
+  updateSemesters() {
     const numero = this.route.snapshot.paramMap.get('numero');
-    this.title2.title = `Semestre ${convertSemesterInRoman(parseInt(numero))}`;
+    const roman = `Semestre ${convertSemesterInRoman(parseInt(numero))}`;
+    this.title2.title = roman;
+    this.uiService.updateTitleNavbar(roman);
     this.bossService.getStudentsOfSemester(numero);
   }
 
