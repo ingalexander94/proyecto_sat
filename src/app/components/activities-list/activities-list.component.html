@@ -10,9 +10,13 @@
     </thead>
     <tbody>
       <tr *ngFor="let item of activitiesList">
-        <td><h5>{{item.date}}</h5></td>
-        <td><h5>{{item.name}}</h5></td>
-        <td><i class="fas {{item.icon}}"></i></td>
+        <td>
+          <h5>{{ item.date }}</h5>
+        </td>
+        <td>
+          <h5>{{ item.name }}</h5>
+        </td>
+        <td><i class="fas {{ item.icon }}"></i></td>
       </tr>
     </tbody>
   </table>

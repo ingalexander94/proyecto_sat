@@ -14,12 +14,23 @@
 
 @media (min-width: 768px) {
   .title h1 {
-    font-size: 42px;
+    font-size: 32px;
   }
 
   .title p {
     font-size: 20px;
     width: 430px;
-    margin: 16px auto;
+    margin: 10px 150px;
+  }
+  /* Desktop */
+  @media (min-width: 1152px) {
+    .title h1 {
+      font-size: 32px;
+    }
+
+    .title p {
+      font-size: 20px;
+      width: 430px;
+    }
   }
 }

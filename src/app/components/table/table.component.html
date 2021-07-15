@@ -26,6 +26,20 @@
               : student.student.risk
           }}
         </td>
+      </tr>
+
+      <tr *ngFor="let student of props.students; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ student.student.code }}</td>
+        <td>{{ student.student.names }}</td>
+        <td>{{ student.date | date: "mediumDate" }}</td>
+        <td>
+          {{
+            props.type === "postulator"
+              ? student.postulatorRole
+              : student.student.risk
+          }}
+        </td>
         <td class="icons">
           <i
             routerLink="/estudiante"
