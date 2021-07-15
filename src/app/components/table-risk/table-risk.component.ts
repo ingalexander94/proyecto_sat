@@ -7,6 +7,7 @@ import { AppState } from 'src/app/app.reducers';
 import { saveInLocalStorage } from 'src/app/helpers/localStorage';
 import { User } from 'src/app/model/auth';
 import { DeleteStudentsAction } from 'src/app/reducer/course/course.actions';
+import { UiService } from 'src/app/services/ui.service';
 
 @Component({
   selector: 'app-table-risk',
@@ -15,10 +16,15 @@ import { DeleteStudentsAction } from 'src/app/reducer/course/course.actions';
 })
 export class TableRiskComponent implements OnInit, OnDestroy {
   subscription: Subscription = new Subscription();
+  subscription2: Subscription = new Subscription();
   loading: boolean = true;
   filter: String = '';
 
-  constructor(private router: Router, private store: Store<AppState>) {}
+  constructor(
+    private router: Router,
+    private store: Store<AppState>,
+    private uiService: UiService
+  ) {}
 
   listStudents: User[];
 
@@ -31,6 +37,9 @@ export class TableRiskComponent implements OnInit, OnDestroy {
         this.listStudents = students;
         this.loading = false;
       });
+    this.subscription2 = this.uiService.filter$.subscribe(
+      (filter) => (this.filter = filter)
+    );
   }
 
   navigateToStudent(userShow: User) {
@@ -41,6 +50,7 @@ export class TableRiskComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
+    this.subscription2.unsubscribe();
     this.store.dispatch(new DeleteStudentsAction());
   }
 }

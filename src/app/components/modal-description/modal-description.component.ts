@@ -32,11 +32,14 @@ export class ModalDescriptionComponent implements OnInit, OnDestroy {
 
   createFormHelp(): FormGroup {
     return new FormGroup({
-      description: new FormControl('Hola hp hp malparido hph', [
-        Validators.required,
-        Validators.maxLength(200),
-        Validators.minLength(20),
-      ]),
+      description: new FormControl(
+        'Escribir porque se tiene que tener en cuenta el estudiante',
+        [
+          Validators.required,
+          Validators.maxLength(200),
+          Validators.minLength(20),
+        ]
+      ),
     });
   }
 
@@ -63,12 +66,13 @@ export class ModalDescriptionComponent implements OnInit, OnDestroy {
   async onSubmit() {
     this.loading = true;
     const postulator = this.user.rol === 'estudiante' ? null : this.user;
-    const { programa, correo, rol, nombre, apellido } = this.userShow;
+    const { programa, correo, rol, nombre, apellido, codigo } = this.userShow;
     const dataPostulation: Postulation = {
       ...this.formHelp.value,
       date: new Date().toISOString(),
       student: {
         programa,
+        codigo,
         correo,
         rol,
         nombre: `${nombre} ${apellido}`,

@@ -11,6 +11,7 @@ import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
 import { AppState } from 'src/app/app.reducers';
 import { ResponseNotification } from 'src/app/model/notification';
+import { BossService } from 'src/app/services/boss.service';
 import { NotificationService } from 'src/app/services/notification.service';
 
 @Component({
@@ -26,10 +27,13 @@ export class FloatingButtonComponent implements OnInit, OnDestroy {
   role: String;
   notification: ResponseNotification[] = [];
   unread: Number = 0;
+  counter: number = 0;
 
   constructor(
     private store: Store<AppState>,
-    private notificationService: NotificationService
+    private router: Router,
+    private notificationService: NotificationService,
+    private bossService: BossService
   ) {}
 
   ngOnInit(): void {
@@ -41,7 +45,16 @@ export class FloatingButtonComponent implements OnInit, OnDestroy {
         this.notification = notification.notification;
         this.unread = notification.unread;
       });
+    this.getCounter();
   }
+
+  async getCounter() {
+    if (this.role === 'jefe') {
+      const { data } = await this.bossService.counterPostulationUnattended();
+      this.counter = data;
+    }
+  }
+
   deleteNotificatio(id: String) {
     this.notificationService.deleteNotification(id);
   }
@@ -67,6 +80,11 @@ export class FloatingButtonComponent implements OnInit, OnDestroy {
         role = 'students';
     }
     this.notificationService.getUserInformed(code, role, url);
+  }
+
+  toPostulation() {
+    this.checkboxNotification.nativeElement.checked = false;
+    this.router.navigate(['/vicerrector/postulados/1']);
   }
 
   ngOnDestroy() {

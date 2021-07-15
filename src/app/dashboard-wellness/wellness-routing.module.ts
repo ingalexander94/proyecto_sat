@@ -12,7 +12,7 @@ const children: Routes = [
   { path: '', component: FacultiesComponent },
   { path: 'semestres', component: SemesterComponent },
   { path: 'semestre/:numero', component: SemesterWellnessComponent },
-  { path: 'postulados', component: PostulateListComponent },
+  { path: 'postulados/:pagina', component: PostulateListComponent },
   { path: 'en-riesgo', component: InRiskComponent },
   { path: 'datos-curso', component: CourseDataComponent },
 ];

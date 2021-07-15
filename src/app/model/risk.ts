@@ -17,6 +17,11 @@ export interface Postulation {
   isActive: boolean;
 }
 
+export interface PostulationResponse {
+  data: Postulation[];
+  totalPages: number;
+}
+
 export interface Profit {
   fechaFinal?: Date;
   fechaInicio: Date;

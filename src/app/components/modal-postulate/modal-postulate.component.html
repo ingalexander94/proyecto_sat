@@ -3,20 +3,25 @@
     <div>
       <h1>Información de la postulación</h1>
       <ul>
-        <li><strong>Fecha:</strong> 08 Junio, 2021</li>
-        <li><strong>Estado:</strong> Sin atender</li>
-        <li><strong>Postulador:</strong> Matías Herrera | Docente</li>
+        <li>
+          <strong>Fecha:</strong> {{ postulation.date | date: "dd MMMM, yyy" }}
+        </li>
+        <li><strong>Estado:</strong> {{ postulation.state }}</li>
+        <li>
+          <strong>Postulador:</strong> {{ postulation.postulator.nombre }}
+          {{ postulation.postulator.apellido || "" }} |
+          {{ postulation.postulator.rol }}
+        </li>
         <li><strong># Postulaciones:</strong> 1</li>
       </ul>
     </div>
-    <span>0/200</span>
+    <span>{{ postulation.description.length }}/200</span>
     <textarea
       disabled
       autofocus
       placeholder="Escriba la descripción..."
       maxlength="200"
-    >
-El estudiante presenta un promedio académico muy bajito y está en riesgo de caer a modulos</textarea
+      >{{ postulation.description }}</textarea
     >
     <hr />
     <div class="alert_options">

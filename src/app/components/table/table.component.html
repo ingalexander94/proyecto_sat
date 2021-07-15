@@ -1,65 +1,68 @@
-<div class="table">
-  <table>
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>Codigo</th>
-        <th>Estudiante</th>
-        <th>Fecha</th>
-        <th *ngIf="props.type !== 'postulator'; else postulator">Riesgo</th>
-        <ng-template #postulator>
-          <th>Postulado por</th>
-        </ng-template>
-        <th>Acciones</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let student of props.students; let i = index">
-        <td>{{ i + 1 }}</td>
-        <td>{{ student.student.code }}</td>
-        <td>{{ student.student.names }}</td>
-        <td>{{ student.date | date: "mediumDate" }}</td>
-        <td>
-          {{
-            props.type === "postulator"
-              ? student.postulatorRole
-              : student.student.risk
-          }}
-        </td>
-      </tr>
+<app-loading class="loading" *ngIf="loading"></app-loading>
 
-      <tr *ngFor="let student of props.students; let i = index">
-        <td>{{ i + 1 }}</td>
-        <td>{{ student.student.code }}</td>
-        <td>{{ student.student.names }}</td>
-        <td>{{ student.date | date: "mediumDate" }}</td>
-        <td>
-          {{
-            props.type === "postulator"
-              ? student.postulatorRole
-              : student.student.risk
-          }}
-        </td>
-        <td class="icons">
-          <i
-            routerLink="/estudiante"
-            title="Ver"
-            class="fas fa-search pointer fa-fw text_danger"
-          ></i>
-          |
-          <i
-            class="fas fa-clipboard-check fa-fw text_danger pointer"
-            title="Ver descripción"
-            (click)="updatePostulateModal()"
-          ></i>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+<div *ngIf="!loading">
+  <div class="table">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Codigo</th>
+          <th>Estudiante</th>
+          <th>Fecha</th>
+          <th *ngIf="props.type !== 'postulator'; else postulator">Riesgo</th>
+          <ng-template #postulator>
+            <th>Postulado por</th>
+          </ng-template>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let postulate of postulates; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ postulate.student.codigo }}</td>
+          <td>
+            {{ postulate.student.nombre }} {{ postulate.student.apellido }}
+          </td>
+          <td>{{ postulate.date | date: "mediumDate" }}</td>
+          <td>
+            {{
+              props.type === "postulator"
+                ? postulate.postulator.nombre + " | " + postulate.postulator.rol
+                : postulate.student.riesgo
+            }}
+          </td>
+          <td class="icons">
+            <i
+              (click)="toStudent(postulate.student.codigo)"
+              title="Ver"
+              class="fas fa-search pointer fa-fw text_danger"
+            ></i>
+            |
+            <i
+              class="fas fa-clipboard-check fa-fw text_danger pointer"
+              title="Ver descripción"
+              (click)="updatePostulateModal(postulate)"
+            ></i>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="pagination">
+    <a
+      *ngFor="let item of totalPages"
+      routerLink="/vicerrector/postulados/{{ item }}"
+      routerLinkActive="page_active"
+      >{{ item }}</a
+    >
+  </div>
+
+  <p class="text_danger pointer">Descargar <i class="fas fa-download"></i></p>
+
+  <app-modal-postulate
+    *ngIf="showInfoPostulate"
+    (isClosed)="updatePostulateModal(null, $event)"
+    [postulation]="postulation"
+  ></app-modal-postulate>
 </div>
-<p class="text_danger pointer">Descargar <i class="fas fa-download"></i></p>
-
-<app-modal-postulate
-  *ngIf="showInfoPostulate"
-  (isClosed)="updatePostulateModal($event)"
-></app-modal-postulate>
