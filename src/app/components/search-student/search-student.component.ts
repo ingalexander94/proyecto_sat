@@ -1,5 +1,4 @@
 import { Location } from '@angular/common';
-import { CompileNgModuleMetadata } from '@angular/compiler';
 import {
   Component,
   ElementRef,
