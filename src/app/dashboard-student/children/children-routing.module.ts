@@ -9,6 +9,7 @@ import { MeetingComponent } from 'src/app/components/meeting/meeting.component';
 import { RecordComponent } from 'src/app/components/record/record.component';
 import { SearchStudentComponent } from 'src/app/components/search-student/search-student.component';
 import { WellnessNotificationComponent } from 'src/app/components/wellness-notification/wellness-notification.component';
+import { CourseDataComponent } from 'src/app/pages/course-data/course-data.component';
 
 import { RiskAcademicComponent } from 'src/app/pages/risk-academic/risk-academic.component';
 import { RiskEconomicComponent } from 'src/app/pages/risk-economic/risk-economic.component';
@@ -29,6 +30,7 @@ const children: Routes = [
   { path: 'actividades', component: ActivitiesListComponent },
   { path: 'reunion', component: MeetingComponent },
   { path: 'notificar', component: WellnessNotificationComponent },
+  { path: 'informacion-materia', component: CourseDataComponent },
 ];
 
 const routes: Routes = [{ path: '', component: ChildrenComponent, children }];

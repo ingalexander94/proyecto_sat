@@ -44,7 +44,7 @@
   font-size: 15px;
 }
 
-/* Tablet and Desktop */
+/* Tablet  */
 
 @media (min-width: 768px) {
   .profile_academy * {
@@ -75,9 +75,9 @@
 
 @media (min-width: 1152px) {
   .profile_academy {
-    width: 500px;
-    margin: 2px 70px;
-    height: 400px;
+    height: 82vh;
+    width: 50vw;
+    overflow: scroll;
   }
   .wrapper_course {
     margin: 0px;

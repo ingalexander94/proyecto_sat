@@ -41,7 +41,7 @@
   animation: animacion 2s linear infinite;
 }
 
-/* Tablet and Desktop */
+/* Tablet */
 
 @media (min-width: 768px) {
   .list_risks {
@@ -85,6 +85,7 @@
   .list_risks {
     margin: 0;
     width: 50vw;
+    height: 85vh;
   }
 
   .risk {

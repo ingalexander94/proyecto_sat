@@ -22,7 +22,7 @@
   justify-content: center;
 }
 
-/* Tablet & Desktop */
+/* Tablet  */
 
 @media (min-width: 768px) {
   .wrapper_course {
@@ -33,16 +33,21 @@
 /* Desktop */
 
 @media (min-width: 1152px) {
-  .title {
-    display: flex;
-    justify-content: center;
-  }
   .list_courses {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     justify-content: center;
     align-items: center;
     gap: 64px;
-    margin-top: 64px;
+    margin-left: 150px;
+    margin-bottom: 60px;
+  }
+  .wrapper_course {
+    margin: 20px 80px;
+  }
+
+  .title {
+    width: 35vw;
+    margin-right: 100px;
   }
 }

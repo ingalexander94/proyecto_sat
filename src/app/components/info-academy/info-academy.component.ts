@@ -24,9 +24,7 @@ export class InfoAcademyComponent implements OnInit, OnDestroy {
     private uiService: UiService,
     private store: Store<AppState>,
     private router: Router
-  ) {
-    this.uiService.updateTitleNavbar('Perfil');
-  }
+  ) {}
 
   ngOnInit(): void {
     this.subscription = this.store
@@ -36,6 +34,7 @@ export class InfoAcademyComponent implements OnInit, OnDestroy {
           ? (this.user = user)
           : (this.user = userActive)
       );
+    this.uiService.updateTitleNavbar('Academico');
   }
 
   onNavigateToCourseData() {

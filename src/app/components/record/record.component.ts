@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { filter } from 'rxjs/operators';
 import { AppState } from 'src/app/app.reducers';
 import { Profit } from 'src/app/model/risk';
 import { StudentService } from 'src/app/services/student.service';
@@ -24,6 +25,7 @@ export class RecordComponent implements OnInit {
     this.uiService.updateTitleNavbar('Perfil');
     store
       .select('ui')
+      .pipe(filter(({ userActive }) => userActive !== null))
       .subscribe(({ userActive }) => (this.codeShow = userActive.codigo));
   }
 
