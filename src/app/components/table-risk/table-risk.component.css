@@ -52,6 +52,8 @@
 @media (min-width: 1152px) {
   .table_students {
     margin-top: 0;
+    overflow: scroll;
+    height: 280px;
   }
 
   .download {

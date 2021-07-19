@@ -31,6 +31,7 @@ import { LoadingComponent } from './loading/loading.component';
 import { ValidatePostulationComponent } from './validate-postulation/validate-postulation.component';
 import { OrderByPipe } from '../pipes/order-by.pipe';
 import { FilterStudentPipe } from '../pipes/filter-student.pipe';
+import { AcademyListCourseComponent } from './academy-list-course/academy-list-course.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ import { FilterStudentPipe } from '../pipes/filter-student.pipe';
     ValidatePostulationComponent,
     OrderByPipe,
     FilterStudentPipe,
+    AcademyListCourseComponent,
   ],
   exports: [
     AlertComponent,

@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
+import { filter } from 'rxjs/operators';
 import { AppState } from 'src/app/app.reducers';
 import { showAlert } from 'src/app/helpers/alert';
 import { saveInLocalStorage } from 'src/app/helpers/localStorage';
@@ -47,6 +48,7 @@ export class SemesterComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.subscription = this.store
       .select('auth')
+      .pipe(filter(({ user }) => user !== null))
       .subscribe(({ user }) => (this.program = user.programa));
     this.getSemesters();
   }

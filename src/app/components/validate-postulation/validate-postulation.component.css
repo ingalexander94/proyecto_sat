@@ -9,14 +9,18 @@ button:hover {
 }
 
 .postulation {
-  margin-top: 5px;
+  margin: 5px;
   padding: 0 8px;
   text-align: justify;
   background: var(--green-primary-color);
   color: white;
+  font-size: 5px;
+}
+.postulation p {
+  font-size: 14px;
 }
 
 .postulation span {
   font-weight: bold;
-  font-size: 18px;
+  font-size: 12px;
 }

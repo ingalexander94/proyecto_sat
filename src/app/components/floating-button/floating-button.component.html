@@ -9,7 +9,9 @@
   <h4>Notificaciones</h4>
   <hr />
   <ul>
-    <li *ngIf="!notification.length">No tiene notificaciones</li>
+    <li *ngIf="!notification.length && counter === 0">
+      No tiene notificaciones
+    </li>
     <li *ngIf="role === 'jefe' && counter > 0" class="pointer no_read">
       <div (click)="toPostulation()">
         <p>Tiene {{ counter }} postulaciones Sin Atender</p>

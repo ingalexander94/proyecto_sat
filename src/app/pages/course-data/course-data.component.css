@@ -11,25 +11,19 @@
   font-weight: bold;
   font-size: 18px;
 }
-.home{
-    background:var(--gray-table) ;
-    border-radius: 10px;
-    padding: 0px 5px;
+.home {
+  display: flex;
+  flex-direction: column;
 }
 .semester_credits {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 .teacher {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
+  flex-direction: row;
 }
 .shedule {
-  text-align: left;
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
+  flex-direction: row;
 }
 .notes {
   display: flex;
@@ -38,28 +32,41 @@
 }
 .notes h3 {
   font-weight: bold;
+  text-align: center;
 }
 .course {
   text-align: center;
-  margin-bottom: 20px;
-  height: 80px;
-  width: 140px;
-  margin-top: 10px;
-}
-.title_course {
-  margin-bottom: 10px;
+  width: 60px;
+  margin: 10px 0px;
 }
 
-.qualification p {
+.qualification1 p {
   width: 60px;
-  height: 60px;
-  border-radius: 50%;
+  height: 20px;
   background: var(--red-primary-color);
   text-align: center;
   font-weight: bold;
-  color: white;
-  margin-left: 20%;
-  line-height: 60px;
+}
+.qualification2 p {
+  width: 60px;
+  height: 20px;
+  background: var(--green-primary-color);
+  text-align: center;
+  font-weight: bold;
+}
+.qualification3 p {
+  width: 60px;
+  height: 20px;
+  background: var(--orange-primary-color);
+  text-align: center;
+  font-weight: bold;
+}
+.qualification4 p {
+  width: 60px;
+  height: 20px;
+  background: gray;
+  text-align: center;
+  font-weight: bold;
 }
 .text {
   width: 280px;
@@ -69,10 +76,16 @@
 .text b {
   font-weight: bold;
 }
+.title_qualification {
+  font-weight: bold;
+}
+.line {
+  margin: 10px;
+}
 /* table */
 @media (min-width: 768px) {
   .content {
-    margin: 120px;
+    margin: 10px 120px;
   }
   .content h1 {
     margin-bottom: 30px;
@@ -84,22 +97,27 @@
   .content p {
     font-size: 25px;
   }
-  .home{
-      padding: 0px 20px;
-  }
   .course {
-    margin-bottom: 120px;
-    height: 80px;
-    width: 200px;
-    margin-top: 25px;
+    text-align: center;
+    width: 120px;
+    margin: 10px 0px;
+  }
+  .home {
+    padding: 0px 20px;
+  }
+  .qualification1 p {
+    width: 120px;
+  }
+  .qualification2 p {
+    width: 120px;
+  }
+  .qualification3 p {
+    width: 120px;
+  }
+  .qualification4 p {
+    width: 120px;
   }
 
-  .qualification p {
-    width: 100px;
-    height: 100px;
-    line-height: 100px;
-    font-size: 25px;
-  }
   .notes h3 {
     font-size: 22px;
   }
@@ -109,40 +127,24 @@
   .text {
     width: 600px;
   }
+  .title_qualification {
+    font-size: 25px;
+  }
   /* desktop */
   @media (min-width: 1152px) {
     .content {
-      margin: 20px;
+      width: 40vw;
     }
     .content h1 {
-      margin-top: 80px;
+      margin-top: 10px;
+      font-size: 25px;
     }
     .text {
-      width: 1300px;
+      width: 500px;
     }
-    .home {
-      display: flex;
-      justify-content: center;
-      width: 1260px;
-      padding: 5px;
-    }
-
-    .semester_credits {
-      display: flex;
-      flex-wrap: wrap;
-      width: 400px;
-    }
-    .teachear_schedule {
-      display: flex;
-      justify-content: space-between;
-      width: 1300px;
-      padding-left: 80px;
-    }
-    .semester_credits {
-      margin: 0px 0px;
-    }
-    .teachear_schedule {
-      margin: 0px 0px;
+    .home h4,
+    .home p {
+      font-size: 18px;
     }
   }
 }

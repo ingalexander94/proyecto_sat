@@ -2,7 +2,7 @@ import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
-import { filter } from 'rxjs/operators';
+import { filter, map } from 'rxjs/operators';
 import { AppState } from 'src/app/app.reducers';
 import { saveInLocalStorage } from 'src/app/helpers/localStorage';
 import { User } from 'src/app/model/auth';
@@ -23,6 +23,7 @@ export class ItemCourseComponent implements OnInit, OnDestroy {
 
   user: User = null;
   subscription: Subscription = new Subscription();
+  title: String;
 
   constructor(
     private studentService: StudentService,
@@ -32,14 +33,24 @@ export class ItemCourseComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.subscription = this.store
-      .select('auth')
-      .pipe(filter(({ user }) => user !== null))
-      .subscribe(({ user }) => (this.user = user));
+      .pipe(
+        filter(({ auth }) => auth.user !== null),
+        map(({ auth, ui }) => ({
+          title: ui.titleNavbar,
+          user: auth.user,
+        }))
+      )
+      .subscribe(({ user, title }) => {
+        this.user = user;
+        this.title = title;
+      });
   }
 
   async navigateToTeacher() {
     this.store.dispatch(new StartLoadingAction());
-    if (this.user.rol === 'docente' || this.user.rol === 'jefe') {
+    if (this.title === 'Academico') {
+      this.router.navigate([`/estudiante/informacion-materia`]);
+    } else if (this.user.rol === 'docente' || this.user.rol === 'jefe') {
       this.router.navigate([
         `/docente/materia/${this.course.materia.codigo}/${this.course.grupo}`,
       ]);
