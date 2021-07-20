@@ -21,7 +21,9 @@
       <label
         *ngIf="
           user.rol !== 'estudiante' &&
-            (title === 'Perfil Docente' || title === 'Perfil');
+            (title === 'Perfil Docente' ||
+              title === 'Perfil' ||
+              title === 'Académico');
           else hidden
         "
         title="Ver opciones"

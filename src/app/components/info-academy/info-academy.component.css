@@ -90,7 +90,7 @@
   .profile_academy {
     height: 82vh;
     width: 50vw;
-    overflow: scroll;
+    overflow-y: scroll;
   }
   .wrapper_course {
     margin: 0px;
@@ -106,5 +106,9 @@
     align-items: center;
     gap: 64px;
     margin-top: 64px;
+  }
+
+  .date_start {
+    margin-top: 16px;
   }
 }

@@ -1,14 +1,18 @@
-<div class="content">
-  <h1>Base de datos - B</h1>
+<div class="loading">
+  <app-loading *ngIf="loading"></app-loading>
+</div>
+
+<div class="content" *ngIf="!loading">
+  <h1>{{ course.materia.nombre }} - {{ course.grupo }}</h1>
   <div class="home">
     <div class="semester_credits">
       <div class="semester">
         <h4>Semestre</h4>
-        <p>5</p>
+        <p>{{ course.materia.semestre }}</p>
       </div>
       <div class="credits">
-        <h4>Credito</h4>
-        <p>4</p>
+        <h4>Créditos</h4>
+        <p>{{ course.materia.creditos }}</p>
       </div>
     </div>
     <div class="teachear_schedule">
@@ -17,7 +21,7 @@
           <h4>Docente: &nbsp;</h4>
         </div>
         <div class="date">
-          <p>Carlos Rene Angarita</p>
+          <p>{{ docente }}</p>
         </div>
       </div>
       <div class="shedule">
@@ -25,8 +29,7 @@
           <h4>Horario: &nbsp;</h4>
         </div>
         <div class="date">
-          <p>lunes de 8am-10am</p>
-          <p>Viernes de 8am-10am</p>
+          <p>{{ course.materia.horario }}</p>
         </div>
       </div>
     </div>
@@ -34,37 +37,17 @@
   <hr class="line" />
   <h3 class="title_qualification">Calificaciónes</h3>
   <div class="notes">
-    <div class="course">
-      <div class="title_course">
-        <h3>1P</h3>
-      </div>
-      <div class="qualification1">
-        <p></p>
-      </div>
-    </div>
-    <div class="course">
-      <div class="title_course">
-        <h3>2P</h3>
-      </div>
-      <div class="qualification2">
-        <p></p>
-      </div>
-    </div>
-    <div class="course">
-      <div class="title_course">
-        <h3>3P</h3>
-      </div>
-      <div class="qualification3">
-        <p></p>
-      </div>
-    </div>
-    <div class="course">
-      <div class="title_course">
-        <h3>EX</h3>
-      </div>
-      <div class="qualification4">
-        <p></p>
-      </div>
-    </div>
+    <app-note-index
+      [note]="createNote('1P', course.previo_uno)"
+    ></app-note-index>
+    <app-note-index
+      [note]="createNote('2P', course.previo_dos)"
+    ></app-note-index>
+    <app-note-index
+      [note]="createNote('3P', course.previo_tres)"
+    ></app-note-index>
+    <app-note-index
+      [note]="createNote('EX', course.examen_final)"
+    ></app-note-index>
   </div>
 </div>

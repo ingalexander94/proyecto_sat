@@ -148,6 +148,9 @@ hr {
 /* Desktop */
 
 @media (min-width: 1152px) {
+  .content {
+    width: 50vw;
+  }
   .dates_role {
     margin: 10px 50px;
   }
