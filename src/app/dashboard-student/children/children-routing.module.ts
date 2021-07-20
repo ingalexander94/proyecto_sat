@@ -10,6 +10,7 @@ import { RecordComponent } from 'src/app/components/record/record.component';
 import { SearchStudentComponent } from 'src/app/components/search-student/search-student.component';
 import { WellnessNotificationComponent } from 'src/app/components/wellness-notification/wellness-notification.component';
 import { CourseDataComponent } from 'src/app/pages/course-data/course-data.component';
+import { PermanenceInformationComponent } from 'src/app/pages/permanence-information/permanence-information.component';
 
 import { RiskAcademicComponent } from 'src/app/pages/risk-academic/risk-academic.component';
 import { RiskEconomicComponent } from 'src/app/pages/risk-economic/risk-economic.component';
@@ -31,6 +32,10 @@ const children: Routes = [
   { path: 'reunion', component: MeetingComponent },
   { path: 'notificar', component: WellnessNotificationComponent },
   { path: 'informacion-materia', component: CourseDataComponent },
+  {
+    path: 'informacion-permanencia',
+    component: PermanenceInformationComponent,
+  },
 ];
 
 const routes: Routes = [{ path: '', component: ChildrenComponent, children }];
