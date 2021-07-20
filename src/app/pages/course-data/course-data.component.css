@@ -34,40 +34,7 @@
   font-weight: bold;
   text-align: center;
 }
-.course {
-  text-align: center;
-  width: 60px;
-  margin: 10px 0px;
-}
 
-.qualification1 p {
-  width: 60px;
-  height: 20px;
-  background: var(--red-primary-color);
-  text-align: center;
-  font-weight: bold;
-}
-.qualification2 p {
-  width: 60px;
-  height: 20px;
-  background: var(--green-primary-color);
-  text-align: center;
-  font-weight: bold;
-}
-.qualification3 p {
-  width: 60px;
-  height: 20px;
-  background: var(--orange-primary-color);
-  text-align: center;
-  font-weight: bold;
-}
-.qualification4 p {
-  width: 60px;
-  height: 20px;
-  background: gray;
-  text-align: center;
-  font-weight: bold;
-}
 .text {
   width: 280px;
   text-align: left;
@@ -97,25 +64,9 @@
   .content p {
     font-size: 25px;
   }
-  .course {
-    text-align: center;
-    width: 120px;
-    margin: 10px 0px;
-  }
+
   .home {
     padding: 0px 20px;
-  }
-  .qualification1 p {
-    width: 120px;
-  }
-  .qualification2 p {
-    width: 120px;
-  }
-  .qualification3 p {
-    width: 120px;
-  }
-  .qualification4 p {
-    width: 120px;
   }
 
   .notes h3 {
@@ -130,21 +81,22 @@
   .title_qualification {
     font-size: 25px;
   }
-  /* desktop */
-  @media (min-width: 1152px) {
-    .content {
-      width: 40vw;
-    }
-    .content h1 {
-      margin-top: 10px;
-      font-size: 25px;
-    }
-    .text {
-      width: 500px;
-    }
-    .home h4,
-    .home p {
-      font-size: 18px;
-    }
+}
+
+/* desktop */
+@media (min-width: 1152px) {
+  .content {
+    width: 40vw;
+  }
+  .content h1 {
+    margin-top: 10px;
+    font-size: 25px;
+  }
+  .text {
+    width: 500px;
+  }
+  .home h4,
+  .home p {
+    font-size: 18px;
   }
 }

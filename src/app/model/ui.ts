@@ -38,9 +38,16 @@ export interface MenuOptions {
   name: String;
   isAllowed: (role: String) => boolean;
 }
+
+export interface Note {
+  note: Number;
+  name: String;
+  color: String;
+}
+
 //Couser con Asistencia
-export interface desCourse{
-  name:String;
-  group:String;
-  assistance:number;
+export interface desCourse {
+  name: String;
+  group: String;
+  assistance: number;
 }

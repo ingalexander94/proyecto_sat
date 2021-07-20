@@ -5,8 +5,6 @@ import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
 import { AppState } from 'src/app/app.reducers';
 import { User } from 'src/app/model/auth';
-import { courses } from 'src/app/model/data';
-import { desCourse } from 'src/app/model/ui';
 import { UiService } from 'src/app/services/ui.service';
 
 @Component({
@@ -15,8 +13,6 @@ import { UiService } from 'src/app/services/ui.service';
   styleUrls: ['./info-academy.component.css'],
 })
 export class InfoAcademyComponent implements OnInit, OnDestroy {
-  listCourse: desCourse[] = courses;
-
   user: User;
   subscription: Subscription = new Subscription();
 
@@ -34,7 +30,7 @@ export class InfoAcademyComponent implements OnInit, OnDestroy {
           ? (this.user = user)
           : (this.user = userActive)
       );
-    this.uiService.updateTitleNavbar('Academico');
+    this.uiService.updateTitleNavbar('Académico');
   }
 
   onNavigateToCourseData() {

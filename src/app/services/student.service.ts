@@ -6,7 +6,10 @@ import { Store } from '@ngrx/store';
 import { AppState } from '../app.reducers';
 import { LoadingCourseAction } from '../reducer/course/course.actions';
 import { UserResponse } from '../model/auth';
-import { FinishLoadingAction } from '../reducer/ui/ui.actions';
+import {
+  FinishLoadingAction,
+  StartLoadingAction,
+} from '../reducer/ui/ui.actions';
 import { NotificationService } from './notification.service';
 import { Postulation, ProfitResponse } from '../model/risk';
 
@@ -24,6 +27,7 @@ export class StudentService {
 
   async listCourses(code: String) {
     try {
+      this.store.dispatch(new StartLoadingAction());
       const { data } = await this.http
         .get<ResponseCourse>(this.url + '/students/course/' + code)
         .toPromise();
@@ -33,6 +37,17 @@ export class StudentService {
       console.error(error);
     }
     this.store.dispatch(new FinishLoadingAction());
+  }
+
+  getCourses(code: String) {
+    try {
+      return this.http
+        .get<ResponseCourse>(this.url + '/students/course/' + code)
+        .toPromise();
+    } catch (error) {
+      console.error(error);
+      return null;
+    }
   }
 
   getTeacherOfCourse(code: String) {

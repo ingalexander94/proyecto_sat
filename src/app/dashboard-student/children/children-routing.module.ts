@@ -7,7 +7,6 @@ import { InfoAcademyComponent } from 'src/app/components/info-academy/info-acade
 import { ListRisksComponent } from 'src/app/components/list-risks/list-risks.component';
 import { MeetingComponent } from 'src/app/components/meeting/meeting.component';
 import { RecordComponent } from 'src/app/components/record/record.component';
-import { SearchStudentComponent } from 'src/app/components/search-student/search-student.component';
 import { WellnessNotificationComponent } from 'src/app/components/wellness-notification/wellness-notification.component';
 import { CourseDataComponent } from 'src/app/pages/course-data/course-data.component';
 
@@ -30,7 +29,7 @@ const children: Routes = [
   { path: 'actividades', component: ActivitiesListComponent },
   { path: 'reunion', component: MeetingComponent },
   { path: 'notificar', component: WellnessNotificationComponent },
-  { path: 'informacion-materia', component: CourseDataComponent },
+  { path: 'informacion-materia/:course', component: CourseDataComponent },
 ];
 
 const routes: Routes = [{ path: '', component: ChildrenComponent, children }];

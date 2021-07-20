@@ -7,6 +7,7 @@ import { AppState } from 'src/app/app.reducers';
 import { saveInLocalStorage } from 'src/app/helpers/localStorage';
 import { User } from 'src/app/model/auth';
 import { Course } from 'src/app/model/course';
+import { ActiveCourseAction } from 'src/app/reducer/course/course.actions';
 import {
   FinishLoadingAction,
   StartLoadingAction,
@@ -48,8 +49,11 @@ export class ItemCourseComponent implements OnInit, OnDestroy {
 
   async navigateToTeacher() {
     this.store.dispatch(new StartLoadingAction());
-    if (this.title === 'Academico') {
-      this.router.navigate([`/estudiante/informacion-materia`]);
+    if (this.title === 'Académico') {
+      this.store.dispatch(new ActiveCourseAction(this.course.materia.codigo));
+      this.router.navigate([
+        `/estudiante/informacion-materia/${this.course.materia.codigo}`,
+      ]);
     } else if (this.user.rol === 'docente' || this.user.rol === 'jefe') {
       this.router.navigate([
         `/docente/materia/${this.course.materia.codigo}/${this.course.grupo}`,

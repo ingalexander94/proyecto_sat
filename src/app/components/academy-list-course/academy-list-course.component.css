@@ -3,6 +3,14 @@
   text-align: center;
 }
 
+.show_loader {
+  margin: 16px 0;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .list_courses {
   display: flex;
   justify-content: space-between;
