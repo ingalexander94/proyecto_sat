@@ -13,7 +13,10 @@
   <p>Se muestran los promedios academicos del estudiante:</p>
   <div class="date_start">
     <h4>Fecha de ingreso a la Universidad :</h4>
-    <p>{{ user.fechaIngreso | date: "dd MMMM yyyy" }}</p>
+    <div class="date_buton">
+      <p>{{ user.fechaIngreso | date: "dd MMMM yyyy" }}</p>
+      <button (click)="onNavigatePermanence()">ver Permanecia</button>
+    </div>
   </div>
   <div class="info_academy">
     <p>

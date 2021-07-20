@@ -18,6 +18,20 @@
 .date_start {
   margin-top: 32px;
 }
+.date_buton {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.date_buton button {
+  width: 200px;
+  text-align: center;
+  background: var(--green-primary-color);
+}
+.date_buton p {
+  margin-top: 15px;
+  padding: 10px;
+}
 
 .date_start h4 {
   font-weight: bold;

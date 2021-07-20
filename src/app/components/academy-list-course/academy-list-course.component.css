@@ -35,11 +35,11 @@
 @media (min-width: 1152px) {
   .list_courses {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     justify-content: center;
     align-items: center;
     gap: 64px;
-    margin-left: 150px;
+    margin-left: 100px;
     margin-bottom: 60px;
   }
   .wrapper_course {
