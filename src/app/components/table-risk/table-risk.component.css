@@ -29,6 +29,28 @@
   margin-top: 16px;
 }
 
+.filter {
+  position: relative;
+}
+
+.options {
+  position: absolute;
+  list-style: none;
+  background: var(--gray-dark-color);
+  padding: 16px;
+  border: 1px solid var(--dark-color);
+}
+
+.options li {
+  font-size: 14px;
+  margin: 4px 0px;
+  cursor: pointer;
+}
+
+.options li:hover {
+  font-weight: bold;
+}
+
 /* Tablet */
 
 @media (min-width: 768px) {
@@ -44,6 +66,10 @@
     font-size: 22px;
     right: 32px;
   }
+
+  .options li {
+    font-size: 20px;
+  }
 }
 
 /* Desktop */
@@ -58,5 +84,13 @@
   .download {
     font-size: 22px;
     right: 32px;
+  }
+
+  .options {
+    width: 100%;
+  }
+
+  .options li {
+    font-size: 20px;
   }
 }

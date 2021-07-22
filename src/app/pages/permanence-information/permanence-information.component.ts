@@ -6,6 +6,7 @@ import { tapN } from 'src/app/helpers/observers';
 import { User } from 'src/app/model/auth';
 import { Semester } from 'src/app/model/semester';
 import { StudentService } from 'src/app/services/student.service';
+import { UiService } from 'src/app/services/ui.service';
 
 @Component({
   selector: 'app-permanence-information',
@@ -20,8 +21,11 @@ export class PermanenceInformationComponent implements OnInit, OnDestroy {
 
   constructor(
     private store: Store<AppState>,
-    private studentService: StudentService
-  ) {}
+    private studentService: StudentService,
+    private uiService: UiService
+  ) {
+    this.uiService.updateTitleNavbar('Académico');
+  }
 
   ngOnInit(): void {
     this.store

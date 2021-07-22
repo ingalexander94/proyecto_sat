@@ -19,6 +19,7 @@ export class TableRiskComponent implements OnInit, OnDestroy {
   subscription2: Subscription = new Subscription();
   loading: boolean = true;
   filter: String = '';
+  show: boolean = false;
 
   constructor(
     private router: Router,
@@ -52,5 +53,14 @@ export class TableRiskComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
     this.subscription2.unsubscribe();
     this.store.dispatch(new DeleteStudentsAction());
+  }
+
+  showOptions() {
+    this.show = !this.show;
+  }
+
+  filterStudents(name: string = '') {
+    this.filter = name;
+    this.showOptions();
   }
 }

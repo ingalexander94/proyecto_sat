@@ -9,7 +9,16 @@
           Riesgo <i class="fas fa-long-arrow-alt-up"></i
           ><i class="fas fa-long-arrow-alt-down"></i>
         </th>
-        <th>Estado</th>
+        <th class="filter">
+          Estado <i class="fas fa-filter pointer" (click)="showOptions()"></i>
+          <ul class="options" *ngIf="show">
+            <li (click)="filterStudents('matriculado')">Matriculados</li>
+            <li (click)="filterStudents('cancelado')">Cancelados</li>
+            <li (click)="filterStudents('en modulos')">En modulos</li>
+            <li (click)="filterStudents('graduado')">Graduados</li>
+            <li (click)="filterStudents()">Todos</li>
+          </ul>
+        </th>
         <th>Permanencia</th>
       </tr>
     </thead>
