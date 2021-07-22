@@ -12,6 +12,7 @@ import {
 } from '../reducer/ui/ui.actions';
 import { NotificationService } from './notification.service';
 import { Postulation, ProfitResponse } from '../model/risk';
+import { ResponseSemester } from '../model/semester';
 
 @Injectable({
   providedIn: 'root',
@@ -100,6 +101,17 @@ export class StudentService {
     try {
       return this.http
         .get<UserResponse>(this.url + '/students/' + code)
+        .toPromise();
+    } catch (error) {
+      console.error(error);
+      return null;
+    }
+  }
+
+  getSemesters(code: String) {
+    try {
+      return this.http
+        .get<ResponseSemester>(this.url + '/students/semesters/' + code)
         .toPromise();
     } catch (error) {
       console.error(error);

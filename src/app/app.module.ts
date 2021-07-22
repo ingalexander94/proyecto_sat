@@ -43,6 +43,7 @@ import { LoginAdminComponent } from './pages/auth/login-admin/login-admin.compon
 import localeEsAr from '@angular/common/locales/es-AR';
 import { LoginStudentComponent } from './pages/auth/login-student/login-student.component';
 import { PermanenceInformationComponent } from './pages/permanence-information/permanence-information.component';
+import { ListReportsComponent } from './pages/list-reports/list-reports.component';
 
 registerLocaleData(localeEsAr, 'es-Ar');
 
@@ -69,6 +70,7 @@ registerLocaleData(localeEsAr, 'es-Ar');
     LoginAdminComponent,
     LoginStudentComponent,
     PermanenceInformationComponent,
+    ListReportsComponent,
   ],
 
   imports: [

@@ -11,7 +11,7 @@ export interface User {
   programa?: String;
   telefono: String;
   direccion: String;
-  esActivo: Boolean;
+  estado?: string;
   fechaIngreso?: Date;
   creditosAprobados?: Number;
   edad: Number;

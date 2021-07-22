@@ -45,7 +45,7 @@ export class TableRiskComponent implements OnInit, OnDestroy {
   navigateToStudent(userShow: User) {
     saveInLocalStorage('user-show', userShow);
     saveInLocalStorage('receiver', userShow);
-    this.router.navigate(['/estudiante']);
+    this.router.navigate(['/estudiante/informacion-permanencia']);
   }
 
   ngOnDestroy(): void {

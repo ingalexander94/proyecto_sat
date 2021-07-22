@@ -27,12 +27,12 @@
     <app-loading *ngIf="loading"></app-loading>
     <ul *ngIf="!loading">
       <li
-        *ngFor="let semester of semesters; let i = index"
-        routerLink="/vicerrector/semestre/{{ i + 1 }}"
+        *ngFor="let semester of semesters"
+        routerLink="/vicerrector/semestre/{{ semester }}"
         routerLinkActive="active"
         [routerLinkActiveOptions]="{ exact: true }"
       >
-        Semestre {{ semester }}
+        Periodo {{ semester }}
       </li>
     </ul>
   </div>

@@ -7,8 +7,6 @@ import { filter } from 'rxjs/operators';
 import { AppState } from 'src/app/app.reducers';
 import { showAlert } from 'src/app/helpers/alert';
 import { saveInLocalStorage } from 'src/app/helpers/localStorage';
-import { getSemestersInRoman } from 'src/app/helpers/ui';
-import { BossService } from 'src/app/services/boss.service';
 import { StudentService } from 'src/app/services/student.service';
 import { UiService } from 'src/app/services/ui.service';
 
@@ -36,7 +34,6 @@ export class SemesterComponent implements OnInit, OnDestroy {
 
   constructor(
     private uiService: UiService,
-    private bossService: BossService,
     private studentService: StudentService,
     private router: Router,
     private store: Store<AppState>
@@ -50,13 +47,19 @@ export class SemesterComponent implements OnInit, OnDestroy {
       .select('auth')
       .pipe(filter(({ user }) => user !== null))
       .subscribe(({ user }) => (this.program = user.programa));
-    this.getSemesters();
+    this.getPeriods();
   }
 
-  async getSemesters() {
+  async getPeriods() {
     this.loading = true;
-    const { data } = await this.bossService.getSemesters();
-    this.semesters = getSemestersInRoman(data);
+    let currentYear = new Date().getFullYear();
+    const currentMonth = new Date().getMonth() + 1;
+    const currentSemester = currentMonth <= 7 ? 1 : 2;
+    for (let i = currentYear; i >= 2010; i--) {
+      this.semesters.push(`${i}-2`);
+      this.semesters.push(`${i}-1`);
+    }
+    if (currentSemester === 1) this.semesters.shift();
     this.loading = false;
   }
 

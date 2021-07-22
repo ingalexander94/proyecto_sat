@@ -1,15 +1,44 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Subscription } from 'rxjs';
+import { AppState } from 'src/app/app.reducers';
+import { tapN } from 'src/app/helpers/observers';
+import { User } from 'src/app/model/auth';
+import { Semester } from 'src/app/model/semester';
+import { StudentService } from 'src/app/services/student.service';
 
 @Component({
   selector: 'app-permanence-information',
   templateUrl: './permanence-information.component.html',
-  styleUrls: ['./permanence-information.component.css']
+  styleUrls: ['./permanence-information.component.css'],
 })
-export class PermanenceInformationComponent implements OnInit {
+export class PermanenceInformationComponent implements OnInit, OnDestroy {
+  subscription: Subscription = new Subscription();
+  user: User = null;
+  semesters: Semester = null;
+  loading: Boolean = true;
 
-  constructor() { }
+  constructor(
+    private store: Store<AppState>,
+    private studentService: StudentService
+  ) {}
 
   ngOnInit(): void {
+    this.store
+      .select('ui')
+      .pipe(
+        tapN(1, async ({ userActive }) => {
+          const { data } = await this.studentService.getSemesters(
+            userActive.codigo
+          );
+          this.semesters = data;
+          this.loading = false;
+        })
+      )
+      .subscribe(({ userActive }) => (this.user = userActive));
   }
 
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
 }

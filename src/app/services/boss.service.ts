@@ -15,20 +15,11 @@ export class BossService {
 
   constructor(private http: HttpClient, private store: Store<AppState>) {}
 
-  getSemesters() {
-    try {
-      return this.http.get<any>(this.endpoint + '/boss/semesters').toPromise();
-    } catch (error) {
-      console.error(error);
-      return null;
-    }
-  }
-
-  async getStudentsOfSemester(semester) {
+  async getStudentsOfSemester(period) {
     try {
       const { data } = await this.http
         .get<StudentResponse>(
-          this.endpoint + '/boss/semesters/students/' + semester
+          this.endpoint + '/boss/semesters/students/' + period
         )
         .toPromise();
       this.store.dispatch(new LoadStudentsAction(data));

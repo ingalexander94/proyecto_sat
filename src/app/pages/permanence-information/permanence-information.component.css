@@ -47,22 +47,24 @@
   height: 10px;
   border: 2px black solid;
 }
-.average .one {
+
+.average div {
   height: 100%;
+}
+
+.bad {
   background: var(--red-primary-color);
 }
-.two {
-  height: 100%;
+.good {
   background: var(--green-primary-color);
 }
-.three {
-  height: 100%;
+.regular {
   background: var(--orange-primary-color);
 }
-.four {
-  height: 100%;
+.empty {
   background: var(--gray-table);
 }
+
 hr {
   margin: 10px;
 }

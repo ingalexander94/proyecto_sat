@@ -4,7 +4,6 @@ import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
 import { AppState } from 'src/app/app.reducers';
-import { convertSemesterInRoman } from 'src/app/helpers/ui';
 import { Title } from 'src/app/model/ui';
 import { BossService } from 'src/app/services/boss.service';
 import { UiService } from 'src/app/services/ui.service';
@@ -43,11 +42,11 @@ export class SemesterWellnessComponent implements OnInit, OnDestroy {
   }
 
   updateSemesters() {
-    const numero = this.route.snapshot.paramMap.get('numero');
-    const roman = `Semestre ${convertSemesterInRoman(parseInt(numero))}`;
-    this.title2.title = roman;
-    this.uiService.updateTitleNavbar(roman);
-    this.bossService.getStudentsOfSemester(numero);
+    const number = this.route.snapshot.paramMap.get('numero');
+    const period = `Periodo ${number}`;
+    this.title2.title = period;
+    this.uiService.updateTitleNavbar(period);
+    this.bossService.getStudentsOfSemester(number);
   }
 
   ngOnDestroy(): void {

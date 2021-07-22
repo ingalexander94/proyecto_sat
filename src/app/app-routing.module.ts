@@ -4,6 +4,7 @@ import { LoginAdminComponent } from './pages/auth/login-admin/login-admin.compon
 import { LoginStudentComponent } from './pages/auth/login-student/login-student.component';
 import { LoginComponent } from './pages/auth/login/login.component';
 import { ErrorComponent } from './pages/error/error.component';
+import { ListReportsComponent } from './pages/list-reports/list-reports.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'error',
     component: ErrorComponent,
+  },
+  {
+    path: 'reportes',
+    component: ListReportsComponent,
   },
   {
     path: 'docente',

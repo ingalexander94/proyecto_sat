@@ -30,7 +30,15 @@
             >Ver postulados</a
           >
         </li>
-        <li><a (click)="closeMenu()" href="#">Crear Reportes</a></li>
+        <li *ngIf="roleUser === 'jefe'">
+          <a
+            (click)="closeMenu()"
+            routerLink="/reportes"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            >Crear Reportes</a
+          >
+        </li>
         <li><a class="pointer" (click)="logout()">Salir</a></li>
       </ul>
     </div>

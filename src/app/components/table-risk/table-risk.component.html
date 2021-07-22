@@ -9,27 +9,31 @@
           Riesgo <i class="fas fa-long-arrow-alt-up"></i
           ><i class="fas fa-long-arrow-alt-down"></i>
         </th>
+        <th>Estado</th>
+        <th>Permanencia</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngIf="loading">
-        <td colspan="4">
+        <td colspan="6">
           <app-loading></app-loading>
         </td>
       </tr>
       <ng-container *ngIf="!loading">
         <tr
-          class="pointer"
           *ngFor="
             let student of listStudents | filterStudent: filter;
             let i = index
           "
-          (click)="navigateToStudent(student)"
         >
           <td>{{ i + 1 }}</td>
           <td>{{ student.codigo }}</td>
           <td>{{ student.nombre }} {{ student.apellido }}</td>
           <td><i class="fas fa-circle red"></i></td>
+          <td>{{ student.estado | uppercase }}</td>
+          <td class="pointer" (click)="navigateToStudent(student)">
+            <i class="fas fa-chevron-right"></i>
+          </td>
         </tr>
       </ng-container>
     </tbody>
