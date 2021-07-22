@@ -153,6 +153,9 @@ hr {
   .content {
     width: 50vw;
   }
+  .loading {
+    width: 50vw;
+  }
   .dates_role {
     margin: 10px 50px;
   }

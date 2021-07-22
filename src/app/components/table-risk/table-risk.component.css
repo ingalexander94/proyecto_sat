@@ -1,11 +1,13 @@
 .table_students {
-  margin-top: 32px;
+  margin-top: 16px;
   background: var(--gray-menu);
   text-align: center;
+  width: 90vw;
+  overflow: scroll;
 }
 
 .table_students table {
-  width: 100%;
+  width: 480px;
 }
 
 .table_students table thead tr th {
@@ -15,7 +17,7 @@
 
 .table_students table tbody tr td {
   font-size: 12px;
-  padding: 8px 0;
+  padding: 1px 0;
 }
 
 .table_students table tbody tr:hover {
@@ -36,6 +38,12 @@
     font-size: 22px;
   }
 
+  .table_students {
+    width: 96vw;
+  }
+  .table_students table {
+    width: 730px;
+  }
   .table_students table tbody tr td {
     font-size: 20px;
   }
@@ -50,9 +58,11 @@
 
 @media (min-width: 1152px) {
   .table_students {
-    margin-top: 0;
-    overflow: scroll;
-    height: 280px;
+    width: 95vw;
+    margin: 0px 16px;
+  }
+  .table_students table {
+    width: 1220px;
   }
 
   .download {

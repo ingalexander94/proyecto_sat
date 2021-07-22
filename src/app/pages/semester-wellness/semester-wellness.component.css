@@ -1,5 +1,5 @@
 .wrapper_semester {
-  margin: 32px 16px;
+  margin: 16px 16px;
   text-align: center;
 }
 
@@ -7,7 +7,7 @@
 
 @media (min-width: 768px) {
   .wrapper_semester {
-    margin: 32px 32px;
+    margin: 16px 16px;
   }
 }
 
