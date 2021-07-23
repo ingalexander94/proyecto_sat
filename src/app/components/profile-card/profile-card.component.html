@@ -73,7 +73,10 @@
   </div>
   <p><i class="fas fa-phone"></i> {{ userShow.telefono }}</p>
   <p><i class="fas fa-id-card"></i> {{ userShow.documento }}</p>
-  <p><i class="fas fa-map-marker-alt"></i> {{ userShow.direccion }}</p>
+  <p>
+    <i class="fas fa-map-marker-alt"></i>
+    {{ userShow.direccion }}
+  </p>
   <p
     *ngIf="user.rol === 'estudiante' && title !== 'Perfil Docente'"
     (click)="updateProfile()"

@@ -15,6 +15,7 @@ const children: Routes = [
   { path: 'postulados/:pagina', component: PostulateListComponent },
   { path: 'en-riesgo', component: InRiskComponent },
   { path: 'datos-curso', component: CourseDataComponent },
+  { path: 'facultades', component: FacultiesComponent },
 ];
 
 const routes: Routes = [
