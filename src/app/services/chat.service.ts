@@ -56,6 +56,7 @@ export class ChatService {
     message: String,
     name: String,
     codeAuth: String,
+    roleTransmitter: String,
     title?: String
   ) {
     try {
@@ -79,7 +80,13 @@ export class ChatService {
         .toPromise();
       this.store.dispatch(new AddMsgChatAction(chat));
       title = title ? title : `Ha recibido un mensaje de ${name}`;
-      this.createNotification(code, codeAuth, title, '/estudiante/chat');
+      this.createNotification(
+        code,
+        codeAuth,
+        roleTransmitter,
+        title,
+        '/estudiante/chat'
+      );
     } catch (error) {
       console.error(error);
     }
@@ -88,12 +95,14 @@ export class ChatService {
   createNotification(
     codeReceiver: String,
     codeTransmitter: String,
+    roleTransmitter: String,
     title: String,
     url: String
   ) {
     const notification = {
       codeReceiver,
       codeTransmitter,
+      roleTransmitter,
       date: new Date().toISOString(),
       title,
       url,

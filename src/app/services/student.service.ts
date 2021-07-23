@@ -33,7 +33,7 @@ export class StudentService {
         .get<ResponseCourse>(this.url + '/students/course/' + code)
         .toPromise();
       this.store.dispatch(new LoadingCourseAction(data));
-      this.notificationService.getNotifications(code);
+      if (code) this.notificationService.getNotifications(code);
     } catch (error) {
       console.error(error);
     }

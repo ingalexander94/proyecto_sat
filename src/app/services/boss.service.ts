@@ -15,12 +15,13 @@ export class BossService {
 
   constructor(private http: HttpClient, private store: Store<AppState>) {}
 
-  async getStudentsOfSemester(period) {
+  async getStudentsOfSemester(program: String, period: String) {
     try {
       const { data } = await this.http
-        .get<StudentResponse>(
-          this.endpoint + '/boss/semesters/students/' + period
-        )
+        .post<StudentResponse>(this.endpoint + '/boss/semesters/students', {
+          program,
+          period,
+        })
         .toPromise();
       this.store.dispatch(new LoadStudentsAction(data));
     } catch (error) {

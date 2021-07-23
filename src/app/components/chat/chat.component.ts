@@ -20,6 +20,7 @@ export class ChatComponent implements OnInit, OnDestroy {
   chat: ResponseChat[];
   name: String;
   code: String;
+  role: String;
   formChat: FormGroup;
 
   createFormChat(): FormGroup {
@@ -44,6 +45,7 @@ export class ChatComponent implements OnInit, OnDestroy {
       .subscribe(({ chat, auth }) => {
         this.chat = chat.chat;
         this.code = auth.user.codigo;
+        this.role = auth.user.rol;
         this.name = `${auth.user.nombre} ${auth.user.apellido}`;
       });
   }
@@ -52,7 +54,7 @@ export class ChatComponent implements OnInit, OnDestroy {
     if (!this.formChat.invalid) {
       const { message } = this.formChat.value;
       this.formChat.reset();
-      this.chatService.sendMessage(message, this.name, this.code);
+      this.chatService.sendMessage(message, this.name, this.code, this.role);
     }
   }
 

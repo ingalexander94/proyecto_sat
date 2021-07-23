@@ -26,11 +26,13 @@ export class DashboardComponent implements OnInit, OnDestroy {
     this.subscription = this.store
       .pipe(
         filter(({ auth }) => auth.user !== null),
-        tapN(1, ({ auth }) =>
-          auth.user.rol === 'estudiante'
-            ? this.studentService.listCourses(auth.user.codigo)
-            : this.teacherService.listCourses(auth.user.codigo)
-        )
+        tapN(1, ({ auth }) => {
+          if (auth.user.rol !== 'vicerrector') {
+            auth.user.rol === 'estudiante'
+              ? this.studentService.listCourses(auth.user.codigo)
+              : this.teacherService.listCourses(auth.user.codigo);
+          }
+        })
       )
       .subscribe(({ ui }) => {
         this.loading = ui.loading;
