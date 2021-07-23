@@ -23,7 +23,7 @@
         <ul>
           <li
             *ngFor="let program of facultie.programas"
-            routerLink="/vicerrector/semestres"
+            routerLink="/vicerrector/semestres/programa/{{ program }}"
           >
             {{ program }}
           </li>

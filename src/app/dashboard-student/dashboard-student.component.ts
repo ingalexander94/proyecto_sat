@@ -34,8 +34,9 @@ export class DashboardStudentComponent implements OnInit, OnDestroy {
           }
         })
       )
-      .subscribe(({ ui }) => {
-        this.loading = ui.loading;
+      .subscribe(({ auth, ui }) => {
+        if (auth.user.rol === 'vicerrector') this.loading = false;
+        else this.loading = ui.loading;
       });
   }
 

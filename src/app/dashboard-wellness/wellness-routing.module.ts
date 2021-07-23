@@ -10,8 +10,8 @@ import { DashboardWellnessComponent } from './dashboard-wellness.component';
 
 const children: Routes = [
   { path: '', component: FacultiesComponent },
-  { path: 'semestres', component: SemesterComponent },
-  { path: 'semestre/:numero', component: SemesterWellnessComponent },
+  { path: 'semestres/programa/:nombre', component: SemesterComponent },
+  { path: 'semestre/:programa/:numero', component: SemesterWellnessComponent },
   { path: 'postulados/:pagina', component: PostulateListComponent },
   { path: 'en-riesgo', component: InRiskComponent },
   { path: 'datos-curso', component: CourseDataComponent },

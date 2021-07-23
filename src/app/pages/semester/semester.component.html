@@ -28,7 +28,7 @@
     <ul *ngIf="!loading">
       <li
         *ngFor="let semester of semesters"
-        routerLink="/vicerrector/semestre/{{ semester }}"
+        routerLink="/vicerrector/semestre/{{ program }}/{{ semester }}"
         routerLinkActive="active"
         [routerLinkActiveOptions]="{ exact: true }"
       >

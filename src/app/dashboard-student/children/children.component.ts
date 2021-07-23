@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
+import { filter } from 'rxjs/operators';
 import { AppState } from 'src/app/app.reducers';
 
 @Component({
@@ -16,8 +17,11 @@ export class ChildrenComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.subscription = this.store
-      .select('ui')
-      .subscribe(({ loading }) => (this.loading = loading));
+      .pipe(filter(({ auth }) => auth.user !== null))
+      .subscribe(({ auth, ui: { loading } }) => {
+        if (auth.user.rol === 'vicerrector') this.loading = false;
+        else this.loading = loading;
+      });
   }
 
   ngOnDestroy(): void {

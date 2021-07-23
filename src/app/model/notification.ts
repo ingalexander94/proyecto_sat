@@ -6,4 +6,5 @@ export interface ResponseNotification {
   url: String;
   codeReceiver: String;
   codeTransmitter: String;
+  roleTransmitter: String;
 }

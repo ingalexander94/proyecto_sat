@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
@@ -34,6 +34,7 @@ export class SemesterComponent implements OnInit, OnDestroy {
 
   constructor(
     private uiService: UiService,
+    private route: ActivatedRoute,
     private studentService: StudentService,
     private router: Router,
     private store: Store<AppState>
@@ -46,7 +47,13 @@ export class SemesterComponent implements OnInit, OnDestroy {
     this.subscription = this.store
       .select('auth')
       .pipe(filter(({ user }) => user !== null))
-      .subscribe(({ user }) => (this.program = user.programa));
+      .subscribe(({ user }) =>
+        user.rol === 'jefe'
+          ? (this.program = user.programa)
+          : (this.program = decodeURI(
+              this.route.snapshot.paramMap.get('nombre')
+            ))
+      );
     this.getPeriods();
   }
 
