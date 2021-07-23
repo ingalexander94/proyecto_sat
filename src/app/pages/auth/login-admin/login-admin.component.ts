@@ -21,13 +21,13 @@ export class LoginAdminComponent implements OnInit, OnDestroy {
 
   createFormLogin(): FormGroup {
     return new FormGroup({
-      document: new FormControl('1582185512', [
+      document: new FormControl('1740427369', [
         Validators.required,
         Validators.minLength(8),
         Validators.maxLength(10),
         Validators.pattern(/^[0-9]+$/i),
       ]),
-      password: new FormControl('7920', [
+      password: new FormControl('5535', [
         Validators.required,
         Validators.pattern(/^[0-9]+$/i),
       ]),
@@ -57,8 +57,11 @@ export class LoginAdminComponent implements OnInit, OnDestroy {
   }
 
   onSubmit() {
-    const user: UserAuth = this.formLogin.value;
-    this.authService.login(user, 'administrative');
+    if (!this.formLogin.invalid) {
+      const user: UserAuth = this.formLogin.value;
+      user.role = 'vicerrector';
+      this.authService.login(user, 'administrative');
+    }
   }
 
   get document() {

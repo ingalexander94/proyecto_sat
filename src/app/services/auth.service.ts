@@ -11,6 +11,7 @@ import { AddUserAction, RemoveUserAction } from '../reducer/auth/auth.actions';
 import {
   StartLoadingAction,
   FinishLoadingAction,
+  SetError,
 } from '../reducer/ui/ui.actions';
 
 @Injectable({
@@ -45,8 +46,9 @@ export class AuthService {
       saveInLocalStorage('user-show', data);
       this.router.navigate([`/${data.rol.toLowerCase()}`]);
     } catch (error) {
-      console.log(error);
+      this.store.dispatch(new SetError('Ocurrio un error en el servidor', '/'));
       showAlert('error', error.error.msg);
+      this.router.navigate(['/error']);
     }
     this.store.dispatch(new FinishLoadingAction());
   }

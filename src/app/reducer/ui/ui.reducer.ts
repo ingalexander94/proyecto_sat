@@ -4,13 +4,17 @@ import * as fromUI from './ui.actions';
 export interface UIState {
   loading: boolean;
   titleNavbar: String;
+  error: String;
+  path: String;
   userActive: User;
 }
 
 const initState: UIState = {
   loading: false,
   titleNavbar: 'SAT',
-  userActive: null
+  error: '',
+  path: '',
+  userActive: null,
 };
 
 export const uiReducer = (
@@ -38,12 +42,18 @@ export const uiReducer = (
     case fromUI.SET_USER_ACTIVE:
       return {
         ...state,
-        userActive: actions.payload
+        userActive: actions.payload,
       };
     case fromUI.UNSET_USER_ACTIVE:
-      return{
+      return {
         ...state,
-        userActive:null
+        userActive: null,
+      };
+    case fromUI.SET_ERROR:
+      return {
+        ...state,
+        error: actions.message,
+        path: actions.path,
       };
 
     default:

@@ -1,4 +1,8 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { filter } from 'rxjs/operators';
+import { AppState } from 'src/app/app.reducers';
 
 @Component({
   selector: 'app-error',
@@ -6,7 +10,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./error.component.css'],
 })
 export class ErrorComponent implements OnInit {
-  constructor() {}
+  message: String = 'Ocurrio un error';
+  path: String = '/';
 
-  ngOnInit(): void {}
+  constructor(private location: Location, private store: Store<AppState>) {}
+
+  ngOnInit(): void {
+    this.store
+      .select('ui')
+      .pipe(filter(({ error }) => error.length > 0))
+      .subscribe(({ error, path }) => {
+        this.message = error;
+        this.path = path;
+      });
+  }
+
+  toHome() {
+    this.location.back();
+  }
 }

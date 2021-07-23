@@ -15,7 +15,10 @@ import {
   DeleteCourseAction,
   DesactiveCourseAction,
 } from 'src/app/reducer/course/course.actions';
-import { UnsetUserActiveAction } from 'src/app/reducer/ui/ui.actions';
+import {
+  FinishLoadingAction,
+  UnsetUserActiveAction,
+} from 'src/app/reducer/ui/ui.actions';
 import { DeleteChatAction } from 'src/app/reducer/Chat/chat.actions';
 import { DeleteNotificationsAction } from 'src/app/reducer/notification/notification.actions';
 
@@ -54,8 +57,15 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.store.dispatch(new DesactiveCourseAction());
     this.store.dispatch(new DeleteChatAction());
     this.store.dispatch(new DeleteNotificationsAction());
+    this.store.dispatch(new FinishLoadingAction());
     localStorage.clear();
-    this.roleUser = this.roleUser === 'jefe' ? 'docente' : this.roleUser;
+    this.roleUser =
+      this.roleUser === 'jefe'
+        ? 'docente'
+        : this.roleUser === 'vicerrector'
+        ? 'administrativo'
+        : this.roleUser;
+
     this.router.navigate([`${this.roleUser}/iniciar-sesion`]);
   }
 

@@ -7,14 +7,19 @@ import {
   HttpRequest,
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { AppState } from './app.reducers';
+import { SetError } from './reducer/ui/ui.actions';
 
 @Injectable({
   providedIn: 'root',
 })
 export class InterceptorService implements HttpInterceptor {
-  constructor() {}
+  constructor(private router: Router, private store: Store<AppState>) {}
+
   intercept(
     req: HttpRequest<any>,
     next: HttpHandler
@@ -24,8 +29,12 @@ export class InterceptorService implements HttpInterceptor {
     const reqClone = req.clone({
       headers,
     });
-    return next
-      .handle(reqClone)
-      .pipe(catchError((err: HttpErrorResponse) => throwError(err.message)));
+    return next.handle(reqClone).pipe(
+      catchError((err: HttpErrorResponse) => {
+        this.store.dispatch(new SetError('Ocurrio un error', '/'));
+        this.router.navigate(['/error']);
+        return throwError(err.message);
+      })
+    );
   }
 }
