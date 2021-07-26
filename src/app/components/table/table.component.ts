@@ -50,9 +50,13 @@ export class TableComponent implements OnInit, OnDestroy {
     });
   }
 
-  updatePostulateModal(postulation: Postulation, show: boolean = true) {
+  updatePostulateModal(
+    postulation: Postulation,
+    show: any = { show: true, id: null }
+  ) {
     this.postulation = postulation;
-    this.showInfoPostulate = show;
+    this.showInfoPostulate = show.show;
+    if (show.id) this.getPostulates(this.page);
     this.uiService.filter$.emit('');
   }
 

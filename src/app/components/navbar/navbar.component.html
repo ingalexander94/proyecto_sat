@@ -21,7 +21,7 @@
             >Ver materias</a
           >
         </li>
-        <li *ngIf="roleUser === 'jefe'">
+        <li *ngIf="roleUser === 'jefe' || roleUser === 'vicerrector'">
           <a
             (click)="closeMenu()"
             routerLink="/vicerrector/postulados/1"

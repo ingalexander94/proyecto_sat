@@ -2,12 +2,14 @@ import { HttpBackend, HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment.prod';
 import { AppState } from '../app.reducers';
 import { showAlert } from '../helpers/alert';
 import { saveInLocalStorage } from '../helpers/localStorage';
 import { AuthResponse, UserAuth } from '../model/auth';
-import { AddUserAction, RemoveUserAction } from '../reducer/auth/auth.actions';
+import { AddUserAction } from '../reducer/auth/auth.actions';
+import { AuthState } from '../reducer/auth/auth.reducer';
 import {
   StartLoadingAction,
   FinishLoadingAction,
@@ -20,6 +22,7 @@ import {
 export class AuthService {
   endpoint: String = environment.url_backend;
   withOutToken: HttpClient;
+  isAuth$: Observable<AuthState> = null;
 
   constructor(
     private store: Store<AppState>,
@@ -28,6 +31,7 @@ export class AuthService {
     private httpBackend: HttpBackend
   ) {
     this.withOutToken = new HttpClient(this.httpBackend);
+    this.isAuth$ = this.store.select('auth');
   }
 
   async login(dataLogin: UserAuth, typeUser: String) {
@@ -53,17 +57,14 @@ export class AuthService {
     this.store.dispatch(new FinishLoadingAction());
   }
 
-  async renewToken() {
-    try {
-      const req = await this.httpClient
-        .get<AuthResponse>(this.endpoint + '/auth/renew')
-        .toPromise();
-      const { data, token } = req;
-      localStorage.setItem('x-token', token.toString());
-      this.store.dispatch(new AddUserAction(data));
-    } catch (error) {
-      this.store.dispatch(new RemoveUserAction());
-      this.router.navigate(['/iniciar-sesion']);
-    }
+  renewToken() {
+    return this.httpClient
+      .get<AuthResponse>(this.endpoint + '/auth/renew')
+      .toPromise();
+  }
+
+  isAuthenticated() {
+    const user = true;
+    return user;
   }
 }

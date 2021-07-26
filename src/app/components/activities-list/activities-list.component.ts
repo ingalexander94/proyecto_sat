@@ -11,7 +11,7 @@ import { UiService } from 'src/app/services/ui.service';
 export class ActivitiesListComponent implements OnInit {
   activitiesList: ActivitiesList[] = activities;
   constructor(private uiService: UiService) {
-    this.uiService.updateTitleNavbar('Actividades');
+    this.uiService.updateTitleNavbar('Perfil');
   }
 
   ngOnInit(): void {}

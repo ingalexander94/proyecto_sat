@@ -20,7 +20,7 @@
 </div>
 
 <button
-  *ngIf="user.rol === 'vicerrector'"
+  *ngIf="user.rol === 'vicerrector' && postulation"
   (click)="ShowDateNotification()"
   class="button"
 >

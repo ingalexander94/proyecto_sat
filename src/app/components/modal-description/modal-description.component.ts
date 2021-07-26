@@ -13,6 +13,7 @@ import { AppState } from 'src/app/app.reducers';
 import { showAlert } from 'src/app/helpers/alert';
 import { User } from 'src/app/model/auth';
 import { Postulation } from 'src/app/model/risk';
+import { UpdateCounterAction } from 'src/app/reducer/notification/notification.actions';
 import { ChatService } from 'src/app/services/chat.service';
 import { StudentService } from 'src/app/services/student.service';
 
@@ -27,6 +28,7 @@ export class ModalDescriptionComponent implements OnInit, OnDestroy {
   formHelp: FormGroup;
   subscription: Subscription = new Subscription();
   user: User;
+  counter: Number = 0;
   userShow: User;
   loading: boolean = false;
 
@@ -54,12 +56,13 @@ export class ModalDescriptionComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.subscription = this.store
       .pipe(
-        map(({ auth, ui }) => ({ auth, ui })),
+        map(({ auth, ui, notification }) => ({ auth, ui, notification })),
         filter(({ auth }) => auth.user !== null)
       )
-      .subscribe(({ auth, ui }) => {
+      .subscribe(({ auth, ui, notification }) => {
         this.user = auth.user;
         this.userShow = ui.userActive;
+        this.counter = notification.counter;
       });
   }
 
@@ -85,7 +88,8 @@ export class ModalDescriptionComponent implements OnInit, OnDestroy {
     );
 
     this.sendNotification();
-
+    postulator &&
+      this.store.dispatch(new UpdateCounterAction(+this.counter + 1));
     this.postulation.emit(data);
     showAlert('success', msg);
     this.loading = false;

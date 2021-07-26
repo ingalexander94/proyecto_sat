@@ -16,11 +16,14 @@
       No tiene notificaciones
     </li>
     <li
-      *ngIf="role === 'jefe' && counter > 0"
-      class="pointer no_read animate__animated animate__zoomIn"
+      *ngIf="(role === 'jefe' || role === 'vicerrector') && counter > 0"
+      class="pointer no_read"
     >
       <div (click)="toPostulation()" class="animate_animated animate__fadeIn">
-        <p>Tiene {{ counter }} postulaciones Sin Atender</p>
+        <p>
+          Tiene {{ counter }} postulaciones Sin
+          {{ role === "jefe" ? "Atender" : "Revisar" }}
+        </p>
         <span
           ><i class="fas fa-clock red"></i>
           Hoy
