@@ -25,8 +25,12 @@
     >
     <hr />
     <div class="alert_options">
-      <button (click)="close()">Cancelar</button>
-      <button>Aceptar</button>
+      <button (click)="close()">
+        {{ role === "jefe" ? "Cancelar" : "Aceptar" }}
+      </button>
+      <button *ngIf="role === 'jefe'" (click)="attend()">
+        Aceptar <i *ngIf="loading" class="fas fa-spinner fa-pulse fa-fw"></i>
+      </button>
     </div>
   </div>
 </div>

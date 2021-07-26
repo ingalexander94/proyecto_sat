@@ -1,6 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { filter, map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment.prod';
 import { AppState } from '../app.reducers';
 import { StudentResponse } from '../model/auth';
@@ -12,8 +13,17 @@ import { LoadStudentsAction } from '../reducer/course/course.actions';
 })
 export class BossService {
   endpoint: String = environment.url_backend;
+  role: String = '';
 
-  constructor(private http: HttpClient, private store: Store<AppState>) {}
+  constructor(private http: HttpClient, private store: Store<AppState>) {
+    this.store
+      .select('auth')
+      .pipe(
+        filter(({ user }) => user !== null),
+        map(({ user }) => user.rol)
+      )
+      .subscribe((rol) => (this.role = rol));
+  }
 
   async getStudentsOfSemester(program: String, period: String) {
     try {
@@ -31,11 +41,13 @@ export class BossService {
 
   getPostulates(page: number = 1, perPage: number = 5) {
     try {
+      const path =
+        this.role === 'jefe' ? '/students/postulate' : '/wellness/postulations';
       const params = new HttpParams()
         .set('page', page.toString())
         .set('perPage', perPage.toString());
       return this.http
-        .get<PostulationResponse>(this.endpoint + '/students/postulate', {
+        .get<PostulationResponse>(this.endpoint + path, {
           params,
         })
         .toPromise();
@@ -58,10 +70,24 @@ export class BossService {
     }
   }
 
-  counterPostulationUnattended() {
+  counterPostulation() {
     try {
       return this.http
         .get<any>(this.endpoint + '/students/postulate/counter')
+        .toPromise();
+    } catch (error) {
+      console.error(error);
+      return null;
+    }
+  }
+
+  attendPostulation(id: String) {
+    try {
+      return this.http
+        .put<any>(this.endpoint + '/boss/postulation/update', {
+          id,
+          state: 'EN REVISIÓN',
+        })
         .toPromise();
     } catch (error) {
       console.error(error);

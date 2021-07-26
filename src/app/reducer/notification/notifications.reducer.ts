@@ -4,10 +4,12 @@ import * as fromNotification from './notification.actions';
 export interface NotificationState {
   notification: ResponseNotification[];
   unread: Number;
+  counter: Number;
 }
 const initState: NotificationState = {
   notification: [],
   unread: 0,
+  counter: 0,
 };
 
 export const notificationReducer = (
@@ -19,14 +21,17 @@ export const notificationReducer = (
       return {
         ...state,
         notification: actions.payload,
-        unread: actions.payload.filter((notification) => notification.isActive)
-          .length,
+        unread: actions.payload
+          ? actions.payload.filter((notification) => notification.isActive)
+              .length
+          : 0,
       };
     case fromNotification.DELETE_NOTIFICATIONS:
       return {
         ...state,
         notification: [],
         unread: 0,
+        counter: 0,
       };
     case fromNotification.DELETE_NOTIFICATION:
       return {
@@ -49,5 +54,15 @@ export const notificationReducer = (
       };
     default:
       return state;
+
+    case fromNotification.UPDATE_COUNTER:
+      return {
+        ...state,
+        counter: actions.payload
+          ? actions.payload
+          : state.counter > 0
+          ? +state.counter - 1
+          : state.counter,
+      };
   }
 };

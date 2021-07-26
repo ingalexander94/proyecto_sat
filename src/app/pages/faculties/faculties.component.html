@@ -1,14 +1,20 @@
 <div class="wrapper_faculties">
   <h1>Listado de facultades</h1>
-  <div class="form_input">
+  <form [formGroup]="formSearch" (submit)="onSubmit()" class="form_input">
     <input
       type="text"
-      placeholder="Buscar estudiante"
-      id="search"
-      name="search"
+      placeholder="Buscar estudiante (Código | Correo)"
+      id="filter"
+      name="filter"
+      formControlName="filter"
     />
-    <i class="fas fa-search fa-fw"></i>
-  </div>
+    <i
+      *ngIf="!loadingSearch"
+      class="fas fa-search fa-fw pointer"
+      (click)="onSubmit()"
+    ></i>
+    <i *ngIf="loadingSearch" class="fas fa-spinner fa-spin fa-fw"></i>
+  </form>
 
   <div class="row_header">
     <app-statistics-risk></app-statistics-risk>
@@ -30,42 +36,5 @@
         </ul>
       </div>
     </div>
-    <!-- <div class="item">
-      <input type="checkbox" name="accordion" id="item-2" />
-      <label for="item-2">Ciencias de la salud</label>
-      <div>
-        <ul>
-          <li>Enfermería</li>
-          <li>Seguridad y Salud en el Trabajo</li>
-          <li>Tecnología de Regencia en Farmacia</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="item">
-      <input type="checkbox" name="accordion" id="item-3" />
-      <label for="item-3">Educación, artes y humanidades</label>
-      <div>
-        <ul>
-          <li>Comunicación social</li>
-          <li>Trabajo social</li>
-          <li>Derecho</li>
-          <li>Arquitectura</li>
-        </ul>
-      </div>
-    </div>
-    <div class="item">
-      <input type="checkbox" name="accordion" id="item-4" />
-      <label for="item-4">Ciencias agrarias y del ambiente</label>
-      <div>
-        <ul>
-          <li>Ingeniería Agroindustrial</li>
-          <li>Ingeniería Agronómica</li>
-          <li>Ingeniería Ambiental</li>
-          <li>Ingeniería Biotecnológica</li>
-          <li>Zootecnia</li>
-        </ul>
-      </div>
-    </div> -->
   </div>
 </div>

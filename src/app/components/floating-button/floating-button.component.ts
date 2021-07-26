@@ -11,6 +11,7 @@ import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
 import { AppState } from 'src/app/app.reducers';
 import { ResponseNotification } from 'src/app/model/notification';
+import { UpdateCounterAction } from 'src/app/reducer/notification/notification.actions';
 import { BossService } from 'src/app/services/boss.service';
 import { NotificationService } from 'src/app/services/notification.service';
 
@@ -27,7 +28,7 @@ export class FloatingButtonComponent implements OnInit, OnDestroy {
   role: String;
   notification: ResponseNotification[] = [];
   unread: Number = 0;
-  counter: number = 0;
+  counter: Number = 0;
 
   constructor(
     private store: Store<AppState>,
@@ -44,14 +45,15 @@ export class FloatingButtonComponent implements OnInit, OnDestroy {
         this.role = auth.user.rol;
         this.notification = notification.notification;
         this.unread = notification.unread;
+        this.counter = notification.counter;
       });
     this.getCounter();
   }
 
   async getCounter() {
-    if (this.role === 'jefe') {
-      const { data } = await this.bossService.counterPostulationUnattended();
-      this.counter = data;
+    if (this.role === 'jefe' || this.role === 'vicerrector') {
+      const { data } = await this.bossService.counterPostulation();
+      this.store.dispatch(new UpdateCounterAction(data));
     }
   }
 

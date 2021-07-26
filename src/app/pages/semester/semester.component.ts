@@ -25,10 +25,7 @@ export class SemesterComponent implements OnInit, OnDestroy {
 
   createFormSearch(): FormGroup {
     return new FormGroup({
-      filter: new FormControl('1072235', [
-        Validators.required,
-        Validators.minLength(7),
-      ]),
+      filter: new FormControl('1072235', Validators.required),
     });
   }
 
@@ -39,8 +36,8 @@ export class SemesterComponent implements OnInit, OnDestroy {
     private router: Router,
     private store: Store<AppState>
   ) {
-    this.uiService.updateTitleNavbar('Semestres');
     this.formSearch = this.createFormSearch();
+    this.uiService.updateTitleNavbar('Semestres');
   }
 
   ngOnInit(): void {

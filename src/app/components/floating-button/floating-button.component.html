@@ -12,9 +12,15 @@
     <li *ngIf="!notification.length && counter === 0">
       No tiene notificaciones
     </li>
-    <li *ngIf="role === 'jefe' && counter > 0" class="pointer no_read">
+    <li
+      *ngIf="(role === 'jefe' || role === 'vicerrector') && counter > 0"
+      class="pointer no_read"
+    >
       <div (click)="toPostulation()">
-        <p>Tiene {{ counter }} postulaciones Sin Atender</p>
+        <p>
+          Tiene {{ counter }} postulaciones Sin
+          {{ role === "jefe" ? "Atender" : "Revisar" }}
+        </p>
         <span
           ><i class="fas fa-clock red"></i>
           Hoy
