@@ -1,5 +1,5 @@
 <br />
-<div class="wrapper_record">
+<div class="wrapper_record animate__animated animate__fadeIn">
   <div class="risks_options">
     <div
       class="risk_option pointer"
@@ -52,7 +52,7 @@
           *ngFor="let profit of profits | orderBy; let i = index"
           class="row row-{{ (i + 1) % 2 === 0 ? '2' : '1' }}"
         >
-          <section>
+          <section class="animate__animated animate__fadeIn">
             <i class="icon fas fa-briefcase"></i>
             <div class="details">
               <span class="title">{{ profit.nombre }}</span>

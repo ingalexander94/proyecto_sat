@@ -1,6 +1,10 @@
 <div class="wrapper_faculties">
-  <h1>{{ program }}</h1>
-  <form [formGroup]="formSearch" (submit)="onSubmit()" class="form_input">
+  <h1 class="animate__animated animate__fadeIn">{{ program }}</h1>
+  <form
+    [formGroup]="formSearch"
+    (submit)="onSubmit()"
+    class="form_input animate__animated animate__fadeIn"
+  >
     <input
       type="text"
       placeholder="Buscar estudiante (Código | Correo)"
@@ -29,6 +33,7 @@
       <li
         *ngFor="let semester of semesters"
         routerLink="/vicerrector/semestre/{{ program }}/{{ semester }}"
+        class="animate__animated animate__fadeIn"
         routerLinkActive="active"
         [routerLinkActiveOptions]="{ exact: true }"
       >

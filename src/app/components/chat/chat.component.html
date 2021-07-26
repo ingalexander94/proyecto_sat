@@ -5,7 +5,10 @@
       [ngClass]="code === item.transmitter.code ? 'msg_out' : 'msg_in'"
       class="msg_in"
     >
-      <div [ngClass]="code === item.transmitter.code ? 'text_out' : 'text_in'">
+      <div
+        [ngClass]="code === item.transmitter.code ? 'text_out' : 'text_in'"
+        class="animate__animated animate__bounceIn"
+      >
         <span *ngIf="code === item.transmitter.code"
           >{{
             code === item.transmitter.code

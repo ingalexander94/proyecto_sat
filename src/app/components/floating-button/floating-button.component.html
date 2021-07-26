@@ -5,15 +5,21 @@
 >
   <label for="floating"><i class="fas fa-bell"></i></label>
 </div>
-<div class="list_notification">
+<div class="list_notification animate__animated animate__fadeIn">
   <h4>Notificaciones</h4>
   <hr />
   <ul>
-    <li *ngIf="!notification.length && counter === 0">
+    <li
+      class="pointer no_read animate__animated animate__zoomIn"
+      *ngIf="!notification.length && counter === 0"
+    >
       No tiene notificaciones
     </li>
-    <li *ngIf="role === 'jefe' && counter > 0" class="pointer no_read">
-      <div (click)="toPostulation()">
+    <li
+      *ngIf="role === 'jefe' && counter > 0"
+      class="pointer no_read animate__animated animate__zoomIn"
+    >
+      <div (click)="toPostulation()" class="animate_animated animate__fadeIn">
         <p>Tiene {{ counter }} postulaciones Sin Atender</p>
         <span
           ><i class="fas fa-clock red"></i>
@@ -24,7 +30,7 @@
     <li
       *ngFor="let item of notification"
       fragment="contenedor"
-      class="pointer"
+      class="pointer animate__animated animate__zoomIn"
       [ngClass]="{ no_read: item.isActive }"
     >
       <div (click)="closeButton(item)">
