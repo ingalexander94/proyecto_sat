@@ -7,14 +7,14 @@ import {
   UrlTree,
 } from '@angular/router';
 import { Observable } from 'rxjs';
-import { debounceTime, distinctUntilChanged, map, pluck } from 'rxjs/operators';
+import { distinctUntilChanged, map, pluck } from 'rxjs/operators';
 import { AuthService } from '../services/auth.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class PrivateGuard implements CanActivate {
-  constructor(private authService: AuthService, private router: Router) {}
+export class BossGuard implements CanActivate {
+  constructor(private router: Router, private authService: AuthService) {}
 
   canActivate(
     route: ActivatedRouteSnapshot,
@@ -25,13 +25,12 @@ export class PrivateGuard implements CanActivate {
     | boolean
     | UrlTree {
     return this.authService.isAuth$.pipe(
-      debounceTime(1),
       pluck('user'),
       distinctUntilChanged(),
       map((user) => {
-        if (user) return true;
+        if (user.rol === 'jefe') return true;
         else {
-          this.router.navigate(['/estudiante/iniciar-sesion']);
+          this.router.navigate([`/${user.rol}`]);
           return false;
         }
       })

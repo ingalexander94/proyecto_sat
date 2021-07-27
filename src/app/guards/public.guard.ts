@@ -39,7 +39,6 @@ export class PublicGuard implements CanActivate {
         if (!user) return true;
         else {
           saveInLocalStorage('user-show', user);
-          saveInLocalStorage('receiver', user);
           this.router.navigate([`/${user.rol}`]);
           return false;
         }

@@ -8,6 +8,7 @@ import { ListRisksComponent } from 'src/app/components/list-risks/list-risks.com
 import { MeetingComponent } from 'src/app/components/meeting/meeting.component';
 import { RecordComponent } from 'src/app/components/record/record.component';
 import { WellnessNotificationComponent } from 'src/app/components/wellness-notification/wellness-notification.component';
+import { ChatGuard } from 'src/app/guards/chat.guard';
 import { CourseDataComponent } from 'src/app/pages/course-data/course-data.component';
 import { PermanenceInformationComponent } from 'src/app/pages/permanence-information/permanence-information.component';
 
@@ -19,7 +20,7 @@ import { ChildrenComponent } from './children.component';
 
 const children: Routes = [
   { path: '', component: ListRisksComponent },
-  { path: 'chat', component: ChatComponent },
+  { path: 'chat', component: ChatComponent, canActivate: [ChatGuard] },
   { path: 'ver-historial', component: RecordComponent },
   { path: 'bitacora', component: BinnacleComponent },
   { path: 'perfil-academico', component: InfoAcademyComponent },
