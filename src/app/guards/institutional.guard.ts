@@ -8,13 +8,12 @@ import {
 } from '@angular/router';
 import { Observable } from 'rxjs';
 import { distinctUntilChanged, map, pluck } from 'rxjs/operators';
-import { saveInLocalStorage } from '../helpers/localStorage';
 import { AuthService } from '../services/auth.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class StudentGuard implements CanActivate {
+export class InstitutionalGuard implements CanActivate {
   constructor(private router: Router, private authService: AuthService) {}
 
   canActivate(
@@ -29,9 +28,8 @@ export class StudentGuard implements CanActivate {
       pluck('user'),
       distinctUntilChanged(),
       map((user) => {
-        if (user.rol === 'estudiante') return true;
+        if (user.rol !== 'vicerrector') return true;
         else {
-          saveInLocalStorage('user-show', user);
           this.router.navigate([`/${user.rol}`]);
           return false;
         }

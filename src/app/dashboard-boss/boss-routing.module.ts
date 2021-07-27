@@ -4,7 +4,9 @@ import { BossGuard } from '../guards/boss.guard';
 import { SemesterComponent } from '../pages/semester/semester.component';
 import { DashboardBossComponent } from './dashboard-boss.component';
 
-const children: Routes = [{ path: '', component: SemesterComponent }];
+const children: Routes = [
+  { path: '', component: SemesterComponent, canActivate: [BossGuard] },
+];
 
 const routes: Routes = [
   {

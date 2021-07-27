@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Injectable } from '@angular/core';
 import {
   ActivatedRouteSnapshot,
@@ -8,14 +9,17 @@ import {
 } from '@angular/router';
 import { Observable } from 'rxjs';
 import { distinctUntilChanged, map, pluck } from 'rxjs/operators';
-import { saveInLocalStorage } from '../helpers/localStorage';
 import { AuthService } from '../services/auth.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class StudentGuard implements CanActivate {
-  constructor(private router: Router, private authService: AuthService) {}
+export class BossWellnessGuard implements CanActivate {
+  constructor(
+    private router: Router,
+    private location: Location,
+    private authService: AuthService
+  ) {}
 
   canActivate(
     route: ActivatedRouteSnapshot,
@@ -29,9 +33,12 @@ export class StudentGuard implements CanActivate {
       pluck('user'),
       distinctUntilChanged(),
       map((user) => {
-        if (user.rol === 'estudiante') return true;
+        if (!user) {
+          this.location.back();
+          return false;
+        }
+        if (user.rol === 'jefe' || user.rol === 'vicerrector') return true;
         else {
-          saveInLocalStorage('user-show', user);
           this.router.navigate([`/${user.rol}`]);
           return false;
         }

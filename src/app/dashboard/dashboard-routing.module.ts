@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { InstitutionalGuard } from '../guards/institutional.guard';
 import { StudentGuard } from '../guards/student.guard';
 import { TeacherGuard } from '../guards/teacher.guard';
 import { CourseComponent } from '../pages/course/course.component';
@@ -8,7 +9,11 @@ import { ProfileTeacherComponent } from '../pages/profile-teacher/profile-teache
 import { DashboardComponent } from './dashboard.component';
 
 const children: Routes = [
-  { path: '', component: ListCourseComponent },
+  {
+    path: '',
+    component: ListCourseComponent,
+    canActivate: [InstitutionalGuard],
+  },
   {
     path: 'materia/:code/:group',
     component: CourseComponent,

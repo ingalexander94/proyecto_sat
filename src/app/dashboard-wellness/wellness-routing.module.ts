@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BossGuard } from '../guards/boss.guard';
+import { BossWellnessGuard } from '../guards/boss-wellness.guard';
 import { WellnessGuard } from '../guards/wellness.guard';
 import { CourseDataComponent } from '../pages/course-data/course-data.component';
 import { FacultiesComponent } from '../pages/faculties/faculties.component';
@@ -15,19 +15,19 @@ const children: Routes = [
   {
     path: 'semestres/programa/:nombre',
     component: SemesterComponent,
-    canActivate: [BossGuard],
+    canActivate: [BossWellnessGuard],
   },
   {
     path: 'semestre/:programa/:numero',
     component: SemesterWellnessComponent,
-    canActivate: [BossGuard],
+    canActivate: [BossWellnessGuard],
   },
   {
     path: 'postulados/:pagina',
     component: PostulateListComponent,
-    canActivate: [BossGuard],
+    canActivate: [BossWellnessGuard],
   },
-  { path: 'en-riesgo', component: InRiskComponent, canActivate: [BossGuard] },
+  { path: 'en-riesgo', component: InRiskComponent },
   { path: 'datos-curso', component: CourseDataComponent },
   {
     path: 'facultades',

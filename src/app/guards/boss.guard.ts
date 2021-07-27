@@ -6,17 +6,16 @@ import {
   RouterStateSnapshot,
   UrlTree,
 } from '@angular/router';
-import { Rollback } from '@ngrx/store-devtools/src/actions';
 import { Observable } from 'rxjs';
 import { distinctUntilChanged, map, pluck } from 'rxjs/operators';
-import { saveInLocalStorage } from '../helpers/localStorage';
 import { AuthService } from '../services/auth.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class BossGuard implements CanActivate {
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private router: Router, private authService: AuthService) {}
+
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
@@ -29,10 +28,8 @@ export class BossGuard implements CanActivate {
       pluck('user'),
       distinctUntilChanged(),
       map((user) => {
-        console.log(user.rol);
-        if (user.rol === 'jefe' || user.rol === 'vicerrector') return true;
+        if (user.rol === 'jefe') return true;
         else {
-          saveInLocalStorage('user-show', user);
           this.router.navigate([`/${user.rol}`]);
           return false;
         }

@@ -31,7 +31,6 @@ export class PrivateGuard implements CanActivate {
       map((user) => {
         if (user) return true;
         else {
-          console.log(route, state);
           this.router.navigate(['/estudiante/iniciar-sesion']);
           return false;
         }

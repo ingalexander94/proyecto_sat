@@ -15,7 +15,8 @@ import { AuthService } from '../services/auth.service';
   providedIn: 'root',
 })
 export class TeacherGuard implements CanActivate {
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private router: Router, private authService: AuthService) {}
+
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot

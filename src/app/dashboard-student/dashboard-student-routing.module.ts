@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { LoadStudentGuard } from '../guards/load-student.guard';
 import { DashboardStudentComponent } from './dashboard-student.component';
 
 const children: Routes = [
@@ -12,7 +13,12 @@ const children: Routes = [
 ];
 
 const routes: Routes = [
-  { path: '', component: DashboardStudentComponent, children },
+  {
+    path: '',
+    component: DashboardStudentComponent,
+    children,
+    canActivate: [LoadStudentGuard],
+  },
 ];
 
 @NgModule({
