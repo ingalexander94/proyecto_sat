@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { ExtraOptions, RouterModule, Routes } from '@angular/router';
+import { BossGuard } from './guards/boss.guard';
 import { PrivateGuard } from './guards/private.guard';
 import { PublicGuard } from './guards/public.guard';
 import { LoginAdminComponent } from './pages/auth/login-admin/login-admin.component';
@@ -31,6 +32,7 @@ const routes: Routes = [
   {
     path: 'reportes',
     component: ListReportsComponent,
+    canActivate: [BossGuard],
   },
   {
     path: 'docente',

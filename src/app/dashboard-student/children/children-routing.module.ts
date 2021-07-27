@@ -35,7 +35,10 @@ const children: Routes = [
     path: 'informacion-permanencia',
     component: PermanenceInformationComponent,
   },
-  { path: 'informacion-materia/:course', component: CourseDataComponent },
+  {
+    path: 'informacion-materia/:course',
+    component: CourseDataComponent,
+  },
 ];
 
 const routes: Routes = [{ path: '', component: ChildrenComponent, children }];
