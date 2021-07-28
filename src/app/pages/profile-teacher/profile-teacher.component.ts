@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
@@ -27,7 +28,8 @@ export class ProfileTeacherComponent implements OnInit, OnDestroy {
     private uiService: UiService,
     private studentService: StudentService,
     private store: Store<AppState>,
-    private router: ActivatedRoute
+    private router: ActivatedRoute,
+    private location: Location
   ) {
     this.uiService.updateTitleNavbar('Perfil Docente');
     const userShow = getValueOfLocalStorage('user-show');
@@ -39,8 +41,12 @@ export class ProfileTeacherComponent implements OnInit, OnDestroy {
       const { data } = await this.studentService.getTeacherOfCourse(
         params['code']
       );
-      saveInLocalStorage('user-show', data);
-      this.store.dispatch(new SetUserActiveAction(data));
+      if (data) {
+        saveInLocalStorage('user-show', data);
+        this.store.dispatch(new SetUserActiveAction(data));
+      } else {
+        this.location.back();
+      }
     });
 
     this.subscription2 = this.store

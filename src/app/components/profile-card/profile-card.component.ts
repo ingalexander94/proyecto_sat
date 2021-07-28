@@ -42,7 +42,7 @@ export class ProfileCardComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.subscription = this.store
       .pipe(
-        filter(({ auth }) => auth.user !== null),
+        filter(({ auth, ui }) => auth.user !== null && ui.userActive != null),
         map(({ auth, ui }) => ({
           user: auth.user,
           title: ui.titleNavbar,
@@ -51,8 +51,8 @@ export class ProfileCardComponent implements OnInit, OnDestroy {
       )
       .subscribe(({ user, title, userActive }) => {
         this.user = user;
-        this.title = title;
         this.userShow = userActive;
+        this.title = title;
         this.loading = false;
       });
   }
