@@ -24,8 +24,11 @@ export class LoadStudentGuard implements CanActivate {
     | boolean
     | UrlTree {
     const user = getValueOfLocalStorage('user-show');
-
-    if (user && user.rol === 'estudiante') return true;
+    if (
+      (user && user.rol === 'estudiante') ||
+      state.url === '/estudiante/chat#contenedor'
+    )
+      return true;
     else {
       this.location.back();
       return false;
