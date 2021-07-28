@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
@@ -21,7 +22,8 @@ export class TeacherService {
   constructor(
     private http: HttpClient,
     private store: Store<AppState>,
-    private notificationService: NotificationService
+    private notificationService: NotificationService,
+    private location: Location
   ) {}
 
   async listCourses(code: String) {
@@ -39,12 +41,14 @@ export class TeacherService {
 
   async listStudentsOfCourse(code: String, group: String) {
     try {
-      const { data } = await this.http
+      const res = await this.http
         .get<StudentResponse>(
           this.url + '/teachers/course/students/' + code + '/' + group
         )
         .toPromise();
-      this.store.dispatch(new LoadStudentsAction(data));
+      !res.ok
+        ? this.location.back()
+        : this.store.dispatch(new LoadStudentsAction(res.data));
     } catch (error) {
       console.error(error);
     }

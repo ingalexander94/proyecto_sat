@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
@@ -30,7 +31,8 @@ export class CourseDataComponent implements OnInit, OnDestroy {
     private store: Store<AppState>,
     private route: ActivatedRoute,
     private uiService: UiService,
-    private studentService: StudentService
+    private studentService: StudentService,
+    private location: Location
   ) {
     this.uiService.updateTitleNavbar('Académico');
     this.load();
@@ -44,15 +46,21 @@ export class CourseDataComponent implements OnInit, OnDestroy {
     this.subscription = this.store
       .select('course')
       .pipe(
-        filter(({ active }) => active !== null && active !== undefined),
+        tap(({ active }) => {
+          if (!active) this.location.back();
+        }),
         tap(async ({ active }) => {
-          const {
-            data: { nombre, apellido },
-          } = await this.studentService.getTeacherOfCourse(active.docente);
-          this.docente = `${nombre} ${apellido}`;
+          if (active) {
+            const {
+              data: { nombre, apellido },
+            } = await this.studentService.getTeacherOfCourse(active.docente);
+            this.docente = `${nombre} ${apellido}`;
+          }
         })
       )
-      .subscribe(({ active }) => (this.course = active));
+      .subscribe(({ active }) => {
+        if (active) this.course = active;
+      });
   }
 
   createNote(name: String, note: Number): Note {
