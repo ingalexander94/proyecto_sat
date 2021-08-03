@@ -5,6 +5,6 @@ export interface ResponseNotification {
   isActive: boolean;
   url: String;
   codeReceiver: String;
-  codeTransmitter: String;
-  roleTransmitter: String;
+  codeTransmitter?: String;
+  roleTransmitter?: String;
 }

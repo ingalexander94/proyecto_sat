@@ -62,7 +62,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.roleUser =
       this.roleUser === 'jefe'
         ? 'docente'
-        : this.roleUser === 'vicerrector'
+        : this.roleUser === 'vicerrector' || this.roleUser === 'psicologo'
         ? 'administrativo'
         : this.roleUser;
 

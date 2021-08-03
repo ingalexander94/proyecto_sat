@@ -117,6 +117,12 @@ export const menuRoutes: MenuOptions[] = [
     isAllowed: (role: String) => (role !== 'estudiante' ? true : false),
   },
   {
+    path: '/estudiante/reunion',
+    name: 'Mis reuniones',
+    icon: 'calendar-check',
+    isAllowed: (role: String) => (role === 'estudiante' ? true : false),
+  },
+  {
     path: '/estudiante/ver-historial',
     name: 'Ver beneficios',
     icon: 'clock',
@@ -138,7 +144,8 @@ export const menuRoutes: MenuOptions[] = [
     path: '/estudiante/bitacora',
     name: 'Bitácora',
     icon: 'file-signature',
-    isAllowed: (role: String) => (role === 'psicologia' ? true : false),
+    isAllowed: (role: String) =>
+      role === 'psicologo' || role === 'estudiante' ? true : false,
   },
 ];
 

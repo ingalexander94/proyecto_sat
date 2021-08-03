@@ -2,6 +2,16 @@
   text-align: initial;
 }
 
+.recommend_risk {
+  padding: 16px;
+  text-align: center;
+}
+
+.loading {
+  width: 100%;
+  margin: auto;
+}
+
 .icon {
   color: var(--white);
   background: var(--red-primary-color);
@@ -45,6 +55,26 @@
 .text {
   margin: 10px;
 }
+
+.table {
+  width: 100%;
+  margin-top: 16px;
+}
+
+.table table {
+  margin: auto;
+  width: 100%;
+}
+
+table thead tr th {
+  font-weight: bold;
+}
+
+table tbody tr:nth-child(odd),
+table tbody tr:hover {
+  background: var(--gray-table);
+}
+
 /* Tablet */
 
 @media (min-width: 768px) {
@@ -54,10 +84,19 @@
     font-size: 30px;
   }
   .content {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
   }
+
+  .loading,
+  .recommend_risk {
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+
   .risks {
     position: relative;
     z-index: -1;
@@ -86,6 +125,15 @@
 @media (min-width: 1152px) {
   .content {
     margin-left: 100px;
+    height: 430px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+
+  .icon {
+    position: absolute;
+    top: -40px;
+    z-index: 1;
   }
 
   .picture img {

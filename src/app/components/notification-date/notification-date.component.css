@@ -1,3 +1,7 @@
+form button:disabled {
+  background: rgb(248, 157, 157);
+}
+
 .wrapper_alert {
   position: fixed;
   min-width: 100vw;
@@ -9,78 +13,47 @@
   align-items: center;
   top: 0;
   left: 0;
+  z-index: 10;
 }
 
 .alert_container {
   width: 294px;
   background: var(--gray-menu);
-  text-align: center;
   border-radius: 25px;
+  padding: 16px;
 }
 
-.alert_container h1 {
+.notification_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.notification_header h1,
+.notification_header i {
   font-weight: bold;
   font-size: 21px;
 }
 
-.alert_container p {
+.form_input {
   margin: 16px 0;
+  padding: 0 8px;
+  width: 100%;
 }
 
-.alert_container ul li {
-  margin: 16px 0;
-  cursor: pointer;
+.form_input label {
+  margin-right: 16px;
 }
 
-.alert_container ul li:hover {
-  background: var(--gray-menu);
+.form_input select {
+  outline: none;
+  border: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 100%;
 }
 
-.alert_options {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-}
-
-.alert_options button:nth-child(1) {
-  background: var(--gray-dark-color);
-  color: black;
-}
-button {
-  margin-right: 100px;
-  font-size: 12px;
-}
-h2 {
-  top: 0;
-  position: relative;
-  margin-left: 80%;
-  font-size: 30px;
-  color: var(--red-primary-color);
-}
-.place {
-  display: flex;
-
-  margin: 16px;
-}
- .form_input {
-   border-radius: 15px;
-   margin-top: 0px;
-}
-input {
-    font-weight: bolder;
-  }
-
-.time h4{
-  margin-top: 25px;
-  margin-left: 10px;
-  font-weight: bolder;
-}
-
-
-.b1{
-    background: var(--green-primary-color);
-    font-size: 16px;
-}
 /* Tablet */
 
 @media (min-width: 768px) and (max-width: 1151px) {
@@ -91,13 +64,6 @@ input {
   .alert_container h1 {
     font-size: 33px;
   }
-
-  .alert_container p {
-    font-size: 22px;
-  }
-  .button{
-    margin: 10px  50px;
-}
 }
 
 /* Desktop */
@@ -106,7 +72,4 @@ input {
   .alert_container {
     width: 450px;
   }
-  .button{
-    margin: 10px  60px;
-}
 }
