@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
@@ -30,7 +31,8 @@ export class SemesterWellnessComponent implements OnInit, OnDestroy {
     private uiService: UiService,
     private bossService: BossService,
     private store: Store<AppState>,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private location: Location
   ) {}
 
   ngOnInit(): void {
@@ -49,6 +51,7 @@ export class SemesterWellnessComponent implements OnInit, OnDestroy {
 
   updateSemesters() {
     const number = this.route.snapshot.paramMap.get('numero');
+    console.log('me llega esto ' + number);
     const program = decodeURI(this.route.snapshot.paramMap.get('programa'));
     const period = `Periodo ${number}`;
     this.title2.title = period;

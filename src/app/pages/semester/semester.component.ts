@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -9,6 +10,7 @@ import { showAlert } from 'src/app/helpers/alert';
 import { saveInLocalStorage } from 'src/app/helpers/localStorage';
 import { StudentService } from 'src/app/services/student.service';
 import { UiService } from 'src/app/services/ui.service';
+import { WellnessService } from 'src/app/services/wellness.service';
 
 @Component({
   selector: 'app-semester',
@@ -34,7 +36,8 @@ export class SemesterComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private studentService: StudentService,
     private router: Router,
-    private store: Store<AppState>
+    private store: Store<AppState>,
+    private wellnessSevice: WellnessService
   ) {
     this.formSearch = this.createFormSearch();
     this.uiService.updateTitleNavbar('Semestres');
@@ -51,6 +54,7 @@ export class SemesterComponent implements OnInit, OnDestroy {
               this.route.snapshot.paramMap.get('nombre')
             ))
       );
+    this.wellnessSevice.validateProgram(this.program);
     this.getPeriods();
   }
 

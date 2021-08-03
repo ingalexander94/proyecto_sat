@@ -1,5 +1,7 @@
+import { Location } from '@angular/common';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { filter, map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment.prod';
@@ -14,8 +16,14 @@ import { LoadStudentsAction } from '../reducer/course/course.actions';
 export class BossService {
   endpoint: String = environment.url_backend;
   role: String = '';
+  currentDate = new Date();
 
-  constructor(private http: HttpClient, private store: Store<AppState>) {
+  constructor(
+    private http: HttpClient,
+    private store: Store<AppState>,
+    private location: Location,
+    private router: Router
+  ) {
     this.store
       .select('auth')
       .pipe(
@@ -33,9 +41,17 @@ export class BossService {
           period,
         })
         .toPromise();
+      const validate = period.split('-');
+      if (
+        parseInt(validate[0]) > this.currentDate.getFullYear() ||
+        parseInt(validate[0]) < 2010 ||
+        parseInt(validate[1]) <= 0 ||
+        parseInt(validate[1]) > 2
+      )
+        this.location.back();
       this.store.dispatch(new LoadStudentsAction(data));
     } catch (error) {
-      console.error(error);
+      this.router.navigate(['/vicerrector']);
     }
   }
 
