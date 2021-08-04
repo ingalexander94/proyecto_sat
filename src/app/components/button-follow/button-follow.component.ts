@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { filter, map } from 'rxjs/operators';
 import { AppState } from 'src/app/app.reducers';
 
 @Component({
@@ -18,7 +18,10 @@ export class ButtonFollowComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.subscription = this.store
-      .pipe(map(({ auth: { user } }) => user.rol))
+      .pipe(
+        filter(({ auth: { user } }) => user !== null),
+        map(({ auth: { user } }) => user.rol)
+      )
       .subscribe((role) => (this.userRole = role));
   }
 

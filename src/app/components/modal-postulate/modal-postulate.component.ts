@@ -44,7 +44,7 @@ export class ModalPostulateComponent implements OnInit, OnDestroy {
   }
 
   onClick({ target }) {
-    if (target.className === 'wrapper_alert') {
+    if (target.className.includes('wrapper_alert')) {
       this.close();
     }
   }

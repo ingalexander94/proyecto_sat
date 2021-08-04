@@ -18,3 +18,9 @@ export interface MeetResponse {
   data: Meet;
   msg: String;
 }
+
+export interface FilterMeet {
+  show: Boolean;
+  state?: string;
+  date?: string;
+}

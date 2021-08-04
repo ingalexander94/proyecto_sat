@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
-import { distinctUntilChanged, pluck, tap } from 'rxjs/operators';
+import { distinctUntilChanged, filter, pluck, tap } from 'rxjs/operators';
 import { AppState } from 'src/app/app.reducers';
 import { Meet, MeetResponse } from 'src/app/model/meet';
 import { UiService } from 'src/app/services/ui.service';
@@ -31,6 +31,7 @@ export class MeetingComponent implements OnInit, OnDestroy {
     this.subscription = this.store
       .select('ui')
       .pipe(
+        filter(({ userActive }) => userActive !== null),
         pluck('userActive'),
         distinctUntilChanged(),
         tap(({ codigo }) => {

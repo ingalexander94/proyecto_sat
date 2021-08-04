@@ -1,44 +1,47 @@
 <div class="wrapper_schedule">
   <app-search-student [title]="title"></app-search-student>
 
+  <app-loading *ngIf="loading"></app-loading>
+
+  <p (click)="onShowModal()" class="filter">
+    Agregar Filtros <i class="fas fa-filter"></i>
+  </p>
+
   <div class="quotes">
     <table>
       <thead>
         <tr>
           <th>#</th>
-          <th>Detalle</th>
+          <th>Fecha</th>
+          <th>Estudiante</th>
+          <th>Estado</th>
         </tr>
       </thead>
-      <tbody>
-        <tr (click)="toStudent()">
-          <td>1</td>
-          <td>11/06/2021 a las 10:00AM</td>
-        </tr>
-        <tr (click)="toStudent()">
-          <td>2</td>
-          <td>11/06/2021 a las 02:00PM</td>
-        </tr>
-        <tr (click)="toStudent()">
-          <td>3</td>
-          <td>12/06/2021 a las 08:00AM</td>
-        </tr>
-        <tr (click)="toStudent()">
-          <td>4</td>
-          <td>12/06/2021 a las 10:30AM</td>
-        </tr>
-        <tr (click)="toStudent()">
-          <td>5</td>
-          <td>13/06/2021 a las 03:00PM</td>
+      <tbody *ngIf="!loading && meets.length">
+        <tr *ngFor="let meet of meets; let i = index" (click)="toStudent()">
+          <td>{{ i + 1 }}</td>
+          <td>{{ meet.date | date: "EEEE, d 'de' MMMM 'del' y" }}</td>
+          <td>{{ meet.student.nombre }}</td>
+          <td>{{ meet.state }}</td>
         </tr>
       </tbody>
     </table>
   </div>
 
-  <div class="pagination">
-    <a class="active" href="#">1</a>
-    <a href="#">2</a>
-    <a href="#">3</a>
-    <a href="#">4</a>
-    <a href="#">5</a>
+  <p *ngIf="!loading && !meets.length">No se encontrarón citas programadas</p>
+
+  <div class="pagination" *ngIf="!loading">
+    <a
+      *ngFor="let item of totalPages"
+      routerLink="/psicologo/{{ item }}"
+      routerLinkActive="active"
+      [ngClass]="{ active: page === 1 && item === page }"
+      >{{ item }}</a
+    >
   </div>
 </div>
+
+<app-modal-meet
+  *ngIf="showModal"
+  (isClosed)="onShowModal($event)"
+></app-modal-meet>

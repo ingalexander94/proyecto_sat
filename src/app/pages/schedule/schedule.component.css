@@ -2,6 +2,15 @@
   margin: 32px 16px;
 }
 
+.wrapper_schedule p {
+  text-align: center;
+  margin-top: 16px;
+}
+
+.quotes {
+  margin-top: 32px;
+}
+
 .quotes table {
   width: 100%;
   text-align: center;
@@ -9,6 +18,10 @@
 
 .quotes table * {
   font-size: 18px;
+}
+
+.quotes table thead tr th {
+  font-weight: bold;
 }
 
 .quotes table tbody tr:nth-child(odd) {
@@ -44,6 +57,11 @@
   color: white !important;
 }
 
+.filter {
+  color: var(--red-primary-color);
+  cursor: pointer;
+}
+
 /* Tablet */
 
 @media (min-width: 768px) {
@@ -68,7 +86,7 @@
   .quotes,
   .pagination {
     width: 60vw;
-    margin: auto;
+    margin: 32px auto;
   }
 
   .quotes table * {

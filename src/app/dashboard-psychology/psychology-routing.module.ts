@@ -3,7 +3,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { ScheduleComponent } from '../pages/schedule/schedule.component';
 import { DashboardPsychologyComponent } from './dashboard-psychology.component';
 
-const children: Routes = [{ path: '', component: ScheduleComponent }];
+const children: Routes = [
+  { path: '', component: ScheduleComponent },
+  { path: ':pagina', component: ScheduleComponent },
+];
 
 const routes: Routes = [
   { path: '', component: DashboardPsychologyComponent, children },

@@ -89,6 +89,7 @@ export class ModalDescriptionComponent implements OnInit, OnDestroy {
 
     this.sendNotification();
     postulator &&
+      postulator.rol !== 'docente' &&
       this.store.dispatch(new UpdateCounterAction(+this.counter + 1));
     this.postulation.emit(data);
     showAlert('success', msg);
@@ -101,8 +102,9 @@ export class ModalDescriptionComponent implements OnInit, OnDestroy {
       const message = `Hola ${this.userShow.nombre}, he realizado la postulación en el sistema para realizar un seguimiento y determinar su riesgo, eventualmente se le informará el paso a seguir, muchas gracias!`;
       const name = `${this.user.nombre} ${this.user.apellido}`;
       const codeAuth = this.user.codigo;
+      const role = this.user.rol;
       const title = `${name} lo ha postulado para realizar seguimiento`;
-      this.chatService.sendMessage(message, name, codeAuth, title);
+      this.chatService.sendMessage(message, name, codeAuth, role, title);
     }
   }
 
