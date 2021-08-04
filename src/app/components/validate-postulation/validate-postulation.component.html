@@ -19,21 +19,13 @@
   </p>
 </div>
 
-<button
+<app-button-notification
   *ngIf="user.rol === 'vicerrector' && postulation"
-  (click)="ShowDateNotification()"
-  class="button"
->
-  Notificar Estudiante
-</button>
+  [postulation]="postulation"
+></app-button-notification>
 
 <app-modal-description
   *ngIf="showDescription"
   (isClosed)="updateShowDescription($event)"
   (postulation)="postulation = $event"
 ></app-modal-description>
-
-<app-notification-date
-  *ngIf="showDate"
-  (isClosed)="ShowDateNotification($event)"
-></app-notification-date>

@@ -12,7 +12,6 @@ export class ValidatePostulationComponent implements OnInit {
   @Input() user: User;
   @Input() userShow: User;
   showDescription: boolean = false;
-  showDate: boolean = false;
   postulation: Postulation = null;
 
   constructor(private studentService: StudentService) {}
@@ -34,10 +33,6 @@ export class ValidatePostulationComponent implements OnInit {
 
   updateShowDescription(show: boolean = true) {
     this.showDescription = show;
-  }
-
-  ShowDateNotification(show: boolean = true) {
-    this.showDate = show;
   }
 
   async validate(data) {

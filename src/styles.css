@@ -25,6 +25,18 @@ body {
   caret-color: var(--red-primary-color);
 }
 
+body::-webkit-scrollbar,
+textarea::-webkit-scrollbar,
+div::-webkit-scrollbar {
+  width: 5px;
+}
+
+textarea::-webkit-scrollbar,
+div::-webkit-scrollbar-thumb {
+  background: var(--red-primary-color);
+  border-radius: 5px;
+}
+
 html {
   scroll-behavior: smooth;
 }

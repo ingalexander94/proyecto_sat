@@ -1,7 +1,6 @@
 .content {
   width: 240px;
-  height: 240px;
-  margin: 40px;
+  margin: 20px;
   background: var(--gray-menu);
   border-radius: 25px;
   text-align: center;
@@ -44,7 +43,16 @@ h3 {
 
 .buttons {
   display: flex;
+  padding: 16px;
 }
+
+.asist {
+  margin-top: 32px;
+}
+.asist h3 {
+  margin-top: 65px;
+}
+
 button {
   margin: 0px 10px;
   width: 200px;
@@ -57,18 +65,45 @@ h5 {
   font-size: 13px;
 }
 h5 span {
-  margin: 0px;
+  margin: 10px;
   font-size: 12px;
 }
+
+.role {
+  text-transform: uppercase;
+}
+
 .b2 {
   background: var(--green-primary-color);
+}
+.table_meet {
+  position: relative;
+  margin: 16px;
+  width: 90vw;
+  overflow-x: scroll;
+}
+
+table {
+  width: max-content;
+  margin: auto;
+}
+th {
+  font-weight: bold;
+}
+td {
+  margin: 10px;
+  padding: 5px;
+  text-align: center;
+  border: solid 1px black;
+}
+table tbody tr:nth-child(odd) {
+  background: var(--gray-table);
 }
 /* Tablet */
 
 @media (min-width: 768px) and (max-width: 1151px) {
   .content {
     width: 422px;
-    height: 400px;
     margin: 20px 184px;
     border-radius: 35px;
   }
@@ -117,6 +152,23 @@ h5 span {
   h5 span {
     font-size: 22px;
   }
+  .table_meet {
+    overflow-x: scroll;
+    margin: auto;
+  }
+  caption {
+    font-size: 25px;
+    font-weight: bold;
+  }
+  table {
+    margin: 48px auto;
+  }
+  th {
+    font-size: 25px;
+  }
+  td {
+    font-size: 25px;
+  }
 }
 
 /* Desktop */
@@ -127,7 +179,6 @@ h5 span {
   }
   .content {
     width: 500px;
-    height: 300px;
     margin: 0 100px;
     border-radius: 35px;
   }
@@ -176,5 +227,62 @@ h5 span {
   h5 span {
     margin: 0px;
     font-size: 22px;
+  }
+  .table_meet {
+    overflow-x: scroll;
+    margin: auto;
+  }
+  caption {
+    font-size: 25px;
+    font-weight: bold;
+  }
+  table {
+    margin: 48px auto;
+  }
+  th {
+    font-size: 25px;
+  }
+  td {
+    font-size: 25px;
+  }
+
+  .icons i {
+    font-size: 30px;
+  }
+
+  p {
+    margin-right: 32px;
+    margin-top: 32px;
+    font-size: 20px;
+  }
+
+  .pagination {
+    margin: -16px 32px;
+  }
+
+  .pagination a {
+    min-width: 50px;
+    min-height: 50px;
+    margin-left: 16px;
+    font-size: 25px;
+    line-height: 50px;
+  }
+}
+/* Desktop */
+@media (min-width: 1152px) {
+  table {
+    width: 50vw;
+  }
+  th {
+    font-size: 25px;
+  }
+  td {
+    font-size: 25px;
+  }
+
+  .table_meet {
+    margin: 10px 32px;
+    width: auto;
+    overflow-x: initial;
   }
 }

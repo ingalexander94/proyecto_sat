@@ -33,6 +33,7 @@ import { OrderByPipe } from '../pipes/order-by.pipe';
 import { FilterStudentPipe } from '../pipes/filter-student.pipe';
 import { AcademyListCourseComponent } from './academy-list-course/academy-list-course.component';
 import { NoteIndexComponent } from './note-index/note-index.component';
+import { ButtonNotificationComponent } from './button-notification/button-notification.component';
 
 @NgModule({
   declarations: [
@@ -67,6 +68,7 @@ import { NoteIndexComponent } from './note-index/note-index.component';
     FilterStudentPipe,
     AcademyListCourseComponent,
     NoteIndexComponent,
+    ButtonNotificationComponent,
   ],
   exports: [
     AlertComponent,
@@ -90,6 +92,7 @@ import { NoteIndexComponent } from './note-index/note-index.component';
     OrderByPipe,
     FilterStudentPipe,
     NoteIndexComponent,
+    ButtonNotificationComponent,
   ],
   imports: [CommonModule, RouterModule, FormsModule, ReactiveFormsModule],
 })

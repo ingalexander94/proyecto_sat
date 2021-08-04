@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { ResponseCourse } from '../model/course';
 import { Store } from '@ngrx/store';
@@ -90,6 +90,20 @@ export class StudentService {
         .get<ProfitResponse>(
           this.url + '/students/profits/' + code + '/' + risk
         )
+        .toPromise();
+    } catch (error) {
+      console.error(error);
+      return null;
+    }
+  }
+
+  getProfitsAdmin(code: String, risk: String) {
+    try {
+      const params = new HttpParams()
+        .set('code', code.toString())
+        .set('risk', risk.toString());
+      return this.http
+        .get<any>(this.url + '/students/profits/risk', { params })
         .toPromise();
     } catch (error) {
       console.error(error);

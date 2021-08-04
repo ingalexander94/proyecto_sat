@@ -65,11 +65,15 @@ export class FloatingButtonComponent implements OnInit, OnDestroy {
     if (notification.isActive)
       this.notificationService.updateNotification(notification._id.$oid);
     this.checkboxNotification.nativeElement.checked = false;
-    this.loadUserShow(
-      notification.codeTransmitter,
-      notification.url,
-      notification.roleTransmitter
-    );
+    if (notification.codeTransmitter) {
+      this.loadUserShow(
+        notification.codeTransmitter,
+        notification.url,
+        notification.roleTransmitter
+      );
+    } else {
+      this.router.navigate([notification.url]);
+    }
   }
 
   loadUserShow(code: String, url: String, role: String) {
