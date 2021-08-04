@@ -26,7 +26,6 @@ export class ChatGuard implements CanActivate {
     | UrlTree {
     const receiver = getValueOfLocalStorage('receiver');
     const user = getValueOfLocalStorage('user-show');
-
     if (receiver && user) return true;
     else {
       this.location.back();

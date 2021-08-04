@@ -79,6 +79,7 @@ export class FloatingButtonComponent implements OnInit, OnDestroy {
   loadUserShow(code: String, url: String, role: String) {
     switch (role) {
       case 'docente':
+      case 'jefe':
         role = 'teachers';
         break;
       case 'estudiante':
