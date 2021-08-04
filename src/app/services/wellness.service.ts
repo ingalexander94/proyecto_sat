@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.prod';
 import { Meet, MeetResponse } from '../model/meet';
@@ -47,6 +47,21 @@ export class WellnessService {
     try {
       return this.http
         .put<any>(`${this.URL_BACKEND}/meet/${id}`, { accept })
+        .toPromise();
+    } catch (error) {
+      console.error(error);
+      return null;
+    }
+  }
+
+  postulateMeet(page: string, state: string, date: string) {
+    try {
+      const params = new HttpParams()
+        .set('page', page)
+        .set('state', state)
+        .set('date', date);
+      return this.http
+        .get<any>(`${this.URL_BACKEND}/meet/paginate`, { params })
         .toPromise();
     } catch (error) {
       console.error(error);

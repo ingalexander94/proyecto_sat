@@ -27,6 +27,7 @@ export class NotificationService {
 
   async sendNotification(notification) {
     try {
+      console.log(notification);
       await this.http
         .post<ResponseNotification[]>(this.url + '/notification/', notification)
         .toPromise();

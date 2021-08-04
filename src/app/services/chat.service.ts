@@ -108,6 +108,7 @@ export class ChatService {
       url,
       isActive: true,
     };
+    console.log(notification);
     this.notificationService.sendNotification(notification);
   }
 }

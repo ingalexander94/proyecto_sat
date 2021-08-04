@@ -34,6 +34,7 @@ import { FilterStudentPipe } from '../pipes/filter-student.pipe';
 import { AcademyListCourseComponent } from './academy-list-course/academy-list-course.component';
 import { NoteIndexComponent } from './note-index/note-index.component';
 import { ButtonNotificationComponent } from './button-notification/button-notification.component';
+import { ModalMeetComponent } from './modal-meet/modal-meet.component';
 
 @NgModule({
   declarations: [
@@ -69,6 +70,7 @@ import { ButtonNotificationComponent } from './button-notification/button-notifi
     AcademyListCourseComponent,
     NoteIndexComponent,
     ButtonNotificationComponent,
+    ModalMeetComponent,
   ],
   exports: [
     AlertComponent,
@@ -93,6 +95,7 @@ import { ButtonNotificationComponent } from './button-notification/button-notifi
     FilterStudentPipe,
     NoteIndexComponent,
     ButtonNotificationComponent,
+    ModalMeetComponent,
   ],
   imports: [CommonModule, RouterModule, FormsModule, ReactiveFormsModule],
 })

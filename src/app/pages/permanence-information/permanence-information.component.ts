@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
+import { filter } from 'rxjs/operators';
 import { AppState } from 'src/app/app.reducers';
 import { tapN } from 'src/app/helpers/observers';
 import { User } from 'src/app/model/auth';
@@ -31,6 +32,7 @@ export class PermanenceInformationComponent implements OnInit, OnDestroy {
     this.store
       .select('ui')
       .pipe(
+        filter(({ userActive }) => userActive !== null),
         tapN(1, async ({ userActive }) => {
           const { data } = await this.studentService.getSemesters(
             userActive.codigo
