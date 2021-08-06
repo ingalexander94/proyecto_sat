@@ -1,25 +1,40 @@
 .content {
-  width: 240px;
   margin: 20px;
   background: var(--gray-menu);
   border-radius: 25px;
   text-align: center;
 }
+
+.content * {
+  font-size: 16px;
+}
+
 h2 {
+  font-size: 18px;
   padding: 10px;
   font-weight: bold;
+}
+
+.asist textarea {
+  width: 100%;
+  height: 100px;
+  margin: 16px auto;
+  padding: 16px;
+  resize: none;
+  border: none;
+  outline: none;
 }
 
 .date_icon {
   display: flex;
   width: 240px;
-  height: 100px;
 }
+
 .date {
   width: 160px;
-  height: 100px;
   text-align: left;
 }
+
 .icon {
   display: flex;
   justify-content: center;
@@ -27,6 +42,7 @@ h2 {
   width: 80px;
   height: 100px;
 }
+
 .icon i {
   background: var(--red-primary-color);
   width: 51px;
@@ -36,8 +52,8 @@ h2 {
   line-height: 50px;
   font-size: 31px;
 }
+
 h3 {
-  margin: 10px;
   font-weight: bold;
 }
 
@@ -47,23 +63,21 @@ h3 {
 }
 
 .asist {
-  margin-top: 32px;
-}
-.asist h3 {
-  margin-top: 65px;
+  margin: 16px;
 }
 
 button {
   margin: 0px 10px;
   width: 200px;
-  height: 30px;
   border-radius: 25px;
 }
+
 h5 {
   margin-top: 5px;
   font-weight: bold;
   font-size: 13px;
 }
+
 h5 span {
   margin: 10px;
   font-size: 12px;
@@ -76,29 +90,32 @@ h5 span {
 .b2 {
   background: var(--green-primary-color);
 }
+
 .table_meet {
   position: relative;
   margin: 16px;
   width: 90vw;
   overflow-x: scroll;
+  text-align: center;
+}
+
+.table_meet p {
+  font-size: 20px;
 }
 
 table {
   width: max-content;
   margin: auto;
 }
+
 th {
   font-weight: bold;
 }
-td {
-  margin: 10px;
-  padding: 5px;
-  text-align: center;
-  border: solid 1px black;
-}
+
 table tbody tr:nth-child(odd) {
   background: var(--gray-table);
 }
+
 /* Tablet */
 
 @media (min-width: 768px) and (max-width: 1151px) {
@@ -107,23 +124,30 @@ table tbody tr:nth-child(odd) {
     margin: 20px 184px;
     border-radius: 35px;
   }
+
+  .content * {
+    font-size: 20px;
+  }
+
   h2 {
     font-size: 35px;
   }
+
   .date_icon {
     display: flex;
     width: 422px;
-    height: 150px;
   }
+
   .date {
     width: 260px;
-    height: 150px;
     text-align: left;
   }
+
   .icon {
     width: 180px;
     height: 150px;
   }
+
   .icon i {
     width: 90px;
     height: 90px;
@@ -131,6 +155,7 @@ table tbody tr:nth-child(odd) {
     line-height: 80px;
     font-size: 50px;
   }
+
   h3 {
     font-size: 35px;
     margin: 15px;
@@ -140,34 +165,40 @@ table tbody tr:nth-child(odd) {
   button {
     margin: 0px 10px;
     width: 200px;
-    height: 50px;
     border-radius: 25px;
     font-size: 30px;
   }
+
   h5 {
     margin-top: 5px;
     font-weight: bold;
     font-size: 22px;
   }
+
   h5 span {
     font-size: 22px;
   }
+
   .table_meet {
-    overflow-x: scroll;
-    margin: auto;
+    width: 90%;
+    margin: 32px auto;
   }
-  caption {
-    font-size: 25px;
-    font-weight: bold;
+
+  .table_meet p {
+    margin-bottom: 16px;
   }
+
   table {
-    margin: 48px auto;
+    width: 100%;
+    position: initial;
   }
+
   th {
-    font-size: 25px;
+    font-size: 20px;
   }
+
   td {
-    font-size: 25px;
+    font-size: 20px;
   }
 }
 
@@ -175,30 +206,59 @@ table tbody tr:nth-child(odd) {
 
 @media (min-width: 1152px) {
   .container {
-    height: 350px;
+    height: 510px;
+    margin-top: 16px;
+    overflow-y: scroll;
+    width: 50vw;
   }
+
   .content {
-    width: 500px;
-    margin: 0 100px;
+    margin: 0 50px;
     border-radius: 35px;
+    padding-bottom: 16px;
   }
+
+  .table_meet p {
+    margin-bottom: 16px;
+  }
+
+  .asist {
+    margin: 0;
+    padding: 0;
+  }
+
+  .asist textarea {
+    width: 60%;
+    height: 100px;
+    margin: 16px auto;
+  }
+
   h2 {
     font-size: 35px;
   }
-  .date_icon {
-    display: flex;
-    width: 500px;
-    height: 150px;
+
+  .buttons {
+    padding: 0;
+    justify-content: center;
+    width: 100%;
   }
+
+  .date_icon {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0 16px;
+    align-items: center;
+  }
+
   .date {
-    width: 280px;
-    height: 150px;
     text-align: left;
   }
+
   .icon {
     width: 220px;
-    height: 150px;
   }
+
   .icon i {
     width: 90px;
     height: 90px;
@@ -206,6 +266,7 @@ table tbody tr:nth-child(odd) {
     line-height: 80px;
     font-size: 50px;
   }
+
   h3 {
     font-size: 35px;
     margin: 20px;
@@ -213,76 +274,36 @@ table tbody tr:nth-child(odd) {
   }
 
   button {
-    margin: 0px 40px;
-    width: 200px;
-    height: 50px;
     border-radius: 25px;
     font-size: 30px;
   }
+
   h5 {
     margin-top: 5px;
     font-weight: bold;
     font-size: 22px;
   }
+
   h5 span {
     margin: 0px;
     font-size: 22px;
   }
+
   .table_meet {
-    overflow-x: scroll;
-    margin: auto;
+    width: 90%;
+    margin: 32px auto;
   }
-  caption {
-    font-size: 25px;
-    font-weight: bold;
-  }
+
   table {
-    margin: 48px auto;
+    width: 100%;
+    position: initial;
   }
+
   th {
-    font-size: 25px;
-  }
-  td {
-    font-size: 25px;
-  }
-
-  .icons i {
-    font-size: 30px;
-  }
-
-  p {
-    margin-right: 32px;
-    margin-top: 32px;
     font-size: 20px;
   }
 
-  .pagination {
-    margin: -16px 32px;
-  }
-
-  .pagination a {
-    min-width: 50px;
-    min-height: 50px;
-    margin-left: 16px;
-    font-size: 25px;
-    line-height: 50px;
-  }
-}
-/* Desktop */
-@media (min-width: 1152px) {
-  table {
-    width: 50vw;
-  }
-  th {
-    font-size: 25px;
-  }
   td {
-    font-size: 25px;
-  }
-
-  .table_meet {
-    margin: 10px 32px;
-    width: auto;
-    overflow-x: initial;
+    font-size: 20px;
   }
 }

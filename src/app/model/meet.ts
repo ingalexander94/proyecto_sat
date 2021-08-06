@@ -9,7 +9,8 @@ export interface Meet {
   state: String;
   ubication: String;
   date: Date;
-  role: String;
+  reason?: String;
+  role: string;
   dateFormat: String;
 }
 

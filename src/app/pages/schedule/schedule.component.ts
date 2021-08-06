@@ -2,8 +2,11 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { distinctUntilChanged, map, pluck, tap } from 'rxjs/operators';
-import { FilterMeet } from 'src/app/model/meet';
+import { showAlert } from 'src/app/helpers/alert';
+import { saveInLocalStorage } from 'src/app/helpers/localStorage';
+import { FilterMeet, Meet } from 'src/app/model/meet';
 import { Title } from 'src/app/model/ui';
+import { StudentService } from 'src/app/services/student.service';
 import { UiService } from 'src/app/services/ui.service';
 import { WellnessService } from 'src/app/services/wellness.service';
 
@@ -20,7 +23,7 @@ export class ScheduleComponent implements OnInit, OnDestroy {
   subscription: Subscription = new Subscription();
   totalPages: number[] = [];
   page: number = 0;
-  meets: any[] = [];
+  meets: Meet[] = [];
   loading: Boolean = true;
   state: string = 'ACEPTADA';
   date: string = new Date().toISOString().split('T')[0];
@@ -29,7 +32,9 @@ export class ScheduleComponent implements OnInit, OnDestroy {
   constructor(
     private uiService: UiService,
     private route: ActivatedRoute,
-    private wellnessService: WellnessService
+    private wellnessService: WellnessService,
+    private studentService: StudentService,
+    private router: Router
   ) {
     this.uiService.updateTitleNavbar('Agenda');
   }
@@ -59,14 +64,23 @@ export class ScheduleComponent implements OnInit, OnDestroy {
     this.loading = false;
   }
 
-  toStudent() {
-    alert('debe ir al perfil del estudiante');
+  async toStudent(code: String) {
+    this.loading = true;
+    const data = await this.studentService.getByCode(code);
+    if (data.ok) {
+      saveInLocalStorage('user-show', data.data);
+      this.router.navigate(['/estudiante/bitacora']);
+    } else {
+      showAlert('error', 'Algo salio mal');
+    }
+    this.loading = true;
   }
 
   onShowModal(show: FilterMeet = { show: true }) {
     this.showModal = show.show;
     if (show.state || show.date) {
       this.loadMeets('1', show.state, show.date);
+      this.state = show.state;
     }
   }
 

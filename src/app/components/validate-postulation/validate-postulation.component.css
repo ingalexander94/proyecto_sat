@@ -4,8 +4,8 @@
   text-align: justify;
   background: var(--green-primary-color);
   color: white;
-  font-size: 5px;
 }
+
 .postulation p {
   font-size: 14px;
 }
@@ -13,4 +13,12 @@
 .postulation span {
   font-weight: bold;
   font-size: 12px;
+}
+
+/* Tablet */
+
+@media (min-width: 768px) and (max-width: 1151px) {
+  .postulation * {
+    font-size: 20px !important;
+  }
 }

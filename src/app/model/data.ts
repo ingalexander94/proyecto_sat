@@ -114,7 +114,8 @@ export const menuRoutes: MenuOptions[] = [
     path: '/estudiante/chat',
     name: 'Ver chat',
     icon: 'list',
-    isAllowed: (role: String) => (role !== 'estudiante' ? true : false),
+    isAllowed: (role: String) =>
+      role !== 'estudiante' && role !== 'psicologo' ? true : false,
   },
   {
     path: '/estudiante/reunion',
