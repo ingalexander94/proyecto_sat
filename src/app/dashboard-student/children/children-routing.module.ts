@@ -8,7 +8,10 @@ import { ListRisksComponent } from 'src/app/components/list-risks/list-risks.com
 import { MeetingComponent } from 'src/app/components/meeting/meeting.component';
 import { RecordComponent } from 'src/app/components/record/record.component';
 import { WellnessNotificationComponent } from 'src/app/components/wellness-notification/wellness-notification.component';
+import { AdministrativeGuard } from 'src/app/guards/administrative.guard';
 import { ChatGuard } from 'src/app/guards/chat.guard';
+import { LoadStudentGuard } from 'src/app/guards/load-student.guard';
+import { StudentGuard } from 'src/app/guards/student.guard';
 import { CourseDataComponent } from 'src/app/pages/course-data/course-data.component';
 import { PermanenceInformationComponent } from 'src/app/pages/permanence-information/permanence-information.component';
 
@@ -22,14 +25,17 @@ const children: Routes = [
   { path: '', component: ListRisksComponent },
   { path: 'chat', component: ChatComponent, canActivate: [ChatGuard] },
   { path: 'ver-historial', component: RecordComponent },
-  { path: 'bitacora', component: BinnacleComponent },
+  {
+    path: 'bitacora',
+    component: BinnacleComponent,
+  },
   { path: 'perfil-academico', component: InfoAcademyComponent },
   { path: 'riesgo-academico', component: RiskAcademicComponent },
   { path: 'riesgo-economico', component: RiskEconomicComponent },
   { path: 'riesgo-individual', component: RiskIndividualComponent },
   { path: 'riesgo-institucional', component: RiskInstitucionalComponent },
   { path: 'actividades', component: ActivitiesListComponent },
-  { path: 'reunion', component: MeetingComponent },
+  { path: 'reunion', component: MeetingComponent, canActivate: [StudentGuard] },
   { path: 'notificar', component: WellnessNotificationComponent },
   { path: 'informacion-materia', component: CourseDataComponent },
   {

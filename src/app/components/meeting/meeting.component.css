@@ -1,3 +1,8 @@
+.container {
+  display: flex;
+  justify-content: center;
+}
+
 .content {
   width: 240px;
   margin: 20px;
@@ -94,11 +99,9 @@ td {
   margin: 10px;
   padding: 5px;
   text-align: center;
-  border: solid 1px black;
-}
-table tbody tr:nth-child(odd) {
   background: var(--gray-table);
 }
+
 /* Tablet */
 
 @media (min-width: 768px) and (max-width: 1151px) {
@@ -175,7 +178,7 @@ table tbody tr:nth-child(odd) {
 
 @media (min-width: 1152px) {
   .container {
-    height: 350px;
+    height: 400px;
   }
   .content {
     width: 500px;
@@ -183,11 +186,11 @@ table tbody tr:nth-child(odd) {
     border-radius: 35px;
   }
   h2 {
-    font-size: 35px;
+    font-size: 22px;
   }
   .date_icon {
     display: flex;
-    width: 500px;
+    width: 400px;
     height: 150px;
   }
   .date {
@@ -271,6 +274,7 @@ table tbody tr:nth-child(odd) {
 /* Desktop */
 @media (min-width: 1152px) {
   table {
+    margin-top: 10px;
     width: 50vw;
   }
   th {
@@ -281,7 +285,7 @@ table tbody tr:nth-child(odd) {
   }
 
   .table_meet {
-    margin: 10px 32px;
+    margin: 100px 32px;
     width: auto;
     overflow-x: initial;
   }

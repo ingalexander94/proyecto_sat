@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdministrativeGuard } from '../guards/administrative.guard';
 import { LoadStudentGuard } from '../guards/load-student.guard';
 import { DashboardStudentComponent } from './dashboard-student.component';
 
