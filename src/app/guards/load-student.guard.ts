@@ -23,8 +23,6 @@ export class LoadStudentGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    console.log(state.url);
-    console.log('state.url');
     const user = getValueOfLocalStorage('user-show');
     if (
       (user && user.rol === 'estudiante') ||

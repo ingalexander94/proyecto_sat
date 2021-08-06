@@ -1,9 +1,16 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { distinctUntilChanged, filter, pluck, tap } from 'rxjs/operators';
 import { AppState } from 'src/app/app.reducers';
-import { Meet, MeetResponse } from 'src/app/model/meet';
+import { showAlert } from 'src/app/helpers/alert';
+import { Meet } from 'src/app/model/meet';
 import { UiService } from 'src/app/services/ui.service';
 import { WellnessService } from 'src/app/services/wellness.service';
 
@@ -18,6 +25,7 @@ export class MeetingComponent implements OnInit, OnDestroy {
   meets: Meet[] = [];
   loading: Boolean = true;
   res: Boolean = true;
+  @ViewChild('reasons') reasons: ElementRef;
 
   constructor(
     private uiService: UiService,
@@ -41,6 +49,7 @@ export class MeetingComponent implements OnInit, OnDestroy {
       )
       .subscribe();
   }
+
   async getMeetsStudent(code: String) {
     this.meets = await this.wellnessService.getMeetsStudent(code);
   }
@@ -52,10 +61,32 @@ export class MeetingComponent implements OnInit, OnDestroy {
   }
 
   async accept(option: boolean) {
-    this.res = false;
     this.loading = true;
-    await this.wellnessService.acceptMeet(this.meet._id.$oid, option);
+    const reason = this.reasons.nativeElement.value;
+    if (option) {
+      await this.wellnessService.acceptMeet(this.meet._id.$oid, option);
+      this.updateStateMeet('ACEPTADA');
+    } else {
+      if (!reason.length) {
+        showAlert('warning', 'Debe escribir los motivos');
+      } else {
+        await this.wellnessService.acceptMeet(
+          this.meet._id.$oid,
+          option,
+          reason
+        );
+        this.updateStateMeet('RECHAZADA');
+      }
+    }
+    this.res = false;
     this.loading = false;
+  }
+
+  updateStateMeet(newState: String) {
+    this.meets = this.meets.map((meet) => {
+      if (meet._id.$oid === this.meet._id.$oid) meet.state = newState;
+      return meet;
+    });
   }
 
   ngOnDestroy(): void {

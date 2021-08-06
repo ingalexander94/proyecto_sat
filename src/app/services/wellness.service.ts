@@ -58,10 +58,10 @@ export class WellnessService {
     }
   }
 
-  acceptMeet(id: String, accept: Boolean) {
+  acceptMeet(id: String, accept: Boolean, reason?: String) {
     try {
       return this.http
-        .put<any>(`${this.URL_BACKEND}/meet/${id}`, { accept })
+        .put<any>(`${this.URL_BACKEND}/meet/${id}`, { accept, reason })
         .toPromise();
     } catch (error) {
       console.error(error);

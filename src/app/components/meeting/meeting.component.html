@@ -1,8 +1,8 @@
 <app-loading *ngIf="loading"></app-loading>
 
-<div class="container" *ngIf="!loading && meet && res">
-  <div class="content">
-    <h2>Reunión</h2>
+<div class="container animate__animated animate__fadeIn">
+  <div class="content" *ngIf="!loading && meet && res">
+    <h2>Nueva Reunión</h2>
     <div class="date_icon">
       <div class="icon">
         <i class="d fas fa-users"></i>
@@ -20,28 +20,36 @@
       </div>
     </div>
     <div class="asist">
-      <h3>Asistir</h3>
+      <h3>¿ Quiere Asistir ?</h3>
+      <textarea
+        #reasons
+        maxlength="100"
+        placeholder="Si decide rechazar la cita escriba brevemente el motivo aquí"
+      ></textarea>
       <div class="buttons">
         <button (click)="accept(false)">No</button>
         <button (click)="accept(true)" class="b2">Si</button>
       </div>
     </div>
   </div>
-</div>
-<div class="table_meet" *ngIf="this.meets.length > 0">
-  <table>
-    <caption>
-      Lista de Reuniónes
-    </caption>
-    <tr>
-      <th>#</th>
-      <th>Fecha</th>
-      <th>Estado</th>
-    </tr>
-    <tr *ngFor="let meet of meets; let i = index">
-      <td>{{ i + 1 }}</td>
-      <td>{{ meet.dateFormat }}</td>
-      <td>{{ meet.state }}</td>
-    </tr>
-  </table>
+  <div
+    class="table_meet animate__animated animate__fadeIn"
+    *ngIf="this.meets.length > 0"
+  >
+    <p>Historial de reuniones</p>
+    <table>
+      <tr>
+        <th>#</th>
+        <th>Fecha</th>
+        <th>Con</th>
+        <th>Estado</th>
+      </tr>
+      <tr *ngFor="let meet of meets; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ meet.date }}</td>
+        <td>{{ meet.role | uppercase }}</td>
+        <td>{{ meet.state }}</td>
+      </tr>
+    </table>
+  </div>
 </div>
