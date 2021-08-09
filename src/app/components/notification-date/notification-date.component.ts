@@ -79,7 +79,8 @@ export class NotificationDateComponent implements OnInit, OnDestroy {
       );
       const meet: Meet = {
         ...this.formDate.value,
-        state: 'NOTIFICADA',
+        state: 'SIN RESPONDER',
+        attendance: false,
         student: this.student,
         dateFormat,
         postulation: this.postulation._id.$oid,
