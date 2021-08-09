@@ -21,6 +21,7 @@ export class BinnacleComponent implements OnInit, OnDestroy {
   code: String = '';
   formBinnacle: FormGroup;
   show: Boolean = false;
+  loading: Boolean = false;
 
   createFormBinnacle(): FormGroup {
     return new FormGroup({
@@ -59,6 +60,7 @@ export class BinnacleComponent implements OnInit, OnDestroy {
   }
 
   async onSubmit() {
+    this.loading = true;
     if (!this.formBinnacle.invalid) {
       const binnacle: Binnacle = {
         text: this.formBinnacle.get('text').value,
@@ -75,6 +77,7 @@ export class BinnacleComponent implements OnInit, OnDestroy {
       this.formBinnacle.reset();
       this.show = false;
     }
+    this.loading = false;
   }
 
   ngOnDestroy(): void {

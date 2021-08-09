@@ -1,8 +1,14 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { distinctUntilChanged, map, pluck, tap } from 'rxjs/operators';
-import { showAlert } from 'src/app/helpers/alert';
+import { showAlert, showQuestion } from 'src/app/helpers/alert';
 import { saveInLocalStorage } from 'src/app/helpers/localStorage';
 import { FilterMeet, Meet } from 'src/app/model/meet';
 import { Title } from 'src/app/model/ui';
@@ -28,6 +34,7 @@ export class ScheduleComponent implements OnInit, OnDestroy {
   state: string = 'ACEPTADA';
   date: string = new Date().toISOString().split('T')[0];
   showModal: Boolean = false;
+  @ViewChild('checkbox') checkbox: ElementRef;
 
   constructor(
     private uiService: UiService,
@@ -82,6 +89,18 @@ export class ScheduleComponent implements OnInit, OnDestroy {
       this.loadMeets('1', show.state, show.date);
       this.state = show.state;
     }
+  }
+
+  async onChange(id: String, e: any, code: String, i: number) {
+    const { isConfirmed, dismiss } = await showQuestion(
+      '¿El estudiante asistio a la reunión?',
+      'Puede revertir los cambios eventualmente'
+    );
+    if (!dismiss) {
+      this.checkbox.nativeElement.checked = isConfirmed;
+      await this.wellnessService.attendanceMeet(id, isConfirmed, code);
+      if (isConfirmed) this.meets.splice(i, 1);
+    } else this.checkbox.nativeElement.checked = !e.target.checked;
   }
 
   ngOnDestroy(): void {

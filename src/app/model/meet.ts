@@ -12,6 +12,7 @@ export interface Meet {
   reason?: String;
   role: string;
   dateFormat: String;
+  attendance: Boolean;
 }
 
 export interface MeetResponse {

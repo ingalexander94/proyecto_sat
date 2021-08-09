@@ -9,6 +9,7 @@
 
 .quotes {
   margin-top: 32px;
+  overflow-x: scroll;
 }
 
 .quotes table {
@@ -26,10 +27,6 @@
 
 .quotes table tbody tr:nth-child(odd) {
   background: var(--gray-table);
-}
-
-.quotes table tbody tr {
-  cursor: pointer;
 }
 
 .pagination {
@@ -64,15 +61,15 @@
 
 /* Tablet */
 
-@media (min-width: 768px) {
+@media (min-width: 768px) and (max-width: 1151px) {
   .quotes,
   .pagination {
-    width: 70vw;
+    width: 90vw;
     margin: auto;
   }
 
   .quotes table * {
-    font-size: 25px;
+    font-size: 20px;
   }
 }
 

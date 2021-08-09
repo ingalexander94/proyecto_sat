@@ -41,7 +41,8 @@
         ></textarea>
       </div>
       <button [disabled]="formBinnacle.invalid" type="submit">
-        Guardar cambios <i class="fas fa-save"></i>
+        Guardar cambios <i *ngIf="!loading" class="fas fa-save"></i>
+        <i *ngIf="loading" class="fas fa-spinner fa-pulse fa-fw"></i>
       </button>
     </form>
   </div>

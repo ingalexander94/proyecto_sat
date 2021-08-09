@@ -20,18 +20,30 @@
             <th>Estudiante</th>
             <th>Estado</th>
             <th *ngIf="state === 'RECHAZADA'">Motivo</th>
+            <th>Ir</th>
+            <th *ngIf="state !== 'RECHAZADA'">¿Asistió?</th>
           </tr>
         </thead>
         <tbody *ngIf="!loading && meets.length">
-          <tr
-            *ngFor="let meet of meets; let i = index"
-            (click)="toStudent(meet.student.codigo)"
-          >
+          <tr *ngFor="let meet of meets; let i = index">
             <td>{{ i + 1 }}</td>
             <td>{{ meet.date | date: "EEEE, d 'de' MMMM 'del' y" }}</td>
             <td>{{ meet.student.nombre }}</td>
             <td>{{ meet.state }}</td>
             <td *ngIf="state === 'RECHAZADA'">{{ meet.reason }}</td>
+            <td class="pointer" (click)="toStudent(meet.student.codigo)">
+              <i class="fas fa-search red"></i>
+            </td>
+            <td *ngIf="state !== 'RECHAZADA'">
+              <input
+                type="checkbox"
+                [checked]="meet.attendance"
+                (change)="
+                  onChange(meet._id.$oid, $event, meet.student.codigo, i)
+                "
+                #checkbox
+              />
+            </td>
           </tr>
         </tbody>
       </table>

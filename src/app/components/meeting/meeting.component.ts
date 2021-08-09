@@ -66,6 +66,7 @@ export class MeetingComponent implements OnInit, OnDestroy {
     if (option) {
       await this.wellnessService.acceptMeet(this.meet._id.$oid, option);
       this.updateStateMeet('ACEPTADA');
+      this.res = false;
     } else {
       if (!reason.length) {
         showAlert('warning', 'Debe escribir los motivos');
@@ -76,9 +77,9 @@ export class MeetingComponent implements OnInit, OnDestroy {
           reason
         );
         this.updateStateMeet('RECHAZADA');
+        this.res = false;
       }
     }
-    this.res = false;
     this.loading = false;
   }
 

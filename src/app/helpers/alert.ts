@@ -18,4 +18,16 @@ const showAlert = (icon, title) =>
     title,
   });
 
-export { showAlert };
+const showQuestion = (title, text) =>
+  Swal.fire({
+    title,
+    text,
+    icon: 'warning',
+    confirmButtonColor: '#14c25a',
+    showDenyButton: true,
+    denyButtonColor: '#d33',
+    denyButtonText: 'No',
+    confirmButtonText: 'Si',
+  });
+
+export { showAlert, showQuestion };

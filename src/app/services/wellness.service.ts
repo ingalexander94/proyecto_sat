@@ -68,6 +68,21 @@ export class WellnessService {
       return null;
     }
   }
+
+  attendanceMeet(id: String, attendance: Boolean, student: String) {
+    try {
+      return this.http
+        .put<any>(`${this.URL_BACKEND}/meet/attendance/${id}`, {
+          attendance,
+          student,
+        })
+        .toPromise();
+    } catch (error) {
+      console.error(error);
+      return null;
+    }
+  }
+
   async getMeetsStudent(code: String) {
     try {
       return await this.http

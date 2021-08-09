@@ -43,12 +43,15 @@
         <th>Fecha</th>
         <th>Con</th>
         <th>Estado</th>
+        <th>Asistencia</th>
       </tr>
       <tr *ngFor="let meet of meets; let i = index">
         <td>{{ i + 1 }}</td>
         <td>{{ meet.date }}</td>
         <td>{{ meet.role | uppercase }}</td>
         <td>{{ meet.state }}</td>
+        <td *ngIf="meet.attendance"><i class="fas fa-check"></i></td>
+        <td *ngIf="!meet.attendance"><i class="fas fa-times"></i></td>
       </tr>
     </table>
   </div>
