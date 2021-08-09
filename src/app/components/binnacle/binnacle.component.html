@@ -1,5 +1,5 @@
 <div
-  class="wrapper_binnacle"
+  class="wrapper_binnacle animate__animated animate__fadeIn"
   [ngClass]="{ show: role !== 'psicologo' || !show }"
 >
   <div class="binnacle">
@@ -26,7 +26,7 @@
     </div>
 
     <form
-      class="recommendation"
+      class="recommendation animate__animated animate__fadeInDown"
       *ngIf="role === 'psicologo' && show"
       [formGroup]="formBinnacle"
       (submit)="onSubmit()"

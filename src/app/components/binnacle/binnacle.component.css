@@ -22,7 +22,6 @@ textarea {
 
 .binnacle-text {
   margin: 16px 0;
-  height: 250px;
   text-align: justify;
   background: var(--gray-menu);
   padding: 16px;
@@ -94,7 +93,11 @@ button {
 
   .binnacle-text {
     height: 100%;
-    padding-bottom: 32px;
+    margin: 16px 0;
+    height: 250px;
+    overflow-y: scroll;
+    text-align: justify;
+    background: var(--gray-menu);
   }
 
   .recommendation {
