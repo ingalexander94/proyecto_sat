@@ -29,6 +29,7 @@ body::-webkit-scrollbar,
 textarea::-webkit-scrollbar,
 div::-webkit-scrollbar {
   width: 5px;
+  height: 5px;
 }
 
 textarea::-webkit-scrollbar,

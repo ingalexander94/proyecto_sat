@@ -24,13 +24,6 @@
   background: rgba(128, 128, 128, 0.267);
 }
 
-.download {
-  font-size: 16px;
-  position: absolute;
-  right: 16px;
-  margin-top: 16px;
-}
-
 .filter {
   position: relative;
 }
@@ -70,11 +63,6 @@
     font-size: 20px;
   }
 
-  .download {
-    font-size: 22px;
-    right: 32px;
-  }
-
   .options li {
     font-size: 20px;
   }
@@ -89,11 +77,6 @@
   }
   .table_students table {
     width: 1220px;
-  }
-
-  .download {
-    font-size: 22px;
-    right: 32px;
   }
 
   .options {

@@ -31,8 +31,7 @@ export class SemesterWellnessComponent implements OnInit, OnDestroy {
     private uiService: UiService,
     private bossService: BossService,
     private store: Store<AppState>,
-    private route: ActivatedRoute,
-    private location: Location
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
@@ -51,7 +50,6 @@ export class SemesterWellnessComponent implements OnInit, OnDestroy {
 
   updateSemesters() {
     const number = this.route.snapshot.paramMap.get('numero');
-    console.log('me llega esto ' + number);
     const program = decodeURI(this.route.snapshot.paramMap.get('programa'));
     const period = `Periodo ${number}`;
     this.title2.title = period;

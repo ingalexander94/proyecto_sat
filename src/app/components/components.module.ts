@@ -35,6 +35,8 @@ import { AcademyListCourseComponent } from './academy-list-course/academy-list-c
 import { NoteIndexComponent } from './note-index/note-index.component';
 import { ButtonNotificationComponent } from './button-notification/button-notification.component';
 import { ModalMeetComponent } from './modal-meet/modal-meet.component';
+import { DownloadPdfComponent } from './download-pdf/download-pdf.component';
+import { SearchGlobalComponent } from './search-global/search-global.component';
 
 @NgModule({
   declarations: [
@@ -71,6 +73,8 @@ import { ModalMeetComponent } from './modal-meet/modal-meet.component';
     NoteIndexComponent,
     ButtonNotificationComponent,
     ModalMeetComponent,
+    DownloadPdfComponent,
+    SearchGlobalComponent,
   ],
   exports: [
     AlertComponent,
@@ -96,6 +100,8 @@ import { ModalMeetComponent } from './modal-meet/modal-meet.component';
     NoteIndexComponent,
     ButtonNotificationComponent,
     ModalMeetComponent,
+    DownloadPdfComponent,
+    SearchGlobalComponent,
   ],
   imports: [CommonModule, RouterModule, FormsModule, ReactiveFormsModule],
 })

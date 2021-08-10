@@ -34,11 +34,13 @@
             <td>{{ i + 1 }}</td>
             <td>{{ profit.nombre }}</td>
             <td *ngIf="profit.state"><i class="far fa-check-circle"></i></td>
-            <td *ngIf="!profit.state"><button>Recomendar</button></td>
+            <td *ngIf="!profit.state">
+              <i *ngIf="role !== 'psicologo'" class="far fa-times-circle"></i>
+              <button *ngIf="role === 'psicologo'">Recomendar</button>
+            </td>
           </tr>
         </tbody>
       </table>
     </div>
-    <button>Agendar nueva cita</button>
   </div>
 </div>
