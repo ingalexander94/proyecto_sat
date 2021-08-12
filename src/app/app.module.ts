@@ -17,6 +17,10 @@ import { environment } from 'src/environments/environment.prod';
 // Routes
 import { AppRoutingModule } from './app-routing.module';
 
+// PDF
+import { PdfMakeWrapper } from 'pdfmake-wrapper';
+import pdfFonts from 'pdfmake/build/vfs_fonts';
+
 // Components
 import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/auth/login/login.component';
@@ -46,6 +50,7 @@ import { PermanenceInformationComponent } from './pages/permanence-information/p
 import { ListReportsComponent } from './pages/list-reports/list-reports.component';
 
 registerLocaleData(localeEsAr, 'es-Ar');
+PdfMakeWrapper.setFonts(pdfFonts);
 
 @NgModule({
   declarations: [

@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   createFormLogin(): FormGroup {
     return new FormGroup({
-      role: new FormControl('docente', Validators.required),
+      role: new FormControl('jefe', Validators.required),
       code: new FormControl('1049486', [
         Validators.required,
         Validators.minLength(7),

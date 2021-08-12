@@ -1,7 +1,7 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
-import { filter, pluck } from 'rxjs/operators';
+import { filter } from 'rxjs/operators';
 import { AppState } from 'src/app/app.reducers';
 import { normalizeText } from 'src/app/helpers/ui';
 import { ItemRisk } from 'src/app/model/ui';
@@ -18,6 +18,7 @@ export class DetailRisksComponent implements OnInit, OnDestroy {
   profits: any[];
   loading: boolean = true;
   subscription: Subscription = new Subscription();
+  role: String = '';
 
   constructor(
     private studentService: StudentService,
@@ -26,11 +27,13 @@ export class DetailRisksComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.subscription = this.store
-      .select('ui')
-      .pipe(filter(({ userActive }) => userActive !== null))
-      .subscribe(({ userActive, titleNavbar }) =>
-        this.loadProfits(userActive.codigo, normalizeText(titleNavbar))
-      );
+      .pipe(
+        filter(({ auth, ui }) => auth.user !== null && ui.userActive !== null)
+      )
+      .subscribe(({ auth, ui }) => {
+        this.role = auth.user.rol;
+        this.loadProfits(ui.userActive.codigo, normalizeText(ui.titleNavbar));
+      });
   }
 
   async loadProfits(code: String, risk: String) {

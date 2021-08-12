@@ -48,6 +48,5 @@
     </tbody>
   </table>
 </div>
-<a href="#" *ngIf="!loading" class="download"
-  >Descargar <i class="fas fa-download"></i
-></a>
+
+<app-download-pdf [students]="listStudents" *ngIf="!loading"></app-download-pdf>
